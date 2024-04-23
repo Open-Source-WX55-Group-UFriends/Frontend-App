@@ -1,7 +1,6 @@
 # FrontendApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
-
+UFriends Project, illustrating how to fetch and present news from a service, with news source logo obtained from a third-party service. The project is developed with Angular Framework, TypeScript, Angular Material UI Library. The project also includes support for internationalization, with the possibility of language switching between English and Spanish.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
