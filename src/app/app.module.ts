@@ -15,14 +15,16 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatList, MatListItem} from "@angular/material/list";
-import {ActivatedRoute} from "@angular/router";
+import { PaymentCardComponent } from './shared/components/payment-card/payment-card.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     SubscriptionsCardComponent,
     ImageCardComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    PaymentCardComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import {ActivatedRoute} from "@angular/router";
     MatPaginatorModule,
     MatList,
     MatListItem,
+    MatSnackBarModule
 
   ],
   providers: [

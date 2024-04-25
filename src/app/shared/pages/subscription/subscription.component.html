@@ -15,43 +15,8 @@
     <p class="price">S/250</p>
   </mat-card>
 
-  <h2>Datos de facturación (Opcional)</h2>
-<p>Completa la siguiente información si requieres una factura</p>
-<div class="billing-form">
-  <mat-form-field appearance="fill">
-    <mat-label>Nombre</mat-label>
-    <input matInput placeholder="Nombre">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Tipo de documento</mat-label>
-    <input matInput placeholder="RUC">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Número de documento</mat-label>
-    <input matInput placeholder="Número de Documento">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Razón social</mat-label>
-    <input matInput placeholder="Razón social">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Correo electrónico</mat-label>
-    <input matInput placeholder="Correo electrónico">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Teléfono</mat-label>
-    <input matInput placeholder="Teléfono">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Dirección</mat-label>
-    <input matInput placeholder="Dirección">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Distrito</mat-label>
-    <input matInput placeholder="Distrito">
-  </mat-form-field>
+  <app-payment-card/>
 </div>
+<button mat-raised-button class="choose-plan-btn" (click)="openSnackBar()">Pagar</button>
 
-</div>
-<button mat-raised-button class="choose-plan-btn" [routerLink]="'/subscriptions-card'">Pagar</button>
 

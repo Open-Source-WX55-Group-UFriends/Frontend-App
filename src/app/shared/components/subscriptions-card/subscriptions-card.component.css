@@ -54,6 +54,10 @@ mat-card-title{
   width: 200px; /* Establece el ancho del botón */
 }
 
+.custom-close-button {
+  color: tu-color-aquí; /* Define el color que desees para el botón */
+}
+
 
 
 .choose-plan-btn:hover {
