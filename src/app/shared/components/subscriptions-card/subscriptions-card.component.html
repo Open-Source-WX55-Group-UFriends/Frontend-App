@@ -14,7 +14,7 @@
     <mat-card-content>
       <p class="price">S/250 <span class="mes">/mes</span></p>
 
-      <button mat-raised-button class="choose-plan-btn">Elegir Plan</button>
+      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscription','card2']">Elegir Plan</button>
       <mat-card-actions class="specifications-list">
         <ul>
           <li>Notificaciones y acceso móvil</li>
@@ -34,7 +34,10 @@
     <p class="sub-header">con un solo pago de</p>
     <mat-card-content>
       <p class="price">S/130</p>
-      <button mat-raised-button class="choose-plan-btn">Elegir Plan</button>
+
+      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscription','card1']">Elegir Plan</button>
+
+
       <mat-card-actions class="specifications-list">
         <ul>
           <li>Hasta 15 fotos en Alta Calidad</li>
@@ -48,5 +51,6 @@
 </div>
 <app-image-card></app-image-card>
 </div>
+
 
 

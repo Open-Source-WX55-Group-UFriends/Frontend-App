@@ -10,12 +10,19 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {MatToolbar} from "@angular/material/toolbar";
 import { ImageCardComponent } from './shared/components/image-card/image-card.component';
+import { SubscriptionComponent } from './shared/pages/subscription/subscription.component';
+import {HttpClientModule} from "@angular/common/http";
+import {MatInputModule} from "@angular/material/input";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatList, MatListItem} from "@angular/material/list";
+import {ActivatedRoute} from "@angular/router";
 
 @NgModule({
   declarations: [
     AppComponent,
     SubscriptionsCardComponent,
-    ImageCardComponent
+    ImageCardComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +33,16 @@ import { ImageCardComponent } from './shared/components/image-card/image-card.co
     MatCardContent,
     MatCardActions,
     MatCardTitle,
-    MatToolbar
+    MatToolbar,
+    HttpClientModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatList,
+    MatListItem,
+
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })
