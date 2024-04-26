@@ -14,7 +14,7 @@
     <mat-card-content>
       <p class="price">S/250 <span class="mes">/mes</span></p>
 
-      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscription','card2']">Elegir Plan</button>
+      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscription','card2']" (click)="scrollToTop()">Elegir Plan</button>
       <mat-card-actions class="specifications-list">
         <ul>
           <li>Notificaciones y acceso móvil</li>
@@ -35,7 +35,7 @@
     <mat-card-content>
       <p class="price">S/130</p>
 
-      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscription','card1']">Elegir Plan</button>
+      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscription','card1'] " (click)="scrollToTop()">Elegir Plan</button>
 
 
       <mat-card-actions class="specifications-list">

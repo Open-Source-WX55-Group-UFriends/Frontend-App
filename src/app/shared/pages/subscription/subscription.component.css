@@ -49,13 +49,12 @@ h2 {
   display: flex;
   justify-content: center; /* Centra horizontalmente el contenido */
   align-items: center; /* Centra verticalmente el contenido */
-  height: 100vh; /* Ocupa toda la altura de la pantalla */
   flex-direction: column; /* Alinea los elementos en columna */
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .choose-plan-btn {
-  margin-top: 5px;
+  margin-top: 10px;
   background-color: #4CAF50 !important;
   color: #ffffff !important;
   transition: transform 0.3s ease-in-out;
@@ -72,8 +71,6 @@ h2 {
   width: 200px; /* Establece el ancho del botón */
   margin-left: 20px; /* Agrega margen inferior al contenedor de botones */
   margin-bottom: 20px; /* Agrega margen inferior al contenedor de botones */
-
-
 }
 
 mat-card {
@@ -98,6 +95,10 @@ mat-card {
   font-weight: bold; /* Ajusta el peso de la fuente a negrita */
   font-size: 20px; /* Ajusta el tamaño del texto */
 }
+h2{
+  font-weight: bold; /* Ajusta el peso de la fuente a negrita */
+  font-size: 50px; /* Ajusta el tamaño del texto */
 
+}
 
 

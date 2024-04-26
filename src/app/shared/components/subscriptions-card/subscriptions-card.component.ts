@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './subscriptions-card.component.css'
 })
 export class SubscriptionsCardComponent {
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
 
 }
 
