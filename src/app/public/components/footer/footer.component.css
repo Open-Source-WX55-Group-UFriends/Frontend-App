@@ -1,0 +1,28 @@
+.footer {
+  background-color: #276749;
+  padding-top: 10px;
+  padding-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 22px;
+  gap: 8px;
+}
+
+.icon-instagram{
+  background-color: white;
+}
+
+.social-icons a {
+  margin-right: 1rem;
+  color: white;
+  width: 200px;
+}
+
+
+
+
+

@@ -1,0 +1,104 @@
+.card {
+  max-width: 400px;
+  border: #276749 2px solid;
+  border-radius: 8px;
+  background: #FFFCFC;
+  margin-right: 20px;
+  margin-bottom: 80px;
+
+
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.section-search{
+  display: flex;
+  padding: 40px;
+  justify-content: center;
+  gap: 120px;
+}
+
+
+.location{
+  font-size: 15px;
+  color: gray;
+
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+  margin-top: -5px;
+  padding-top: 10px;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: black;
+  margin: 20px 0;
+}
+
+h1{
+  color: #276749;
+}
+
+.sections{
+  justify-content: space-between;
+  display: flex;
+  padding: 4px;
+  margin-top: -30px;
+  color: gray;
+}
+
+.choose-plan-btn{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 8%;
+  margin-top: 30px;
+}
+.choose-plan-btn:hover {
+  transform: scale(1.05);
+}
+
+.section-search {
+  display: flex;
+  align-items: center;
+}
+
+.section-search input[type="text"] {
+  padding: 10px;
+  border: 2px solid #276749;
+  border-radius: 8px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.section-search button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #276749;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.section-search button:hover {
+  background-color: #1d4d34;
+}
+
+.section-search button:focus {
+  outline: none;
+}
