@@ -10,3 +10,10 @@
   padding: 50px;
 
 }
+
+.line {
+  width: 90%;
+  height: 1px;
+  background-color: black;
+  margin: 0 auto;
+}
