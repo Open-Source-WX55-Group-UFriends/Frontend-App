@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-contact-card',
@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class ContactCardComponent {
 
+  constructor(private elementRef: ElementRef) { }
+  ngAfterViewInit() {
+    const submitBtn = this.elementRef.nativeElement.querySelector('#submitBtn');
+    submitBtn.addEventListener('click', this.onSubmit.bind(this));
+  }
+
+  onSubmit() {
+    alert('Contacto enviado');
+  }
 }

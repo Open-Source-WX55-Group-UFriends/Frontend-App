@@ -16,6 +16,7 @@ import { ContactCardComponent } from './public/components/contact-card/contact-c
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import { DescriptionCardComponent } from './public/components/description-card/description-card.component';
+import { FarmCardsComponent } from './public/components/farm-cards/farm-cards.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DescriptionCardComponent } from './public/components/description-card/d
     AppComponent,
     StarRatingComponent,
     ContactCardComponent,
-    DescriptionCardComponent
+    DescriptionCardComponent,
+    FarmCardsComponent
   ],
   imports: [
     BrowserModule,

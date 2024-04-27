@@ -34,7 +34,7 @@ export class StarRatingComponent implements OnInit{
   Rating(index:number)
   {
     this.SelectedStar=index;
-    this.previousSelection=this.SelectedStar;
+    this.previousSelection=this.SelectedStar+1;
     this.onRating.emit(this.SelectedStar+1);
   }
   ngOnInit(): void {

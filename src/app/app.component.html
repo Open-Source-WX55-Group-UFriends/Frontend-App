@@ -1,6 +1,14 @@
-<mat-toolbar color="primary"></mat-toolbar>
+<div class="container-app">
+  <div class="half-page-app">
+    <strong style="text-align: center; font-size: 35px"> Acerca de la granja </strong>
+    <app-farm-cards></app-farm-cards>
+  </div>
+  <div class="half-page-app">
+    <strong style="text-align: center; font-size: 35px"> Descripcion </strong>
+    <app-description-card></app-description-card>
+  </div>
+</div>
 
-<app-description-card></app-description-card>
 
 <app-star-rating (onRating)="Handle($event)"></app-star-rating>
 

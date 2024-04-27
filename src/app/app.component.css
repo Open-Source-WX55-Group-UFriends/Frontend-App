@@ -1,0 +1,12 @@
+.container-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.half-page-app {
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+
+}
