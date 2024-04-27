@@ -48,6 +48,14 @@ h1{
   color: #276749;
 }
 
+.sections-card-2{
+  text-align: center;
+  padding: 4px;
+  margin-top: -30px;
+  color: gray;
+}
+
+
 .sections{
   justify-content: space-between;
   display: flex;
