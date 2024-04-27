@@ -4,10 +4,10 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-subscription',
-  templateUrl: './subscription.component.html',
-  styleUrl: './subscription.component.css'
+  templateUrl: './payment-subscription.component.html',
+  styleUrl: './payment-subscription.component.css'
 })
-export class SubscriptionComponent implements OnInit {
+export class PaymentSubscriptionComponent implements OnInit {
   cardToShow: string | undefined;
 
   constructor(private route: ActivatedRoute,private _snackBar: MatSnackBar,private router: Router) {}

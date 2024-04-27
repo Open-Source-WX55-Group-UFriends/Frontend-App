@@ -10,7 +10,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {MatToolbar} from "@angular/material/toolbar";
 import { ImageCardComponent } from './shared/components/image-card/image-card.component';
-import { SubscriptionComponent } from './shared/pages/subscription/subscription.component';
+import { PaymentSubscriptionComponent } from './shared/pages/subscription/payment-subscription.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
@@ -23,7 +23,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AppComponent,
     SubscriptionsCardComponent,
     ImageCardComponent,
-    SubscriptionComponent,
+    PaymentSubscriptionComponent,
     PaymentCardComponent
   ],
   imports: [
