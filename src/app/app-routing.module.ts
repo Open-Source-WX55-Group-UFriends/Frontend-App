@@ -24,8 +24,8 @@ const routes: Routes = [
   {path: 'login', component:LoginCardComponent },
 
   { path: 'financial-stats', component: FinancialStatsPageComponent },
-  { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
-  { path: '**', redirectTo: 'financial-stats' }
+ // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
+ // { path: '**', redirectTo: 'financial-stats' }
 ];
 
 @NgModule({
