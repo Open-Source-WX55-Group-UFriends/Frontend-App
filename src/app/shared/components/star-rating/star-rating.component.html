@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="half-page">
+    <strong class="label-valoration">Valoraciones del cliente</strong>
+    <div class="star-rating-container">
+      <mat-icon *ngFor="let icon of maxRatingArr; let index=index"
+                (mouseenter)="HandleMouseEnter(index)"
+                (mouseleave)="HandleMouseLeave()"
+                (click)="Rating(index)"
+                [ngClass]="{checked:SelectedStar>index}"
+                class="star-rating-icon">
+        star
+      </mat-icon>
+    </div>
+
+
+
+  </div>
+
+  <div class="half-page">
+    <label class="label-bars">5 <mat-icon>star</mat-icon>:</label>
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+
+    <label class="label-bars">4 <mat-icon>star</mat-icon>:</label>
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+
+    <label class="label-bars">3 <mat-icon>star</mat-icon>:</label>
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+
+    <label class="label-bars">2 <mat-icon>star</mat-icon>:</label>
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+
+    <label class="label-bars">1 <mat-icon>star</mat-icon>:</label>
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <!--<div class="app">
+    <div class="rating">
+      <div class="rating_average">
+        <h1>4.5</h1>
+        <div class="star-outer">
+          <div class="star-inner">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        </div>
+        <p>290,000</p>
+      </div>
+      <div class="rating_progress">
+        <div class="rating_progress-value">
+          <p>5 <span class="star">&#9733;</span></p>
+          <div class="progress">
+            <div class="bar"></div>
+          </div>
+          <p>89,374</p>
+        </div>
+      </div>
+    </div>
+  </div>-->
+</div>

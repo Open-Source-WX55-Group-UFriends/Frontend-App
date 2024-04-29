@@ -1,0 +1,65 @@
+.checked
+{
+  color: orange;
+}
+
+mat-icon{
+  cursor: pointer;
+}
+
+.star-rating-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.star-rating-icon{
+  font-size: 90px;
+  height: 90px;
+  width: 90px;
+
+}
+
+.label-valoration{
+  font-size: 40px;
+  justify-content: center;
+  display: flex;
+}
+
+.half-page {
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 100%;
+  padding: 50px;
+  align-content: center;
+}
+
+
+--------------------------------------------------------------
+
+.bar-container {
+  width: 100%;
+  background-color: #ffffff;
+  text-align: right;
+  line-height: 30px;
+  color: white;
+}
+
+.bar-5 {width: 50%; height: 20px; background-color: orange; border-radius: 6px;}
+.bar-4 {width: 40%; height: 20px; background-color: orange; border-radius: 6px;}
+.bar-3 {width: 30%; height: 20px; background-color: orange; border-radius: 6px;}
+.bar-2 {width: 20%; height: 20px; background-color: orange; border-radius: 6px;}
+.bar-1 {width: 10%; height: 20px; background-color: orange; border-radius: 6px;}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+}
+
+.label-bars {
+  font-size: 20px;
+}

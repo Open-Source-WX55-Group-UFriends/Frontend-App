@@ -1,0 +1,20 @@
+<app-toolbar/>
+<div class="container-app">
+  <div class="half-page-app">
+    <strong  class="title-description-1"> Acerca de la granja </strong>
+    <br>
+    <br>
+    <app-farm-cards/>
+  </div>
+  <div class="half-page-app">
+    <strong class="title-description-2"> Descripcion </strong>
+  <app-shed-summary></app-shed-summary>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<app-star-rating (onRating)="Handle($event)" ></app-star-rating>
+
+<app-contact-card></app-contact-card>
+<app-footer></app-footer>

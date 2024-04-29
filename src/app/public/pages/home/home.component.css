@@ -1,0 +1,37 @@
+
+.section-search {
+  display: flex;
+  align-items: center;
+}
+
+.section-search input[type="text"] {
+  padding: 10px;
+  border: 2px solid #276749;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.section-search button {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #45a049; /* Cambio de color al pasar el cursor */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.section-search button:hover {
+  background-color: #1d4d34;
+}
+
+.section-search button:focus {
+  outline: none;
+}
+.section-search{
+  display: flex;
+  padding: 40px;
+  justify-content: center;
+  gap: 40px;
+}
+

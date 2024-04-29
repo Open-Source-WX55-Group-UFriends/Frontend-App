@@ -30,7 +30,8 @@
 
 .img {
   width: 90px;
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-top: -20px;
 }
 
 
@@ -44,6 +45,7 @@
   display: block;
   color: white;
   text-decoration: none;
+
 }
 
 .logo p {
@@ -55,21 +57,20 @@
 #menu {
   width: 50%;
   font-size: 20px; /* Tamaño de la fuente reducido */
-
 }
 
 #menu ul {
   margin-top: 30px;
   list-style: none;
   display: flex;
-  margin-left: 100px;
+  margin-left: 290px;
   gap: 5px; /* Establece el espacio entre los elementos */
 }
 button {
   background-color: #45a049; /* Cambio de color al pasar el cursor */
   font-weight: bold; /* Peso de la fuente */
-  font-size: 10px; /* Tamaño de la fuente reducido */
-  padding: 8px 8px; /* Espaciado interno reducido */
+  font-size: 12px; /* Tamaño de la fuente reducido */
+  padding: 5px 8px; /* Espaciado interno reducido */
   text-align: center; /* Alineación del texto */
   cursor: pointer; /* Cursor al pasar sobre el botón */
   border: none; /* Sin borde */
