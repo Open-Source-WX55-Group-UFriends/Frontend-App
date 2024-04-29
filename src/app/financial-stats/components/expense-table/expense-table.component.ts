@@ -1,5 +1,3 @@
-// expense-table.component.ts
-
 import { Component, Input } from '@angular/core';
 import { Expense } from '../../models/financial-data';
 

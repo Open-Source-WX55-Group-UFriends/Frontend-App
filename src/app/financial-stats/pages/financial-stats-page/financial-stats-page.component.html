@@ -23,12 +23,54 @@
 
   <div class="section">
     <h2 class="section-title">Ingresos</h2>
-    <app-income-table [incomeDataSource]="incomeDataSource"></app-income-table>
+    <div class="filters">
+      <mat-form-field appearance="outline">
+        <mat-label>Categoría</mat-label>
+        <mat-select [(ngModel)]="selectedIncomeCategory" (selectionChange)="applyFilters()">
+          <mat-option value="all">Todas las categorías</mat-option>
+          <mat-option value="ventas">Ventas</mat-option>
+          <mat-option value="subsidios">Subsidios</mat-option>
+          <mat-option value="otros">Otros Ingresos</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Período</mat-label>
+        <mat-select [(ngModel)]="selectedIncomePeriod" (selectionChange)="applyFilters()">
+          <mat-option value="all">Todos los períodos</mat-option>
+          <mat-option value="mes">Mes</mat-option>
+          <mat-option value="trimestre">Trimestre</mat-option>
+          <mat-option value="año">Año</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <app-income-table [incomeDataSource]="filteredIncomeDataSource"></app-income-table>
   </div>
 
   <div class="section">
     <h2 class="section-title">Gastos</h2>
-    <app-expense-table [expenseDataSource]="expenseDataSource"></app-expense-table>
+    <div class="filters">
+      <mat-form-field appearance="outline">
+        <mat-label>Categoría</mat-label>
+        <mat-select [(ngModel)]="selectedExpenseCategory" (selectionChange)="applyFilters()">
+          <mat-option value="all">Todas las categorías</mat-option>
+          <mat-option value="suministros">Suministros</mat-option>
+          <mat-option value="mano-de-obra">Mano de Obra</mat-option>
+          <mat-option value="mantenimiento">Mantenimiento</mat-option>
+          <mat-option value="servicios">Servicios</mat-option>
+          <mat-option value="otros">Otros Gastos</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Período</mat-label>
+        <mat-select [(ngModel)]="selectedExpensePeriod" (selectionChange)="applyFilters()">
+          <mat-option value="all">Todos los períodos</mat-option>
+          <mat-option value="mes">Mes</mat-option>
+          <mat-option value="trimestre">Trimestre</mat-option>
+          <mat-option value="año">Año</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <app-expense-table [expenseDataSource]="filteredExpenseDataSource"></app-expense-table>
   </div>
 
   <div class="section">

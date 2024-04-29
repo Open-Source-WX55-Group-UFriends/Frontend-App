@@ -17,6 +17,13 @@ export class FinancialStatsPageComponent implements OnInit {
   expenseDataSource: Expense[] = [];
   profitabilityDataSource: Profitability[] = [];
 
+  filteredIncomeDataSource: Income[] = [];
+  filteredExpenseDataSource: Expense[] = [];
+  selectedIncomeCategory: string = 'all';
+  selectedIncomePeriod: string = 'all';
+  selectedExpenseCategory: string = 'all';
+  selectedExpensePeriod: string = 'all';
+
   constructor(private financialStatsService: FinancialStatsService) { }
 
   ngOnInit(): void {
@@ -28,14 +35,14 @@ export class FinancialStatsPageComponent implements OnInit {
   getIncomeData(): void {
     this.financialStatsService.getIncomeData().subscribe((data: Income[]) => {
       this.incomeDataSource = data;
-      this.calculateTotals();
+      this.applyFilters();
     });
   }
 
   getExpenseData(): void {
     this.financialStatsService.getExpenseData().subscribe((data: Expense[]) => {
       this.expenseDataSource = data;
-      this.calculateTotals();
+      this.applyFilters();
     });
   }
 
@@ -45,26 +52,24 @@ export class FinancialStatsPageComponent implements OnInit {
     });
   }
 
-  calculateTotals(): void {
-    this.totalIncome = this.incomeDataSource.reduce((sum, income) => sum + income.monto, 0);
-    this.totalExpenses = this.expenseDataSource.reduce((sum, expense) => sum + expense.monto, 0);
-    this.profitMargin = this.totalIncome - this.totalExpenses;
-    this.profitPercentage = ((this.profitMargin / this.totalIncome) * 100).toFixed(2) + '%';
+  applyFilters(): void {
+    this.financialStatsService.getFilteredIncomeData(this.selectedIncomeCategory, this.selectedIncomePeriod)
+      .subscribe((data: Income[]) => {
+        this.filteredIncomeDataSource = data;
+        this.calculateTotals();
+      });
+
+    this.financialStatsService.getFilteredExpenseData(this.selectedExpenseCategory, this.selectedExpensePeriod)
+      .subscribe((data: Expense[]) => {
+        this.filteredExpenseDataSource = data;
+        this.calculateTotals();
+      });
   }
 
-  applyFilters(type: string, category: string, period: string): void {
-    // Aplica los filtros seleccionados a los datos de ingresos o gastos
-    // Puedes modificar este método según tus necesidades específicas de filtrado
-    console.log(`Aplicando filtros: Tipo - ${type}, Categoría - ${category}, Período - ${period}`);
-
-    if (type === 'ingresos') {
-      // Lógica para filtrar los datos de ingresos según la categoría y el período seleccionados
-      // Puedes utilizar el servicio financialStatsService para obtener los datos filtrados
-      // y actualizar la propiedad incomeDataSource con los nuevos datos
-    } else if (type === 'gastos') {
-      // Lógica para filtrar los datos de gastos según la categoría y el período seleccionados
-      // Puedes utilizar el servicio financialStatsService para obtener los datos filtrados
-      // y actualizar la propiedad expenseDataSource con los nuevos datos
-    }
+  calculateTotals(): void {
+    this.totalIncome = this.filteredIncomeDataSource.reduce((sum, income) => sum + income.monto, 0);
+    this.totalExpenses = this.filteredExpenseDataSource.reduce((sum, expense) => sum + expense.monto, 0);
+    this.profitMargin = this.totalIncome - this.totalExpenses;
+    this.profitPercentage = ((this.profitMargin / this.totalIncome) * 100).toFixed(2) + '%';
   }
 }

@@ -62,6 +62,7 @@ import {MatCheckbox} from "@angular/material/checkbox";
 //Service Imports
 import {FinancialStatsService} from "./financial-stats/services/financial-stats.service";
 import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-stats-page/financial-stats-page.component";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -88,7 +89,10 @@ import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-sta
     TaskFormComponent,
     TaskTableComponent,
     LoginCardComponent,
-    RegisterCardComponent
+    RegisterCardComponent,
+    ProfitabilityTableComponent,
+     FinancialStatsPageComponent,
+    FinancialStatsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -135,6 +139,7 @@ import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-sta
     MatHeaderRowDef,
     MatRowDef,
     MatCheckbox,
+    FormsModule
 
 
   ],
