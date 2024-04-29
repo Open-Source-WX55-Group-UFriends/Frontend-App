@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Frontend-App';
+  title = 'FarmLogicTech';
+  options=[
+    {
+      path: '/subscriptions-card', title :'Subscriptions'
+    },
+    {
+      path: 'subscription', title :'Subscription'
+    }
+  ]
 }
