@@ -12,6 +12,9 @@
 .container {
   display: flex;
   justify-content: center;
+  font-size: 22px;
+  font-family: Arial, sans-serif; /* Agrega esta línea para especificar la fuente */
+  gap: 8px;
 
 }
 
@@ -19,7 +22,7 @@
   display: flex;
   padding: 40px;
   justify-content: center;
-  gap: 120px;
+  gap: 40px;
 }
 
 
@@ -74,7 +77,6 @@ h1{
   cursor: pointer;
   border-radius: 5px;
   width: 8%;
-  margin-top: 30px;
 }
 .choose-plan-btn:hover {
   transform: scale(1.05);
@@ -89,15 +91,14 @@ h1{
   padding: 10px;
   border: 2px solid #276749;
   border-radius: 8px;
-  margin-right: 10px;
   font-size: 16px;
 }
 
 .section-search button {
-  padding: 10px 20px;
+  padding: 10px 10px;
   border: none;
   border-radius: 8px;
-  background-color: #45BF6C;
+  background-color: #45a049; /* Cambio de color al pasar el cursor */
   color: white;
   font-size: 16px;
   cursor: pointer;
