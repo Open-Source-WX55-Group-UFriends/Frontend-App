@@ -1,1 +1,62 @@
-<p>task-form works!</p>
+
+
+
+<div class="form-section">
+  <div class="field select-employee">
+    <div class="employee-and-form">
+      <span>Empleado: </span>
+      <mat-form-field>
+        <mat-label>Selecciona</mat-label>
+        <mat-select>
+          <mat-option value="one">Mathias Kunimoto</mat-option>
+          <mat-option value="two">Francisco Luciano</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+
+  <div class="field time">
+    <div class="time-and-input">
+      <span>Tiempo a realizar: </span>
+      <mat-form-field>
+        <mat-label>Digite</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+  </div>
+
+
+  <span>Fecha: </span>
+  <div class="field date">
+
+    <mat-form-field>
+      <mat-label>Digite</mat-label>
+      <input matInput>
+    </mat-form-field>
+  </div>
+
+
+  <div class="field description">
+    <div class="description-and-textarea">
+      <span>Descripción: </span>
+      <mat-form-field class="textarea1">
+        <mat-label>Escribe</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="field button">
+
+    <button mat-raised-button class="button-save"> Guardar </button>
+
+    <button mat-flat-button >Cancelar</button>
+
+  </div>
+
+</div>
+
+
