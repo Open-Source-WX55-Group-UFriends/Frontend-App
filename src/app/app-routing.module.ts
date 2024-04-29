@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-stats-page/financial-stats-page.component";
 import {SubscriptionsCardComponent} from "../subscription/components/subscriptions-card/subscriptions-card.component";
 import {PaymentSubscriptionComponent} from "./public/pages/subscription/payment-subscription.component";
 import {HomeComponent} from "./public/pages/home/home.component";
@@ -22,17 +23,13 @@ const routes: Routes = [
   {path: 'register', component:RegisterCardComponent },
   {path: 'login', component:LoginCardComponent },
 
-
-
-
+  { path: 'financial-stats', component: FinancialStatsPageComponent },
+ // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
+ // { path: '**', redirectTo: 'financial-stats' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-
-
-}
+export class AppRoutingModule { }

@@ -1,0 +1,42 @@
+<app-toolbar/>
+
+<div class="container">
+  <div class="summary">
+    <mat-card class="summary-card">
+      <mat-card-title class="summary-title">Resumen Financiero</mat-card-title>
+      <mat-card-content>
+        <div class="summary-item">
+          <span class="label">Ingresos Totales</span>
+          <span class="value">{{ totalIncome | currency }}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Gastos Totales</span>
+          <span class="value">{{ totalExpenses | currency }}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Margen de Beneficio</span>
+          <span class="value">{{ profitMargin | currency }} ({{ profitPercentage }})</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Ingresos</h2>
+    <app-income-table [incomeDataSource]="incomeDataSource"></app-income-table>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Gastos</h2>
+    <app-expense-table [expenseDataSource]="expenseDataSource"></app-expense-table>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Análisis de Rentabilidad</h2>
+    <div class="roi">
+      <span class="label">Retorno sobre la Inversión (ROI)</span>
+      <span class="value">15%</span>
+    </div>
+    <app-profitability-table [profitabilityDataSource]="profitabilityDataSource"></app-profitability-table>
+  </div>
+</div>
