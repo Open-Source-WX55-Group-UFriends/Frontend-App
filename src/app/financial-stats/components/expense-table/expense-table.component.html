@@ -1,7 +1,6 @@
 <!-- expense-table.component.html -->
 
-<table mat-table [dataSource]="expenseDataSource">
-  <!-- Columnas de la tabla de gastos -->
+<table mat-table [dataSource]="expenseDataSource" class="expense-table">
   <ng-container matColumnDef="categoria">
     <th mat-header-cell *matHeaderCellDef>Categoría</th>
     <td mat-cell *matCellDef="let expense">{{ expense.categoria }}</td>

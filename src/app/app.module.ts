@@ -24,6 +24,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 //Service Imports
 import {FinancialStatsService} from "./financial-stats/services/financial-stats.service";
 import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-stats-page/financial-stats-page.component";
+import {Toolbar} from "./public/components/toolbar/toolbar.component";
 
 
 
@@ -33,7 +34,8 @@ import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-sta
     IncomeTableComponent,
     ExpenseTableComponent,
     ProfitabilityTableComponent,
-    FinancialStatsPageComponent
+    FinancialStatsPageComponent,
+    Toolbar
   ],
   imports: [
     BrowserModule,

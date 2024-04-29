@@ -1,17 +1,9 @@
-<mat-toolbar color="primary">
-  <span>Panel de Control Financiero</span>
-  <span class="spacer"></span>
-  <button mat-button routerLink="/">Inicio</button>
-  <button mat-button routerLink="/production">Producción</button>
-  <button mat-button routerLink="/inventory">Inventario</button>
-  <button mat-button routerLink="/finances">Finanzas</button>
-  <button mat-button routerLink="/settings">Configuración</button>
-</mat-toolbar>
+<app-toolbar/>
 
 <div class="container">
   <div class="summary">
-    <mat-card>
-      <mat-card-title>Resumen Financiero</mat-card-title>
+    <mat-card class="summary-card">
+      <mat-card-title class="summary-title">Resumen Financiero</mat-card-title>
       <mat-card-content>
         <div class="summary-item">
           <span class="label">Ingresos Totales</span>
@@ -27,70 +19,20 @@
         </div>
       </mat-card-content>
     </mat-card>
-    <div class="chart-container">
-      <!-- Aquí iría el gráfico de línea de tendencia mensual de ingresos y gastos -->
-    </div>
   </div>
 
-  <div class="income-section">
-    <h2>Ingresos</h2>
-    <div class="filters">
-      <mat-form-field>
-        <mat-label>Categoría</mat-label>
-        <mat-select #categoriaIngresos (selectionChange)="applyFilters('ingresos', $event.value, periodoIngresos.value)">
-          <mat-option value="ventas">Ventas</mat-option>
-          <mat-option value="subsidios">Subsidios</mat-option>
-          <mat-option value="otros">Otros Ingresos</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Período</mat-label>
-        <mat-select #periodoIngresos (selectionChange)="applyFilters('ingresos', categoriaIngresos.value, $event.value)">
-          <mat-option value="mes">Mes</mat-option>
-          <mat-option value="trimestre">Trimestre</mat-option>
-          <mat-option value="año">Año</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+  <div class="section">
+    <h2 class="section-title">Ingresos</h2>
     <app-income-table [incomeDataSource]="incomeDataSource"></app-income-table>
-    <div class="chart-container">
-      <!-- Aquí iría el gráfico de anillos de % de ingresos por categoría -->
-    </div>
   </div>
 
-  <div class="expense-section">
-    <h2>Gastos</h2>
-    <div class="filters">
-      <mat-form-field>
-        <mat-label>Categoría</mat-label>
-        <mat-select #categoriaGastos (selectionChange)="applyFilters('gastos', $event.value, periodoGastos.value)">
-          <mat-option value="suministros">Suministros</mat-option>
-          <mat-option value="mano-de-obra">Mano de Obra</mat-option>
-          <mat-option value="mantenimiento">Mantenimiento</mat-option>
-          <mat-option value="servicios">Servicios</mat-option>
-          <mat-option value="otros">Otros Gastos</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Período</mat-label>
-        <mat-select #periodoGastos (selectionChange)="applyFilters('gastos', categoriaGastos.value, $event.value)">
-          <mat-option value="mes">Mes</mat-option>
-          <mat-option value="trimestre">Trimestre</mat-option>
-          <mat-option value="año">Año</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+  <div class="section">
+    <h2 class="section-title">Gastos</h2>
     <app-expense-table [expenseDataSource]="expenseDataSource"></app-expense-table>
-    <div class="chart-container">
-      <!-- Aquí iría el gráfico de barras de gastos por categoría -->
-    </div>
   </div>
 
-  <div class="profitability-section">
-    <h2>Análisis de Rentabilidad</h2>
-    <div class="chart-container">
-      <!-- Aquí iría el gráfico de línea del margen de beneficio mensual -->
-    </div>
+  <div class="section">
+    <h2 class="section-title">Análisis de Rentabilidad</h2>
     <div class="roi">
       <span class="label">Retorno sobre la Inversión (ROI)</span>
       <span class="value">15%</span>
