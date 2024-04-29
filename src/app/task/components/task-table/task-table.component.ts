@@ -8,32 +8,29 @@ import {Task} from "../../model/task.entity";
   templateUrl: './task-table.component.html',
   styleUrl: './task-table.component.css'
 })
-export class TaskTableComponent implements OnInit{
-name = 'Angular';
-//Datasource
-dcWorkers: string[] = ['id', 'name', 'time', 'date', 'state'];
-dsWorkers: MatTableDataSource<any>;
-
-//Variables//
-
+export class TaskTableComponent implements OnInit{  name = 'Angular';
+  dcWorkers: string[] = ['id', 'name', 'time', 'date', 'state'];
+  dsWorkers: MatTableDataSource<any>;
+  tasks: Task[] = [
+    { time: '10:00', date: '2021-10-10', state: 'pending', description: 'Task 1 my man' },
+    { time: '06:00', date: '2021-10-10', state: 'pending', description: 'Task 2 my man' },
+  ];
   workers: Worker[] = [
-    {id: '1', name: 'Mathias', task: []},
-    {id: '2', name: 'Francisco', task: []}
+    new Worker('1', 'Mathias', this.tasks),
+    new Worker('2', 'Francisco', this.tasks),
   ];
 
-  tasks: Task[] = [
-    {time: '10:00', date: '2021-10-10', state: 'pending', description: 'Task 1 my man'},
-    {time: '06:00', date: '2021-10-10', state: 'pending', description: 'Task 2 my man'},
-  ]
-
-  constructor(){
+  constructor() {
     this.dsWorkers = new MatTableDataSource<Worker>();
   }
+
   ngOnInit() {
     this.updateTableTrainers();
   }
-  updateTableTrainers(){
+
+  updateTableTrainers() {
     this.dsWorkers.data = this.workers;
+    console.log(this.dsWorkers.data);
   }
 
 }

@@ -7,12 +7,12 @@ export class Task {
   state: string
   description: string;
 
-  constructor() {
 
-    this.time = ' ';
-    this.date = '';
-    this.state = '' ;
-    this.description = '';
+  constructor(time: string, date: string, state: string, description: string) {
+    this.time = time;
+    this.date = date;
+    this.state = state;
+    this.description = description;
   }
 
 }

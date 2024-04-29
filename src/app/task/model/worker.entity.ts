@@ -4,10 +4,10 @@ export class Worker {
   name: string;
   task: Task[];
 
-  constructor() {
-    this.id='';
-    this.name='';
-    this.task=[];
+  constructor(id: string, name: string, task: Task[] = []) {
+    this.id = id;
+    this.name = name;
+    this.task = task;
   }
 
 }

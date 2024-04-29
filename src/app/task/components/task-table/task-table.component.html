@@ -14,17 +14,17 @@
 
     <ng-container matColumnDef="time">
       <th mat-header-cell *matHeaderCellDef> Tiempo en realizar </th>
-      <td mat-cell *matCellDef="let worker">{{worker.task.time}}</td>
+      <td mat-cell *matCellDef="let worker">{{worker.task[1].time}}</td>
     </ng-container>
 
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef> Fecha </th>
-      <td mat-cell *matCellDef="let worker">{{worker.task.date}}</td>
+      <td mat-cell *matCellDef="let worker">{{worker.task[1].date}}</td>
     </ng-container>
 
     <ng-container matColumnDef="state">
       <th mat-header-cell *matHeaderCellDef> Finalizado </th>
-      <td mat-cell *matCellDef="let worker">{{worker.task.state}}</td>
+      <td mat-cell *matCellDef="let worker">{{worker.task[1].state}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="dcWorkers"></tr>
