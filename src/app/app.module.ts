@@ -37,6 +37,17 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import { DescriptionCardComponent } from './shared/components/shed-summary/description-card.component';
 import { FarmCardsComponent } from './shared/components/farm-cards/farm-cards.component';
 import { DescriptionShedComponent } from './shared/components/descriptions-sheds-card/description-shed/description-shed.component';
+import {TaskFormComponent} from "./task/components/task-form/task-form.component";
+import {TaskTableComponent} from "./task/components/task-table/task-table.component";
+import {
+  MatCell,
+  MatCellDef,
+  MatColumnDef,
+  MatHeaderCell,
+  MatHeaderCellDef,
+  MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
+  MatTable
+} from "@angular/material/table";
 
 
 @NgModule({
@@ -54,7 +65,8 @@ import { DescriptionShedComponent } from './shared/components/descriptions-sheds
     Footer,
     HomeComponent,
     DescriptionShedComponent,
-
+    TaskFormComponent,
+    TaskTableComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +95,16 @@ import { DescriptionShedComponent } from './shared/components/descriptions-sheds
     MatMenuModule,
     NgOptimizedImage,
     MatToolbar,
-
+    MatTable,
+    MatHeaderCell,
+    MatColumnDef,
+    MatCell,
+    MatHeaderCellDef,
+    MatCellDef,
+    MatHeaderRow,
+    MatRow,
+    MatHeaderRowDef,
+    MatRowDef,
 
 
   ],

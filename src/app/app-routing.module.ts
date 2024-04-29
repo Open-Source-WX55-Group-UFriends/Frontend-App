@@ -6,13 +6,17 @@ import {HomeComponent} from "./public/pages/home/home.component";
 import {
   DescriptionShedComponent
 } from "./shared/components/descriptions-sheds-card/description-shed/description-shed.component";
+import {TaskTableComponent} from "./task/components/task-table/task-table.component";
+import {TaskFormComponent} from "./task/components/task-form/task-form.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: 'subscriptions/card', component:SubscriptionsCardComponent },
   {path: 'subscriptions/:card', component:PaymentSubscriptionComponent },
   {path: 'descriptions/:shed', component:DescriptionShedComponent },
-  {path: 'home', component:HomeComponent }
+  {path: 'home', component:HomeComponent },
+  {path: 'tasks', component:TaskTableComponent },
+  {path: 'tasks/create', component:TaskFormComponent }
 
 
 ];
