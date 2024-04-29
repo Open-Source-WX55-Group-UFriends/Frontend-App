@@ -1,0 +1,12 @@
+
+.mat-mdc-button:not(:disabled).boton-prueba{
+  color: #44604D;
+float:right;
+}
+
+.table-and-button{
+  position: absolute;
+  top: 35%;
+  right: 30%;
+}
+
