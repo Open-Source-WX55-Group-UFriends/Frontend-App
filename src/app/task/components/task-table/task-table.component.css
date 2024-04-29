@@ -3,10 +3,20 @@
   color: #44604D;
 float:right;
 }
-
-.table-and-button{
+.table-and-button {
   position: absolute;
-  top: 35%;
-  right: 30%;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+h1{
+  color: darkgreen;
+  font-size: 50px; /* Ajusta el tamaño del texto */
+  font-weight: bold; /* Ajusta el peso de la fuente a negrita */
+  text-align: center; /* Centra el texto horizontalmente */
+  margin-bottom:0px; /* Ajusta el margen inferior para separar el título del contenedor de tarjetas */
 
+}
+.boton-prueba {
+  color: darkgreen; /* Texto en color blanco */
+}

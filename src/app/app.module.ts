@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TaskFormComponent } from './task/components/task-form/task-form.component';
 import { TaskTableComponent } from './task/components/task-table/task-table.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {HttpClientModule} from "@angular/common/http";
@@ -18,11 +17,14 @@ import {MatIconModule, MatIconRegistry} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {MatSortModule} from "@angular/material/sort";
 import {MatTabsModule} from "@angular/material/tabs";
+import { TaskFormComponent } from './task/components/task-form/task-form.component';
+import {MatToolbar} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskTableComponent
+    TaskTableComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,6 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatOption,
     MatSelect,
     MatLabel,
-    TaskFormComponent,
     MatButtonModule,
     MatTableModule,
     FormsModule,
@@ -42,6 +43,8 @@ import {MatTabsModule} from "@angular/material/tabs";
     MatIconModule,
     MatTabsModule,
     MatSelectModule,
+    MatToolbar,
+
   ],
   providers: [
     provideAnimationsAsync()

@@ -1,5 +1,8 @@
+
 <div class="table-and-button">
-  <button mat-button class="boton-prueba">Agregar nueva task</button>
+  <h1 >TASK</h1>
+
+  <button mat-button class="boton-prueba" [routerLink]="['/tasks/create']" >Agregar nueva task</button>
 
   <table mat-table [dataSource]="dsWorkers" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
@@ -24,7 +27,7 @@
 
     <ng-container matColumnDef="state">
       <th mat-header-cell *matHeaderCellDef> Finalizado </th>
-      <td mat-cell *matCellDef="let worker">{{worker.task[1].state}}</td>
+      <td mat-cell *matCellDef="let worker">{{worker.task[0].state}}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="dcWorkers"></tr>
