@@ -1,16 +1,14 @@
 import {state} from "@angular/animations";
 
-export class TaskEntity {
-  id: number;
-  employee: string;
+export class Task {
+
   time: string;
   date: string;
   state: string
   description: string;
 
-  constructor(id: number) {
-    this.id = id;
-    this.employee = '';
+  constructor() {
+
     this.time = ' ';
     this.date = '';
     this.state = '' ;

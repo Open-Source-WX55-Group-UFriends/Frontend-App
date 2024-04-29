@@ -1,7 +1,7 @@
-import { TaskEntity } from './task.entity';
+import { Task } from './task.entity';
 
 describe('TaskEntity', () => {
   it('should create an instance', () => {
-    expect(new TaskEntity()).toBeTruthy();
+    expect(new Task()).toBeTruthy();
   });
 });
