@@ -1,0 +1,38 @@
+.payment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  color: green;
+}
+.title-details{
+  text-align: center;
+
+}
+.description-qr{
+  margin-left: 16px;
+  color: gray !important;
+  font-size: 20px; /* Ajusta el tamaño del texto */
+
+}
+
+.payment-card {
+  width: 300px;
+  margin-right: 20px;
+}
+
+.qr-code-container {
+  width: 200px;
+}
+
+
+.qr-code-container img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.input-group{
+  text-align: center;
+}
+

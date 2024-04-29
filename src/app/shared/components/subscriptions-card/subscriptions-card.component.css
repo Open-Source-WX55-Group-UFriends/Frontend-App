@@ -54,6 +54,10 @@ mat-card-title{
   width: 200px; /* Establece el ancho del botón */
 }
 
+.custom-close-button {
+  color: tu-color-aquí; /* Define el color que desees para el botón */
+}
+
 
 
 .choose-plan-btn:hover {
@@ -83,23 +87,4 @@ h2{
 app-image-card {
   width: 100%; /* Establece el ancho al 100% */
   max-width: 600px; /* Ancho máximo del app-image-card */
-}
-.container-app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.half-page-app {
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-
-}
-
-.line {
-  width: 90%;
-  height: 1px;
-  background-color: black;
-  margin: 0 auto;
 }

@@ -1,0 +1,86 @@
+#header {
+  width: 99%;
+  height: 100px;
+  background-color: #276749;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  font-size: 22px;
+  font-family: Arial, sans-serif; /* Agrega esta línea para especificar la fuente */
+  gap: 8px;
+}
+
+
+
+
+#menu ul li a { /*bloque*/
+  display: block;
+  padding: 5px 5px;
+  text-decoration: none;
+}
+
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 90px;
+  margin-right: 10px;
+}
+
+
+.specifications-list ul {
+  list-style-type: disc; /* Establece el tipo de viñeta como círculos */
+  margin-left: 0; /* Elimina el margen izquierdo predeterminado */
+  padding-left: 10px; /* Agrega un poco de espacio a la izquierda para la viñeta */
+}
+
+#menu ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+.logo p {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+#menu {
+  width: 50%;
+  font-size: 20px; /* Tamaño de la fuente reducido */
+
+}
+
+#menu ul {
+  margin-top: 30px;
+  list-style: none;
+  display: flex;
+  margin-left: 100px;
+  gap: 5px; /* Establece el espacio entre los elementos */
+}
+button {
+  background-color: #45a049; /* Cambio de color al pasar el cursor */
+  font-weight: bold; /* Peso de la fuente */
+  font-size: 10px; /* Tamaño de la fuente reducido */
+  padding: 8px 8px; /* Espaciado interno reducido */
+  text-align: center; /* Alineación del texto */
+  cursor: pointer; /* Cursor al pasar sobre el botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Borde redondeado */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
+  font-family: Arial, sans-serif; /* Agrega esta línea para especificar la fuente */
+  margin-bottom: 10px; /* Ajusta la posición vertical del botón */
+}
+
+button:hover {
+  background-color: #45a049; /* Cambio de color al pasar el cursor */
+  transform: translateY(-2px); /* Mueve el botón hacia arriba al pasar el cursor */
+}
+

@@ -1,0 +1,25 @@
+<app-toolbar></app-toolbar>
+<div class="container-general">
+<h2>Duración</h2>
+<p>A más duración, más personas verán el anuncio</p>
+    <mat-card *ngIf="cardToShow === '1'">
+
+    <p class="mat-card-title">3 meses</p>
+    <p class="sub-header">con un solo pago de</p>
+    <p class="price">S/130</p>
+    </mat-card>
+  <mat-card *ngIf="cardToShow === '2'">
+    <p class="mat-card-title">Gestiona y destaca tu granja
+    </p>
+    <p class="sub-header">con un solo pago de</p>
+    <p class="price">S/250</p>
+  </mat-card>
+<app-payment-card></app-payment-card>
+
+  <button mat-raised-button class="choose-plan-btn" (click)="openSnackBar()">Pagar</button>
+
+</div>
+<br>
+<br>
+<app-footer></app-footer>
+
