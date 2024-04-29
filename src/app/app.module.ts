@@ -6,15 +6,15 @@ import {MatButtonModule} from "@angular/material/button";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SubscriptionsCardComponent } from './shared/components/subscriptions-card/subscriptions-card.component';
+import { SubscriptionsCardComponent } from '../subscription/components/subscriptions-card/subscriptions-card.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
-import { ImageCardComponent } from './shared/components/image-card/image-card.component';
+import { ImageCardComponent } from './public/components/image-card/image-card.component';
 import { PaymentSubscriptionComponent } from './public/pages/subscription/payment-subscription.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatList, MatListItem} from "@angular/material/list";
-import { PaymentCardComponent } from './shared/components/payment-card/payment-card.component';
+import { PaymentCardComponent } from '../subscription/components/payment-card/payment-card.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {HttpClientModule} from "@angular/common/http";
@@ -31,8 +31,8 @@ import { HomeComponent } from './public/pages/home/home.component';
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-import { StarRatingComponent} from "./shared/components/star-rating/star-rating.component";
-import { ContactCardComponent } from './shared/components/contact-card/contact-card.component';
+import { StarRatingComponent} from "./social-interaction/components/star-rating/star-rating.component";
+import { ContactCardComponent } from './social-interaction/components/contact-card/contact-card.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import { DescriptionCardComponent } from './shared/components/shed-summary/description-card.component';
 import { FarmCardsComponent } from './shared/components/farm-cards/farm-cards.component';
@@ -48,6 +48,9 @@ import {
   MatHeaderRow, MatHeaderRowDef, MatRow, MatRowDef,
   MatTable
 } from "@angular/material/table";
+import {LoginCardComponent} from "./register/components/login-card/login-card.component";
+import {RegisterCardComponent} from "./register/components/register-card/register-card.component";
+import {MatCheckbox} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -66,7 +69,9 @@ import {
     HomeComponent,
     DescriptionShedComponent,
     TaskFormComponent,
-    TaskTableComponent
+    TaskTableComponent,
+    LoginCardComponent,
+    RegisterCardComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +110,7 @@ import {
     MatRow,
     MatHeaderRowDef,
     MatRowDef,
+    MatCheckbox,
 
 
   ],

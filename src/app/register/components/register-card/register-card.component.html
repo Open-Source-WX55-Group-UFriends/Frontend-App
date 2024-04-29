@@ -1,0 +1,35 @@
+<body class="fondo">
+<div class="image-logo">
+  <img src="assets/img-logo.png" alt="Logo" class="register-logo">
+
+</div>
+<strong class="name-flt">FarmLogiTech</strong>
+<mat-card class="example-card">
+  <mat-card-content>
+    <form>
+      <form class="example-full-width">
+        <p class ="title-register"> REGISTRATE</p>
+        <label>Correo electronico</label>
+        <input matInput placeholder="Correo electrónico" required class="input-register">
+      </form>
+
+      <form class="example-full-width">
+        <label>Contraseña</label>
+        <input matInput placeholder="Contraseña" type="password" required class="input-register">
+      </form>
+
+      <form class="example-full-width">
+        <label>Confirmar contraseña</label>
+        <input matInput placeholder="Confirmar contraseña" type="password" required class="input-register">
+      </form>
+
+      <div class="remember-me">
+        <mat-checkbox>Recuérdame</mat-checkbox>
+      </div>
+
+      <button mat-button type="submit" class="register-button" [routerLink]="['/tasks']">Registrarme</button>
+    </form>
+    <p class="ya-tengo-cuenta">¿Ya tienes una cuenta? <a href="#" class="ingresa-aqui">Ingresa aquí</a></p>
+  </mat-card-content>
+</mat-card>
+</body>
