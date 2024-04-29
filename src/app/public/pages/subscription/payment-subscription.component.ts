@@ -28,7 +28,7 @@ export class PaymentSubscriptionComponent implements OnInit {
     });
 
     snackBarRef.afterDismissed().subscribe(() => {
-      this.router.navigate(['/subscriptions-card']);
+      this.router.navigate(['/home']);
     });
   }
 

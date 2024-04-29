@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './toolbar.component.css'
 })
 export class Toolbar {
+  scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+
 
 }

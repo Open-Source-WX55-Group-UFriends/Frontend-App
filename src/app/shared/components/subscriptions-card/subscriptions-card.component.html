@@ -1,3 +1,4 @@
+<app-toolbar/>
 <div class="container">
 
 <h1 class="title">Elige cuanto tiempo quieres
@@ -14,7 +15,7 @@
     <mat-card-content>
       <p class="price">S/250 <span class="mes">/mes</span></p>
 
-      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscription','card2']" (click)="scrollToTop()">Elegir Plan</button>
+      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscriptions','1']" (click)="scrollToTop()">Elegir Plan</button>
       <mat-card-actions class="specifications-list">
         <ul>
           <li>Notificaciones y acceso móvil</li>
@@ -35,7 +36,7 @@
     <mat-card-content>
       <p class="price">S/130</p>
 
-      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscription','card1'] " (click)="scrollToTop()">Elegir Plan</button>
+      <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscriptions','2'] " (click)="scrollToTop()">Elegir Plan</button>
 
 
       <mat-card-actions class="specifications-list">
@@ -52,5 +53,5 @@
 <app-image-card></app-image-card>
 </div>
 
-
+<app-footer/>
 

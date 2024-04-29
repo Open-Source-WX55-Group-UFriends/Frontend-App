@@ -53,20 +53,23 @@ h1{
 
 .sections-card-2{
   text-align: center;
-  padding: 4px;
-  margin-top: -30px;
+  padding: 10px;
+  margin-top:-10px;
   color: gray;
 }
 
 
-.sections{
+.sections {
   justify-content: space-between;
   display: flex;
-  padding: 4px;
-  margin-top: -30px;
+  padding: 7px;
+  margin-top: -10px;
   color: gray;
 }
 
+.sections * {
+  font-size: 20px; /* Tamaño de fuente reducido para todos los elementos dentro de .sections */
+}
 .choose-plan-btn{
   background-color: #45BF6C;
   border: none;

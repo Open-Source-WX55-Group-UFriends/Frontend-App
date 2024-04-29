@@ -4,10 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SubscriptionsCardComponent } from './shared/components/subscriptions-card/subscriptions-card.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import { ImageCardComponent } from './shared/components/image-card/image-card.component';
-import { PaymentSubscriptionComponent } from './shared/pages/subscription/payment-subscription.component';
+import { PaymentSubscriptionComponent } from './public/pages/subscription/payment-subscription.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatList, MatListItem} from "@angular/material/list";
@@ -26,9 +25,9 @@ import {NgOptimizedImage} from "@angular/common";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {Toolbar} from './public/components/toolbar/toolbar.component';
 import { Footer } from './public/components/footer/footer.component';
-import {FarmCards} from './search/components/farm-cards/farm-cards.component';
+import {FarmCards} from './shared/components/farm-cards/farm-cards.component';
+import { HomeComponent } from './public/pages/home/home.component';
 
-let TranslateModule;
 
 @NgModule({
   declarations: [
@@ -36,11 +35,12 @@ let TranslateModule;
     SubscriptionsCardComponent,
     ImageCardComponent,
     PaymentSubscriptionComponent,
-    PaymentCardComponent
+    PaymentCardComponent,
      Toolbar,
     Footer,
     FarmCards,
-   
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -55,7 +55,7 @@ let TranslateModule;
     MatPaginatorModule,
     MatList,
     MatListItem,
-    MatSnackBarModule
+    MatSnackBarModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
@@ -68,9 +68,10 @@ let TranslateModule;
     NgOptimizedImage,
     MatToolbar,
 
+
+
   ],
-  providers: [
-    provideAnimationsAsync(),
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
