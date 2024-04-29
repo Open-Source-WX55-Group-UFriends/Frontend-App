@@ -27,16 +27,16 @@ import {NgOptimizedImage} from "@angular/common";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {Toolbar} from './public/components/toolbar/toolbar.component';
 import { Footer } from './public/components/footer/footer.component';
-import {FarmCards} from './shared/components/farm-cards/farm-cards.component';
 import { HomeComponent } from './public/pages/home/home.component';
 
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
-import { StarRatingComponent} from "./public/components/star-rating/star-rating.component";
-import { ContactCardComponent } from './public/components/contact-card/contact-card.component';
+import { StarRatingComponent} from "./shared/components/star-rating/star-rating.component";
+import { ContactCardComponent } from './shared/components/contact-card/contact-card.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
-import { DescriptionCardComponent } from './public/components/description-card/description-card.component';
-import { FarmCardsComponent } from './public/components/farm-cards/farm-cards.component';
+import { DescriptionCardComponent } from './shared/components/shed-summary/description-card.component';
+import { FarmCardsComponent } from './shared/components/farm-cards/farm-cards.component';
+import { DescriptionShedComponent } from './shared/components/descriptions-sheds-card/description-shed/description-shed.component';
 
 
 @NgModule({
@@ -52,8 +52,8 @@ import { FarmCardsComponent } from './public/components/farm-cards/farm-cards.co
     PaymentCardComponent,
     Toolbar,
     Footer,
-    FarmCards,
     HomeComponent,
+    DescriptionShedComponent,
 
   ],
   imports: [

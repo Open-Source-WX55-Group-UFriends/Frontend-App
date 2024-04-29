@@ -15,5 +15,8 @@ export class ContactCardComponent {
 
   onSubmit() {
     alert('Contacto enviado');
+    window.location.href = '/home'; // Cambia '/home' por la ruta de tu página de inicio
+
   }
 }
+

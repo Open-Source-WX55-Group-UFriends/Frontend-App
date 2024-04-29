@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './farm-cards.component.html',
   styleUrl: './farm-cards.component.css'
 })
-export class FarmCards {
+export class FarmCardsComponent {
 
 }

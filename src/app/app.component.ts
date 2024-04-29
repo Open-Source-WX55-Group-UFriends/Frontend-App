@@ -15,8 +15,5 @@ export class AppComponent {
       path: 'subscription', title :'Subscription'
     }
   ]
-  Handle(event:number)
-  {
-    alert(`You rate ${event}`);
-  }
+
 }
