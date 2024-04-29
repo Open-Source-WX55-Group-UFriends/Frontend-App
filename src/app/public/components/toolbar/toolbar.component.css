@@ -9,16 +9,13 @@
   padding: 0 5px;
 }
 .btn-menu a {
-  color: black !important; /* Cambia el color del texto a negro, importante para anular otros estilos */
+  color: black !important;
 }
 
 li .btn-menu {
   margin-top: -10px;
   background-color: #E9F3AE;
-}
 
-li.btn-menu a {
-  color: black; /* Cambia el color del texto a negro */
 }
 
 .logo {
@@ -32,26 +29,29 @@ li.btn-menu a {
 }
 
 #menu {
-  width: 40%;
+  width: 30%;
+  margin-right: 70px;
+
 }
 
 #menu ul {
+  margin-top: 30px;
   list-style: none;
   padding: 0;
-  margin: 0;
   display: flex;
   justify-content: space-around;
 }
 
-#menu ul li {
-  font-size: 20px;
+.specifications-list ul {
+  list-style-type: disc; /* Establece el tipo de viñeta como círculos */
+  margin-left: 0; /* Elimina el margen izquierdo predeterminado */
+  padding-left: 10px; /* Agrega un poco de espacio a la izquierda para la viñeta */
 }
 
 #menu ul li a {
   display: block;
   color: white;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .logo p {
@@ -63,9 +63,8 @@ button{
   background-color: #E9F3AE;
   color: black;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 5px 10px;
   text-align: center;
-  font-size: 16px;
   cursor: pointer;
   border-radius: 10px;
 
