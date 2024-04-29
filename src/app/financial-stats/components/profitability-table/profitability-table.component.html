@@ -1,0 +1,15 @@
+<!-- profitability-table.component.html -->
+
+<table mat-table [dataSource]="profitabilityDataSource">
+  <!-- Columnas de la tabla de rentabilidad por producto/área -->
+  <ng-container matColumnDef="producto">
+    <th mat-header-cell *matHeaderCellDef>Producto/Área</th>
+    <td mat-cell *matCellDef="let profitability">{{ profitability.producto }}</td>
+  </ng-container>
+  <ng-container matColumnDef="margen">
+    <th mat-header-cell *matHeaderCellDef>Margen de Beneficio</th>
+    <td mat-cell *matCellDef="let profitability">{{ profitability.margen | percent }}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="profitabilityColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: profitabilityColumns;"></tr>
+</table>

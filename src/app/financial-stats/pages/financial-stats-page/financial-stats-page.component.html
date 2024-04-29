@@ -1,0 +1,132 @@
+<mat-toolbar color="primary">
+  <span>Panel de Control Financiero</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/">Inicio</button>
+  <button mat-button routerLink="/production">Producción</button>
+  <button mat-button routerLink="/inventory">Inventario</button>
+  <button mat-button routerLink="/finances">Finanzas</button>
+  <button mat-button routerLink="/settings">Configuración</button>
+</mat-toolbar>
+
+<div class="container">
+  <div class="summary">
+    <mat-card>
+      <mat-card-title>Resumen Financiero</mat-card-title>
+      <mat-card-content>
+        <div class="summary-item">
+          <span class="label">Ingresos Totales</span>
+          <span class="value">{{ totalIncome | currency }}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Gastos Totales</span>
+          <span class="value">{{ totalExpenses | currency }}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Margen de Beneficio</span>
+          <span class="value">{{ profitMargin | currency }} ({{ profitPercentage }})</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <div class="chart-container">
+      <mat-card>
+        <mat-card-title>Tendencia Mensual de Ingresos y Gastos</mat-card-title>
+        <mat-card-content>
+          <canvas baseChart
+                  [data]="lineChartData"
+                  [type]="'line'">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="income-section">
+    <h2>Ingresos</h2>
+    <div class="filters">
+      <mat-form-field>
+        <mat-label>Categoría</mat-label>
+        <mat-select #categoriaIngresos (selectionChange)="applyFilters('ingresos', $event.value, periodoIngresos.value)">
+          <mat-option value="ventas">Ventas</mat-option>
+          <mat-option value="subsidios">Subsidios</mat-option>
+          <mat-option value="otros">Otros Ingresos</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Período</mat-label>
+        <mat-select #periodoIngresos (selectionChange)="applyFilters('ingresos', categoriaIngresos.value, $event.value)">
+          <mat-option value="mes">Mes</mat-option>
+          <mat-option value="trimestre">Trimestre</mat-option>
+          <mat-option value="año">Año</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <app-income-table [incomeDataSource]="incomeDataSource"></app-income-table>
+    <div class="chart-container">
+      <mat-card>
+        <mat-card-title>Porcentaje de Ingresos por Categoría</mat-card-title>
+        <mat-card-content>
+          <canvas baseChart
+                  [data]="doughnutChartData"
+                  [type]="'doughnut'">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="expense-section">
+    <h2>Gastos</h2>
+    <div class="filters">
+      <mat-form-field>
+        <mat-label>Categoría</mat-label>
+        <mat-select #categoriaGastos (selectionChange)="applyFilters('gastos', $event.value, periodoGastos.value)">
+          <mat-option value="suministros">Suministros</mat-option>
+          <mat-option value="mano-de-obra">Mano de Obra</mat-option>
+          <mat-option value="mantenimiento">Mantenimiento</mat-option>
+          <mat-option value="servicios">Servicios</mat-option>
+          <mat-option value="otros">Otros Gastos</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Período</mat-label>
+        <mat-select #periodoGastos (selectionChange)="applyFilters('gastos', categoriaGastos.value, $event.value)">
+          <mat-option value="mes">Mes</mat-option>
+          <mat-option value="trimestre">Trimestre</mat-option>
+          <mat-option value="año">Año</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <app-expense-table [expenseDataSource]="expenseDataSource"></app-expense-table>
+    <div class="chart-container">
+      <mat-card>
+        <mat-card-title>Gastos por Categoría</mat-card-title>
+        <mat-card-content>
+          <canvas baseChart
+                  [data]="barChartData"
+                  [type]="'bar'">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="profitability-section">
+    <h2>Análisis de Rentabilidad</h2>
+    <div class="chart-container">
+      <mat-card>
+        <mat-card-title>Margen de Beneficio Mensual</mat-card-title>
+        <mat-card-content>
+          <canvas baseChart
+                  [data]="profitMarginData"
+                  [type]="'line'">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="roi">
+      <span class="label">Retorno sobre la Inversión (ROI)</span>
+      <span class="value">15%</span>
+    </div>
+    <app-profitability-table [profitabilityDataSource]="profitabilityDataSource"></app-profitability-table>
+  </div>
+</div>
