@@ -9,6 +9,11 @@ export class Toolbar {
   scrollToTop() {
     window.scrollTo(0, 0);
   }
+  menuActive = false;
+
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
 
 
 }
