@@ -14,6 +14,7 @@ import {LoginCardComponent} from "./register/components/login-card/login-card.co
 import {CreateProfileComponent} from "./register/components/profile-page/create-profile/create-profile.component";
 import {EditProfileComponent} from "./register/components/profile-page/edit-profile/edit-profile.component";
 import {PaySubscriptionComponent} from "./register/components/profile-page/subscription/pay-subscription.component";
+import {DetailedMonitoringComponent} from "./task/components/detailed-monitoring/detailed-monitoring.component";
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'create', pathMatch: 'full' },
@@ -25,12 +26,14 @@ const routes: Routes = [
   {path: 'tasks/create', component:TaskFormComponent }  ,
   {path: 'register', component:RegisterCardComponent },
   {path: 'login', component:LoginCardComponent },
+  {path: 'detail',component:DetailedMonitoringComponent},
   {path: 'create-profile', component:CreateProfileComponent },
   {path: 'edit-profile', component:EditProfileComponent },
   {path: 'create/subscriptions/card', component:PaySubscriptionComponent },
 
 
   { path: 'financial-stats', component: FinancialStatsPageComponent },
+
  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
  // { path: '**', redirectTo: 'financial-stats' }
 ];
