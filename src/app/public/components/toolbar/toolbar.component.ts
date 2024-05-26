@@ -14,6 +14,23 @@ export class Toolbar {
   toggleMenu() {
     this.menuActive = !this.menuActive;
   }
+  expandToolbar(event: Event) {
+    event.stopPropagation(); // Detiene la propagación del evento de clic
+    const header = document.getElementById('header');
+    if (header) {
+      header.classList.add('expanded');
+      document.body.addEventListener('click', this.collapseToolbar.bind(this));
+    }
+  }
+  collapseToolbar() {
+    const header = document.getElementById('header');
+    if (header) {
+      header.classList.remove('expanded');
+      document.body.removeEventListener('click', this.collapseToolbar.bind(this));
+    }
+    this.menuActive = false; // Cierra el menú
+  }
+
 
 
 }

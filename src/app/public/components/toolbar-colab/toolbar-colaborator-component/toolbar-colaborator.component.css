@@ -85,12 +85,16 @@ button:hover {
   color: white;
 
 
-
-
-
 }
+
 /* Estilos para pantallas pequeñas */
 @media (max-width: 767px) {
+  #header.expanded {
+    top: 0; /* Asegura que el toolbar esté en la parte superior de la pantalla */
+    width: 100%; /* Hace que el toolbar cubra todo el ancho de la pantalla */
+    height: 40%; /* Hace que el toolbar cubra todo la altura de la pantalla */
+  }
+
   .hamburger {
     display: block;
     margin-right: 10px;

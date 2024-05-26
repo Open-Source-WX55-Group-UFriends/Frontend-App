@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SubscriptionsCardComponent } from '../subscription/components/subscriptions-card/subscriptions-card.component';
+import { SubscriptionsCardComponent } from './public/components/subscriptions-card/subscriptions-card.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 //Feature Components Imports
 import { IncomeTableComponent } from './financial-stats/components/income-table/income-table.component';
@@ -14,7 +14,7 @@ import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} fr
 import { ImageCardComponent } from './public/components/image-card/image-card.component';
 import { PaymentSubscriptionComponent } from './register/components/profile-page/payment/payment-subscription.component';
 import {MatList, MatListItem} from "@angular/material/list";
-import { PaymentCardComponent } from '../subscription/components/payment-card/payment-card.component';
+import { PaymentCardComponent } from './public/components/payment-card/payment-card.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatToolbar, MatToolbarModule} from "@angular/material/toolbar";
 import {HttpClientModule} from "@angular/common/http";
@@ -68,6 +68,7 @@ import { EditProfileComponent } from './register/components/profile-page/edit-pr
 import { PaySubscriptionComponent } from './register/components/profile-page/subscription/pay-subscription.component';
 import { ToolbarColaboratorComponent } from './public/components/toolbar-colab/toolbar-colaborator-component/toolbar-colaborator.component';
 import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-farm/toolbar-farm.component';
+import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
 
 
 
@@ -103,6 +104,7 @@ import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-f
     PaySubscriptionComponent,
     ToolbarColaboratorComponent,
     ToolbarFarmComponent,
+    ShedFormComponent,
   ],
   imports: [
     BrowserModule,

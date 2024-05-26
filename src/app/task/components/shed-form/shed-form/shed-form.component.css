@@ -1,0 +1,122 @@
+html, body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  zoom: 0.9; /* Ajusta este valor según tus necesidades */
+
+
+}
+
+body {
+  transform: scale(1);
+  transform-origin: 0 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold; /* Hace que el texto sea en negrita */
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  border: none; /* Elimina el margen negro */
+}
+.cancel-button {
+  margin-top: 20px; /* Ajusta este valor según tus necesidades */
+  cursor: pointer;
+}
+.container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 1000px) {/*mediano*/
+  .sidenav-container {
+    width: 100%; /* Cambia el ancho */
+    height: 90%; /* Mantiene la altura */
+    overflow: auto; /* Añade desplazamiento */
+    margin-bottom: 30px;
+
+
+  }
+}
+.input-container {
+
+  margin-top: 20%; /* Ajusta este valor según tus necesidades */
+  margin-left: 20%; /* Ajusta este valor según tus necesidades */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  justify-content: space-between;
+  width: 60%;
+  gap: 15px; /* Ajusta este valor según tus necesidades */
+
+}
+.input-container select {
+
+  height: 50px; /* Ajusta este valor según tus necesidades */
+  margin-right: 24px; /* Añade un margen a la derecha de los selects */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {/*grande*/
+
+  .sidenav-container {
+    margin-left: 25%;
+    margin-top: 6%;
+    height: 90%;
+    max-height: 600px;
+    width: 80%;
+    max-width: 900px;
+    border: 1px solid black;
+
+  }
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  margin-top: 30px;
+  z-index: 1;
+  margin-bottom: 30px;
+}
+
+.title-container h2 {
+  /* Aquí puedes agregar los estilos que desees para el título */
+  color: #278f4a;
+  font-size: 4em;
+}
+
+.mat-toolbar {
+  background: #4CAF50;
+  color: white;
+}
+
+.form-container {
+  padding: 20px;
+}
+
+button {
+  margin-right: 10px;
+}
+

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-stats-page/financial-stats-page.component";
-import {SubscriptionsCardComponent} from "../subscription/components/subscriptions-card/subscriptions-card.component";
+import {SubscriptionsCardComponent} from "./public/components/subscriptions-card/subscriptions-card.component";
 import {PaymentSubscriptionComponent} from "./register/components/profile-page/payment/payment-subscription.component";
 import {HomeComponent} from "./public/pages/home/home.component";
 import {
