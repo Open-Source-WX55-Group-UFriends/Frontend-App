@@ -66,6 +66,8 @@ import {FormsModule} from "@angular/forms";
 import { CreateProfileComponent } from './register/components/profile-page/create-profile/create-profile.component';
 import { EditProfileComponent } from './register/components/profile-page/edit-profile/edit-profile.component';
 import { PaySubscriptionComponent } from './register/components/profile-page/subscription/pay-subscription.component';
+import { ToolbarColaboratorComponent } from './public/components/toolbar-colab/toolbar-colaborator-component/toolbar-colaborator.component';
+import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-farm/toolbar-farm.component';
 
 
 
@@ -99,6 +101,8 @@ import { PaySubscriptionComponent } from './register/components/profile-page/sub
     CreateProfileComponent,
     EditProfileComponent,
     PaySubscriptionComponent,
+    ToolbarColaboratorComponent,
+    ToolbarFarmComponent,
   ],
   imports: [
     BrowserModule,
