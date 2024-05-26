@@ -12,7 +12,7 @@ import { ProfitabilityTableComponent } from './financial-stats/components/profit
 //Angular Material Imports
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import { ImageCardComponent } from './public/components/image-card/image-card.component';
-import { PaymentSubscriptionComponent } from './public/pages/subscription/payment-subscription.component';
+import { PaymentSubscriptionComponent } from './register/components/profile-page/payment/payment-subscription.component';
 import {MatList, MatListItem} from "@angular/material/list";
 import { PaymentCardComponent } from '../subscription/components/payment-card/payment-card.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -58,11 +58,14 @@ import {
 } from "@angular/material/table";
 import {LoginCardComponent} from "./register/components/login-card/login-card.component";
 import {RegisterCardComponent} from "./register/components/register-card/register-card.component";
-import {MatCheckbox} from "@angular/material/checkbox";
+import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
 //Service Imports
 import {FinancialStatsService} from "./financial-stats/services/financial-stats.service";
 import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-stats-page/financial-stats-page.component";
 import {FormsModule} from "@angular/forms";
+import { CreateProfileComponent } from './register/components/profile-page/create-profile/create-profile.component';
+import { EditProfileComponent } from './register/components/profile-page/edit-profile/edit-profile.component';
+import { PaySubscriptionComponent } from './register/components/profile-page/subscription/pay-subscription.component';
 
 
 
@@ -92,7 +95,10 @@ import {FormsModule} from "@angular/forms";
     RegisterCardComponent,
     ProfitabilityTableComponent,
      FinancialStatsPageComponent,
-    FinancialStatsPageComponent
+    FinancialStatsPageComponent,
+    CreateProfileComponent,
+    EditProfileComponent,
+    PaySubscriptionComponent,
   ],
   imports: [
     BrowserModule,
@@ -139,7 +145,8 @@ import {FormsModule} from "@angular/forms";
     MatHeaderRowDef,
     MatRowDef,
     MatCheckbox,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule
 
 
   ],

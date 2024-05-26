@@ -1,0 +1,67 @@
+<button mat-button type="submit" class="black-button" [routerLink]="['/home']">Back</button>
+<div class="profile-container">
+
+  <h2>CREA TU PERFIL</h2>
+
+  <form>
+    <div class="form-section">
+      <div class="form-field-container">
+        <label>Nombre</label>
+        <input class="form-field" required>
+      </div>
+
+      <div class="form-field-container">
+        <label>Apellidos</label>
+        <input class="form-field"  required>
+      </div>
+
+      <div class="form-field-container">
+        <label>Género</label>
+        <input class="form-field"  required>
+      </div>
+
+      <div class="form-field-container">
+        <label>F. Nacimiento</label>
+        <input class="form-field" required>
+      </div>
+
+      <div class="form-field-container">
+        <label>Tipo de documento</label>
+        <input class="form-field" required>
+      </div>
+
+      <div class="form-field-container">
+        <label>Documento de Identidad</label>
+        <input class="form-field"  required>
+      </div>
+
+      <div class="form-field-container">
+        <label>Dirección</label>
+        <input class="form-field" required>
+      </div>
+    </div>
+
+    <h3>Contacto</h3>
+    <p>Esta información la usaremos para los anuncios</p>
+    <div class="form-section">
+      <div class="form-field-container">
+        <label>Teléfono</label>
+        <input class="form-field"  required>
+      </div>
+
+      <div class="form-field-container">
+        <label>Correo electrónico</label>
+        <input class="form-field"  required>
+      </div>
+
+
+    </div>
+
+    <div class="form-actions">
+
+    <button mat-button type="submit" class="login-button" [routerLink]="['/create/subscriptions/card']">Crear cuenta</button>
+
+     <button mat-button type="button">Cancelar</button>
+    </div>
+  </form>
+</div>

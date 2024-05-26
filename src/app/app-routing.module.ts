@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-stats-page/financial-stats-page.component";
 import {SubscriptionsCardComponent} from "../subscription/components/subscriptions-card/subscriptions-card.component";
-import {PaymentSubscriptionComponent} from "./public/pages/subscription/payment-subscription.component";
+import {PaymentSubscriptionComponent} from "./register/components/profile-page/payment/payment-subscription.component";
 import {HomeComponent} from "./public/pages/home/home.component";
 import {
   DescriptionShedComponent
@@ -11,9 +11,12 @@ import {TaskTableComponent} from "./task/components/task-table/task-table.compon
 import {TaskFormComponent} from "./task/components/task-form/task-form.component";
 import {RegisterCardComponent} from "./register/components/register-card/register-card.component";
 import {LoginCardComponent} from "./register/components/login-card/login-card.component";
+import {CreateProfileComponent} from "./register/components/profile-page/create-profile/create-profile.component";
+import {EditProfileComponent} from "./register/components/profile-page/edit-profile/edit-profile.component";
+import {PaySubscriptionComponent} from "./register/components/profile-page/subscription/pay-subscription.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  //{ path: '', redirectTo: 'create', pathMatch: 'full' },
   {path: 'subscriptions/card', component:SubscriptionsCardComponent },
   {path: 'subscriptions/:card', component:PaymentSubscriptionComponent },
   {path: 'descriptions/:shed', component:DescriptionShedComponent },
@@ -22,6 +25,10 @@ const routes: Routes = [
   {path: 'tasks/create', component:TaskFormComponent }  ,
   {path: 'register', component:RegisterCardComponent },
   {path: 'login', component:LoginCardComponent },
+  {path: 'create-profile', component:CreateProfileComponent },
+  {path: 'edit-profile', component:EditProfileComponent },
+  {path: 'create/subscriptions/card', component:PaySubscriptionComponent },
+
 
   { path: 'financial-stats', component: FinancialStatsPageComponent },
  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},

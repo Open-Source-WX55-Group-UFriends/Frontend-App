@@ -18,11 +18,12 @@
       </form>
 
       <div class="remember-me">
-        <mat-checkbox>Recuérdame</mat-checkbox>
+        <mat-checkbox [(ngModel)]="isChecked" (change)="onCheckboxChange($event)" class="custom-checkbox">Recuérdame</mat-checkbox>
       </div>
 
       <button mat-button type="submit" class="login-button" [routerLink]="['/financial-stats']">Iniciar Sesion</button>
     </form>
+    <br>
     <p class="olvide-contrasena">Olvidaste tu contraseña</p>
   </mat-card-content>
 </mat-card>

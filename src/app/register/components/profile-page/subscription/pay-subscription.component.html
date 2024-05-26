@@ -1,0 +1,55 @@
+<div class="container">
+
+  <h1 class="title">Elige cuanto tiempo quieres
+    publicar tu granja</h1>
+  <h2 class="title">Escoge un plan</h2>
+
+  <div class="cards-container">
+
+    <mat-card class="subscription-card">
+      <mat-card-header>
+        <mat-card-title>Gestiona y destaca tu granja</mat-card-title>
+      </mat-card-header>
+      <p class="sub-header">con un solo pago de</p>
+      <mat-card-content>
+        <p class="price">S/250 <span class="mes">/mes</span></p>
+
+        <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscriptions','1']" (click)="scrollToTop()">Elegir Plan</button>
+        <mat-card-actions class="specifications-list">
+          <ul>
+            <li>Notificaciones y acceso móvil</li>
+            <li>Aviso destacado</li>
+            <li>Visualización detallada de información sobre granjas</li>
+            <li>Asignación de tareas a colaboradores</li>
+            <li>Muchas funciones más</li>
+          </ul>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="subscription-card-2">
+      <mat-card-header>
+        <mat-card-title>3 meses</mat-card-title>
+      </mat-card-header>
+      <p class="sub-header">con un solo pago de</p>
+      <mat-card-content>
+        <p class="price">S/130</p>
+
+        <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscriptions','2'] " (click)="scrollToTop()">Elegir Plan</button>
+
+
+        <mat-card-actions class="specifications-list">
+          <ul>
+            <li>Hasta 15 fotos en Alta Calidad</li>
+            <li>Pago con Plin/Yape o Tarjeta</li>
+            <li>Video de YouTube</li>
+            <li>Envío de prospescto por correo</li>
+          </ul>
+        </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
+
+

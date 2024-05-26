@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
-  selector: 'app-subscription',
+  selector: 'app-payment',
   templateUrl: './payment-subscription.component.html',
   styleUrl: './payment-subscription.component.css'
 })

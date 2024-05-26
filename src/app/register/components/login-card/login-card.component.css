@@ -1,3 +1,4 @@
+
 .fondo{
   background-color: #FAFFDD;
 }
@@ -22,8 +23,11 @@
   display: flex;
   align-items: center;
   margin-top: 15px;
-}
 
+}
+.custom-checkbox.mat-checkbox-checked .mat-checkbox-background {
+  background-color: green !important;
+}
 .login-button {
   display: flex;
   width: 70%;

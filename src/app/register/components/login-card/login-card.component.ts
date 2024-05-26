@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './login-card.component.css'
 })
 export class LoginCardComponent {
+  isChecked = false;
 
+  onCheckboxChange(event: any) {
+    this.isChecked = event.checked;
+  }
 }
