@@ -69,6 +69,7 @@ import { PaySubscriptionComponent } from './register/components/profile-page/sub
 import { ToolbarColaboratorComponent } from './public/components/toolbar-colab/toolbar-colaborator-component/toolbar-colaborator.component';
 import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-farm/toolbar-farm.component';
 import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
+import { ProfileFarmComponent } from './profile-farm/profile-farm/profile-farm.component';
 
 
 
@@ -105,6 +106,7 @@ import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form
     ToolbarColaboratorComponent,
     ToolbarFarmComponent,
     ShedFormComponent,
+    ProfileFarmComponent,
   ],
   imports: [
     BrowserModule,
