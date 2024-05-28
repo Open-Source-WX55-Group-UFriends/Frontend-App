@@ -1,13 +1,23 @@
 <div class="container">
-  <mat-card *ngFor="let farm of farms">
-    <img mat-card-image [src]="farm['farm-img']" alt="Imagen de la granja">
-    <mat-card-content>
-      <h2>{{ farm['farm-name'] }}</h2>
-      <p>Ubicación: {{ farm.location }}</p>
-      <p>Tipo de granja: {{ farm['type-farm'] }}</p>
-      <p>Hectáreas: {{ farm['farm-hectares'] }}</p>
-      <p>Precio: {{ farm['farm-price'] }}</p>
-      <p>Información: {{ farm['farm-information'] }}</p>
-    </mat-card-content>
-  </mat-card>
+  <h1>Granjas destacadas:</h1>
+  <div class="farms-container">
+    <mat-card class="card" *ngFor="let farm of farms">
+      <img mat-card-image [src]="farm['farm-img']" alt="Imagen de la granja" class="farm-image">
+      <mat-card-content>
+        <h2>{{ farm['farm-name'] }}</h2>
+        <p>{{ farm.location }}</p>
+        <p>{{ farm['type-farm'] }}</p>
+        <p>{{ farm['farm-hectares'] }}</p>
+        <p>{{ farm['farm-price'] }}</p>
+      </mat-card-content>
+      <div class="farm-info">
+        <span>{{ farm['granaries'] }} Graneros</span>
+        <span>{{ farm['corrals'] }} corrales</span>
+        <span>{{ farm['water'] }}</span>
+      </div>
+    </mat-card>
+
+  </div>
+
+
 </div>

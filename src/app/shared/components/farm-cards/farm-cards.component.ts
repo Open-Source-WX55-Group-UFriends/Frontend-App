@@ -16,4 +16,6 @@ export class FarmCardsComponent implements OnInit {
       this.farms = data;
     });
   }
+
+
 }
