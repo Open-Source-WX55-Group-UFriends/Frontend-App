@@ -1,14 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-login-card',
   templateUrl: './login-card.component.html',
-  styleUrl: './login-card.component.css'
+  styleUrls: ['./login-card.component.css']
 })
 export class LoginCardComponent {
-  isChecked = false;
+  isActive = false;
+  isForgotPasswordActive = false;
 
-  onCheckboxChange(event: any) {
-    this.isChecked = event.checked;
+  toggleActive(): void {
+    this.isActive = !this.isActive;
+  }
+
+  toggleForgotPassword(): void {
+    this.isActive = false;
+    this.isForgotPasswordActive = !this.isForgotPasswordActive;
+  }
+  backToSignIn(): void {
+    this.isForgotPasswordActive = false;
+    this.isActive = false;
   }
 }

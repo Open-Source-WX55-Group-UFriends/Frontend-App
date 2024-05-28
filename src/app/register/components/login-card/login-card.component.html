@@ -1,31 +1,85 @@
-<body class="fondo">
-<div class="image-logo">
-  <img src="assets/img-logo.png" alt="Logo" class="register-logo">
+<app-toolbar/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<div class="body" >
 
-</div>
-<strong class="name-flt">FarmLogiTech</strong>
-<mat-card class="example-card">
-  <mat-card-content>
+  <div class="container" [ngClass]="{'active': isActive, 'forgot-password-active': isForgotPasswordActive}">
+
+
+
+  <div class="form-container sign-up">
     <form>
-      <form class="example-full-width">
-        <label>Correo electronico</label>
-        <input matInput placeholder="Correo electrónico" required class="input-register">
-      </form>
-
-      <form class="example-full-width">
-        <label>Contraseña</label>
-        <input matInput placeholder="Contraseña" type="password" required class="input-register">
-      </form>
-
-      <div class="remember-me">
-        <mat-checkbox [(ngModel)]="isChecked" (change)="onCheckboxChange($event)" class="custom-checkbox">Recuérdame</mat-checkbox>
+      <img src="assets/img-logo.png" alt="logo">
+      <h1>Create Account</h1>
+      <div class="wrapper">
+        <div class="icon google">
+          <a href="https://accounts.google.com/ServiceLogin"><i class="fa-brands fa-google-plus-g"></i></a>
+        </div>
+        <div class="icon facebook">
+          <a href="https://www.facebook.com/login.php"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+        <div class="icon github">
+          <a href="https://github.com/login"><i class="fa-brands fa-github"></i></a>
+        </div>
       </div>
+      <span>or use your email for registration</span>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
 
-      <button mat-button type="submit" class="login-button" [routerLink]="['/financial-stats']">Iniciar Sesion</button>
+      <button type="button" [routerLink]="['/detail']">Sign Up</button>
     </form>
-    <br>
-    <p class="olvide-contrasena">Olvidaste tu contraseña</p>
-  </mat-card-content>
-</mat-card>
-</body>
+   </div>
 
+
+  <div class="form-container sign-in">
+    <form>
+      <img src="assets/img-logo.png" alt="logo">
+      <h1>Sign In</h1>
+      <div class="wrapper">
+        <div class="icon google">
+          <a href="https://accounts.google.com/ServiceLogin"><i class="fa-brands fa-google-plus-g"></i></a>
+        </div>
+        <div class="icon facebook">
+          <a href="https://www.facebook.com/login.php"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+        <div class="icon github">
+          <a href="https://github.com/login"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <span>or use your email password</span>
+      <input  type="email" placeholder="Email" required>
+      <input  type="password" placeholder="Password" required>
+      <a (click)="toggleForgotPassword()">Forgot Password?</a>
+      <button type="button" [routerLink]="['/home']">Sign In</button>
+     </form>
+   </div>
+
+
+    <div class="form-container forgot-password forgot-password-container">
+      <form>
+        <img src="assets/img-logo.png" alt="logo">
+        <h1>Forgot Password</h1>
+        <input type="email" placeholder="Email" required>
+        <button type="button" [routerLink]="['/login']">Reset Password</button>
+        <button type="button" (click)="backToSignIn()">Back to Sign In</button>      </form>
+    </div>
+
+
+   <div class="toggle-container">
+     <div class="toggle">
+       <div class="toggle-panel toggle-left">
+        <h1>Welcome Back!</h1>
+        <p>Enter your personal details to use all of site features</p>
+        <button class="hidden" (click)="toggleActive()">Sign In</button>
+       </div>
+
+       <div class="toggle-panel toggle-right">
+        <h1>Hello, Farmer!</h1>
+        <p>Register with your personal details to use all of site features</p>
+        <button class="hidden" (click)="toggleActive()">Sign Up</button>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+<app-footer/>

@@ -70,7 +70,7 @@ import { ToolbarColaboratorComponent } from './public/components/toolbar-colab/t
 import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-farm/toolbar-farm.component';
 import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
 import { DetailedMonitoringComponent } from './task/components/detailed-monitoring/detailed-monitoring.component';
-
+import { WeatherComponent } from './weather/components/weather/weather.component';
 
 
 @NgModule({
@@ -107,6 +107,7 @@ import { DetailedMonitoringComponent } from './task/components/detailed-monitori
     ToolbarFarmComponent,
     ShedFormComponent,
     DetailedMonitoringComponent,
+    WeatherComponent,
   ],
   imports: [
     BrowserModule,
