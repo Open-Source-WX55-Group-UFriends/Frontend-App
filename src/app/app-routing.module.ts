@@ -16,7 +16,7 @@ import {EditProfileComponent} from "./register/components/profile-page/edit-prof
 import {PaySubscriptionComponent} from "./register/components/profile-page/subscription/pay-subscription.component";
 
 const routes: Routes = [
-  //{ path: '', redirectTo: 'create', pathMatch: 'full' },
+ { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'subscriptions/card', component:SubscriptionsCardComponent },
   {path: 'subscriptions/:card', component:PaymentSubscriptionComponent },
   {path: 'descriptions/:shed', component:DescriptionShedComponent },
