@@ -1,3 +1,23 @@
+
+<div *ngIf="selectedFarm">
+  <mat-card class="card">
+    <img mat-card-image [src]="selectedFarm['farm-img']" alt="Imagen de la granja" class="farm-image">
+    <mat-card-content>
+      <h2>{{ selectedFarm['farm-name'] }}</h2>
+      <p>{{ selectedFarm.location }}</p>
+      <p>{{ selectedFarm['type-farm'] }}</p>
+      <p>{{ selectedFarm['farm-hectares'] }}</p>
+      <p>{{ selectedFarm['farm-price'] }}</p>
+    </mat-card-content>
+    <div class="farm-info">
+      <span>{{ selectedFarm['granaries'] }} Graneros</span>
+      <span>{{ selectedFarm['corrals'] }} corrales</span>
+      <span>{{ selectedFarm['water'] }}</span>
+    </div>
+  </mat-card>
+</div>
+
+
 <mat-card>
   <mat-card-content>
     <p>

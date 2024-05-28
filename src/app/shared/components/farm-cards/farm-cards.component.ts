@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FarmApiService} from "../../services/farm-api.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-farm-cards',
@@ -8,8 +9,9 @@ import {FarmApiService} from "../../services/farm-api.service";
 })
 export class FarmCardsComponent implements OnInit {
   farms: any[] = [];
+  showFarms = true; // Añade esta línea
 
-  constructor(private farmApiService: FarmApiService) { }
+  constructor(private farmApiService: FarmApiService,private router: Router) { }
 
   ngOnInit(): void {
     this.farmApiService.getAll().subscribe(data => {
@@ -17,5 +19,8 @@ export class FarmCardsComponent implements OnInit {
     });
   }
 
-
+    navigateToDetails(id: string): void {
+      this.showFarms = false; // Añade esta línea
+      this.router.navigate(['/descriptions', id]);
+}
 }

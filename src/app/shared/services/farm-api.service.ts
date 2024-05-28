@@ -15,6 +15,6 @@ export class FarmApiService {
   }
 
   getById(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/farm-1`); // Reemplaza 'endpoint' con el endpoint correcto de tu API
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
 }

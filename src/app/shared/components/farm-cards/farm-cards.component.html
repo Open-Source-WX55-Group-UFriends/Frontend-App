@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" *ngIf="showFarms"> <!-- Añade *ngIf="showFarms" aquí -->
   <h1>Granjas destacadas:</h1>
   <div class="farms-container">
-    <mat-card class="card" *ngFor="let farm of farms">
+    <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDetails(farm.id)">
       <img mat-card-image [src]="farm['farm-img']" alt="Imagen de la granja" class="farm-image">
       <mat-card-content>
         <h2>{{ farm['farm-name'] }}</h2>
@@ -16,8 +16,5 @@
         <span>{{ farm['water'] }}</span>
       </div>
     </mat-card>
-
   </div>
-
-
 </div>
