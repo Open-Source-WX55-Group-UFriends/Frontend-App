@@ -1,54 +1,60 @@
 <app-toolbar></app-toolbar>
 
-<div class="container">
+
+<div class="container"> <!--no idea about what is this container xd-->
   <h1>CREATE FARM</h1>
   <div class="tasks">
     <form class="basic-form">
+      <div class="information-container"> <!--container to make the display grid posible-->
+        <div class="form-group">
+          <label>Farm name</label>
+          <input type="text" placeholder="Farm name">
+        </div>
 
-      <div class="form-group">
-        <label>Farm name</label>
-        <input type="text" placeholder="Farm name">
+        <div class="form-group">
+          <label>Ubication</label>
+          <input type="text" placeholder="Ubication">
+        </div>
+
+        <div class="form-group">
+          <label>Infrastructure</label>
+          <input type="text" placeholder="Infrastructure">
+        </div>
+
+        <div class="form-group">
+          <label>Farm type</label>
+          <input type="text" placeholder="Farm type">
+        </div>
+
+        <div class="form-group">
+          <label>Product</label>
+          <input type="text" placeholder="Product">
+        </div>
+
+        <div class="form-group">
+          <label>Total Surface</label>
+          <input type="text" placeholder="Total surface">
+        </div>
+
+        <div class="form-group">
+          <label>Services</label>
+          <input type="text" placeholder="Service">
+        </div>
+
+        <div class="form-group">
+          <label>Certifications</label>
+          <input type="text" placeholder="Certifications">
+        </div>
+
+        <div class="button-group">
+          <button type="button" [routerLink]="['/tasks']">Guardar</button> <!-- we need to change this -->
+        </div>
+
+        <div class="button-group">
+        <button type="button" [routerLink]="['/tasks']">Cancelar</button><!-- we need to change this -->
+        </div>
       </div>
 
-      <div class="form-group">
-        <label>Ubication</label>
-        <input type="text" placeholder="Ubication">
-      </div>
-
-      <div class="form-group">
-        <label>Infrastructure</label>
-        <input type="text" placeholder="Infrastructure">
-      </div>
-
-      <div class="form-group">
-        <label>Farm type</label>
-        <input type="text" placeholder="Farm type">
-      </div>
-
-      <div class="form-group">
-        <label>Product</label>
-        <input type="text" placeholder="Product">
-      </div>
-
-      <div class="form-group">
-        <label>Total Surface</label>
-        <input type="text" placeholder="Total surface">
-      </div>
-
-      <div class="form-group">
-        <label>Services</label>
-        <input type="text" placeholder="Service">
-      </div>
-
-      <div class="form-group">
-        <label>Certifications</label>
-        <input type="text" placeholder="Certifications">
-      </div>
-
-      <div class="button-group">
-        <button type="button"  [routerLink]="['/tasks']">Guardar</button>
-        <button type="button" [routerLink]="['/tasks']" >Cancelar</button>
-      </div>
     </form>
   </div>
 
