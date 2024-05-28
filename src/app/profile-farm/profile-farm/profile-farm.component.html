@@ -1,0 +1,73 @@
+<app-toolbar></app-toolbar>
+
+<div class="container">
+  <h1>Task</h1>
+
+  <div class="row">
+    <div class="input-container" style="margin-left: -10px;">
+      <select [(ngModel)]="selectedEmployee" class="input-employee">
+        <option *ngFor="let employee of employees" [value]="employee">
+          {{ employee }}
+        </option>
+      </select>
+    </div>
+    <div class="input-container">
+      <input type="date" [(ngModel)]="selectedDate">
+    </div>
+  </div>
+  <div class="input-container task-time-container">
+    <select [(ngModel)]="taskTime">
+      <option *ngFor="let hour of hours" [value]="hour">
+        {{ hour }}
+      </option>
+    </select>
+  </div>
+  <br>
+  <div class="input-container description-container">
+    <textarea [(ngModel)]="taskDescription" placeholder="Task description"></textarea>
+  </div>
+</div>
+<div class="inputs">
+
+  <div class="input-container">
+    <label>Farm name</label>
+    <input type="text" placeholder="Farm name">
+  </div>
+
+
+  <div class="input-container">
+    <label>Ubication</label>
+    <input type="text" placeholder="Ubication">
+  </div>
+
+  <div class="input-container">
+    <label>Infrastructure</label>
+    <input type="text" placeholder="Infrastructure">
+  </div>
+
+  <div class="input-container">
+    <label>Farm type</label>
+    <input type="text" placeholder="Farm type">
+  </div>
+
+  <div class="input-container">
+    <label>Product</label>
+    <input type="text" placeholder="Product">
+  </div>
+</div>
+
+<div class="input-container">
+  <input type="text" placeholder="Total surface">
+</div>
+
+<div class="input-container">
+  <input type="text" placeholder="Service">
+</div>
+
+<div class="input-container">
+  <input type="text" placeholder="Certifications">
+</div>
+
+
+
+<app-footer></app-footer>
