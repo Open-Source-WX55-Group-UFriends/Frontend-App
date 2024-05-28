@@ -26,7 +26,16 @@
       <input type="email" placeholder="Email" required>
       <input type="password" placeholder="Password" required>
 
-      <button type="button" [routerLink]="['/detail']">Sign Up</button>
+      <button class="button" type="button" [routerLink]="['/detail']">
+        Sign Up
+        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+          <path
+            clip-rule="evenodd"
+            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
     </form>
    </div>
 
@@ -50,7 +59,16 @@
       <input  type="email" placeholder="Email" required>
       <input  type="password" placeholder="Password" required>
       <a (click)="toggleForgotPassword()">Forgot Password?</a>
-      <button type="button" [routerLink]="['/home']">Sign In</button>
+      <button class="button" type="button" [routerLink]="['/home']">
+        Sign In
+        <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+          <path
+            clip-rule="evenodd"
+            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
      </form>
    </div>
 
@@ -60,8 +78,27 @@
         <img src="assets/img-logo.png" alt="logo">
         <h1>Forgot Password</h1>
         <input type="email" placeholder="Email" required>
-        <button type="button" [routerLink]="['/login']">Reset Password</button>
-        <button type="button" (click)="backToSignIn()">Back to Sign In</button>      </form>
+        <button class="button" type="button" [routerLink]="['/login']">
+          Reset Password
+          <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+            <path
+              clip-rule="evenodd"
+              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+              fill-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <button class="button" type="button" (click)="backToSignIn()">
+          Back to Sign In
+          <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+            <path
+              clip-rule="evenodd"
+              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+              fill-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </form>
     </div>
 
 
@@ -70,13 +107,32 @@
        <div class="toggle-panel toggle-left">
         <h1>Welcome Back!</h1>
         <p>Enter your personal details to use all of site features</p>
-        <button class="hidden" (click)="toggleActive()">Sign In</button>
+         <button class="button" type="button" (click)="toggleActive()">
+
+           <svg fill="currentColor" viewBox="0 0 24 24" class="icon" style="transform: rotate(180deg);">
+             <path
+               clip-rule="evenodd"
+               d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+               fill-rule="evenodd"
+             ></path>
+           </svg>
+           Sign In
+         </button>
        </div>
 
        <div class="toggle-panel toggle-right">
         <h1>Hello, Farmer!</h1>
         <p>Register with your personal details to use all of site features</p>
-        <button class="hidden" (click)="toggleActive()">Sign Up</button>
+         <button class="button" type="button" (click)="toggleActive()">
+           Sign Up
+           <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+             <path
+               clip-rule="evenodd"
+               d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+               fill-rule="evenodd"
+             ></path>
+           </svg>
+         </button>
        </div>
      </div>
    </div>

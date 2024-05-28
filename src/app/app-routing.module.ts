@@ -17,6 +17,7 @@ import {PaySubscriptionComponent} from "./register/components/profile-page/subsc
 import {DetailedMonitoringComponent} from "./task/components/detailed-monitoring/detailed-monitoring.component";
 import {WeatherComponent} from "./weather/components/weather/weather.component";
 import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
+import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'create', pathMatch: 'full' },
@@ -28,14 +29,14 @@ const routes: Routes = [
   {path: 'tasks/create', component:TaskFormComponent }  ,
   {path: 'register', component:RegisterCardComponent },
   {path: 'login', component:LoginCardComponent },
-  {path: 'detail',component:DetailedMonitoringComponent},
   {path: 'create-profile', component:CreateProfileComponent },
   {path: 'edit-profile', component:EditProfileComponent },
   {path: 'create/subscriptions/card', component:PaySubscriptionComponent },
-  {path: 'weather', component: WeatherComponent},
-  {path: 'shed-form', component: ShedFormComponent},
+  {path: 'detail', component:DetailedMonitoringComponent },
+  {path: 'weather', component:WeatherComponent },
+  {path: 'shed-form', component:ShedFormComponent },
   { path: 'financial-stats', component: FinancialStatsPageComponent },
-
+  { path: '**', component: PageNotFoundComponent }
  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
  // { path: '**', redirectTo: 'financial-stats' }
 ];

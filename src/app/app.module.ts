@@ -71,6 +71,7 @@ import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-f
 import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
 import { DetailedMonitoringComponent } from './task/components/detailed-monitoring/detailed-monitoring.component';
 import { WeatherComponent } from './weather/components/weather/weather.component';
+import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -108,6 +109,7 @@ import { WeatherComponent } from './weather/components/weather/weather.component
     ShedFormComponent,
     DetailedMonitoringComponent,
     WeatherComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

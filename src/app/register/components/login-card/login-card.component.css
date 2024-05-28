@@ -73,24 +73,76 @@ input:focus {
   margin: 15px 0 10px;
 }
 
-.container button{
-  background-color: #13d420;
-  color: #fff;
-  font-size: 12px;
-  padding: 10px 45px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 10px;
+.container .button {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding-block: 0.5rem;
+  padding-inline: 1.25rem;
+  background-color: rgb(70, 183, 85);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  color: #ffff;
+  gap: 8px;
+  font-weight: bold;
+  border: 4px solid rgba(12, 105, 41, 0.3);
+  outline: none;
+  overflow: hidden;
+  font-size: 15px;
 }
 
-.container button.hidden{
-  background-color: transparent;
-  border-color: #fff;
+.container .icon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease-in-out;
 }
+
+.container .button:hover {
+  transform: scale(1.05);
+  border-color: #fff9;
+}
+
+.container .button:hover .icon {
+  transform: translate(4px);
+}
+
+.container .button:hover::before {
+  animation: shine 1.5s ease-out infinite;
+}
+
+.container .button::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(21, 150, 65, 0.8),
+    rgba(255, 255, 255, 0) 70%
+  );
+  top: 0;
+  left: -100px;
+  opacity: 0.6;
+}
+
+@keyframes shine {
+  0% {
+    left: -100px;
+  }
+
+  60% {
+    left: 100%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
 
 .container form{
   background-color: #fff;
