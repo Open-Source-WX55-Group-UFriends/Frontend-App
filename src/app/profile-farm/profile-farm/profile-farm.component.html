@@ -4,7 +4,7 @@
 <div class="container"> <!--no idea about what is this container xd-->
   <h1>CREATE FARM</h1>
   <div class="tasks">
-    <form class="basic-form">
+    <form class="basic-form" (submit)="save()">
       <div class="information-container"> <!--container to make the display grid posible-->
         <div class="form-group">
           <label>Farm name</label>
@@ -46,18 +46,42 @@
           <input type="text" placeholder="Certifications">
         </div>
 
-        <div class="button-group">
-          <button type="button" [routerLink]="['/tasks']">Guardar</button> <!-- we need to change this -->
+        <div class="form-group">
+          <label>Images</label>
+          <input type="file" (change)="onFileChange($event)" accept="image/*" multiple>
         </div>
+
+        <div class="button-group">
+          <button type="submit">Guardar</button>
+        </div>
+
+        <div class="button-group">
+          <button type="button" [routerLink]="['/tasks']">Cancelar</button>
+        </div>
+
 
         <div class="button-group">
         <button type="button" [routerLink]="['/tasks']">Cancelar</button><!-- we need to change this -->
         </div>
       </div>
-
     </form>
-  </div>
+    <div class="farm-cards">
+      <div *ngFor="let farm of farms">
+        <h2>{{ farm.name }}</h2>
+        <p>Ubicación: {{ farm.ubication }}</p>
+        <p>Infraestructura: {{ farm.infrastructure }}</p>
+        <p>Tipo de granja: {{ farm.farmType }}</p>
+        <p>Producto: {{ farm.product }}</p>
+        <p>Superficie total: {{ farm.totalSurface }}</p>
+        <p>Servicio: {{ farm.service }}</p>
+        <p>Certificaciones: {{ farm.certifications }}</p>
 
+        <div *ngFor="let image of farm.images">
+          <img [src]="image" alt="Imagen de la granja">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>

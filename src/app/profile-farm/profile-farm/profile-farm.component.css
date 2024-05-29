@@ -3,7 +3,7 @@ h1{
   font-size: 50px; /* Ajusta el tamaño del texto */
   font-weight: bold; /* Ajusta el peso de la fuente a negrita */
   text-align: center; /* Centra el texto horizontalmente */
-  margin-bottom:0px; /* Ajusta el margen inferior para separar el título del contenedor de tarjetas */
+  margin-bottom:0; /* Ajusta el margen inferior para separar el título del contenedor de tarjetas */
   margin-top: 80px;
 }
 

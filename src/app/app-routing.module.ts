@@ -14,9 +14,10 @@ import {LoginCardComponent} from "./register/components/login-card/login-card.co
 import {CreateProfileComponent} from "./register/components/profile-page/create-profile/create-profile.component";
 import {EditProfileComponent} from "./register/components/profile-page/edit-profile/edit-profile.component";
 import {PaySubscriptionComponent} from "./register/components/profile-page/subscription/pay-subscription.component";
+import {ProfileFarmComponent} from "./profile-farm/profile-farm/profile-farm.component";
 
 const routes: Routes = [
-  //{ path: '', redirectTo: 'create', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'subscriptions/card', component:SubscriptionsCardComponent },
   {path: 'subscriptions/:card', component:PaymentSubscriptionComponent },
   {path: 'descriptions/:shed', component:DescriptionShedComponent },
@@ -28,7 +29,7 @@ const routes: Routes = [
   {path: 'create-profile', component:CreateProfileComponent },
   {path: 'edit-profile', component:EditProfileComponent },
   {path: 'create/subscriptions/card', component:PaySubscriptionComponent },
-
+  {path: 'profile-farm', component:ProfileFarmComponent},
 
   { path: 'financial-stats', component: FinancialStatsPageComponent },
  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
