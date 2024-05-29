@@ -1,49 +1,48 @@
 <app-toolbar></app-toolbar>
 
-
-<div class="container"> <!--no idea about what is this container xd-->
+<div class="container">
   <h1>CREATE FARM</h1>
   <div class="tasks">
     <form class="basic-form" (submit)="save()">
-      <div class="information-container"> <!--container to make the display grid posible-->
+      <div class="information-container">
         <div class="form-group">
           <label>Farm name</label>
-          <input type="text" placeholder="Farm name">
+          <input type="text" placeholder="Farm name" [(ngModel)]="farm.name" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Ubication</label>
-          <input type="text" placeholder="Ubication">
+          <input type="text" placeholder="Ubication" [(ngModel)]="farm.ubication" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Infrastructure</label>
-          <input type="text" placeholder="Infrastructure">
+          <input type="text" placeholder="Infrastructure" [(ngModel)]="farm.infrastructure" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Farm type</label>
-          <input type="text" placeholder="Farm type">
+          <input type="text" placeholder="Farm type" [(ngModel)]="farm.farmType" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Product</label>
-          <input type="text" placeholder="Product">
+          <input type="text" placeholder="Product" [(ngModel)]="farm.product" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Total Surface</label>
-          <input type="text" placeholder="Total surface">
+          <input type="text" placeholder="Total surface" [(ngModel)]="farm.totalSurface" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Services</label>
-          <input type="text" placeholder="Service">
+          <input type="text" placeholder="Service" [(ngModel)]="farm.service" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
           <label>Certifications</label>
-          <input type="text" placeholder="Certifications">
+          <input type="text" placeholder="Certifications" [(ngModel)]="farm.certifications" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
@@ -59,28 +58,11 @@
           <button type="button" [routerLink]="['/tasks']">Cancelar</button>
         </div>
 
-
         <div class="button-group">
-        <button type="button" [routerLink]="['/tasks']">Cancelar</button><!-- we need to change this -->
+          <button type="button" [routerLink]="['/tasks']">Cancelar</button>
         </div>
       </div>
     </form>
-    <div class="farm-cards">
-      <div *ngFor="let farm of farms">
-        <h2>{{ farm.name }}</h2>
-        <p>Ubicación: {{ farm.ubication }}</p>
-        <p>Infraestructura: {{ farm.infrastructure }}</p>
-        <p>Tipo de granja: {{ farm.farmType }}</p>
-        <p>Producto: {{ farm.product }}</p>
-        <p>Superficie total: {{ farm.totalSurface }}</p>
-        <p>Servicio: {{ farm.service }}</p>
-        <p>Certificaciones: {{ farm.certifications }}</p>
-
-        <div *ngFor="let image of farm.images">
-          <img [src]="image" alt="Imagen de la granja">
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 

@@ -63,6 +63,7 @@ import {MatCheckbox, MatCheckboxModule} from "@angular/material/checkbox";
 import {FinancialStatsService} from "./financial-stats/services/financial-stats.service";
 import {FinancialStatsPageComponent} from "./financial-stats/pages/financial-stats-page/financial-stats-page.component";
 import {FormsModule} from "@angular/forms";
+import { CommonModule } from '@angular/common';
 import { CreateProfileComponent } from './register/components/profile-page/create-profile/create-profile.component';
 import { EditProfileComponent } from './register/components/profile-page/edit-profile/edit-profile.component';
 import { PaySubscriptionComponent } from './register/components/profile-page/subscription/pay-subscription.component';
@@ -154,6 +155,7 @@ import { ProfileFarmComponent } from './profile-farm/profile-farm/profile-farm.c
     MatRowDef,
     MatCheckbox,
     FormsModule,
+    CommonModule,
     MatCheckboxModule
 
 
