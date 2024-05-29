@@ -14,13 +14,18 @@ export class FarmCardsComponent implements OnInit {
   constructor(private farmApiService: FarmApiService,private router: Router) { }
 
   ngOnInit(): void {
+
     this.farmApiService.getAll().subscribe(data => {
       this.farms = data;
     });
+
   }
 
-    navigateToDetails(id: string): void {
-      this.showFarms = false; // Añade esta línea
-      this.router.navigate(['/descriptions', id]);
-}
+
+  navigateToDetails(id: string): void {
+    this.showFarms = false;
+    this.router.navigateByUrl(`/descriptions/${id}`).then(() => {
+      this.showFarms = false;
+    });
+  }
 }
