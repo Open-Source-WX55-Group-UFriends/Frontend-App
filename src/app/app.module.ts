@@ -42,8 +42,6 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import { StarRatingComponent} from "./social-interaction/components/star-rating/star-rating.component";
 import { ContactCardComponent } from './social-interaction/components/contact-card/contact-card.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
-import { DescriptionCardComponent } from './shared/components/shed-summary/description-card.component';
-import { FarmCardsComponent } from './shared/components/farm-cards/farm-cards.component';
 import { DescriptionShedComponent } from './shared/components/descriptions-sheds-card/description-shed/description-shed.component';
 import {TaskFormComponent} from "./task/components/task-form/task-form.component";
 import {TaskTableComponent} from "./task/components/task-table/task-table.component";
@@ -71,6 +69,7 @@ import { ToolbarColaboratorComponent } from './public/components/toolbar-colab/t
 import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-farm/toolbar-farm.component';
 import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
 import { ProfileFarmComponent } from './profile-farm/profile-farm/profile-farm.component';
+import { FooterHomeComponent } from './public/components/footer-home/footer-home.component';
 
 
 
@@ -84,8 +83,7 @@ import { ProfileFarmComponent } from './profile-farm/profile-farm/profile-farm.c
     Toolbar,
     StarRatingComponent,
     ContactCardComponent,
-    DescriptionCardComponent,
-    FarmCardsComponent,
+
     SubscriptionsCardComponent,
     ImageCardComponent,
     PaymentSubscriptionComponent,
@@ -108,6 +106,7 @@ import { ProfileFarmComponent } from './profile-farm/profile-farm/profile-farm.c
     ToolbarFarmComponent,
     ShedFormComponent,
     ProfileFarmComponent,
+    FooterHomeComponent,
   ],
   imports: [
     BrowserModule,

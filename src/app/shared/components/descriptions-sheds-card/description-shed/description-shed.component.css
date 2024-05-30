@@ -1,119 +1,116 @@
-.container {
-  display: flex; /* Utiliza flexbox para alinear elementos en columna */
-  flex-direction: column; /* Alinea los elementos en columna */
-  align-items: center; /* Centra horizontalmente los elementos */
-}
-.cards-container {
-  display: flex; /* Utiliza flexbox */
-  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en filas adicionales si no caben en una sola fila */
-  justify-content: center; /* Centra horizontalmente el contenido */
-  align-items: flex-start; /* Alinea el contenido hacia la parte superior */
-  height: 50vh; /* Ajusta la altura del contenedor para ocupar toda la altura visible de la pantalla */
-}
-.mes{
-  color: gray ;
-  font-size: 15px; /* Ajusta el tamaño del texto */
-  font-weight: normal;
-}
-.subscription-card {
-  width: 300px;
-  margin: 20px;
-  border-radius: 10px;
-  border: 2px solid #4CAF50;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-
-}
-
-.subscription-card-2{
-  margin-top: 50px;
-  width: 300px;
-  border-radius: 10px;
-  border: 2px solid #4CAF50;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-mat-card-title{
-  color: darkgreen !important;
-
-}
-.sub-header{
-  margin-left: 16px;
-  color: gray !important;
-  font-size: 20px; /* Ajusta el tamaño del texto */
-}
-.price {
-  color: black !important; /* Cambia el color del texto a negro */
-  font-size: 35px; /* Ajusta el tamaño del texto */
-  font-weight: bold; /* Ajusta el peso de la fuente a negrita */
-}
-.choose-plan-btn {
-  margin-top: 5px;
-  background-color: #4CAF50 !important;
-  color: #ffffff !important;
-  transition: transform 0.3s ease-in-out;
-  width: 200px; /* Establece el ancho del botón */
-
-}
-
-
-
-.choose-plan-btn:hover {
-  transform: scale(1.05);
-}
-
-.specifications-list ul {
-  list-style-type: disc; /* Establece el tipo de viñeta como círculos */
-  margin-left: 0; /* Elimina el margen izquierdo predeterminado */
-  padding-left: 10px; /* Agrega un poco de espacio a la izquierda para la viñeta */
-}
-
-h1{
-  font-size: 50px; /* Ajusta el tamaño del texto */
-  margin-top: 180px; /* Ajusta el margen superior para separar el título de las tarjetas */
-  font-weight: bold; /* Ajusta el peso de la fuente a negrita */
-  text-align: center; /* Centra el texto horizontalmente */
-  margin-bottom:0px; /* Ajusta el margen inferior para separar el título del contenedor de tarjetas */
-}
-h2{
-  margin-top: 50px; /* Ajusta el margen inferior para separar el título del contenedor de tarjetas */
-  text-align: center; /* Centra el texto horizontalmente */
-  margin-bottom: 0px; /* Ajusta el margen inferior para separar el título del contenedor de tarjetas */
-
-}
-
-app-image-card {
-  width: 100%; /* Establece el ancho al 100% */
-  max-width: 600px; /* Ancho máximo del app-image-card */
-}
 .container-app {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.half-page-app-1,
+.half-page-app-2 {
+  width: 50%;
+  flex-direction: column;
   align-items: center;
-}
-
-.half-page-app {
   justify-content: center;
+}
+
+.container-app .title-description {
+  font-size: 3em;
+  text-align: center;
+  color:darkgreen;
+}
+
+.container-app .farms-container {
   align-items: center;
-  padding: 50px;
-
+  justify-content: center;
+  margin-left: 32%;
 }
 
-.line {
-  width: 90%;
-  height: 1px;
-  background-color: black;
-  margin: 0 auto;
-}
-.title-description-1{
-  text-align: center;
-  font-size: 35px;
-  margin-left: 50px;
 
-}
-.title-description-2{
-  text-align: center;
-  font-size: 35px;
-  margin-left: 120px;
-
+.farms-container .card1,.card2 {
+  width: 100%;
+  max-width: 400px;
+  height:550px;
+  overflow-wrap: break-word;
+  border: 2px solid #276749;
+  border-radius: 8px;
+  background: #FFFCFC;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  margin-right: 220px;
 }
 
+
+.farm-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 2px solid #276749;
+  border-radius: 8px 8px 0 0;
+}
+
+.card1,
+.card2 h2{
+  color: #276749;
+  margin: 10px 0;
+  font-size: 28px;
+}
+
+.card2 {
+  line-height: 2.5;
+}
+
+.card1,
+.card2 p{
+  margin: 5px 0;
+  color: gray;
+  font-size: 22px;
+}
+
+.highlight-list {
+  list-style-type: none;
+  color: gray;
+  font-size: 22px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+
+@media (min-width: 321px) and (max-width: 500px) {
+  .container-app .farms-container {
+    align-items: center;
+    justify-content: center;
+    margin-left: 2%;
+
+    .card1,
+    .card2{
+      width: 100%;
+      max-width: 300px;
+      height: 480px;
+      overflow-wrap: break-word;
+      border: 2px solid #276749;
+      border-radius: 8px;
+      background: #FFFCFC;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      margin-right: 180px;
+    }
+    .card2 {
+      line-height: 2;
+    }
+    .container-app .farms-container {
+      align-items: center;
+      justify-content: center;
+      margin-left: 20%;
+    }
+    .half-page-app-1,
+    .half-page-app-2 {
+      width: 50%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
