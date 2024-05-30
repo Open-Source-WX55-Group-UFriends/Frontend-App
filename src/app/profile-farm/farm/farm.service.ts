@@ -30,7 +30,7 @@ export class FarmService {
 
   getFarmById(id: string) {
     const farm = this.farms.find(farm => farm.id === id);
-    console.log('getFarmById called, found farm:', farm);
+    console.log('getFarmById called, found farm:', farm);// confirmation
     return of(farm);
   }
 }
