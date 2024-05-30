@@ -1,38 +1,35 @@
-<app-toolbar></app-toolbar>
-<div class="section-search">
-  <input type="text" placeholder="Producto">
-  <input type="text" placeholder="Ubicación">
-  <button class="choose-plan-btn">Buscar</button>
-</div>
-
-
-<div class="container" *ngIf="farms">
-  <h1>Granjas destacadas:</h1>
-  <div class="farms-container">
-    <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDescriptions(farm.id)">
-
-    <div *ngFor="let image of farm.images">
-        <img mat-card-image [src]="image" alt="Farm image" class="farm-image">
-      </div>
-      <mat-card-content>
-        <h2>Farm {{ farm.name }}</h2>
-        <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/map-marker--v1.png" alt="Ubication"/> {{ farm.ubication }}, Lima</p>
-        <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/chicken.png" alt="Product"/> {{ farm.product }}</p>
-        <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/3d-fluency-farm.png" alt="Surface"/> {{ farm.totalSurface }} ha</p>
-        <p><img width="20" height="20" src="https://img.icons8.com/arcade/64/price-tag-usd.png" alt="Price"/> $ {{ farm.price | number }}</p>
-
-
-        <hr>
-
-        <ul class="highlight-list">
-          <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
-          <li *ngIf="farm.highlight2">{{ farm.highlight2 }}</li>
-          <li *ngIf="farm.highlight3">{{ farm.highlight3 }}</li>
-        </ul>
-      </mat-card-content>
-    </mat-card>
+<div class="main-container">
+  <app-toolbar></app-toolbar>
+  <div class="section-search">
+    <input type="text" placeholder="Product">
+    <input type="text" placeholder="Ubication">
+    <button class="choose-plan-btn">Search</button>
   </div>
+
+  <div class="container" *ngIf="farms.length>0">
+    <h1>Featured Farms:</h1>
+    <div class="farms-container">
+      <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDescriptions(farm.id)">
+        <div class="card-details">
+          <div *ngFor="let image of farm.images">
+            <img mat-card-image [src]="image" alt="Farm image" class="farm-image">
+          </div>
+          <h2 class="text-title">Farm {{ farm.name }}</h2>
+          <p class="text-body"><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/map-marker--v1.png" alt="Ubication"/> {{ farm.ubication }}, Lima</p>
+          <p class="text-body"><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/chicken.png" alt="Product"/> {{ farm.product }}</p>
+          <p class="text-body"><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/3d-fluency-farm.png" alt="Surface"/> {{ farm.totalSurface }} ha</p>
+          <p class="text-body"><img width="20" height="20" src="https://img.icons8.com/arcade/64/price-tag-usd.png" alt="Price"/> $ {{ farm.price | number }}</p>
+          <hr>
+          <ul class="highlight-list">
+            <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
+            <li *ngIf="farm.highlight2">{{ farm.highlight2 }}</li>
+            <li *ngIf="farm.highlight3">{{ farm.highlight3 }}</li>
+          </ul>
+        </div>
+
+      </mat-card>
+    </div>
+  </div>
+
+ <app-footer-home> </app-footer-home>
 </div>
-
-
-<app-footer></app-footer>
