@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component  } from '@angular/core';
 import { Router } from '@angular/router';
 import {FarmService} from "../farm/farm.service";
 
@@ -8,6 +8,7 @@ import {FarmService} from "../farm/farm.service";
   styleUrls: ['./profile-farm.component.css']
 })
 export class ProfileFarmComponent {
+  fileName: string = '';
   farm = {
     name: '',
     ubication: '',
@@ -17,6 +18,11 @@ export class ProfileFarmComponent {
     totalSurface: '',
     service: '',
     certifications: '',
+    condition: '',
+    highlight1: '',
+    highlight2: '',
+    highlight3: '',
+    price: "" as any,
     images: [] as string[]
   };
 
@@ -33,6 +39,11 @@ export class ProfileFarmComponent {
       totalSurface: '',
       service: '',
       certifications: '',
+      condition: '',
+      highlight1: '',
+      highlight2: '',
+      highlight3: '',
+      price: "" as any,
       images: [] as string[]
     };
     this.router.navigate(['/home']);
@@ -51,4 +62,5 @@ export class ProfileFarmComponent {
       reader.readAsDataURL(file);
     }
   }
+
 }
