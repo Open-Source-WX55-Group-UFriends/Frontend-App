@@ -6,20 +6,31 @@
 </div>
 
 
-<div class="farm-cards">
-  <div *ngFor="let farm of farms">
-    <h2>{{ farm.name }}</h2>
-    <p>Ubicación: {{ farm.ubication }}</p>
-    <p>Infraestructura: {{ farm.infrastructure }}</p>
-    <p>Tipo de granja: {{ farm.farmType }}</p>
-    <p>Producto: {{ farm.product }}</p>
-    <p>Superficie total: {{ farm.totalSurface }}</p>
-    <p>Servicio: {{ farm.service }}</p>
-    <p>Certificaciones: {{ farm.certifications }}</p>
+<div class="container" *ngIf="farms">
+  <h1>Granjas destacadas:</h1>
+  <div class="farms-container">
+    <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDescriptions(farm.id)">
 
     <div *ngFor="let image of farm.images">
-      <img [src]="image" alt="Imagen de la granja">
-    </div>
+        <img mat-card-image [src]="image" alt="Farm image" class="farm-image">
+      </div>
+      <mat-card-content>
+        <h2>Farm {{ farm.name }}</h2>
+        <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/map-marker--v1.png" alt="Ubication"/> {{ farm.ubication }}, Lima</p>
+        <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/chicken.png" alt="Product"/> {{ farm.product }}</p>
+        <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/3d-fluency-farm.png" alt="Surface"/> {{ farm.totalSurface }} ha</p>
+        <p><img width="20" height="20" src="https://img.icons8.com/arcade/64/price-tag-usd.png" alt="Price"/> $ {{ farm.price | number }}</p>
+
+
+        <hr>
+
+        <ul class="highlight-list">
+          <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
+          <li *ngIf="farm.highlight2">{{ farm.highlight2 }}</li>
+          <li *ngIf="farm.highlight3">{{ farm.highlight3 }}</li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FarmService } from '../../../profile-farm/farm/farm.service';
-import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,20 +8,29 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  farms: any[] = [];
-  private farmsSubscription: Subscription = undefined!;
+  farms: any;
 
-  constructor(private farmService: FarmService) { }
+  constructor(private farmService: FarmService, private router: Router) { }
 
-  ngOnInit() {
-    this.farmsSubscription = this.farmService.getFarms().subscribe((farms: any[]) => {
-      this.farms = farms;
+  ngOnInit(): void {
+    this.getFarmData();
+  }
+
+  getFarmData(): void {
+    this.farmService.getFarms().subscribe((data: any) => {
+      this.farms = data.map((farm: any, index: number) => {
+        return { ...farm, id: `farm${index + 1}` };
+      });
+      console.log(this.farms);
     });
   }
 
-  ngOnDestroy() {
-    if (this.farmsSubscription) {
-      this.farmsSubscription.unsubscribe();
+  navigateToDescriptions(id: string): void {
+    if (id) {
+      this.router.navigate(['/descriptions', id]);
+    } else {
+      // manejar el caso en que 'id' es null
+      console.error('No se proporcionó un ID de granja');
     }
   }
 }
