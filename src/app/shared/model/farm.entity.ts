@@ -1,5 +1,5 @@
 export class Farm {
-  id: string;
+  id: number;
   farm_name: string;
   location: string;
   type: string;
@@ -10,7 +10,7 @@ export class Farm {
 
 
   constructor() {
-    this.id = '';
+    this.id = 0;
     this.farm_name = '';
     this.location = '';
     this.type = '';

@@ -1,0 +1,275 @@
+
+h1{
+  color: darkgreen;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom:0;
+  margin-top: 60px;
+}
+
+.basic-form {
+  width: 1200px;
+  max-height: 900px;
+  padding: 20px;
+  margin-left: 630px;
+  margin-top: 50px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.form-group .highlights{
+  width: 30.5%;
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+
+
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.number-control input[type="text"]{
+  width: 50%;
+  padding: 10px;
+  border:none;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 40%;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.button-group button {
+  padding: 15px 30px;
+  background-color: darkgreen;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 90px;
+  margin-top: 20px;
+}
+
+.button-group button:hover {
+  background-color: darkslategrey;
+}
+
+
+.information-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 50px;
+  /* Ajusta este valor a la separación que prefieras */
+}
+
+
+
+/* Images button */
+.Documents-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  height: 45px;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  background-color: rgba(122, 203, 163, 0.9);
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top:30px;
+  margin-left: 50px;
+}
+.folderContainer {
+  width: 40px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+.fileBack {
+  z-index: 1;
+  width: 80%;
+  height: auto;
+}
+.filePage {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  transition: all 0.3s ease-out;
+}
+.fileFront {
+  width: 85%;
+  height: auto;
+  position: absolute;
+  z-index: 3;
+  opacity: 0.95;
+  transform-origin: bottom;
+  transition: all 0.3s ease-out;
+}
+.text {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top:10px;
+}
+.Documents-btn:hover .filePage {
+  transform: translateY(-5px);
+}
+.Documents-btn:hover {
+  background-color: rgba(87, 213, 170, 0.61);
+}
+.Documents-btn:active {
+  transform: scale(0.95);
+}
+.Documents-btn:hover .fileFront {
+  transform: rotateX(30deg);
+}
+
+.slider {
+  -webkit-appearance: none;
+  width:47%;
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%); cursor: pointer;
+  transition: width 0.3s, height 0.3s;
+}
+.slider::-webkit-slider-thumb:hover {
+  width: 30px;
+  height: 30px;
+}
+
+.slider::-moz-range-thumb:hover {
+  width: 30px;
+  height: 30px;
+}
+
+
+
+
+.number-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  background-color: rgba(168, 241, 200, 0.73);
+  border-radius: 50px;
+  padding: 5px;
+  box-shadow: 1px 4px 4px 1px rgba(0,0,0,0.75);
+  margin: 10px 35px;
+
+}
+
+.number-left,
+.number-right {
+  background-color: #17B169;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 30px;
+  height: 30px;
+  color: white;
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.number-quantity {
+  padding: 0.15em;
+  border: 0;
+  width: 40px;
+  text-align: center;
+  -moz-appearance: textfield;
+  background-color: rgba(200, 238, 213, 0.73);
+  color: #333;
+
+}
+
+.number-left:hover,
+.number-right:hover {
+  background-color: #ff4500;
+  transform: scale(1.1);
+}
+
+@media (min-width: 321px) and (max-width: 500px) {
+  .basic-form {
+    width: 90%;
+    margin-left: 2%;
+  }
+
+  .form-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 50%;
+  }
+
+  .information-container {
+    grid-template-columns: 1fr;
+  }
+
+  .Documents-btn {
+    margin-left: 36%;
+    justify-content: center;
+  }
+
+  .number-control {
+    margin: 10px auto;
+  }
+  .button-group {
+    display: flex;
+    justify-content: center;
+
+
+  }
+
+  .button-group button {
+    margin-left: 10px;
+  }
+
+}

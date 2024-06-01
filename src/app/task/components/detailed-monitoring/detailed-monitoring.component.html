@@ -1,0 +1,42 @@
+<app-toolbar-farm/>
+<div class="container">
+  <div class="center-container">
+    <div class="monitoring-cards-container">
+      <div class="monitoring-card">
+        <div class="task-container">
+          <button type="button" [routerLink]="['/tasks']">
+            <img class="task-img" src="assets/tasks.jpeg" alt="Tareas">
+          </button>
+          <h2>Tasks</h2>
+        </div>
+      </div>
+      <div class="monitoring-card">
+        <div class="weather-container">
+          <button type="button" [routerLink]="['/weather']">
+            <img class="weather-img" src="assets/weather.jpeg" alt="Tareas">
+          </button>
+          <h2>Weather</h2>
+        </div>
+      </div>
+    </div>
+    <div class="emergency-cards-container">
+      <div class="emergency-card">
+        <div class="emergency-container">
+          <button type="button" [routerLink]="['/detail/monitoring']">
+            <img class="emergency-img" src="assets/emergency.png" alt="Emergencia">
+          </button>
+          <h2>Emergency</h2>
+        </div>
+      </div>
+      <div class="emergency-card">
+        <div class="inventory-container">
+          <button type="button" [routerLink]="['/monitoring/add-sheds']">
+            <img class="inventory-img" src="assets/inventory.png" alt="Inventario">
+          </button>
+          <h2>Inventory</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer/>
