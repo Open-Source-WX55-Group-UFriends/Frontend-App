@@ -70,6 +70,7 @@ import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-f
 import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
 import { ProfileFarmComponent } from './profile-farm/profile-farm/profile-farm.component';
 import { FooterHomeComponent } from './public/components/footer-home/footer-home.component';
+import { RoleProfileComponent } from './register/components/profile-page/role-profile/role-profile.component';
 
 
 
@@ -107,6 +108,7 @@ import { FooterHomeComponent } from './public/components/footer-home/footer-home
     ShedFormComponent,
     ProfileFarmComponent,
     FooterHomeComponent,
+    RoleProfileComponent,
   ],
   imports: [
     BrowserModule,
