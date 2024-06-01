@@ -1,0 +1,71 @@
+/* Estilos generales */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Fondo de la página */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150vh; /* Hace que el contenedor ocupe toda la altura de la ventana */
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.monitoring-card, .emergency-card {
+  margin: 20px;
+}
+
+.task-container, .inventory-container, .emergency-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.task-img, .inventory-img, .emergency-img {
+  width: 150px; /* Aumenta el tamaño de las imágenes */
+  height: 150px; /* Aumenta el tamaño de las imágenes */
+  background-color: transparent; /* Fondo transparente */
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px; /* Aumenta el espacio superior */
+  font-size: 1.5em; /* Aumenta el tamaño del texto */
+}
+
+.monitoring-card button:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+@media only screen and (max-width: 992px) {
+  .container {
+    flex-direction: column; /* Cambia la dirección de los elementos a vertical */
+    height: auto; /* Elimina la altura fija para que el contenido pueda expandirse según su contenido */
+  }
+
+  .row {
+    flex-direction: column; /* Cambia la dirección de las filas a vertical */
+  }
+
+  .monitoring-card, .emergency-card {
+    margin: 20px 0; /* Añade espacio en la parte superior e inferior de las tarjetas */
+  }
+}

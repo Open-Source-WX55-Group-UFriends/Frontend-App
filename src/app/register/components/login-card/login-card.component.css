@@ -15,7 +15,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 120vh;
+  height: 100vh;
+
 }
 @keyframes paintBlue {
   0% {

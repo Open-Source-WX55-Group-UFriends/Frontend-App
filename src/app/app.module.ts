@@ -67,6 +67,9 @@ import {PaymentSubscriptionComponent} from "./register/components/profile-page/p
 // Service Imports
 import { FinancialStatsService } from './financial-stats/services/financial-stats.service';
 import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
+import {
+  DetailedMonitoringFarmerComponent
+} from "./monitoring/detailed-monitoring-farmer/detailed-monitoring-farmer.component";
 
 @NgModule({
   declarations: [
@@ -106,7 +109,8 @@ import {provideAnimationsAsync} from "@angular/platform-browser/animations/async
     ToolbarFarmComponent,
     HomeComponent,
     SubscriptionsCardComponent,
-    PaymentSubscriptionComponent
+    PaymentSubscriptionComponent,
+    DetailedMonitoringFarmerComponent
   ],
   imports: [
     BrowserModule,
