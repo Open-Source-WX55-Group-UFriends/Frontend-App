@@ -25,7 +25,6 @@ import {MatCardModule} from "@angular/material/card";
 import {MatMenuModule} from "@angular/material/menu";
 import {NgOptimizedImage} from "@angular/common";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {Toolbar} from './public/components/toolbar/toolbar.component';
 import { Footer } from './public/components/footer/footer.component';
 import { HomeComponent } from './public/pages/home/home.component';
 
@@ -65,7 +64,6 @@ import { CommonModule } from '@angular/common';
 import { CreateProfileComponent } from './register/components/profile-page/create-profile/create-profile.component';
 import { EditProfileComponent } from './register/components/profile-page/edit-profile/edit-profile.component';
 import { PaySubscriptionComponent } from './register/components/profile-page/subscription/pay-subscription.component';
-import { ToolbarColaboratorComponent } from './public/components/toolbar-colab/toolbar-colaborator-component/toolbar-colaborator.component';
 import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-farm/toolbar-farm.component';
 import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
 import { ProfileFarmComponent } from './profile-farm/profile-farm/profile-farm.component';
@@ -81,15 +79,12 @@ import { RoleProfileComponent } from './register/components/profile-page/role-pr
     ExpenseTableComponent,
     ProfitabilityTableComponent,
     FinancialStatsPageComponent,
-    Toolbar,
     StarRatingComponent,
     ContactCardComponent,
-
     SubscriptionsCardComponent,
     ImageCardComponent,
     PaymentSubscriptionComponent,
     PaymentCardComponent,
-    Toolbar,
     Footer,
     HomeComponent,
     DescriptionShedComponent,
@@ -103,7 +98,6 @@ import { RoleProfileComponent } from './register/components/profile-page/role-pr
     CreateProfileComponent,
     EditProfileComponent,
     PaySubscriptionComponent,
-    ToolbarColaboratorComponent,
     ToolbarFarmComponent,
     ShedFormComponent,
     ProfileFarmComponent,

@@ -9,6 +9,9 @@ import {FarmService} from "../farm/farm.service";
 })
 export class ProfileFarmComponent {
   fileName: string = '';
+  private incrementInterval: any;
+  private decrementInterval: any;
+
   farm = {
     name: '',
     ubication: '',
@@ -75,8 +78,7 @@ export class ProfileFarmComponent {
   }
 
 
-  private incrementInterval: any;
-  private decrementInterval: any;
+
 
   startIncrement(event: Event) {
     event.preventDefault();
