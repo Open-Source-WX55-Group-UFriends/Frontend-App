@@ -1,0 +1,17 @@
+
+<app-toolbar-farm/>
+
+<h1 class="title-h1">WEATHER</h1>
+<div class="weather-cards">
+    <div *ngFor="let weather of weathers" class="weather-card">
+        <h3>{{ weather.day }}</h3>
+        <p>{{ weather.date }}</p>
+        <p>{{ weather.degree }}°</p>
+        <img *ngIf="weather.image === 'rainy.png'" src="assets/rainy.png" alt="rainy" style="width: 150px; height: auto;">
+        <img *ngIf="weather.image === 'cloudy.png'" src="assets/cloudy.png" alt="rainy" style="width: 150px; height: auto;">
+        <img *ngIf="weather.image === 'mcloudy.png'" src="assets/mcloudy.png" alt="rainy" style="width: 150px; height: auto;">
+        <img *ngIf="weather.image === 'clear.png'" src="assets/clear.png" alt="rainy" style="width: 150px; height: auto;">
+    </div>
+</div>
+
+<app-footer/>
