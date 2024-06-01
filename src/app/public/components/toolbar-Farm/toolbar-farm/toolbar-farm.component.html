@@ -5,11 +5,40 @@
   </div>
   <button class="hamburger" (click)="toggleMenu()">☰</button>
   <nav id="menu" [class.active]="menuActive">
-    <ul>
-      <li><a href="/home">Home</a></li>
-      <li><a [routerLink]="['/subscriptions/card']" (click)="scrollToTop()">Monitoring</a></li>
-      <li><button class="choose-plan-btn" [routerLink]="['/register']"><a>Publish</a></button></li>
-      <li><a [routerLink]="['/tasks']">Profile</a></li>
+    <!-- Toolbar for 'Business Owner' Franco estuvo aqui  -->
+    <ul *ngIf="currentProfile && currentProfile.role === 'businessOwner'">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/role-profile">Profile</a></li>
+      <li><a  (click)="logout()">Log out</a></li>
+    </ul>
+    <!-- Toolbar for 'farm worker' -->
+    <ul *ngIf="currentProfile && currentProfile.role === 'farmWorker'">
+      <li><a routerLink="/tasks">Tasks</a></li>
+      <li><button class="choose-plan-btn"  routerLink="/detailed-monitoring" (click)="scrollToTop()" >Detailed Monitoring</button></li>
+      <li><a routerLink="/role-profile" >Profile</a></li>
+      <li><a (click)="logout()">Log out</a></li>
+    </ul>
+    <!-- Toolbar for 'farmer' -->
+    <ul *ngIf="currentProfile && currentProfile.role === 'farmer'">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/subscriptions/card" (click)="scrollToTop()" >Monitoring</a></li>
+      <li><button class="choose-plan-btn"  routerLink="/profile-farm" ><a >Post your ad</a></button></li>
+      <li><a routerLink="/role-profile" >Profile</a></li>
+      <li><a (click)="logout()">Log out</a></li>
+    </ul>
+    <!-- Toolbar for 'admin' -->
+    <ul *ngIf="currentProfile && currentProfile.role === 'admin'">
+      <li><a routerLink="/admin">Admin</a></li>
+      <li><a routerLink="/role-profile" >Profile</a></li>
+      <li><a (click)="logout()">Log out</a></li>
+    </ul>
+    <!-- Toolbar for 'public' -->
+    <ul *ngIf="!currentProfile">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/subscriptions/card" (click)="scrollToTop()" >Rates</a></li>
+      <li><button class="choose-plan-btn"  routerLink="/login" ><a >Post your ad</a></button></li>
+      <li><a routerLink="/login" >Collaborator</a></li>
+      <li><a routerLink="/login">Sign in</a></li>
     </ul>
   </nav>
 </header>

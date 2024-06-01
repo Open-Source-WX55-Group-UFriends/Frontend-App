@@ -1,67 +1,87 @@
-<button mat-button type="submit" class="black-button" [routerLink]="['/home']">Back</button>
-<div class="profile-container">
 
-  <h2>CREA TU PERFIL</h2>
-
-  <form>
-    <div class="form-section">
-      <div class="form-field-container">
-        <label>Nombre</label>
-        <input class="form-field" required>
+<div class="login-box">
+  <form #form="ngForm" (submit)="save()">
+    <div class="user-box" >
+      <input type="text" name="firstName" required="" pattern="[a-zA-Z\s]*" ngModel #firstName="ngModel" [(ngModel)]="profile.firstName" [ngModelOptions]="{standalone: true}">
+      <label>First Name</label>
+      <div *ngIf="firstName.invalid && form.submitted" class="error-message">This field is required</div>
+    </div>
+    <div class="user-box">
+      <input type="text" name="lastName" required="" pattern="[a-zA-Z\s]*" ngModel #lastName="ngModel" [(ngModel)]="profile.lastName" >
+      <label>Last Name</label>
+      <div *ngIf="lastName.invalid && form.submitted" class="error-message">This field is required</div>
+    </div>
+    <div class="user-box">
+      <input type="text" name="direction" required="" ngModel #direction="ngModel" [(ngModel)]="profile.direction" [ngModelOptions]="{standalone: true}">
+      <label>Direction</label>
+      <div *ngIf="direction.invalid && form.submitted" class="error-message">This field is required</div>
+    </div>
+    <div class="user-box">
+      <input type="tel" name="phone" required="" pattern="\d*" ngModel #phone="ngModel" [(ngModel)]="profile.phone" [ngModelOptions]="{standalone: true}">
+      <label>Phone</label>
+      <div *ngIf="phone.invalid && form.submitted" class="error-message">This field is required</div>
+    </div>
+    <div class="user-box">
+      <select required ngModel #gender="ngModel" name="gender" [(ngModel)]="profile.gender" [ngModelOptions]="{standalone: true}">
+        <option value="" selected></option>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+        <option value="other">Other</option>
+      </select>
+      <label>Gender</label>
+    </div>
+    <div class="user-box dob">
+      <div class="dob-field">
+        <select name="dobDay" required="" ngModel #dobDay="ngModel" [(ngModel)]="profile.dobDay" [ngModelOptions]="{standalone: true}">
+          <option value="" selected></option>
+          <option *ngFor="let day of [].constructor(31) let i = index" [value]="i+1">{{i+1}}</option>
+        </select>
+        <label>Birthday</label>
+        <div *ngIf="dobDay.invalid && form.submitted" class="error-message">This field is required</div>
       </div>
-
-      <div class="form-field-container">
-        <label>Apellidos</label>
-        <input class="form-field"  required>
+      <div class="dob-field">
+        <select name="dobMonth" required="" ngModel #dobMonth="ngModel" [(ngModel)]="profile.dobMonth" [ngModelOptions]="{standalone: true}">
+          <option value="" selected></option>
+          <option *ngFor="let month of ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; let i = index" [value]="i+1">{{month}}</option>
+        </select>
+        <div *ngIf="dobMonth.invalid && form.submitted" class="error-message">This field is required</div>
       </div>
-
-      <div class="form-field-container">
-        <label>Género</label>
-        <input class="form-field"  required>
-      </div>
-
-      <div class="form-field-container">
-        <label>F. Nacimiento</label>
-        <input class="form-field" required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Tipo de documento</label>
-        <input class="form-field" required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Documento de Identidad</label>
-        <input class="form-field"  required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Dirección</label>
-        <input class="form-field" required>
+      <div class="dob-field">
+        <select name="dobYear" required="" ngModel #dobYear="ngModel" [(ngModel)]="profile.dobYear" [ngModelOptions]="{standalone: true}">
+          <option value="" selected></option>
+          <option *ngFor="let year of [].constructor(2023 - 1900) let i = index" [value]="2022-i">{{2022-i}}</option>
+        </select>
+        <div *ngIf="dobYear.invalid && form.submitted" class="error-message">This field is required</div>
       </div>
     </div>
-
-    <h3>Contacto</h3>
-    <p>Esta información la usaremos para los anuncios</p>
-    <div class="form-section">
-      <div class="form-field-container">
-        <label>Teléfono</label>
-        <input class="form-field"  required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Correo electrónico</label>
-        <input class="form-field"  required>
-      </div>
-
-
+    <div class="user-box">
+      <input type="text" name="documentNumber" required="" pattern="\d*" ngModel #documentNumber="ngModel" [(ngModel)]="profile.documentNumber" [ngModelOptions]="{standalone: true}">
+      <label>Document Number</label>
+      <div *ngIf="documentNumber.invalid && form.submitted" class="error-message">This field is required</div>
+    </div>
+    <div class="user-box">
+      <input type="text" name="documentType" required="" ngModel #documentType="ngModel" [(ngModel)]="profile.documentType" [ngModelOptions]="{standalone: true}">
+      <label>Document Type</label>
+      <div *ngIf="documentType.invalid && form.submitted" class="error-message">This field is required</div>
+    </div>
+    <div class="user-box">
+      <select required ngModel #role="ngModel" name="role" [(ngModel)]="profile.role" [ngModelOptions]="{standalone: true}">
+        <option value="" selected></option>
+        <option value="farmer">Farmer</option>
+        <option value="businessOwner">Business Owner</option>
+        <option value="farmWorker">Farm Worker</option>
+      </select>
+      <label>Role</label>
     </div>
 
-    <div class="form-actions">
-
-    <button mat-button type="submit" class="login-button" [routerLink]="['/create/subscriptions/card']">Crear cuenta</button>
-
-     <button mat-button type="button">Cancelar</button>
-    </div>
+    <a  (click)="save()">
+      SEND
+      <span></span>
+    </a>
   </form>
+
+</div>
+<div class="form-container">
+  <h1 style="display: none;">PROFILE CREATED SUCCESFULLY</h1>
+  <iframe id="myIframe" style="display: none;" src="https://lottie.host/embed/892cf0a8-905b-4139-8eee-e46714d2e5a1/Phz6ClRQkF.json"></iframe>
 </div>

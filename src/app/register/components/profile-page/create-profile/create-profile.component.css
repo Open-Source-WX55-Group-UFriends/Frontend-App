@@ -1,81 +1,154 @@
-.profile-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgb(21,154,112);
+  background: linear-gradient(45deg, #73e0a4 0%, #88a657 100%);
+  box-sizing: border-box;
+  box-shadow: 3px 15px 25px rgb(29, 164, 18);
+  border-radius: 10px;
+}
+.error-message {
+  color: red;
+}
+.login-box .user-box {
+  position: relative;
 }
 
-h2 {
-  text-align: left;
-  margin-bottom: 20px;
+.login-box .user-box input,
+.login-box .user-box select {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
 }
 
-.form-section {
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label,
+.login-box .user-box select:focus ~ label,
+.login-box .user-box select:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #051881;
+  font-size: 16px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  margin-left: 160px;
+  letter-spacing: 4px
+}
+
+.login-box a:hover {
+  background: #9533ff;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #9533ff,
+  0 0 25px #9533ff,
+  0 0 50px #9533ff,
+  0 0 100px #9533ff;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(1) {
+  bottom: 2px;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #9533ff);
+  animation: btn-anim1 3s linear infinite;
+}
+.user-box select {
+
+  color: black;
+}
+
+.user-box select option {
+
+  color: black;
+}
+
+.dob {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-
+  justify-content: space-between;
 }
 
-.form-field {
-  flex: 1 1 calc(33.333% - 20px);
-  min-width: 200px;
-}
-
-.form-field-container {
+.dob-field {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-
+}
+.dob-field label {
+  order: -1;
+  margin-bottom: 101px;
+}
+.form-container {
+  position: relative;
 
 }
-body {
-  font-family: 'Roboto', sans-serif;
-}
-.form-field {
+
+#myIframe {
+
+  top: 0;
+  left: 0;
   width: 100%;
-}
-
-.login-button {
+  height: 1060px;
   border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #45a049;
-  color: white !important;
-
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
-.form-field:focus {
-  border-color: #00FF00; /* Cambia este valor al color verde que prefieras */
-}
-.form-field {
-  width: 100%;
-  height: 40px; /* Aumenta este valor para agrandar los campos de entrada */
-}
-button {
-  border-radius: 20px;
-}
-
-h3 {
-  margin-top: 40px;
-}
-
-p {
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.form-actions {
-  display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-button {
-  min-width: 100px;
-}
-.back-button {
+.form-container h1 {
   position: absolute;
-  top: 50px;
-  left: 10px;
+  font-weight: bold;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color:white;
+  font-size: 60px;
+  padding: 10px;
+  text-align: center;
+  z-index: 1001;
+  font-family: 'Arial', sans-serif;
 }
