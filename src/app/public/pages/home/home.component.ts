@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FarmService } from '../../../profile-farm/farm/farm.service';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   farms: any;
-
-  constructor(private farmService: FarmService, private router: Router) { }
+  profile:any;
+  constructor( private router: Router, private farmService: FarmService) { }
 
   ngOnInit(): void {
     this.getFarmData();
@@ -24,13 +25,12 @@ export class HomeComponent implements OnInit {
       console.log(this.farms);
     });
   }
-
   navigateToDescriptions(id: string): void {
     if (id) {
       this.router.navigate(['/descriptions', id]);
     } else {
-      // manejar el caso en que 'id' es null
-      console.error('No se proporcionó un ID de granja');
+
+      console.error('No farm ID was provided');
     }
   }
 }
