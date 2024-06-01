@@ -68,8 +68,13 @@ import { EditProfileComponent } from './register/components/profile-page/edit-pr
 import { PaySubscriptionComponent } from './register/components/profile-page/subscription/pay-subscription.component';
 import { ToolbarColaboratorComponent } from './public/components/toolbar-colab/toolbar-colaborator-component/toolbar-colaborator.component';
 import { ToolbarFarmComponent } from './public/components/toolbar-Farm/toolbar-farm/toolbar-farm.component';
-import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
-
+import { AddAnimalsComponent } from './monitoring/pages/add-animals/add-animals.component';
+import { AnimalInventoryComponent } from './monitoring/pages/animal-inventory/animal-inventory.component';
+import { FeedingRecordComponent } from './monitoring/pages/feeding-record/feeding-record.component';
+import { CultivationRecordComponent } from './monitoring/pages/cultivation-record/cultivation-record.component';
+import { CropInventoryComponent } from './monitoring/pages/crop-inventory/crop-inventory.component';
+import { ListShedsComponent } from './monitoring/pages/list-sheds/list-sheds.component';
+import { AddShedsComponent } from './monitoring/pages/add-sheds/add-sheds.component';
 
 
 @NgModule({
@@ -104,7 +109,13 @@ import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form
     PaySubscriptionComponent,
     ToolbarColaboratorComponent,
     ToolbarFarmComponent,
-    ShedFormComponent,
+    AddAnimalsComponent,
+    AnimalInventoryComponent,
+    FeedingRecordComponent,
+    CultivationRecordComponent,
+    CropInventoryComponent,
+    ListShedsComponent,
+    AddShedsComponent,
   ],
   imports: [
     BrowserModule,

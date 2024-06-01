@@ -1,0 +1,49 @@
+<app-toolbar-colaborator-component></app-toolbar-colaborator-component>
+<div class="main-container">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav mode="side" opened>
+      <mat-nav-list>
+        <mat-toolbar>Shed</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/add-sheds">Add Sheds</a>
+        <a mat-list-item routerLink="/monitoring/list-sheds">List Sheds</a>
+        <mat-divider></mat-divider>
+        <mat-toolbar>Animals</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/add-animals">Add Animals</a>
+        <a mat-list-item routerLink="/monitoring/animal-inventory">Animal Inventory</a>
+        <a mat-list-item routerLink="/monitoring/feeding-record">Feeding Record</a>
+        <mat-toolbar>Crops</mat-toolbar>
+        <a mat-list-item routerLink="/monitoring/cultivation-record">Cultivation Record</a>
+        <a mat-list-item routerLink="/monitoring/crop-inventory">Crop Inventory</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content-container">
+        <div class="table-container">
+          <div class="title-container">
+            <h2>Lista de Galpones</h2>
+          </div>
+          <div class="filter-container">
+            <label>Galpón</label>
+            <select class="filter-field">
+              <option value="Galpón 1">Galpón 1</option>
+              <option value="Galpón 2">Galpón 2</option>
+              <option value="Galpón 3">Galpón 3</option>
+            </select>
+          </div>
+          <table>
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tipo</th>
+              <th>Especie</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Aquí irían las filas con los datos de los galpones -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
