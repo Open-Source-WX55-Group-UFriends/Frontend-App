@@ -14,6 +14,10 @@ import {EditProfileComponent} from "./register/components/profile-page/edit-prof
 import {PaySubscriptionComponent} from "./register/components/profile-page/subscription/pay-subscription.component";
 import {ProfileFarmComponent} from "./profile-farm/profile-farm/profile-farm.component";
 import {RoleProfileComponent} from "./register/components/profile-page/role-profile/role-profile.component";
+import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
+import {DetailedMonitoringComponent} from "./task/components/detailed-monitoring/detailed-monitoring.component";
+import {WeatherComponent} from "./weather/components/weather/weather.component";
+
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'subscriptions/card', component:SubscriptionsCardComponent },
@@ -30,6 +34,9 @@ const routes: Routes = [
   {path: 'profile-farm', component:ProfileFarmComponent},
   {path: 'role-profile', component:RoleProfileComponent},
   { path: 'financial-stats', component: FinancialStatsPageComponent },
+  {path: 'detailed-monitoring', component:DetailedMonitoringComponent},
+  {path: 'weather', component:WeatherComponent},
+  {path: '**', component:PageNotFoundComponent},
  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
  // { path: '**', redirectTo: 'financial-stats' }
 ];

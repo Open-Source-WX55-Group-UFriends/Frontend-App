@@ -69,6 +69,9 @@ import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form
 import { ProfileFarmComponent } from './profile-farm/profile-farm/profile-farm.component';
 import { FooterHomeComponent } from './public/components/footer-home/footer-home.component';
 import { RoleProfileComponent } from './register/components/profile-page/role-profile/role-profile.component';
+import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
+import { WeatherComponent } from './weather/components/weather/weather.component';
+import { DetailedMonitoringComponent } from './task/components/detailed-monitoring/detailed-monitoring.component';
 
 
 
@@ -103,6 +106,9 @@ import { RoleProfileComponent } from './register/components/profile-page/role-pr
     ProfileFarmComponent,
     FooterHomeComponent,
     RoleProfileComponent,
+    PageNotFoundComponent,
+    WeatherComponent,
+    DetailedMonitoringComponent,
   ],
   imports: [
     BrowserModule,
