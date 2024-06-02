@@ -24,6 +24,9 @@ import{CropInventoryComponent} from "./monitoring/pages/crop-inventory/crop-inve
 import{CultivationRecordComponent} from "./monitoring/pages/cultivation-record/cultivation-record.component";
 import {FeedingRecordComponent} from "./monitoring/pages/feeding-record/feeding-record.component";
 import {ListShedsComponent} from "./monitoring/pages/list-sheds/list-sheds.component";
+import {
+  DetailedMonitoringFarmerComponent
+} from "./monitoring/detailed-monitoring-farmer/detailed-monitoring-farmer.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,6 +36,8 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent },
   {path: 'tasks', component:TaskTableComponent },
   {path: 'tasks/create', component:TaskFormComponent }  ,
+  {path: 'register', component:RegisterCardComponent },
+  {path: 'register', component:RegisterCardComponent },
   {path: 'register', component:RegisterCardComponent },
   {path: 'login', component:LoginCardComponent },
   {path: 'create-profile', component:CreateProfileComponent },
@@ -50,6 +55,8 @@ const routes: Routes = [
   {path: 'monitoring/cultivation-record', component:CultivationRecordComponent},
   {path: 'monitoring/feeding-record', component:FeedingRecordComponent},
   {path: 'monitoring/list-sheds', component:ListShedsComponent},
+  {path: 'monitoring-farmer', component:DetailedMonitoringFarmerComponent},
+
   {path: '**', component:PageNotFoundComponent},
 
  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},

@@ -1,24 +1,45 @@
-.footer {
-  background-color: #276749;
-  position: relative;
-
-  top: 690px;
-  width: 100%;
-  padding-top: 10px;
-  text-align: center;
-  padding-bottom: 2rem;
-  margin-top: auto;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: absolute;
+}
 
-.text {
+.section-search, .container {
+  flex: 1;
+}
+
+.footer {
+  background-color: #276749;
+  bottom: 0;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 2rem;
+  text-align: center;
+  margin-top: 2rem; /* Añade espacio entre el contenido y el footer */
+}
+
+.footer .text {
   color: white;
   font-size: 22px;
+  font-family: Arial, sans-serif;
   gap: 8px;
 }
 
-.icon-instagram{
+.icon-instagram {
   background-color: white;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 .social-icons a {
@@ -27,9 +48,7 @@
   width: 200px;
 }
 
-.footer .text {
-  color: white;
-  font-size: 22px;
-  font-family: Arial, sans-serif; /* Agrega esta línea para especificar la fuente */
-  gap: 8px;
+.footer .text p {
+  margin: 0;
+  font-size: 14px;
 }

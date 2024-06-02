@@ -1,38 +1,44 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.section-search, .container {
+  flex: 1;
+}
+
 .footer {
-  background-color: #276749;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  padding-top: 10px;
-  text-align: center;
-  padding-bottom: 2rem;
   margin-top: auto;
-}
-
-
-.text {
+  background-color: #2E7D32;
   color: white;
-  font-size: 22px;
-  gap: 8px;
+  text-align: center;
+  padding: 1em 0;
+  width: 100%;
 }
 
-.icon-instagram{
-  background-color: white;
+.footer .text p {
+  margin: 0;
+  font-size: 14px;
 }
 
-.social-icons a {
-  margin-right: 1rem;
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer .social-icons a {
   color: white;
-  width: 200px;
+  text-decoration: none;
+  font-size: 18px;
 }
 
-
-
-
-
-.footer .text {
-  color: white;
-  font-size: 22px;
-  font-family: Arial, sans-serif; /* Agrega esta línea para especificar la fuente */
-  gap: 8px;
+.footer .social-icons a:hover {
+  color: #d4d4d4;
 }

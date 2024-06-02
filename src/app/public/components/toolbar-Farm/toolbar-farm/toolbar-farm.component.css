@@ -11,6 +11,7 @@
   font-size: 22px;
   font-family: Arial, sans-serif;
   gap: 8px;
+
 }
 
 #menu ul li a {
@@ -84,16 +85,17 @@ button:hover {
 @media (max-width: 767px) {
   #header {
     justify-content: space-between;
+    z-index: 10; /* Asegura que esté encima de otros elementos */
+
   }
 
   .hamburger {
     display: block;
     margin-right: 10px;
   }
-
   #menu {
     position: absolute;
-    top: 100px;
+    top: 100px; /* Ajusta según sea necesario para la posición inicial */
     left: 0;
     width: 100%;
     background: none;
@@ -102,13 +104,13 @@ button:hover {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out, background 0.3s ease-out;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
   }
 
   #menu.active {
-    max-height: 400px;
+    max-height: 100vh; /* Ocupa toda la altura de la pantalla */
     background: #16392e;
   }
-
   #menu ul {
     flex-direction: column;
     margin-left: 0;
@@ -118,6 +120,29 @@ button:hover {
   #header {
     position: relative;
     z-index: 1000;
+  }
+
+  /* Inputs */
+  .section-search {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-container {
+    width: 100%;
+  }
+
+  .input-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+  }
+
+  /* Aumentar el ancho de la tarjeta */
+  .card {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 
@@ -135,5 +160,27 @@ button:hover {
     margin-left: auto;
     gap: 80px;
     padding: 20px;
+  }
+
+  /* Inputs */
+  .section-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .input-container {
+    flex: 1;
+  }
+
+  .input-container input {
+    width: 100%;
+    padding: 8px;
+  }
+
+  /* Aumentar el ancho de la tarjeta */
+  .card {
+    width: calc(33.33% - 40px);
+    margin: 20px;
   }
 }
