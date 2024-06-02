@@ -35,6 +35,7 @@ export class DescriptionShedComponent implements OnInit {
     }
   }
 
+
   Handle(event:number) {
     alert(`You rate ${event}`);
   }

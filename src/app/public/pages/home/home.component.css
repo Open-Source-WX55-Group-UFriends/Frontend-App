@@ -1,121 +1,55 @@
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-
-/* Estilos para dispositivos móviles */
-@media (max-width: 767px) {
-  .section-search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .section-search input[type="text"],
-  .section-search button {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #276749;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-  }
-
-  .section-search button {
-    background-color: #45a049;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .section-search button:hover {
-    background-color: #1d4d34;
-  }
-}
-
-/* Estilos para pantallas grandes */
-@media (min-width: 768px) {
-  .section-search {
-    display: flex;
-    padding: 20px;
-    justify-content: center;
-    gap: 40px;
-  }
-
-  .section-search input[type="text"],
-  .section-search button {
-    width: 10%;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-
-  .section-search button {
-    background-color: #45a049;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .section-search button:hover {
-    background-color: #1d4d34;
-  }
-
-
-}
-
-
-.container {
-  font-size: 22px;
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  flex-grow: 1;
-
-
-
-}
 .main-container {
-  display: flex;
-  flex-direction: column;
-
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
+
+.section-search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.section-search input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.section-search .choose-plan-btn {
+  padding: 10px 20px;
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.section-search .choose-plan-btn:hover {
+  background-color: darkslategrey;
+}
+
 .farms-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-
-
+  justify-content: space-between;
 }
 
-
-
-
-
 .card {
-  width: 80%;
-  max-width: 500px;
-  overflow-wrap: break-word;
+  width: 30%; /* Ajusta el ancho de las cartas */
+  margin: 3px; /* Ajusta el margen entre las cartas */
   border: 2px solid #276749;
   border-radius: 8px;
   background: #FFFCFC;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  transition: 0.5s ease-out;
-  overflow: hidden;
 }
-.footer {
-  background-color: #276749;
-  width: 100%;
-  padding-top: 10px;
-  padding-bottom: 2rem;
-  text-align: center;
-  margin-top: auto; /* Empuja el footer al final del contenedor */
+
+.card-details {
+  padding: 10px;
 }
 
 .farm-image {
@@ -126,54 +60,47 @@ body {
   border-radius: 8px 8px 0 0;
 }
 
-
-.card-button {
-  transform: translate(-50%, 125%);
-  width: 60%;
-  border-radius: 1rem;
-  border: none;
-  background-color: #0ee004;
-  color: #fff;
-  font-size: 1rem;
-  padding: .5rem 1rem;
-  position: absolute;
-  left: 50%;
-  top: 90%;
-  opacity: 0;
-  transition: 0.3s ease-out;
-}
-
-
-.text-body {
-  margin: 5px 0;
-  color: gray;
-  font-size: 22px;
-}
-
 .text-title {
   color: #276749;
+  font-size: 20px;
   margin: 10px 0;
-  font-size: 28px;
+  text-align: left;
 }
 
-.card:hover {
-
-border:3px solid #0ee004;
-  box-shadow: 2px 4px 18px 2px rgba(0, 0, 0, 0.25);
+.text-body {
+  color: gray;
+  font-size: 16px;
+  text-align: left;
+  display: flex;
+  align-items: center;
 }
 
-.card:hover .card-button {
-  transform: translate(-50%, 50%);
-  opacity: 2;
-}
 .highlight-list {
   list-style-type: none;
-  color: gray;
-  font-size: 22px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
+  justify-content: space-between;
 }
 
+.highlight-list li {
+  color: gray;
+  font-size: 16px;
+  flex: 1;
+  text-align: center;
+  padding: 5px;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+
+
+  .card {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .highlight-list li {
+    text-align: left;
+  }
+}

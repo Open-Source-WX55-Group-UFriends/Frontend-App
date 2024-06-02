@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   farms: any;
   profile:any;
+
   constructor( private router: Router, private farmService: FarmService) { }
 
   ngOnInit(): void {

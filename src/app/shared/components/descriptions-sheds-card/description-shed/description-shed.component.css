@@ -1,43 +1,66 @@
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .container-app {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 20px;
 }
 
-.half-page-app-1,
-.half-page-app-2 {
-  width: 50%;
+.full-page-app {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
-.container-app .title-description {
+.title-description {
   font-size: 3em;
   text-align: center;
-  color:darkgreen;
+  color: darkgreen;
 }
 
-.container-app .farms-container {
-  align-items: center;
-  justify-content: center;
-  margin-left: 32%;
-}
-
-
-.farms-container .card1,.card2 {
+.container {
   width: 100%;
-  max-width: 400px;
-  height:550px;
-  overflow-wrap: break-word;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px;
   border: 2px solid #276749;
   border-radius: 8px;
   background: #FFFCFC;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  margin-right: 220px;
 }
 
+.card-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-section {
+  flex: 1;
+  padding: 20px;
+}
 
 .farm-image {
   width: 100%;
@@ -47,19 +70,13 @@
   border-radius: 8px 8px 0 0;
 }
 
-.card1,
-.card2 h2{
+.card h2 {
   color: #276749;
   margin: 10px 0;
   font-size: 28px;
 }
 
-.card2 {
-  line-height: 2.5;
-}
-
-.card1,
-.card2 p{
+.card p {
   margin: 5px 0;
   color: gray;
   font-size: 22px;
@@ -76,41 +93,36 @@
   gap: 40px;
 }
 
-
-@media (min-width: 321px) and (max-width: 500px) {
-  .container-app .farms-container {
+@media (max-width: 500px) {
+  .container-app {
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-left: 2%;
+  }
 
-    .card1,
-    .card2{
-      width: 100%;
-      max-width: 300px;
-      height: 480px;
-      overflow-wrap: break-word;
-      border: 2px solid #276749;
-      border-radius: 8px;
-      background: #FFFCFC;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      margin-right: 180px;
-    }
-    .card2 {
-      line-height: 2;
-    }
-    .container-app .farms-container {
-      align-items: center;
-      justify-content: center;
-      margin-left: 20%;
-    }
-    .half-page-app-1,
-    .half-page-app-2 {
-      width: 50%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+  .full-page-app {
+    width: 100%;
+  }
+
+  .title-description {
+    font-size: 2em;
+  }
+
+  .card {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .highlight-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-content {
+    flex-direction: column;
+  }
+
+  .image-section,
+  .info-section {
+    width: 100%;
   }
 }
