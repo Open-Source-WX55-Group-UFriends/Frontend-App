@@ -27,6 +27,7 @@ import {ListShedsComponent} from "./monitoring/pages/list-sheds/list-sheds.compo
 import {
   DetailedMonitoringFarmerComponent
 } from "./monitoring/detailed-monitoring-farmer/detailed-monitoring-farmer.component";
+import {SumaryComponent} from "./financial-stats/pages/sumary/sumary.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -56,6 +57,9 @@ const routes: Routes = [
   {path: 'monitoring/feeding-record', component:FeedingRecordComponent},
   {path: 'monitoring/list-sheds', component:ListShedsComponent},
   {path: 'monitoring-farmer', component:DetailedMonitoringFarmerComponent},
+  {path: 'summary-dashboard', component:SumaryComponent},
+  {path: 'summary-dashboard', component:SumaryComponent},
+
 
   {path: '**', component:PageNotFoundComponent},
 
