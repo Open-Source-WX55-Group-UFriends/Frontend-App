@@ -18,6 +18,7 @@ import {DetailedMonitoringComponent} from "./task/components/detailed-monitoring
 import {WeatherComponent} from "./weather/components/weather/weather.component";
 import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form.component";
 import {PageNotFoundComponent} from "./public/pages/page-not-found/page-not-found.component";
+import {RegisterEmployeesPageComponent} from "./employees/pages/register-employees-page/register-employees-page.component";
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'create', pathMatch: 'full' },
@@ -36,7 +37,9 @@ const routes: Routes = [
   {path: 'weather', component:WeatherComponent },
   {path: 'shed-form', component:ShedFormComponent },
   { path: 'financial-stats', component: FinancialStatsPageComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'register-employee', component: RegisterEmployeesPageComponent}
+  //{ path: '**', component: PageNotFoundComponent },
+
  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
  // { path: '**', redirectTo: 'financial-stats' }
 ];

@@ -72,6 +72,7 @@ import {ShedFormComponent} from "./task/components/shed-form/shed-form/shed-form
 import { DetailedMonitoringComponent } from './task/components/detailed-monitoring/detailed-monitoring.component';
 import { WeatherComponent } from './weather/components/weather/weather.component';
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
+import { RegisterEmployeesPageComponent } from './employees/pages/register-employees-page/register-employees-page.component';
 
 
 @NgModule({
@@ -110,6 +111,7 @@ import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-fo
     DetailedMonitoringComponent,
     WeatherComponent,
     PageNotFoundComponent,
+    RegisterEmployeesPageComponent,
   ],
   imports: [
     BrowserModule,
