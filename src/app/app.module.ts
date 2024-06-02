@@ -70,6 +70,7 @@ import {provideAnimationsAsync} from "@angular/platform-browser/animations/async
 import {
   DetailedMonitoringFarmerComponent
 } from "./monitoring/detailed-monitoring-farmer/detailed-monitoring-farmer.component";
+import { SumaryComponent } from './financial-stats/pages/sumary/sumary.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import {
     HomeComponent,
     SubscriptionsCardComponent,
     PaymentSubscriptionComponent,
-    DetailedMonitoringFarmerComponent
+    DetailedMonitoringFarmerComponent,
+    SumaryComponent
   ],
   imports: [
     BrowserModule,

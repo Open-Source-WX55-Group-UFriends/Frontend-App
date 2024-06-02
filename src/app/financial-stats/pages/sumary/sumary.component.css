@@ -1,0 +1,150 @@
+body {
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.title {
+  color: #015901; /* Color verde oscuro */
+  font-size: 60px; /* Tamaño grande */
+  font-weight: bold; /* Negrita */
+  margin-bottom: 50px;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; /* Disminuye el espacio entre las tarjetas */
+  max-width: 850px; /* Disminuye el ancho máximo */
+  margin: 0 auto;
+}
+
+.card-link {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: inherit; /* Hereda el color del texto */
+}
+
+.card {
+  background-color: white;
+  border: 3px solid #4caf50;
+  border-radius: 10px;
+  padding: 25px; /* Disminuye el padding interno */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card.production {
+  grid-column: 1 / 2;
+  height: 320px; /* Disminuye la altura */
+}
+
+.card.tasks {
+  grid-column: 2 / 3;
+  height: 320px; /* Disminuye la altura */
+}
+
+.card.financial {
+  grid-column: 1 / 3; /* Ocupa ambas columnas */
+  margin-left: auto;
+  margin-right: auto;
+  height: 320px; /* Disminuye la altura */
+}
+
+.card {
+  color: #4caf50;
+  margin-bottom: 25px; /* Disminuye el margen inferior */
+}
+
+.card img {
+  height: auto;
+  width: auto;
+}
+
+.card a {
+  display: block; /* Asegura que el enlace ocupe todo el espacio del contenido */
+}
+
+.card-image-p {
+  width: auto;
+  height: auto;
+}
+
+.task-count {
+  font-size: 26px; /* Disminuye el tamaño del texto */
+  font-weight: bold;
+  color: black;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 12px 0; /* Disminuye el margen */
+}
+
+.progress {
+  height: 22px; /* Disminuye la altura de la barra de progreso */
+  background-color: #4caf50;
+}
+
+.pending-tasks {
+  font-size: 15px; /* Disminuye el tamaño del texto */
+  color: gray;
+}
+
+.subtitle {
+  color: #015901; /* Color verde oscuro */
+  font-weight: bold; /* Negrita */
+  margin-bottom: 20px; /* Disminuye el margen inferior */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  body {
+    height: auto; /* Permitir que el cuerpo se expanda en altura */
+    padding: 0;
+  }
+
+  .statistics-grid {
+    grid-template-columns: 1fr;
+    gap: 15px; /* Disminuye el espacio entre las tarjetas */
+    padding: 15px; /* Disminuye el padding */
+  }
+
+  .card.production,
+  .card.tasks,
+  .card.financial {
+    grid-column: 1 / 2; /* Ocupa solo una columna en pantallas pequeñas */
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 30px); /* Asegura que la tarjeta ocupe casi todo el ancho disponible con un pequeño margen */
+    height: auto; /* Ajusta la altura automáticamente */
+  }
+
+  .title {
+    font-size: 40px; /* Reducir el tamaño del título en pantallas pequeñas */
+  }
+
+  .card {
+    padding: 15px; /* Disminuye el padding interno de las tarjetas */
+    margin: 8px; /* Disminuye el margen alrededor de las tarjetas */
+  }
+
+  .task-count {
+    font-size: 22px; /* Ajustar el tamaño del texto en pantallas pequeñas */
+  }
+
+  .subtitle {
+    font-size: 20px; /* Ajustar el tamaño del subtítulo en pantallas pequeñas */
+  }
+}
