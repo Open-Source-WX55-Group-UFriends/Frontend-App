@@ -8,6 +8,11 @@ body {
   min-height: 100vh;
 }
 
+.production-img{
+  width: 80%;
+  height: 100%;
+}
+
 .container {
   margin-top: 50px;
   text-align: center;
@@ -65,8 +70,7 @@ body {
 }
 
 .card img {
-  height: auto;
-  width: auto;
+
 }
 
 .card a {

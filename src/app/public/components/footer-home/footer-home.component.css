@@ -4,25 +4,33 @@ html, body {
   padding: 0;
 }
 
-.main-container {
+.app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  position: absolute;
 }
 
-.section-search, .container {
+.header {
+  background-color: #276749;
+  padding: 1rem;
+  text-align: center;
+}
+
+.main-content {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
   background-color: #276749;
-  bottom: 0;
-  width: 100%;
   padding-top: 10px;
   padding-bottom: 2rem;
   text-align: center;
-  margin-top: 2rem; /* Añade espacio entre el contenido y el footer */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer .text {
@@ -32,10 +40,6 @@ html, body {
   gap: 8px;
 }
 
-.icon-instagram {
-  background-color: white;
-}
-
 .social-icons {
   display: flex;
   justify-content: center;
@@ -43,9 +47,7 @@ html, body {
 }
 
 .social-icons a {
-  margin-right: 1rem;
   color: white;
-  width: 200px;
 }
 
 .footer .text p {
