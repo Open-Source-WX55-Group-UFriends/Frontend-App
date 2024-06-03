@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FarmService } from '../../../../profile-farm/farm/farm.service';
+import { Router } from '@angular/router';
+import { ProfileService } from '../../../../register/model/profile.service';
 
 @Component({
   selector: 'app-description-shed',
@@ -10,10 +12,14 @@ import { FarmService } from '../../../../profile-farm/farm/farm.service';
 export class DescriptionShedComponent implements OnInit {
   farm: any;
 
-  constructor(private route: ActivatedRoute, private farmService: FarmService) { }
+  constructor(private route: ActivatedRoute, private farmService: FarmService, private profileService: ProfileService, private router: Router) { }
+  currentProfile: any;
 
   ngOnInit(): void {
     this.getFarmData();
+    this.profileService.getProfiles().subscribe(profiles => {
+      this.currentProfile = profiles[profiles.length - 1];
+    });
   }
 
   getFarmData(): void {
@@ -29,7 +35,10 @@ export class DescriptionShedComponent implements OnInit {
     }
   }
 
+
   Handle(event:number) {
     alert(`You rate ${event}`);
   }
+
+
 }

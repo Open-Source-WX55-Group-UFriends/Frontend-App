@@ -43,7 +43,8 @@ body {
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-@media (max-width: 1000px) {/*mediano*/
+@media (max-width: 1700px) {/*mediano*/
+
   .sidenav-container {
     width: 100%; /* Cambia el ancho */
     height: 90%; /* Mantiene la altura */
@@ -51,6 +52,15 @@ body {
     margin-bottom: 30px;
 
 
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 10px;
   }
 }
 .input-container {
@@ -77,29 +87,27 @@ body {
 }
 
 @media (min-width: 1200px) {/*grande*/
-
   .sidenav-container {
-    margin-left: 25%;
-    margin-top: 6%;
+    position: fixed; /* Hace que el contenedor se quede en el mismo lugar */
+    left: 50%; /* Centra el contenedor horizontalmente */
+    top: 50%; /* Centra el contenedor verticalmente */
+    transform: translate(-50%, -50%); /* Ajusta la posición del contenedor para que esté verdaderamente centrado */
     height: 90%;
     max-height: 600px;
     width: 80%;
     max-width: 900px;
     border: 1px solid black;
-
+  }
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 5px;
+    z-index: 1;
   }
 }
 
-.title-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  position: absolute;
-  margin-top: 30px;
-  z-index: 1;
-  margin-bottom: 30px;
-}
 
 .title-container h2 {
   /* Aquí puedes agregar los estilos que desees para el título */

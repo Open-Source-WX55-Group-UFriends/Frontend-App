@@ -1,0 +1,57 @@
+<app-toolbar-farm/>
+
+<div class="header">
+  <h2>Employees</h2>
+  <div class="actions">
+    <div>
+      <mat-form-field class="search-field">
+        <button mat-icon-button matPrefix (click)="searchEmployee()">
+          <mat-icon>search</mat-icon>
+        </button>
+        <input matInput [(ngModel)]="searchTerm" placeholder="Search Employees" (keyup.enter)="searchEmployee()">
+        <button mat-icon-button matSuffix (click)="clearSearch()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <button class="addBtn" [routerLink]="['/add-employee']">
+  <span class="IconContainer">
+    <i class="material-icons">group</i>
+  </span>
+      <p class="text">Add Employee</p>
+    </button>
+    <p *ngIf="filteredEmployees.length > 0" class="employee-count">
+      <mat-icon class="count-icon">group</mat-icon>
+      Total Employees: {{filteredEmployees.length}}
+    </p>
+  </div>
+</div>
+<div *ngIf="isLoading" class="dot-wave">
+  <div class="dot-wave__dot"></div>
+  <div class="dot-wave__dot"></div>
+  <div class="dot-wave__dot"></div>
+  <div class="dot-wave__dot"></div>
+</div>
+
+<div *ngIf="!isLoading" class="employee-list" >
+  <mat-card *ngFor="let employee of filteredEmployees">
+    <mat-card-header>
+      <mat-card-title>{{employee.name}}</mat-card-title>
+      <mat-card-subtitle>{{employee.position}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>ID: {{employee.id}}</p>
+      <p>Email: {{employee.email}}</p>
+      <p>Phone: {{employee.phone}}</p>
+    </mat-card-content>
+  </mat-card>
+  <button *ngIf="searchPerformed" class="back-button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <p *ngIf="filteredEmployees.length === 0" class="no-employees-message">
+    <mat-icon>error</mat-icon> No employees found
+  </p>
+</div>
+
+<div class="footer-spacer"></div>
+<app-footer/>

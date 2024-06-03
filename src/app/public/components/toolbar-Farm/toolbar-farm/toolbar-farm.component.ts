@@ -27,6 +27,7 @@ export class ToolbarFarmComponent implements OnInit {
     window.scrollTo(0, 0);
   }
   logout() {
+    localStorage.clear();
     this.router.navigate(['/home']);
   }
 }

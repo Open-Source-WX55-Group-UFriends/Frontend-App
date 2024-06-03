@@ -1,62 +1,123 @@
-<app-toolbar-farm> </app-toolbar-farm>
-<div class="container-app">
-  <div class="half-page-app-1">
-    <br>
-    <h2  class="title-description"> About farm </h2>
+<app-toolbar-farm></app-toolbar-farm>
 
-    <hr>
-    <div class="container" *ngIf="farm">
+<!-- Contenido para 'farmer' -->
+<div *ngIf="currentProfile && currentProfile.role === 'farmer'">
+  <div class="container-app">
+    <div class="full-page-app">
+      <h2 class="title-description">About farm & Description</h2>
 
-      <div class="farms-container">
-        <mat-card class="card1">
-          <div *ngFor="let image of farm.images">
-            <img mat-card-image [src]="image" alt="Farm image" class="farm-image">
+      <div class="container" *ngIf="farm">
+        <mat-card class="card">
+          <div class="card-content">
+            <div class="image-section">
+              <div *ngFor="let image of farm.images">
+                <img mat-card-image [src]="image" alt="Farm image" class="farm-image">
+              </div>
+            </div>
+            <div class="info-section">
+              <h2>Farm {{ farm.name }}</h2>
+              <p>
+                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/map-marker--v1.png" alt="Ubication" />
+                {{ farm.ubication }}, Lima
+              </p>
+              <p>
+                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/chicken.png" alt="Product" />
+                {{ farm.product }}
+              </p>
+              <p>
+                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/3d-fluency-farm.png" alt="Surface" />
+                {{ farm.totalSurface }} ha
+              </p>
+              <p>
+                <img width="20" height="20" src="https://img.icons8.com/arcade/64/price-tag-usd.png" alt="Price" />
+                $ {{ farm.price | number }}
+              </p>
+
+              <hr>
+
+              <ul class="highlight-list">
+                <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
+                <li *ngIf="farm.highlight2">{{ farm.highlight2 }}</li>
+                <li *ngIf="farm.highlight3">{{ farm.highlight3 }}</li>
+              </ul>
+
+              <hr>
+
+              <p>Ubication: {{ farm.ubication }}</p>
+              <p>Infrastructure: {{ farm.infrastructure }}</p>
+              <p>Type of farm: {{ farm.farmType }}</p>
+              <p>Product: {{ farm.product }}</p>
+              <p>Total surface: {{ farm.totalSurface }}</p>
+              <p>Service: {{ farm.service }}</p>
+              <p>Certifications: {{ farm.certifications }}</p>
+              <p>Price: $ {{ farm.price | number }}</p>
+            </div>
           </div>
-          <mat-card-content>
-            <h2>Farm {{ farm.name }}</h2>
-            <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/map-marker--v1.png" alt="Ubication"/> {{ farm.ubication }}, Lima</p>
-            <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/chicken.png" alt="Product"/> {{ farm.product }}</p>
-            <p><img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/3d-fluency-farm.png" alt="Surface"/> {{ farm.totalSurface }} ha</p>
-            <p><img width="20" height="20" src="https://img.icons8.com/arcade/64/price-tag-usd.png" alt="Price"/> $ {{ farm.price | number }}</p>
-
-            <hr>
-
-            <ul class="highlight-list">
-              <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
-              <li *ngIf="farm.highlight2">{{ farm.highlight2 }}</li>
-              <li *ngIf="farm.highlight3">{{ farm.highlight3 }}</li>
-            </ul>
-          </mat-card-content>
         </mat-card>
       </div>
     </div>
   </div>
-  <div class="half-page-app-2">
-    <br>
-    <h2  class="title-description"> Description </h2>
-
-<hr>
-    <div class="container" *ngIf="farm">
-
-      <div class="farms-container">
-        <mat-card class="card2" >
-
-          <mat-card-content >
-            <h2>{{ farm.name }}</h2>
-            <p>Ubication: {{ farm.ubication }}</p>
-            <p>Infrastructure: {{ farm.infrastructure }}</p>
-            <p>Type of farm: {{ farm.farmType }}</p>
-            <p>Product: {{ farm.product }}</p>
-            <p>Total surface: {{ farm.totalSurface }}</p>
-            <p>Service: {{ farm.service }}</p>
-            <p>Certifications: {{ farm.certifications }}</p>
-            <p>Price: $ {{ farm.price | number }}</p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-  </div>
+  <app-footer-home></app-footer-home>
 </div>
 
+<!-- Contenido para 'businessOwner' -->
+<div *ngIf="currentProfile && currentProfile.role === 'businessOwner'">
+  <div class="container-app">
+    <div class="full-page-app">
+      <h2 class="title-description">About farm & Description</h2>
 
-<app-footer></app-footer>
+      <div class="container" *ngIf="farm">
+        <mat-card class="card">
+          <div class="card-content">
+            <div class="image-section">
+              <div *ngFor="let image of farm.images">
+                <img mat-card-image [src]="image" alt="Farm image" class="farm-image">
+              </div>
+            </div>
+            <div class="info-section">
+              <h2>Farm {{ farm.name }}</h2>
+              <p>
+                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/map-marker--v1.png" alt="Ubication" />
+                {{ farm.ubication }}, Lima
+              </p>
+              <p>
+                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/chicken.png" alt="Product" />
+                {{ farm.product }}
+              </p>
+              <p>
+                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/3d-fluency-farm.png" alt="Surface" />
+                {{ farm.totalSurface }} ha
+              </p>
+              <p>
+                <img width="20" height="20" src="https://img.icons8.com/arcade/64/price-tag-usd.png" alt="Price" />
+                $ {{ farm.price | number }}
+              </p>
+
+              <hr>
+
+              <ul class="highlight-list">
+                <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
+                <li *ngIf="farm.highlight2">{{ farm.highlight2 }}</li>
+                <li *ngIf="farm.highlight3">{{ farm.highlight3 }}</li>
+              </ul>
+
+              <hr>
+
+              <p>Ubication: {{ farm.ubication }}</p>
+              <p>Infrastructure: {{ farm.infrastructure }}</p>
+              <p>Type of farm: {{ farm.farmType }}</p>
+              <p>Product: {{ farm.product }}</p>
+              <p>Total surface: {{ farm.totalSurface }}</p>
+              <p>Service: {{ farm.service }}</p>
+              <p>Certifications: {{ farm.certifications }}</p>
+              <p>Price: $ {{ farm.price | number }}</p>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <app-star-rating></app-star-rating>
+  <app-contact-card></app-contact-card>
+  <app-footer-home></app-footer-home>
+</div>
