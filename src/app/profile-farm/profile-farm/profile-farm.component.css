@@ -303,4 +303,13 @@ textarea {
   .button-group button {
     margin: 10px;
   }
+  .number-quantity {
+    padding: 0.15em;
+    border: none;
+    width: 40px;
+    text-align: center;
+    -moz-appearance: textfield;
+    background-color: rgba(200, 238, 213, 0.73);
+    color: #333;
+  }
 }

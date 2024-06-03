@@ -1,0 +1,25 @@
+<div class="add-employee-container">
+  <button class="back-button" (click)="goBack()">Back</button>
+  <form (ngSubmit)="saveEmployee()" class="form">
+    <p class="title">Add Employee</p>
+    <div class="flex">
+      <label>
+        <input [(ngModel)]="employee.name" name="name" placeholder="" required="" class="input">
+        <span>Name</span>
+      </label>
+      <label>
+        <input [(ngModel)]="employee.email" name="email" placeholder="" required="" type="email" class="input">
+        <span>Email</span>
+      </label>
+      <label>
+        <input [(ngModel)]="employee.phone" name="phone" placeholder="" required="" class="input">
+        <span>Phone</span>
+      </label>
+      <label>
+        <input [(ngModel)]="employee.position" name="position" placeholder="" required="" class="input">
+        <span>Position</span>
+      </label>
+    </div>
+    <button type="submit" class="submit">Save</button>
+  </form>
+</div>

@@ -28,6 +28,8 @@ import {
   DetailedMonitoringFarmerComponent
 } from "./monitoring/detailed-monitoring-farmer/detailed-monitoring-farmer.component";
 import {SumaryComponent} from "./financial-stats/pages/sumary/sumary.component";
+import {EmployeeComponent} from "./monitoring/employee/employee.component";
+import {AddEmployeeComponent} from "./monitoring/add-employee/add-employee.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -59,12 +61,12 @@ const routes: Routes = [
   {path: 'monitoring-farmer', component:DetailedMonitoringFarmerComponent},
   {path: 'summary-dashboard', component:SumaryComponent},
   {path: 'summary-dashboard', component:SumaryComponent},
-
-
+  {path: 'employee', component:EmployeeComponent},
+  {path: 'add-employee', component:AddEmployeeComponent},
   {path: '**', component:PageNotFoundComponent},
 
- // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
- // { path: '**', redirectTo: 'financial-stats' }
+  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
+  // { path: '**', redirectTo: 'financial-stats' }
 ];
 
 @NgModule({

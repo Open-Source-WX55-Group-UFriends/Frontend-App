@@ -71,6 +71,8 @@ import {
   DetailedMonitoringFarmerComponent
 } from "./monitoring/detailed-monitoring-farmer/detailed-monitoring-farmer.component";
 import { SumaryComponent } from './financial-stats/pages/sumary/sumary.component';
+import { EmployeeComponent } from './monitoring/employee/employee.component';
+import { AddEmployeeComponent } from './monitoring/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +114,9 @@ import { SumaryComponent } from './financial-stats/pages/sumary/sumary.component
     SubscriptionsCardComponent,
     PaymentSubscriptionComponent,
     DetailedMonitoringFarmerComponent,
-    SumaryComponent
+    SumaryComponent,
+    EmployeeComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,
