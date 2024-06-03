@@ -1,3 +1,5 @@
+export class FinancialData {
+}
 export interface Income {
   categoria: string;
   descripcion: string;
