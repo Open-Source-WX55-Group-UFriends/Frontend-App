@@ -271,7 +271,6 @@ mat-card-subtitle {
   margin-right: 10px;
   color: #000000;
 }
-/Responsive/
 @media screen and (max-width: 1200px) {
   mat-card {
     flex: 0 0 calc(50% - 40px);
