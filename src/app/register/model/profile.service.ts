@@ -9,7 +9,6 @@ export class ProfileService {
   private profilesSubject = new BehaviorSubject<any[]>([]);
   private register: any[] = [];
   private registersSubject = new BehaviorSubject<any[]>([]);
-
   constructor() {}
 
   addProfile(profile: any) {
