@@ -73,6 +73,8 @@ import {
 import { SumaryComponent } from './financial-stats/pages/sumary/sumary.component';
 import { EmployeeComponent } from './monitoring/employee/employee.component';
 import { AddEmployeeComponent } from './monitoring/add-employee/add-employee.component';
+import { EmergencyComponent } from './monitoring/emergency/emergency.component';
+import { DashboardTaskComponent } from './monitoring/dashboard-task/dashboard-task.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +118,9 @@ import { AddEmployeeComponent } from './monitoring/add-employee/add-employee.com
     DetailedMonitoringFarmerComponent,
     SumaryComponent,
     EmployeeComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    EmergencyComponent,
+    DashboardTaskComponent
   ],
   imports: [
     BrowserModule,
