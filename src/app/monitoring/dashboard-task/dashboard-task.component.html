@@ -1,0 +1,42 @@
+<app-toolbar-farm></app-toolbar-farm>
+<div class="container">
+  <h1 class="title">TASKS COMPLETED</h1>
+  <form id="task-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="employee">Employee:</label>
+        <select id="employee" name="employee">
+          <option value="rodrigo-kunimoto">Rodrigo Kunimoto</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">From:</label>
+        <input type="date" id="date" name="date" value="2024-03-29">
+      </div>
+    </div>
+  </form>
+  <table class="task-table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Employee</th>
+      <th>Time Taken</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>#1</td>
+      <td>Rodrigo Kunimoto</td>
+      <td>3 Hours</td>
+      <td>29/03/2024</td>
+      <td>feed</td>
+      <td>Completed</td>
+    </tr>
+    <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</div>

@@ -1,22 +1,23 @@
 export class FinancialData {
 }
+
 export interface Income {
-  categoria: string;
-  descripcion: string;
-  monto: number;
-  fecha: Date;
-  periodo: string;
+  category: string;
+  description: string;
+  amount: number;
+  date: Date;
+  period: string;
 }
 
 export interface Expense {
-  categoria: string;
-  descripcion: string;
-  monto: number;
-  fecha: Date;
-  periodo: string;
+  category: string;
+  description: string;
+  amount: number;
+  date: Date;
+  period: string;
 }
 
 export interface Profitability {
-  producto: string;
-  margen: number;
+  product: string;
+  margin: number;
 }

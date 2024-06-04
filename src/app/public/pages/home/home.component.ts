@@ -3,9 +3,6 @@ import { FarmService } from '../../../profile-farm/services/farm/farm.service';
 import {ProfileService} from "../../../register/model/profile.service";
 import { Router } from '@angular/router';
 
-
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

@@ -30,6 +30,8 @@ import {
 import {SumaryComponent} from "./financial-stats/pages/sumary/sumary.component";
 import {EmployeeComponent} from "./monitoring/employee/employee.component";
 import {AddEmployeeComponent} from "./monitoring/add-employee/add-employee.component";
+import {EmergencyComponent} from "./monitoring/emergency/emergency.component";
+import {DashboardTaskComponent} from "./monitoring/dashboard-task/dashboard-task.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -62,6 +64,9 @@ const routes: Routes = [
   {path: 'summary-dashboard', component:SumaryComponent},
   {path: 'employee', component:EmployeeComponent},
   {path: 'add-employee', component:AddEmployeeComponent},
+  {path: 'emergency', component:EmergencyComponent},
+  {path: 'tasks/finished', component:DashboardTaskComponent},
+
   {path: '**', component:PageNotFoundComponent},
 
   // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},

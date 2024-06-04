@@ -8,39 +8,39 @@ import { Income, Expense, Profitability } from '../models/financial-data';
 })
 export class FinancialStatsService {
   getIncomeData(): Observable<Income[]> {
-    // Lógica para obtener los datos de ingresos
-    // Puedes hacer una llamada a una API o devolver datos mock
+    // Logic to get income data
+    // You can make an API call or return mock data
     const incomeData: Income[] = [
-      { categoria: 'Ventas', descripcion: 'Venta de productos', monto: 1000, fecha: new Date(), periodo: 'Mes' },
-      { categoria: 'Ventas', descripcion: 'Venta de productos', monto: 1000, fecha: new Date(), periodo: 'Mes' },
-      { categoria: 'Subsidios', descripcion: 'Subsidios', monto: 1000, fecha: new Date(), periodo: 'Mes' },
-      { categoria: 'Subsidios', descripcion: 'Subsidios', monto: 1000, fecha: new Date(), periodo: 'Mes' },
-      { categoria: 'Otros Ingresos', descripcion: 'Otros Ingresos', monto: 1000, fecha: new Date(), periodo: 'Mes' },
-      // Agrega más datos de ingresos aquí
+      { category: 'Sales', description: 'Product sales', amount: 1000, date: new Date(), period: 'Month' },
+      { category: 'Sales', description: 'Product sales', amount: 1000, date: new Date(), period: 'Month' },
+      { category: 'Subsidies', description: 'Subsidies', amount: 1000, date: new Date(), period: 'Month' },
+      { category: 'Subsidies', description: 'Subsidies', amount: 1000, date: new Date(), period: 'Month' },
+      { category: 'Other Income', description: 'Other Income', amount: 1000, date: new Date(), period: 'Month' },
+      // Add more income data here
     ];
     return of(incomeData);
   }
 
   getExpenseData(): Observable<Expense[]> {
-    // Lógica para obtener los datos de gastos
-    // Puedes hacer una llamada a una API o devolver datos mock
+    // Logic to get expense data
+    // You can make an API call or return mock data
     const expenseData: Expense[] = [
-      { categoria: 'Suministros', descripcion: 'Compra de suministros', monto: 500, fecha: new Date(), periodo: 'Mes' },
-      { categoria: 'Mano de Obra', descripcion: 'Pago de mano de obra', monto: 500, fecha: new Date(), periodo: 'Mes' },
-      { categoria: 'Mano de Obra', descripcion: 'Pago de mano de obra', monto: 500, fecha: new Date(), periodo: 'Mes' },
-      { categoria: 'Mantenimiento', descripcion: 'Pago de mantenimiento', monto: 500, fecha: new Date(), periodo: 'Mes' },
-      { categoria: 'Otros Gastos', descripcion: 'Otros Gastos', monto: 500, fecha: new Date(), periodo: 'Mes' },
-      // Agrega más datos de gastos aquí
+      { category: 'Supplies', description: 'Purchase of supplies', amount: 500, date: new Date(), period: 'Month' },
+      { category: 'Labor', description: 'Labor payment', amount: 500, date: new Date(), period: 'Month' },
+      { category: 'Labor', description: 'Labor payment', amount: 500, date: new Date(), period: 'Month' },
+      { category: 'Maintenance', description: 'Maintenance payment', amount: 500, date: new Date(), period: 'Month' },
+      { category: 'Other Expenses', description: 'Other Expenses', amount: 500, date: new Date(), period: 'Month' },
+      // Add more expense data here
     ];
     return of(expenseData);
   }
 
   getProfitabilityData(): Observable<Profitability[]> {
-    // Lógica para obtener los datos de rentabilidad
-    // Puedes hacer una llamada a una API o devolver datos mock
+    // Logic to get profitability data
+    // You can make an API call or return mock data
     const profitabilityData: Profitability[] = [
-      { producto: 'Producto A', margen: 0.2 },
-      // Agrega más datos de rentabilidad aquí
+      { product: 'Product A', margin: 0.2 },
+      // Add more profitability data here
     ];
     return of(profitabilityData);
   }
@@ -51,8 +51,8 @@ export class FinancialStatsService {
           return incomeData;
         } else {
           return incomeData.filter((income: Income) =>
-            (category === 'all' || income.categoria === category) &&
-            (period === 'all' || income.periodo === period)
+            (category === 'all' || income.category === category) &&
+            (period === 'all' || income.period === period)
           );
         }
       })
@@ -66,8 +66,8 @@ export class FinancialStatsService {
           return expenseData;
         } else {
           return expenseData.filter((expense: Expense) =>
-            (category === 'all' || expense.categoria === category) &&
-            (period === 'all' || expense.periodo === period)
+            (category === 'all' || expense.category === category) &&
+            (period === 'all' || expense.period === period)
           );
         }
       })
