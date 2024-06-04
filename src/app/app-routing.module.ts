@@ -60,7 +60,6 @@ const routes: Routes = [
   {path: 'monitoring/list-sheds', component:ListShedsComponent},
   {path: 'monitoring-farmer', component:DetailedMonitoringFarmerComponent},
   {path: 'summary-dashboard', component:SumaryComponent},
-  {path: 'summary-dashboard', component:SumaryComponent},
   {path: 'employee', component:EmployeeComponent},
   {path: 'add-employee', component:AddEmployeeComponent},
   {path: '**', component:PageNotFoundComponent},
