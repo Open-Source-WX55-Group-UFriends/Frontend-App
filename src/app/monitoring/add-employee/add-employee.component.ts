@@ -12,8 +12,10 @@ export class AddEmployeeComponent {
     id: '',
     name: '',
     email: '',
+    password: '',
+    phone: '',
     position: '',
-    phone: ''
+
   };
 
   constructor(private employeeService: EmployeeService, private router: Router) { }
@@ -24,8 +26,10 @@ export class AddEmployeeComponent {
       id: '',
       name: '',
       email: '',
+      password: '',
+      phone: '',
       position: '',
-      phone: ''
+
     };
     this.router.navigate(['/employee']);
   }
