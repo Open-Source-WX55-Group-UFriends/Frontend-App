@@ -1,33 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { FinancialStatsService } from '../../services/financial-stats.service';
 import { Income, Expense, Profitability } from '../../models/financial-data';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-financial-stats-page',
   templateUrl: './financial-stats-page.component.html',
   styleUrls: ['./financial-stats-page.component.css']
 })
+
 export class FinancialStatsPageComponent implements OnInit {
-  totalIncome: number = 0;
-  totalExpenses: number = 0;
-  profitMargin: number = 0;
-  profitPercentage: string = '';
-
-  incomeDataSource: Income[] = [];
-  expenseDataSource: Expense[] = [];
-  profitabilityDataSource: Profitability[] = [];
-
-  filteredIncomeDataSource: Income[] = [];
-  filteredExpenseDataSource: Expense[] = [];
-  selectedIncomeCategory: string = 'all';
-  selectedIncomePeriod: string = 'all';
-  selectedExpenseCategory: string = 'all';
-  selectedExpensePeriod: string = 'all';
-
   type: string = 'income';
   categories: string[] = [];
+  amount: any;
+  description: any;
+  date: any;
+  period: any;
 
-  constructor(private financialStatsService: FinancialStatsService) { }
+  formData: any[] = [];
+  category: any;
+
+  displayedColumns: string[] = ['type', 'category', 'description', 'amount', 'date', 'period'];
+  filteredDataSource: any[] = [];
+  dataSource: any[] = [];
+  searchType: any;
+  searchCategory: any;
+  searchDate: any;
+  searchCategories: string[] = [];
+
+
+  ngOnInit(): void {
+    this.updateCategories();
+    this.updateSearchCategories();
+  }
+
   updateCategories() {
     if (this.type === 'income') {
       this.categories = ['Sales', 'Subsidies', 'Other Income'];
@@ -35,50 +41,53 @@ export class FinancialStatsPageComponent implements OnInit {
       this.categories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
     }
   }
-  ngOnInit(): void {
-    this.getIncomeData();
-    this.getExpenseData();
-    this.getProfitabilityData();
+
+  updateSearchCategories() {
+    if (this.searchType === 'income') {
+      this.searchCategories = ['Sales', 'Subsidies', 'Other Income'];
+    } else if (this.searchType === 'expense') {
+      this.searchCategories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
+    } else {
+      this.searchCategories = [];
+    }
   }
 
-  getIncomeData(): void {
-    this.financialStatsService.getIncomeData().subscribe((data: Income[]) => {
-      this.incomeDataSource = data;
-      this.applyFilters();
-    });
+
+
+  onSubmit(form: NgForm) {
+    const value = form.value;
+
+    // create new data object
+    const newData = {
+      type: this.type,
+      category: this.category,
+      description: this.description,
+      amount: value.amount,
+      date: new Date(value.date),
+      period: value.period
+    };
+
+    this.formData = [...this.formData, newData];
+    this.dataSource = [...this.dataSource, newData]; // Add new data to dataSource
+
+    // print new data to console
+    console.log(this.formData);
+
+    // reset the form
+    form.reset();
   }
 
-  getExpenseData(): void {
-    this.financialStatsService.getExpenseData().subscribe((data: Expense[]) => {
-      this.expenseDataSource = data;
-      this.applyFilters();
-    });
-  }
-
-  getProfitabilityData(): void {
-    this.financialStatsService.getProfitabilityData().subscribe((data: Profitability[]) => {
-      this.profitabilityDataSource = data;
-    });
-  }
-
-  applyFilters(): void {
-    this.financialStatsService.getFilteredIncomeData(this.selectedIncomeCategory, this.selectedIncomePeriod)
-      .subscribe((data: Income[]) => {
-        this.filteredIncomeDataSource = data;
-        this.calculateTotals();
+  filterData() {
+    if (this.searchType === 'all') {
+      this.filteredDataSource = this.dataSource;
+    } else {
+      this.filteredDataSource = this.dataSource.filter((item: any) => {
+        return item.type === this.searchType &&
+          (!this.searchCategory || item.category === this.searchCategory) &&
+          (!this.searchDate || new Date(item.date) >= new Date(this.searchDate));
       });
-
-    this.financialStatsService.getFilteredExpenseData(this.selectedExpenseCategory, this.selectedExpensePeriod)
-      .subscribe((data: Expense[]) => {
-        this.filteredExpenseDataSource = data;
-        this.calculateTotals();
-      });
+    }
+    console.log(this.filteredDataSource); // Print the filtered data to the console
   }
 
-  calculateTotals(): void {
-    this.totalIncome = this.filteredIncomeDataSource.reduce((sum, income) => sum + income.amount, 0);
-    this.totalExpenses = this.filteredExpenseDataSource.reduce((sum, expense) => sum + expense.amount, 0);
-    this.profitMargin = this.totalIncome - this.totalExpenses;
-    this.profitPercentage = ((this.profitMargin / this.totalIncome) * 100).toFixed(2) + '%';
-  }
 }
