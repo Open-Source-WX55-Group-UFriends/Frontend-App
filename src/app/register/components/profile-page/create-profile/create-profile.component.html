@@ -18,7 +18,7 @@
     <div class="user-box">
       <input type="tel" name="phone" required pattern="\d*" ngModel #phone="ngModel" [(ngModel)]="profile.phone">
       <label>Phone</label>
-      <div *ngIf="phone.invalid && (phone.dirty || phone.touched || form.submitted)" class="error-message">This field is required</div>
+      <div *ngIf="phone.invalid && (phone.dirty || phone.touched || form.submitted)" class="error-message">This field only accept numbers</div>
     </div>
     <div class="user-box">
       <select name="gender" required ngModel #gender="ngModel" [(ngModel)]="profile.gender">
@@ -57,10 +57,14 @@
     <div class="user-box">
       <input type="text" name="documentNumber" required pattern="\d*" ngModel #documentNumber="ngModel" [(ngModel)]="profile.documentNumber">
       <label>Document Number</label>
-      <div *ngIf="documentNumber.invalid && (documentNumber.dirty || documentNumber.touched || form.submitted)" class="error-message">This field is required</div>
+      <div *ngIf="documentNumber.invalid && (documentNumber.dirty || documentNumber.touched || form.submitted)" class="error-message">This field only accept numbers</div>
     </div>
     <div class="user-box">
-      <input type="text" name="documentType" required ngModel #documentType="ngModel" [(ngModel)]="profile.documentType">
+      <select name="documentType" required ngModel #documentType="ngModel" [(ngModel)]="profile.documentType">
+        <option value="" selected></option>
+        <option value="DNI">DNI</option>
+        <option value="Passport">Passport</option>
+      </select>
       <label>Document Type</label>
       <div *ngIf="documentType.invalid && (documentType.dirty || documentType.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
@@ -76,7 +80,7 @@
     </div>
 
     <button type="submit" [disabled]="!form.valid">
-      SEND
+    SEND
       <span></span>
     </button>
   </form>

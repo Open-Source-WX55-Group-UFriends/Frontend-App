@@ -17,19 +17,19 @@
             <div class="info-section">
               <h2>Farm {{ farm.name }}</h2>
               <p>
-                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/map-marker--v1.png" alt="Ubication" />
+                <img width="20" height="20" src="/assets/map-marker-icon.png" alt="Ubication" />
                 {{ farm.ubication }}, Lima
               </p>
               <p>
-                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/chicken.png" alt="Product" />
+                <img width="20" height="20" src="/assets/chicken-icon.png" alt="Product" />
                 {{ farm.product }}
               </p>
               <p>
-                <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/3d-fluency-farm.png" alt="Surface" />
+                <img width="20" height="20" src="/assets/surface-icon.png" alt="Surface" />
                 {{ farm.totalSurface }} ha
               </p>
               <p>
-                <img width="20" height="20" src="https://img.icons8.com/arcade/64/price-tag-usd.png" alt="Price" />
+                <img width="20" height="20" src="/assets/price-icon.png" alt="Price" />
                 $ {{ farm.price | number }}
               </p>
 
@@ -57,7 +57,8 @@
       </div>
     </div>
   </div>
-  <app-footer-home></app-footer-home>
+  <div class="footer-spacer"></div>
+  <app-footer/>
 </div>
 
 <!-- Contenido para 'businessOwner' -->
@@ -102,7 +103,6 @@
               </ul>
 
               <hr>
-
               <p>Ubication: {{ farm.ubication }}</p>
               <p>Infrastructure: {{ farm.infrastructure }}</p>
               <p>Type of farm: {{ farm.farmType }}</p>
@@ -119,5 +119,6 @@
   </div>
   <app-star-rating></app-star-rating>
   <app-contact-card></app-contact-card>
-  <app-footer-home></app-footer-home>
+  <div class="footer-spacer"></div>
+  <app-footer/>
 </div>
