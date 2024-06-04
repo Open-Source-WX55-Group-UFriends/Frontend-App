@@ -13,7 +13,7 @@ export class EmployeeService {
   addEmployee(employee: any) {
     console.log(employee);
 
-    const id= `${this.employees.length + 9};`
+    const id= `${this.employees.length + 9}`
     this.employees.push({ ...employee, id });
     this.employeesSubject.next(this.employees);
   }
