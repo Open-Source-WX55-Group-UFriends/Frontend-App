@@ -2,18 +2,18 @@
 <div class="container">
   <div class="summary">
     <mat-card class="summary-card">
-      <mat-card-title class="summary-title">Resumen Financiero</mat-card-title>
+      <mat-card-title class="summary-title">Financial Summary</mat-card-title>
       <mat-card-content>
         <div class="summary-item">
-          <span class="label">Ingresos Totales</span>
+          <span class="label">Total Income</span>
           <span class="value">{{ totalIncome | currency }}</span>
         </div>
         <div class="summary-item">
-          <span class="label">Gastos Totales</span>
+          <span class="label">Total Expenses</span>
           <span class="value">{{ totalExpenses | currency }}</span>
         </div>
         <div class="summary-item">
-          <span class="label">Margen de Beneficio</span>
+          <span class="label">Profit Margin</span>
           <span class="value">{{ profitMargin | currency }} ({{ profitPercentage }})</span>
         </div>
       </mat-card-content>
@@ -21,24 +21,24 @@
   </div>
 
   <div class="section">
-    <h2 class="section-title">Ingresos</h2>
+    <h2 class="section-title">Income</h2>
     <div class="filters">
       <mat-form-field appearance="outline">
-        <mat-label>Categoría</mat-label>
+        <mat-label>Category</mat-label>
         <mat-select [(ngModel)]="selectedIncomeCategory" (selectionChange)="applyFilters()">
-          <mat-option value="all">Todas las categorías</mat-option>
-          <mat-option value="ventas">Ventas</mat-option>
-          <mat-option value="subsidios">Subsidios</mat-option>
-          <mat-option value="otros">Otros Ingresos</mat-option>
+          <mat-option value="all">All Categories</mat-option>
+          <mat-option value="sales">Sales</mat-option>
+          <mat-option value="subsidies">Subsidies</mat-option>
+          <mat-option value="other">Other Income</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Período</mat-label>
+        <mat-label>Period</mat-label>
         <mat-select [(ngModel)]="selectedIncomePeriod" (selectionChange)="applyFilters()">
-          <mat-option value="all">Todos los períodos</mat-option>
-          <mat-option value="mes">Mes</mat-option>
-          <mat-option value="trimestre">Trimestre</mat-option>
-          <mat-option value="año">Año</mat-option>
+          <mat-option value="all">All Periods</mat-option>
+          <mat-option value="month">Month</mat-option>
+          <mat-option value="quarter">Quarter</mat-option>
+          <mat-option value="year">Year</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -46,26 +46,26 @@
   </div>
 
   <div class="section">
-    <h2 class="section-title">Gastos</h2>
+    <h2 class="section-title">Expenses</h2>
     <div class="filters">
       <mat-form-field appearance="outline">
-        <mat-label>Categoría</mat-label>
+        <mat-label>Category</mat-label>
         <mat-select [(ngModel)]="selectedExpenseCategory" (selectionChange)="applyFilters()">
-          <mat-option value="all">Todas las categorías</mat-option>
-          <mat-option value="suministros">Suministros</mat-option>
-          <mat-option value="mano-de-obra">Mano de Obra</mat-option>
-          <mat-option value="mantenimiento">Mantenimiento</mat-option>
-          <mat-option value="servicios">Servicios</mat-option>
-          <mat-option value="otros">Otros Gastos</mat-option>
+          <mat-option value="all">All Categories</mat-option>
+          <mat-option value="supplies">Supplies</mat-option>
+          <mat-option value="labor">Labor</mat-option>
+          <mat-option value="maintenance">Maintenance</mat-option>
+          <mat-option value="services">Services</mat-option>
+          <mat-option value="other">Other Expenses</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Período</mat-label>
+        <mat-label>Period</mat-label>
         <mat-select [(ngModel)]="selectedExpensePeriod" (selectionChange)="applyFilters()">
-          <mat-option value="all">Todos los períodos</mat-option>
-          <mat-option value="mes">Mes</mat-option>
-          <mat-option value="trimestre">Trimestre</mat-option>
-          <mat-option value="año">Año</mat-option>
+          <mat-option value="all">All Periods</mat-option>
+          <mat-option value="month">Month</mat-option>
+          <mat-option value="quarter">Quarter</mat-option>
+          <mat-option value="year">Year</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -73,9 +73,9 @@
   </div>
 
   <div class="section">
-    <h2 class="section-title">Análisis de Rentabilidad</h2>
+    <h2 class="section-title">Profitability Analysis</h2>
     <div class="roi">
-      <span class="label">Retorno sobre la Inversión (ROI)</span>
+      <span class="label">Return on Investment (ROI)</span>
       <span class="value">15%</span>
     </div>
     <app-profitability-table [profitabilityDataSource]="profitabilityDataSource"></app-profitability-table>

@@ -42,7 +42,8 @@
     <mat-card-content>
       <p>ID: {{employee.id}}</p>
       <p>Email: {{employee.email}}</p>
-      <p>Phone: {{employee.phone}}</p>
+      <p>Password: {{employee.password}}</p>
+
     </mat-card-content>
   </mat-card>
   <button *ngIf="searchPerformed" class="back-button" (click)="goBack()">
@@ -54,4 +55,3 @@
 </div>
 
 <div class="footer-spacer"></div>
-<app-footer/>

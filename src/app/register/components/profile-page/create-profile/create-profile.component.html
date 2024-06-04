@@ -75,7 +75,7 @@
       <div *ngIf="role.invalid && (role.dirty || role.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
 
-    <button type="submit" [disabled]="!form.valid">
+    <button type="submit" [disabled]="form.valid">
       SEND
       <span></span>
     </button>

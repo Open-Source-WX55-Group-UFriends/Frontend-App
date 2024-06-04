@@ -8,5 +8,5 @@ import { Expense } from '../../models/financial-data';
 })
 export class ExpenseTableComponent {
   @Input() expenseDataSource: Expense[] = [];
-  expenseColumns: string[] = ['categoria', 'descripcion', 'monto', 'fecha', 'periodo'];
+  expenseColumns: string[] = ['category', 'description', 'amount', 'date', 'period'];
 }

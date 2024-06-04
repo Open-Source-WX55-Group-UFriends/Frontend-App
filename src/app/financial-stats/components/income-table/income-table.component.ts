@@ -10,5 +10,5 @@ import { Income } from '../../models/financial-data';
 })
 export class IncomeTableComponent {
   @Input() incomeDataSource: Income[] = [];
-  incomeColumns: string[] = ['categoria', 'descripcion', 'monto', 'fecha', 'periodo'];
+  incomeColumns: string[] = ['category', 'description', 'amount', 'date', 'period'];
 }

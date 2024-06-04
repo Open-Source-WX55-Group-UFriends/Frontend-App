@@ -59,7 +59,8 @@ export class ProfileFarmComponent {
       highlight3: '',
       price: "" as any,
       images: [] as string[]
-    };
+    },
+
     this.router.navigate(['/home']);
   }
 

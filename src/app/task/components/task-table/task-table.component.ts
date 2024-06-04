@@ -3,34 +3,23 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {Worker} from "../../model/worker.entity";
 import {Task} from "../../model/task.entity";
+import {TaskService} from "../../services/tasks.service";
 @Component({
   selector: 'app-task-table',
   templateUrl: './task-table.component.html',
   styleUrl: './task-table.component.css'
 })
-export class TaskTableComponent implements OnInit{  name = 'Angular';
-  dcWorkers: string[] = ['id', 'name', 'time', 'date', 'state'];
-  dsWorkers: MatTableDataSource<any>;
-  tasks: Task[] = [
-    { time: '10:00', date: '2021-10-10', state: 'pending', description: 'Task 1 my man' },
-    { time: '06:00', date: '2021-10-10', state: 'pending', description: 'Task 2 my man' },
-  ];
-  workers: Worker[] = [
-    new Worker('1', 'Mathias', this.tasks),
-    new Worker('2', 'Francisco', this.tasks),
-  ];
+export class TaskTableComponent implements OnInit {
+  displayedColumns: string[] = ['employee', 'time', 'date', 'description', 'state'];
+  dataSource: MatTableDataSource<any>;
 
-  constructor() {
-    this.dsWorkers = new MatTableDataSource<Worker>();
+  constructor(private taskService: TaskService) {
+    this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit() {
-    this.updateTableTrainers();
+    this.taskService.tasks$.subscribe(tasks => {
+      this.dataSource.data = tasks;
+    });
   }
-
-  updateTableTrainers() {
-    this.dsWorkers.data = this.workers;
-    console.log(this.dsWorkers.data);
-  }
-
 }

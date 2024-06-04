@@ -3,21 +3,27 @@
   <form (ngSubmit)="saveEmployee()" class="form">
     <p class="title">Add Employee</p>
     <div class="flex">
-      <label>
-        <input [(ngModel)]="employee.name" name="name" placeholder="" required="" class="input">
-        <span>Name</span>
+      <label class="floating-label">
+        <p>Name</p>
+        <input [(ngModel)]="employee.name" name="name" placeholder=" " required class="input">
       </label>
-      <label>
-        <input [(ngModel)]="employee.email" name="email" placeholder="" required="" type="email" class="input">
-        <span>Email</span>
+      <label class="floating-label">
+        <p>Email</p>
+
+        <input [(ngModel)]="employee.email" name="email" placeholder=" " required type="email" class="input">
       </label>
-      <label>
-        <input [(ngModel)]="employee.phone" name="phone" placeholder="" required="" class="input">
-        <span>Phone</span>
+      <label class="floating-label">
+        <p>Phone</p>
+
+        <input [(ngModel)]="employee.phone" name="phone" placeholder=" " required class="input">
       </label>
-      <label>
-        <input [(ngModel)]="employee.position" name="position" placeholder="" required="" class="input">
-        <span>Position</span>
+      <label class="floating-label">
+        <p>Password</p>
+        <input [(ngModel)]="employee.password" name="password" required class="input">
+      </label>
+      <label class="floating-label">
+        <p>Position</p>
+        <input [(ngModel)]="employee.position"name="position"  required class="input">
       </label>
     </div>
     <button type="submit" class="submit">Save</button>
