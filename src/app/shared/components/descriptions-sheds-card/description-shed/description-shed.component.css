@@ -96,37 +96,43 @@ body {
 .footer-spacer {
   height: 30.3%;
 }
-
-@media (max-width: 500px) {
-  .container-app {
-    flex-direction: column;
-    align-items: center;
+hr{
+  width:109.7%;
+  border: 0;
+  height: 3px;
+  background: #003f17;
+  margin: 20px 0;
+}
+@media screen and (max-width: 768px) {
+  .full-page-app {
+    max-width: 100%;
   }
 
-  .full-page-app {
+  .card {
     width: 100%;
+    max-width: 100%;
+  }
+
+  .image-section .farm-image {
+    height: auto;
   }
 
   .title-description {
     font-size: 2em;
   }
 
-  .card {
-    max-width: 100%;
-    height: auto;
+  .card h2 {
+    font-size: 24px;
+  }
+
+  .card p {
+    font-size: 18px;
   }
 
   .highlight-list {
-    flex-direction: column;
-    align-items: center;
+    font-size: 18px;
   }
-
-  .card-content {
-    flex-direction: column;
-  }
-
-  .image-section,
-  .info-section {
-    width: 100%;
+  hr{
+   max-width:125%;
   }
 }
