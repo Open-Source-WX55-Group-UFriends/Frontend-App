@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FarmService } from '../../../profile-farm/farm/farm.service';
-
+import { FarmService } from '../../../profile-farm/services/farm/farm.service';
+import {ProfileService} from "../../../register/model/profile.service";
 import { Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-home',
@@ -11,11 +14,28 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   farms: any;
   profile:any;
+  userRole: any;
+  userFarms: any;
 
-  constructor( private router: Router, private farmService: FarmService) { }
+  constructor( private router: Router, private farmService: FarmService, private profileService: ProfileService) { }
+
+
 
   ngOnInit(): void {
     this.getFarmData();
+    this.getUserFarms();
+    this.getUserRole();
+  }
+  getUserFarms(): void {
+    this.farmService.getUserFarms(this.userRole).subscribe((data: any) => {
+      this.userFarms = data;
+      console.log(this.userFarms);
+    });
+  }
+  getUserRole(): void {
+    this.profileService.getProfiles().subscribe(profiles => {
+      this.userRole = profiles[profiles.length - 1].role;
+    });
   }
 
   getFarmData(): void {
@@ -23,64 +43,6 @@ export class HomeComponent implements OnInit {
       this.farms = data.map((farm: any, index: number) => {
         return { ...farm, id: `farm${index + 1}` };
       });
-      this.farms.unshift(
-        {
-          id: 'farm6',
-          name: 'Farm Example 1',
-          ubication: 'Lima',
-          product: 'Chicken',
-          totalSurface: 100,
-          price: 5000,
-          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
-          highlight1: 'Highlight 1',
-          highlight2: 'Highlight 2',
-          highlight3: 'Highlight 3',
-        },
-        {
-          name: 'Farm Example 2',
-          ubication: 'Lima',
-          product: 'Chicken',
-          totalSurface: 200,
-          price: 6000,
-          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
-          highlight1: 'Highlight 1',
-          highlight2: 'Highlight 2',
-          highlight3: 'Highlight 3',
-        },
-        {
-          name: 'Farm Example 3',
-          ubication: 'Lima',
-          product: 'Chicken',
-          totalSurface: 300,
-          price: 7000,
-          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
-          highlight1: 'Highlight 1',
-          highlight2: 'Highlight 2',
-          highlight3: 'Highlight 3',
-        },
-        {
-          name: 'Farm Example 4',
-          ubication: 'Lima',
-          product: 'Chicken',
-          totalSurface: 400,
-          price: 8000,
-          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
-          highlight1: 'Highlight 1',
-          highlight2: 'Highlight 2',
-          highlight3: 'Highlight 3',
-        },
-        {
-          name: 'Farm Example 5',
-          ubication: 'Lima',
-          product: 'Chicken',
-          totalSurface: 500,
-          price: 9000,
-          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
-          highlight1: 'Highlight 1',
-          highlight2: 'Highlight 2',
-          highlight3: 'Highlight 3',
-        }
-    );
       console.log(this.farms);
     });
   }
@@ -89,6 +51,16 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/descriptions', id]);
     } else {
 
+      console.error('No farm ID was provided');
+    }
+  }
+  navigateToDescriptionsUndefined(id: string): void {
+    if (id === 'farm3' || id === 'farm4' || id === 'farm5') {
+      alert('Si quieres disfrutar de todo el contenido, tienes que registrarte o iniciar sesión');
+      this.router.navigate(['/login']);
+    } else if (id) {
+      this.router.navigate(['/descriptions', id]);
+    } else {
       console.error('No farm ID was provided');
     }
   }
