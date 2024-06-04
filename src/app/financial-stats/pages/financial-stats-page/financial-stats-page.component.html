@@ -88,7 +88,8 @@
   <form #searchForm="ngForm" (ngSubmit)="filterData()">
     <div>
       <label for="searchType">Type</label>
-      <select id="searchType" [(ngModel)]="searchType" name="searchType">
+      <select id="searchType" [(ngModel)]="searchType" name="searchType" (change)="updateSearchCategories()">
+        <option value="all">All</option>
         <option value="income">Income</option>
         <option value="expense">Expense</option>
       </select>
@@ -96,7 +97,7 @@
     <div>
       <label for="searchCategory">Category</label>
       <select id="searchCategory" [(ngModel)]="searchCategory" name="searchCategory">
-        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+        <option *ngFor="let category of searchCategories" [value]="category">{{category}}</option>
       </select>
     </div>
     <div>

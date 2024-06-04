@@ -26,10 +26,12 @@ export class FinancialStatsPageComponent implements OnInit {
   searchType: any;
   searchCategory: any;
   searchDate: any;
+  searchCategories: string[] = [];
 
 
   ngOnInit(): void {
     this.updateCategories();
+    this.updateSearchCategories();
   }
 
   updateCategories() {
@@ -39,6 +41,19 @@ export class FinancialStatsPageComponent implements OnInit {
       this.categories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
     }
   }
+
+  updateSearchCategories() {
+    if (this.searchType === 'income') {
+      this.searchCategories = ['Sales', 'Subsidies', 'Other Income'];
+    } else if (this.searchType === 'expense') {
+      this.searchCategories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
+    } else {
+      this.searchCategories = [];
+    }
+  }
+
+
+
   onSubmit(form: NgForm) {
     const value = form.value;
 
@@ -61,15 +76,18 @@ export class FinancialStatsPageComponent implements OnInit {
     // reset the form
     form.reset();
   }
+
   filterData() {
-    this.filteredDataSource = this.dataSource.filter((item: any) => {
-      return item.type === this.searchType &&
-        item.category === this.searchCategory &&
-        new Date(item.date) >= new Date(this.searchDate);
-    });
+    if (this.searchType === 'all') {
+      this.filteredDataSource = this.dataSource;
+    } else {
+      this.filteredDataSource = this.dataSource.filter((item: any) => {
+        return item.type === this.searchType &&
+          (!this.searchCategory || item.category === this.searchCategory) &&
+          (!this.searchDate || new Date(item.date) >= new Date(this.searchDate));
+      });
+    }
     console.log(this.filteredDataSource); // Print the filtered data to the console
   }
-
-
 
 }
