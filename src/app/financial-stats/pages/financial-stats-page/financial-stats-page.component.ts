@@ -24,8 +24,17 @@ export class FinancialStatsPageComponent implements OnInit {
   selectedExpenseCategory: string = 'all';
   selectedExpensePeriod: string = 'all';
 
-  constructor(private financialStatsService: FinancialStatsService) { }
+  type: string = 'income';
+  categories: string[] = [];
 
+  constructor(private financialStatsService: FinancialStatsService) { }
+  updateCategories() {
+    if (this.type === 'income') {
+      this.categories = ['Sales', 'Subsidies', 'Other Income'];
+    } else if (this.type === 'expense') {
+      this.categories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
+    }
+  }
   ngOnInit(): void {
     this.getIncomeData();
     this.getExpenseData();
@@ -67,8 +76,8 @@ export class FinancialStatsPageComponent implements OnInit {
   }
 
   calculateTotals(): void {
-    this.totalIncome = this.filteredIncomeDataSource.reduce((sum, income) => sum + income.monto, 0);
-    this.totalExpenses = this.filteredExpenseDataSource.reduce((sum, expense) => sum + expense.monto, 0);
+    this.totalIncome = this.filteredIncomeDataSource.reduce((sum, income) => sum + income.amount, 0);
+    this.totalExpenses = this.filteredExpenseDataSource.reduce((sum, expense) => sum + expense.amount, 0);
     this.profitMargin = this.totalIncome - this.totalExpenses;
     this.profitPercentage = ((this.profitMargin / this.totalIncome) * 100).toFixed(2) + '%';
   }

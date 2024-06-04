@@ -10,5 +10,5 @@ import { Profitability } from '../../models/financial-data';
 })
 export class ProfitabilityTableComponent {
   @Input() profitabilityDataSource: Profitability[] = [];
-  profitabilityColumns: string[] = ['producto', 'margen'];
+  profitabilityColumns: string[] = ['product', 'margin'];
 }
