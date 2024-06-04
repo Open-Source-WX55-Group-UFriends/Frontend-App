@@ -16,22 +16,22 @@
           <div class="image-section">
             <img mat-card-image [src]="farm.images[0]" alt="Farm image" class="farm-image">
           </div>
+          <hr>
           <div class="info-section">
             <h2 class="text-title">Farm {{ farm.name }}</h2>
             <p class="text-body">
-              <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/map-marker--v1.png" alt="Ubication"/>
+              <img width="20" height="20" src="/assets/map-marker-icon.png" alt="Ubication"/>
               {{ farm.ubication }}, Lima
             </p>
             <p class="text-body">
-              <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/chicken.png" alt="Product"/>
+              <img width="20" height="20" src="/assets/chicken-icon.png" alt="Product"/>
               {{ farm.product }}
             </p>
             <p class="text-body">
-              <img width="20" height="20" src="https://img.icons8.com/3d-fluency/94/3d-fluency-farm.png" alt="Surface"/>
+              <img width="20" height="20" src="/assets/surface-icon.png" alt="Surface"/>
               {{ farm.totalSurface }} ha
-            </p>
             <p class="text-body">
-              <img width="20" height="20" src="https://img.icons8.com/arcade/64/price-tag-usd.png" alt="Price"/>
+              <img width="20" height="20" src="/assets/price-icon.png" alt="Price"/>
               $ {{ farm.price | number }}
             </p>
             <hr>
@@ -46,3 +46,4 @@
     </div>
   </div>
 </div>
+

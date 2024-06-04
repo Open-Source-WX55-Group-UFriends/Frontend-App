@@ -23,18 +23,64 @@ export class HomeComponent implements OnInit {
       this.farms = data.map((farm: any, index: number) => {
         return { ...farm, id: `farm${index + 1}` };
       });
-      this.farms.unshift({
-
-        name: 'Farm Example',
-        ubication: 'Lima',
-        product: 'Chicken',
-        totalSurface: 100,
-        price: 5000,
-        images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
-        highlight1: 'Highlight 1',
-        highlight2: 'Highlight 2',
-        highlight3: 'Highlight 3',
-      });
+      this.farms.unshift(
+        {
+          id: 'farm6',
+          name: 'Farm Example 1',
+          ubication: 'Lima',
+          product: 'Chicken',
+          totalSurface: 100,
+          price: 5000,
+          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
+          highlight1: 'Highlight 1',
+          highlight2: 'Highlight 2',
+          highlight3: 'Highlight 3',
+        },
+        {
+          name: 'Farm Example 2',
+          ubication: 'Lima',
+          product: 'Chicken',
+          totalSurface: 200,
+          price: 6000,
+          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
+          highlight1: 'Highlight 1',
+          highlight2: 'Highlight 2',
+          highlight3: 'Highlight 3',
+        },
+        {
+          name: 'Farm Example 3',
+          ubication: 'Lima',
+          product: 'Chicken',
+          totalSurface: 300,
+          price: 7000,
+          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
+          highlight1: 'Highlight 1',
+          highlight2: 'Highlight 2',
+          highlight3: 'Highlight 3',
+        },
+        {
+          name: 'Farm Example 4',
+          ubication: 'Lima',
+          product: 'Chicken',
+          totalSurface: 400,
+          price: 8000,
+          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
+          highlight1: 'Highlight 1',
+          highlight2: 'Highlight 2',
+          highlight3: 'Highlight 3',
+        },
+        {
+          name: 'Farm Example 5',
+          ubication: 'Lima',
+          product: 'Chicken',
+          totalSurface: 500,
+          price: 9000,
+          images: ['https://media.istockphoto.com/id/1401722160/es/foto/plantaci%C3%B3n-soleada-con-cultivo-de-soja.jpg?s=1024x1024&w=is&k=20&c=bv0pUoZadRvh2FXOnasv5t3Vt8hYeW_6cFETd6i7b-g='],
+          highlight1: 'Highlight 1',
+          highlight2: 'Highlight 2',
+          highlight3: 'Highlight 3',
+        }
+    );
       console.log(this.farms);
     });
   }
