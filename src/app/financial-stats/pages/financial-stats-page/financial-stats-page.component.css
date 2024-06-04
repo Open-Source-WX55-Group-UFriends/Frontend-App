@@ -125,3 +125,100 @@
 .filters mat-form-field {
   flex: 1;
 }
+
+
+.container-table {
+  width: 50%;
+  margin: 50px auto; /* Agrega un margen de 50px en la parte superior e inferior */
+  padding: 20px;
+  border: 1px solid #807a7a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.container-table th, .container-table td {
+  padding: 8px;
+  font-size: 14px;
+  text-align: center; /* Alinea el texto a la izquierda */
+}
+
+.container-table th {
+  background-color: #f9f9f9; /* Cambia el color de fondo de los encabezados de la tabla */
+  font-weight: bold; /* Hace que los encabezados de la tabla sean negrita */
+}
+@media screen and (max-width: 600px) {
+  .container-table th, .container-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+.container {
+  width: 50%;
+  margin: 50px auto; /* Agrega un margen de 50px en la parte superior e inferior */
+  padding: 20px;
+  border: 1px solid #807a7a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.container form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.container form div {
+  flex: 1 0 21%; /* Esto hará que los campos de entrada se muestren en línea y tengan un ancho del 21% del contenedor del formulario */
+  margin: 5px;
+}
+
+.container form select,
+.container form input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+}
+
+.container form button {
+  padding: 10px 15px;
+  background-color: #f9f9f9; /* Cambia el color de fondo de los encabezados de la tabla */
+  font-weight: bold; /* Hace que los encabezados de la tabla sean negrita */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px auto;
+  display: block;
+}
+
+.container table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+.container table thead {
+  background-color: #f9f9f9; /* Cambia el color de fondo de los encabezados de la tabla */
+  font-weight: bold; /* Hace que los encabezados de la tabla sean negrita */
+}
+
+.container table th,
+.container table td {
+  padding: 8px;
+  font-size: 14px;
+  text-align: center; /* Alinea el texto a la izquierda */
+}
+
+.container table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 600px) {
+  .container form div {
+    flex: 1 0 100%; /* En pantallas pequeñas, los campos de entrada se mostrarán uno debajo del otro */
+  }
+}
+
+
