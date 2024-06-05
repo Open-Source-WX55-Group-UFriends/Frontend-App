@@ -24,7 +24,8 @@
           </div>
           <div class="filter-container">
             <label>Shed</label>
-            <select class="filter-field">
+            <select [(ngModel)]="selectedShed" (ngModelChange)="filterCrops()" class="filter-field">
+              <option value="">All Sheds</option>
               <option value="Shed 1">Shed 1</option>
               <option value="Shed 2">Shed 2</option>
               <option value="Shed 3">Shed 3</option>
@@ -38,8 +39,12 @@
               <th>Sowing Date</th>
             </tr>
             </thead>
-            <tbody>
-            <!-- Here would go the rows with the crop data -->
+            <tbody *ngIf="!isLoading">
+            <tr *ngFor="let crop of filteredCrops">
+              <td>{{crop.id}}</td>
+              <td>{{crop.typeCrop}}</td>
+              <td>{{crop.sowingDate}}</td>
+            </tr>
             </tbody>
           </table>
         </div>

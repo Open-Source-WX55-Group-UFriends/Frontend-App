@@ -18,32 +18,34 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div class="content-container">
-        <div class="form-container">
-          <div class="title-container">
-            <h2 class="title-add">CULTIVATION RECORD</h2>
-          </div>
-          <div class="form-group">
-            <label>Shed</label>
-            <select class="form-field" required>
-              <option value="">Shed 1</option>
-              <option value="">Shed 2</option>
-              <option value="">Shed 3</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Type of Crop</label>
-            <input type="text" class="form-field" required>
-          </div>
-          <div class="form-group">
-            <label>Sowing Date</label>
-            <input type="date" class="form-field" required>
-          </div>
-          <div class="button-container">
-            <button type="submit">Save</button>
+      <form (ngSubmit)="saveCrop()">
+        <div class="content-container">
+          <div class="form-container">
+            <div class="title-container">
+              <h2 class="title-add">CULTIVATION RECORD</h2>
+            </div>
+            <div class="form-group">
+              <label>Shed</label>
+              <select [(ngModel)]="crop.shed" class="form-field" name="shed" required>
+                <option value="Shed 1" selected>Shed 1</option>
+                <option value="Shed 2">Shed 2</option>
+                <option value="Shed 3">Shed 3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Type of Crop</label>
+              <input [(ngModel)]="crop.typeCrop" type="text" class="form-field" name="typeCrop" required>
+            </div>
+            <div class="form-group">
+              <label>Sowing Date</label>
+              <input [(ngModel)]="crop.sowingDate" type="date" class="form-field" name="sowingDate" required>
+            </div>
+            <div class="button-container">
+              <button type="submit">Save</button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

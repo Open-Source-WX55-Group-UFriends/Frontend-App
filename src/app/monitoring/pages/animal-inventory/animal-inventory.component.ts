@@ -16,7 +16,6 @@ export class AnimalInventoryComponent implements OnInit {
     { id: 4, age: 4, location: 'Field', shed: 'Shed 1', healtstatus: 'Healthy' },
   ];
 
-  //filteredAnimals: any[] = [...this.animals];
   searchTerm: string = '';
   isLoading = false;
   previousAnimals: any[] = [];
@@ -44,32 +43,6 @@ export class AnimalInventoryComponent implements OnInit {
     } else {
       this.filteredAnimals = this.animals;
     }
-  }
-
-  searchAnimal() {
-    this.previousAnimals = [...this.filteredAnimals];
-    this.isLoading = true;
-    this.searchPerformed = true;
-    setTimeout(() => {
-      if (this.searchTerm) {
-        this.filteredAnimals = this.animals.filter(animal =>
-          animal.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-      } else {
-        this.filteredAnimals = this.animals;
-      }
-      this.isLoading = false;
-    }, 3000);
-  }
-
-  clearSearch() {
-    this.searchTerm = '';
-    this.searchPerformed = false;
-  }
-
-  goBack() {
-    this.filteredAnimals = this.previousAnimals;
-    this.searchPerformed = false;
   }
 
 }

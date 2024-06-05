@@ -13,7 +13,7 @@ export class AnimalService {
   addAnimal(animal: any) {
     console.log(animal);
 
-    const id = `${this.animals.length + 2}`
+    const id = `${this.animals.length + 5}`
     this.animals.push({ ...animal, id});
     this.animalsSubject.next(this.animals);
   }
