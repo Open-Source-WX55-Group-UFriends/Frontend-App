@@ -42,6 +42,13 @@ html, body {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.title-add{
+  text-align: center;
+  color: #205341;
+  font-size: 2em;
+  margin-top: 30px;
+
+}
 .title-container {
   margin-bottom: 24px;
 }

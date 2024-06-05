@@ -12,6 +12,13 @@ html, body {
 .sidenav-container {
   flex: 1;
 }
+.title-add{
+  text-align: center;
+  color: #205341;
+  font-size: 2em;
+  margin-top: 30px;
+
+}
 
 .mat-sidenav {
   width: 250px;
