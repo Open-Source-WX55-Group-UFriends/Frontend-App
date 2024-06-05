@@ -17,7 +17,7 @@ export class TaskService {
     { id: 8, employee: 'Jane', time: '8', date: '2024-08-01', description: 'Feed the geese', state: 'pending'},
     { id: 9, employee: 'Jane', time: '9', date: '2024-09-01', description: 'Feed the turkeys', state: 'pending'},
     { id: 10, employee: 'Rodrigo Kunimoto', time: '10', date: '2024-10-01', description: 'Feed the rabbits', state: 'pending'},
-    { id: 11, employee: 'Rodrigo Kunimoto', time: '11', date: '2024-11-01', description: 'Feed the cats', state: 'pending'},
+    { id: 11, employee: 'Rodrigo Kunimoto', time: '11', date: '2024-11-01', description: 'Feed the cats', state: 'finished'},
     { id: 12, employee: 'Rodrigo Kunimoto', time: '12', date: '2024-12-01', description: 'Feed the dogs', state: 'pending'},
     { id: 13, employee: 'Rodrigo Kunimoto', time: '13', date: '2025-01-01', description: 'Feed the birds', state: 'pending'},
     { id: 14, employee: 'Rodrigo Kunimoto', time: '14', date: '2025-02-01', description: 'Feed the fish', state: 'pending'},
