@@ -1,33 +1,81 @@
 <app-toolbar-farm></app-toolbar-farm>
-<div class="task-create">
-  <h1>TASK</h1>
-  <div class="button-container">
-    <button mat-button class="boton-prueba" [routerLink]="['/tasks/create']">Agregar nueva task</button>
-  </div>
-  <div class="table-container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="employee">
-        <th mat-header-cell *matHeaderCellDef>Empleado</th>
-        <td mat-cell *matCellDef="let task">{{task.employee}}</td>
-      </ng-container>
-      <ng-container matColumnDef="time">
-        <th mat-header-cell *matHeaderCellDef>Tiempo a realizar</th>
-        <td mat-cell *matCellDef="let task">{{task.time}}</td>
-      </ng-container>
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef>Fecha</th>
-        <td mat-cell *matCellDef="let task">{{task.date}}</td>
-      </ng-container>
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Descripción</th>
-        <td mat-cell *matCellDef="let task">{{task.description}}</td>
-      </ng-container>
-      <ng-container matColumnDef="state">
-        <th mat-header-cell *matHeaderCellDef>Estado</th>
-        <td mat-cell *matCellDef="let task">{{task.state}}</td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+<div *ngIf="userRole && userRole.role === 'farmer'">
+  <div class="task-create">
+    <h1>TASK</h1>
+    <div class="button-container">
+      <button mat-button routerLink="/tasks/create">Crear tarea</button>
+      <button mat-button (click)="showFinishedTasks()">Mostrar tareas finalizadas</button>
+      <button mat-button (click)="showTasksByDate()">Mostrar tareas por fecha</button>
+    </div>
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="employee">
+          <th mat-header-cell *matHeaderCellDef>Empleado</th>
+          <td mat-cell *matCellDef="let task">{{task.employee}}</td>
+        </ng-container>
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef>Tiempo a realizar</th>
+          <td mat-cell *matCellDef="let task">{{task.time}}</td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Fecha</th>
+          <td mat-cell *matCellDef="let task">{{task.date}}</td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Descripción</th>
+          <td mat-cell *matCellDef="let task">{{task.description}}</td>
+        </ng-container>
+        <ng-container matColumnDef="state">
+          <th mat-header-cell *matHeaderCellDef>Estado</th>
+          <td mat-cell *matCellDef="let task">{{task.state}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
   </div>
 </div>
+
+
+<div class="task-create">
+  <h1>TASK</h1>
+  <div class="filter-container">
+    <mat-form-field>
+      <input matInput [(ngModel)]="employeeName" placeholder="Employee Name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [(value)]="taskState">
+        <mat-option value="">All</mat-option>
+        <mat-option value="pending">Pending</mat-option>
+        <mat-option value="finished">Finished</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="filterTasks()">Filter</button>
+  </div>
+  <div class="table-container">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let task of dataSource.data">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{task.employee}}
+          </mat-panel-title>
+          <div class="description-info">
+            <mat-panel-description>
+              {{task.time}} {{task.date}}  {{task.state}}
+            </mat-panel-description>
+          </div>
+          <mat-panel-description>
+            {{task.description}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p>Do you want to finish the task?</p>
+        <button mat-button (click)="finishTask(task.id)">Finish task</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+<div class="space">
+
+</div>
+
+

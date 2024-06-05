@@ -118,4 +118,8 @@
     font-weight: bold;
     font-size:3em;
   }
+  .highlight-list {
+    display: flex;
+    align-items: center;
+  }
 }

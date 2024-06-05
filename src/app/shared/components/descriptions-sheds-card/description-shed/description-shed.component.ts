@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FarmService } from '../../../../profile-farm/farm/farm.service';
+import { FarmService } from '../../../../profile-farm/services/farm/farm.service';
 import { Router } from '@angular/router';
 import { ProfileService } from '../../../../register/model/profile.service';
 
@@ -40,5 +40,7 @@ export class DescriptionShedComponent implements OnInit {
     alert(`You rate ${event}`);
   }
 
-
+  goBackHome(): void {
+    this.router.navigate(['/home']);
+  }
 }

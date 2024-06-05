@@ -75,8 +75,10 @@ body {
   margin-bottom: 15px;
   text-align: left;
   width: 100%;
+  line-height:40px;
   display: flex;
-  align-items: center;
+  flex-direction:  column;
+  justify-content: flex-start;
 }
 
 .profile-info i.fas {
@@ -85,35 +87,26 @@ body {
   font-size: 1.2em;
   margin-right: 10px;
 }
-
-.profile-name-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
+.profile-name h1{
+  font-weight:bold;
 }
 
-.profile-name {
-  color: #333;
-  margin-left: 10px;
-}
-
-.profile-name i.fas {
-  font-size: 1.8em;
-}
-
-/* Media query para pantallas pequeñas */
 @media (max-width: 600px) {
+  .profile-card{
+    margin-left: 40px;
+  }
   .profile-info-card {
-    width: 90%; /* Ajusta el ancho de la tarjeta de información en pantallas pequeñas */
-    padding: 20px; /* Ajusta el padding interno de la tarjeta en pantallas pequeñas */
-    min-height: 70vh; /* Ajusta la altura mínima de la tarjeta en pantallas pequeñas */
+    width: 90%;
+    padding: 20px;
+    line-height: 10px;
+    min-height: 70vh;
   }
 
   .profile-image-container {
     width: 120px;
     height: 120px;
     margin-top: -60px;
+
   }
 
 

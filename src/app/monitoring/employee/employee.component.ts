@@ -39,7 +39,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   searchEmployee() {
-    this.previousEmployees = [...this.filteredEmployees]; // Agrega esta línea
+    this.previousEmployees = [...this.filteredEmployees];
     this.isLoading = true;
     this.searchPerformed = true;
     setTimeout(() => {
@@ -55,7 +55,7 @@ export class EmployeeComponent implements OnInit {
   }
   clearSearch() {
     this.searchTerm = '';
-    this.searchPerformed = false; // Agrega esta línea
+    this.searchPerformed = false;
   }
   goBack() {
     this.filteredEmployees = this.previousEmployees;

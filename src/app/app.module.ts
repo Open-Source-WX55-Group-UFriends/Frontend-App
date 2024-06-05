@@ -26,6 +26,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 // Feature Components Imports
 import {HomeComponent} from "./public/pages/home/home.component";
@@ -142,7 +143,8 @@ import { DashboardTaskComponent } from './monitoring/dashboard-task/dashboard-ta
     MatGridListModule,
     MatMenuModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatExpansionModule
   ],
   providers: [
     provideAnimationsAsync(),

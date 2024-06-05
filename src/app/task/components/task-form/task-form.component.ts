@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrl: './task-form.component.css'
 })
 export class TaskFormComponent implements OnInit {
-  taskForm!: FormGroup; // Utiliza '!' para indicar que será inicializado
+  taskForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private taskService: TaskService, private router: Router) {}
 

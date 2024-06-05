@@ -1,6 +1,6 @@
 import { Component  } from '@angular/core';
 import { Router } from '@angular/router';
-import {FarmService} from "../farm/farm.service";
+import {FarmService} from "../services/farm/farm.service";
 
 @Component({
   selector: 'app-profile-farm',
@@ -42,7 +42,8 @@ export class ProfileFarmComponent {
     this.farm.highlight2 = highlights[1] || '';
     this.farm.highlight3 = highlights[2] || '';
 
-    this.farmService.addFarm(this.farm);
+    // Pass the userRole when calling addFarm
+    this.farmService.addFarm(this.farm, 'farmer');
     this.farm = {
       name: '',
       ubication: '',
@@ -61,7 +62,7 @@ export class ProfileFarmComponent {
       images: [] as string[]
     },
 
-    this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
   }
 
   onFileChange(event: Event) {

@@ -6,31 +6,113 @@ float:right;
 
 h1{
   color: darkgreen;
-  font-size: 50px; /* Ajusta el tamaño del texto */
-  font-weight: bold; /* Ajusta el peso de la fuente a negrita */
-  text-align: center; /* Centra el texto horizontalmente */
-  margin-bottom:0px; /* Ajusta el margen inferior para separar el título del contenedor de tarjetas */
-
+  font-size: 7em;
+  font-weight: bold;
+  text-align: center;
 }
 .boton-prueba {
-  color: darkgreen; /* Texto en color blanco */
+  color: darkgreen;
 }
 .task-create{
   margin-top: 80px;
-  width: 60%;
-  margin-left: 20%;
-margin-bottom: 15%;
+  width: 50%;
+  translate: 55% 5%;
 }
-@media (max-width:768px){
-  .button-container{
-    display: flex;
-    justify-content: center;
-  }
-  .table-container{
-    display: flex;
-    width: 100%;
-    overflow: auto;
-  }
+table {
+  width: 100%;
+}
+
+td, th {
+  padding: 15px;
+  text-align: left;
+}
+.description-info mat-panel-description {
+  word-spacing:150px;
+  margin:10px;
+}
+.mat-expansion-panel-header{
+  font-size: 20px;
+  font-weight: bold;
+  margin:15px;
+}
+mat-expansion-panel {
+  margin: 0;
+  padding: 0;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+mat-panel-description {
+  display: flex;
+  justify-content: flex-start ;
+}
 
 
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+
+.space{
+  height: 20%;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+  margin-left: 25px;
+}
+
+.filter-container button {
+  background-color: #085621;
+  color: white;
+  padding: 28px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-container button:hover {
+  background-color: #25c556;
+}
+
+@media screen and (max-width:768px){
+  .button-container {
+    flex-direction: column;
+  }
+  .task-create{
+    width: 98%;
+    translate: 1% 5%;
+    margin:10px;
+  }
+  .table-container {
+    overflow-x: auto;
+  }
+  .description-info mat-panel-description {
+    word-spacing:50px;
+    margin:10px;/* Ajusta este valor según tus necesidades */
+  }
+}
+
+
+@media screen and (max-width:1200px){
+  .button-container {
+    flex-direction: column;
+  }
+  .task-create{
+    width: 98%;
+    translate: 1% 5%;
+    margin:10px;
+  }
+  .table-container {
+    overflow-x: auto;
+  }
+  .description-info mat-panel-description {
+    word-spacing:50px;
+    margin:10px;
+  }
 }

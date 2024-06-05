@@ -1,25 +1,59 @@
-
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {Worker} from "../../model/worker.entity";
-import {Task} from "../../model/task.entity";
+import {ProfileService} from "../../../register/model/profile.service";
 import {TaskService} from "../../services/tasks.service";
+
 @Component({
   selector: 'app-task-table',
   templateUrl: './task-table.component.html',
-  styleUrl: './task-table.component.css'
+  styleUrls: ['./task-table.component.css']
 })
 export class TaskTableComponent implements OnInit {
   displayedColumns: string[] = ['employee', 'time', 'date', 'description', 'state'];
   dataSource: MatTableDataSource<any>;
+  userRole: any;
+  employeeName: string = '';
+  taskState: string = '';
 
-  constructor(private taskService: TaskService) {
+  constructor(private taskService: TaskService, private profileService: ProfileService) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit() {
+    this.getUserRole();
     this.taskService.tasks$.subscribe(tasks => {
       this.dataSource.data = tasks;
+    });
+  }
+
+  getUserRole(): void {
+    this.profileService.getProfiles().subscribe(profiles => {
+      this.userRole = profiles[profiles.length - 1];
+    });
+  }
+
+  finishTask(taskId: number) {
+    this.taskService.finishTask(taskId);
+  }
+
+  showFinishedTasks() {
+    this.dataSource.data = this.taskService.getFinishedTasks();
+  }
+
+  showTasksByDate() {
+    this.dataSource.data = this.taskService.getTasksByDate();
+  }
+
+  filterTasks() {
+    this.taskService.tasks$.subscribe(tasks => {
+      let filteredTasks = tasks;
+      if (this.employeeName) {
+        filteredTasks = filteredTasks.filter(task => task.employee.toLowerCase().includes(this.employeeName.toLowerCase()));
+      }
+      if (this.taskState) {
+        filteredTasks = filteredTasks.filter(task => task.state === this.taskState);
+      }
+      this.dataSource.data = filteredTasks;
     });
   }
 }
