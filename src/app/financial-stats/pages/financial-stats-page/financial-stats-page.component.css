@@ -24,6 +24,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+
 }
 
 .left-section, .right-section {
@@ -114,11 +115,13 @@ body {
 .container-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-
+.dashboard {
+  padding: 20px;
+}
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 20px auto 40px auto; /* Agrega espacio debajo */
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
