@@ -1,29 +1,33 @@
 <app-toolbar-farm></app-toolbar-farm>
-<h1>TASK</h1>
-<div class="tasks">
-  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="basic-form">
-    <div class="form-group">
-      <label for="employee">Empleado:</label>
-      <select id="employee" formControlName="employee" required>
-        <option value="Mathias Aguilar">Mathias Aguilar</option>
-        <option value="Rodrigo Kunimoto">Rodrigo Kunimoto</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="date">Fecha:</label>
-      <input type="date" id="date" formControlName="date" required>
-    </div>
-    <div class="form-group">
-      <label for="time">Tiempo a realizar:</label>
-      <input type="text" id="time" formControlName="time" required>
-    </div>
-    <div class="form-group">
-      <label for="description">Descripción:</label>
-      <textarea id="description" formControlName="description" rows="4" required></textarea>
-    </div>
-    <div class="button-group">
-      <button type="submit">Guardar</button>
-      <button type="button" [routerLink]="['/tasks']">Cancelar</button>
-    </div>
-  </form>
+<div class="form-container">
+  <h1>TASK</h1>
+  <div class="login-box">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <label>Employee:</label>
+      <div class="user-box">
+
+        <select formControlName="employee" required>
+          <option value="Mathias Aguilar">Mathias Aguilar</option>
+          <option value="Rodrigo Kunimoto">Rodrigo Kunimoto</option>
+        </select>
+      </div>
+      <label>Date:</label>
+      <div class="user-box">
+        <input type="date" formControlName="date" required>
+      </div>
+      <label>Time to perform:</label>
+      <div class="user-box">
+        <select formControlName="time" required>
+          <option *ngFor="let i of [].constructor(24); let n = index" [value]="n+1">{{n+1}}</option>
+        </select>
+      </div>
+      <label>Description:</label>
+      <div class="user-box">
+
+        <input type="text" formControlName="description" required>
+      </div>
+      <button type="submit" class="button-save">Save</button>
+      <button type="button" [routerLink]="['/tasks']" class="button-save">Cancel</button>
+    </form>
+  </div>
 </div>
