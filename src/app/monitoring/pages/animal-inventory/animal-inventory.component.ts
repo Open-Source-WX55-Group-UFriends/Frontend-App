@@ -16,10 +16,7 @@ export class AnimalInventoryComponent implements OnInit {
     { id: 4, age: 4, location: 'Field', shed: 'Shed 1', healtstatus: 'Healthy' },
   ];
 
-  searchTerm: string = '';
   isLoading = false;
-  previousAnimals: any[] = [];
-  searchPerformed = false;
 
   filteredAnimals = this.animals;
   selectedShed = '';
