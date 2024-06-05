@@ -1,47 +1,16 @@
 <app-toolbar-farm></app-toolbar-farm>
 <div *ngIf="userRole && userRole.role === 'farmer'">
-  <div class="task-create">
-    <h1>TASK</h1>
-    <div class="button-container">
-      <button mat-button routerLink="/tasks/create">Crear tarea</button>
-      <button mat-button (click)="showFinishedTasks()">Mostrar tareas finalizadas</button>
-      <button mat-button (click)="showTasksByDate()">Mostrar tareas por fecha</button>
-    </div>
-    <div class="table-container">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <ng-container matColumnDef="employee">
-          <th mat-header-cell *matHeaderCellDef>Empleado</th>
-          <td mat-cell *matCellDef="let task">{{task.employee}}</td>
-        </ng-container>
-        <ng-container matColumnDef="time">
-          <th mat-header-cell *matHeaderCellDef>Tiempo a realizar</th>
-          <td mat-cell *matCellDef="let task">{{task.time}}</td>
-        </ng-container>
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef>Fecha</th>
-          <td mat-cell *matCellDef="let task">{{task.date}}</td>
-        </ng-container>
-        <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef>Descripción</th>
-          <td mat-cell *matCellDef="let task">{{task.description}}</td>
-        </ng-container>
-        <ng-container matColumnDef="state">
-          <th mat-header-cell *matHeaderCellDef>Estado</th>
-          <td mat-cell *matCellDef="let task">{{task.state}}</td>
-        </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-    </div>
-  </div>
-</div>
-
-
 <div class="task-create">
   <h1>TASK</h1>
+  <div class="button-container">
+    <button mat-raised-button  routerLink="/tasks/create">Create Task</button>
+  </div>
   <div class="filter-container">
     <mat-form-field>
-      <input matInput [(ngModel)]="employeeName" placeholder="Employee Name">
+      <input matInput [(ngModel)]="employeeName" placeholder="Employee Name" (keyup.enter)="filterTasks()" #inputField>
+      <button mat-icon-button matSuffix (click)="clearInput(inputField)" class="custom-close-icon">
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-form-field>
     <mat-form-field>
       <mat-select [(value)]="taskState">
@@ -53,29 +22,84 @@
     <button mat-button (click)="filterTasks()">Filter</button>
   </div>
   <div class="table-container">
-    <mat-accordion>
-      <mat-expansion-panel *ngFor="let task of dataSource.data">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{task.employee}}
-          </mat-panel-title>
-          <div class="description-info">
-            <mat-panel-description>
-              {{task.time}} {{task.date}}  {{task.state}}
-            </mat-panel-description>
-          </div>
-          <mat-panel-description>
-            {{task.description}}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>Do you want to finish the task?</p>
-        <button mat-button (click)="finishTask(task.id)">Finish task</button>
-      </mat-expansion-panel>
-    </mat-accordion>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="employee">
+        <th mat-header-cell *matHeaderCellDef>Employee</th>
+        <td mat-cell *matCellDef="let task">{{task.employee}}</td>
+      </ng-container>
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef>Time to perform</th>
+        <td mat-cell *matCellDef="let task">{{task.time}}</td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let task">{{task.date}}</td>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let task">{{task.description}}</td>
+      </ng-container>
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let task" [ngClass]="{'task-pending': task.state === 'pending', 'task-finished': task.state === 'finished'}">{{task.state}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+    </table>
   </div>
 </div>
+
+</div>
+
 <div class="space">
 
 </div>
 
+
+<div *ngIf="userRole && userRole.role === 'farmWorker'">
+<div class="task-create">
+  <h1>TASK</h1>
+  <div class="button-container">
+    <button mat-raised-button (click)="showFinishedTasks()">Show Finished Tasks</button>
+    <button mat-raised-button  (click)="showTasksByDate()">Show Tasks By Date</button>
+  </div>
+
+  <div class="table-container">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let task of dataSource.data" #expansionPanel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{task.employee}}
+          </mat-panel-title>
+
+          <mat-panel-description>
+            {{task.time}}
+          </mat-panel-description>
+
+          <mat-panel-description>
+            {{task.date}}
+          </mat-panel-description>
+
+          <mat-panel-description>
+            {{task.description}}
+          </mat-panel-description>
+
+          <mat-panel-description [ngClass]="{'task-pending': task.state === 'pending', 'task-finished': task.state === 'finished'}">
+            {{task.state}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="center-container">
+          <p class="task-question">Do you want to finish the task?</p>
+          <button mat-button class="finish-task-button" (click)="finishTask(task.id, expansionPanel)">Finish task</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+</div>
+
+<div class="space">
+
+</div>
 
