@@ -30,8 +30,12 @@
               <th>Species</th>
             </tr>
             </thead>
-            <tbody>
-            <!-- Here would go the rows with the data of the sheds -->
+            <tbody *ngIf="!isLoading">
+            <tr *ngFor="let shed of filteredSheds">
+              <td>{{shed.id}}</td>
+              <td>{{shed.shedType}}</td>
+              <td>{{shed.species}}</td>
+            </tr>
             </tbody>
           </table>
         </div>

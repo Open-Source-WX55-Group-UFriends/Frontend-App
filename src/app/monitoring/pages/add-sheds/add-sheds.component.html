@@ -18,31 +18,32 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="content-container">
-        <div class="form-container">
-          <div class="title-container">
-            <h2 class="title-add">ADD SHED</h2>
-          </div>
-          <div class="form-group">
-            <label>Shed Type</label>
-            <select class="form-field" required>
-              <option value="">Animals</option>
-              <option value="">Crops</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Species</label>
-            <select class="form-field" required>
-              <option value="">Chickens</option>
-              <option value="">Pigs</option>
-              <option value="">Sheep</option>
-            </select>
-          </div>
-          <div class="button-container">
-            <button type="submit">Save</button>
+      <form (ngSubmit)="saveShed()">
+        <div class="content-container">
+          <div class="form-container">
+            <div class="title-container">
+              <h2 class="title-add">ADD SHED</h2>
+            </div>
+            <div class="form-group">
+              <label>Shed Type</label>
+              <select [(ngModel)]="shed.shedType" (ngModelChange)="updateSpeciesOptions()" class="form-field" name="shedType" required>
+                <option value="Animals">Animals</option>
+                <option value="Crops">Crops</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Species</label>
+              <select [(ngModel)]="shed.species" class="form-field" name="species" required>
+                <option *ngFor="let option of speciesOptions" [value]="option">{{option}}</option>
+              </select>
+            </div>
+
+            <div class="button-container">
+              <button type="submit">Save</button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
