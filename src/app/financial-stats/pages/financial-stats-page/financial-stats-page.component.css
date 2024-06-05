@@ -24,7 +24,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 20px;
-
+  flex-wrap: wrap;
 }
 
 .left-section, .right-section {
@@ -71,7 +71,7 @@ body {
 .form-group button {
   width: 100%;
   padding: 12px 18px;
-  background-color: #2b7531;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -92,7 +92,7 @@ body {
   font-weight: bold;
   margin-bottom: 16px;
   text-align: center;
-  color: #333;
+  color: #015901;
 }
 
 .container-table table {
@@ -115,9 +115,11 @@ body {
 .container-table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+
 .dashboard {
   padding: 20px;
 }
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -149,24 +151,25 @@ body {
 }
 
 .container form select, .container form input {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   font-size: 14px;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 16px;
   text-align: center;
-  color: #333;
-
+  color: #015901;
 }
+
 .container form button {
   padding: 10px 100px;
-  background-color: #2b7531;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -216,5 +219,29 @@ h2 {
 
   .container form div {
     flex: 1 1 100%;
+  }
+
+  .container form {
+    flex-direction: column;
+  }
+
+  .container form button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-group input, .form-group select, .container form select, .container form input {
+    width: 100%;
+  }
+
+  .container form div {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .container form button {
+    width: 100%;
+    padding: 10px;
   }
 }

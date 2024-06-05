@@ -14,9 +14,10 @@ body {
   background-color: white;
 }
 
+
 .title {
   text-align: center;
-  color: #205341;
+  color: #015901;
   font-size: 2em; /* Incrementa el tamaño de la fuente */
   margin-top: 30px;
   font-weight: bold; /* Asegura que el texto sea negrita */

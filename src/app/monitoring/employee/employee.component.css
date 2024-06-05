@@ -150,7 +150,7 @@ mat-card-subtitle {
 }
 
 .search-field button:hover {
-  color: rgba(26, 255, 0, 0.74);
+  color: rgb(39, 143, 74);
 }
 
 .search-field mat-icon {
@@ -187,7 +187,13 @@ mat-card-subtitle {
   transform: scale(1.2);
 }
 
+.title-employees{
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-top: 10px;
 
+}
 
 .addBtn {
   width: 150px;
@@ -196,7 +202,7 @@ mat-card-subtitle {
   margin-right:50px;
   border-radius: 12px;
   border: none;
-  background-color: rgb(49, 213, 55);
+  background-color: #4CAF50;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,7 +238,7 @@ mat-card-subtitle {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(17, 17, 17);
+  color: rgb(255, 255, 255);
   z-index: 1;
   transition-duration: .5s;
   font-size: 1.05em;

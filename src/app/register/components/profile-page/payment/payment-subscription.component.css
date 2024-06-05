@@ -14,7 +14,12 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra */
   width: 300px; /* Ancho del cuadro */
 }
+.cancel-button{
+  margin-top: 10px;
+  color:gray;
+  text-decoration: none; /* This removes the underline */
 
+}
 /* Estilo para el título */
 h2 {
   margin-top: 0; /* Elimina el margen superior por defecto */

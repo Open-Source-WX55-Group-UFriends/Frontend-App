@@ -93,7 +93,45 @@
 
   <div *ngIf="userRole === 'farmer'">
     <div class="container" *ngIf="farms.length >= 0">
-      <h2>Your Farms</h2>
+      <h1>Featured Farms:</h1>
+      <div class="farms-container">
+        <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDescriptions(farm.id)">
+          <div class="card-details">
+            <div class="image-section">
+              <img mat-card-image [src]="farm.images[0]" alt="Farm image" class="farm-image">
+            </div>
+            <hr>
+            <div class="info-section">
+              <h2 class="text-title">Farm {{ farm.name }}</h2>
+              <p class="text-body">
+                <img width="20" height="20" src="/assets/map-marker-icon.png" alt="Ubication"/>
+                {{ farm.ubication }}, Lima
+              </p>
+              <p class="text-body">
+                <img width="20" height="20" src="/assets/chicken-icon.png" alt="Product"/>
+                {{ farm.product }}
+              </p>
+              <p class="text-body">
+                <img width="20" height="20" src="/assets/surface-icon.png" alt="Surface"/>
+                {{ farm.totalSurface }} ha
+              <p class="text-body">
+                <img width="20" height="20" src="/assets/price-icon.png" alt="Price"/>
+                $ {{ farm.price | number }}
+              </p>
+              <hr>
+              <ul class="highlight-list">
+                <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
+                <li *ngIf="farm.highlight2">{{ farm.highlight2 }}</li>
+                <li *ngIf="farm.highlight3">{{ farm.highlight3 }}</li>
+              </ul>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="container" *ngIf="farms.length >= 0">
+      <h2>Your Farms:</h2>
       <div class="farms-container">
           <mat-card class="card" *ngFor="let farm of userFarms" (click)="navigateToDescriptions(farm.id)">
             <div class="card-details">
@@ -132,3 +170,4 @@
   </div>
 </div>
 
+<app-footer-home></app-footer-home>

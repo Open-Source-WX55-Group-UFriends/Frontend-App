@@ -3,6 +3,15 @@
   margin: auto;
   padding: 20px;
 }
+input::placeholder {
+  text-align: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 
 .section-search {
   display: flex;
@@ -20,7 +29,7 @@
 
 .section-search .choose-plan-btn {
   padding: 10px 20px;
-  background-color: darkgreen;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;

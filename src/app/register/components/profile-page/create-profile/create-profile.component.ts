@@ -9,20 +9,25 @@ import {ProfileService} from "../../../model/profile.service";
 })
 export class CreateProfileComponent {
   profile = {
-    firstName: '',
-    lastName: '',
-    direction: '',
-    phone: '',
+    firstName: 'Mathias',
+    lastName: 'Aguilar',
+    direction: 'Los Olivos, Villa sol',
+    phone: '98758748',
     gender: '',
-    dobDay: '',
-    dobMonth: '',
-    dobYear: '',
-    documentNumber: '',
-    documentType: '',
+    dobDay: '16',
+    dobMonth: '1',
+    dobYear: '2005',
+    documentNumber: '78985898',
+    documentType: 'DNI',
     role: '',
   };
 
   constructor(private router: Router, private profileService: ProfileService) {
+  }
+  isProfileCreated = false;
+
+  showProfileCreated() {
+    this.isProfileCreated = true;
   }
 
   save() {
@@ -30,7 +35,6 @@ export class CreateProfileComponent {
 
     const iframe = document.getElementById('myIframe') as HTMLIFrameElement;
     const h1 = document.querySelector('.form-container h1') as HTMLHeadingElement;
-
 
     iframe.style.display = 'block';
     h1.style.display = 'block';

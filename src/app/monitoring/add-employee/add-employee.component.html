@@ -1,5 +1,4 @@
 <div class="add-employee-container">
-  <button class="back-button" (click)="goBack()">Back</button>
   <form (ngSubmit)="saveEmployee()" class="form">
     <p class="title">Add Employee</p>
     <div class="flex">
@@ -27,5 +26,7 @@
       </label>
     </div>
     <button type="submit" class="submit">Save</button>
+    <a class="cancel-button" [routerLink]="['/employee']">Cancelar</a>
+
   </form>
 </div>

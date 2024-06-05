@@ -1,4 +1,17 @@
+
+<div *ngIf="isProfileCreated" class="form-container">
+  <h1>PROFILE CREATED SUCCESSFULLY</h1>
+  <iframe id="myIframe" src="https://lottie.host/embed/892cf0a8-905b-4139-8eee-e46714d2e5a1/Phz6ClRQkF.json"></iframe>
+</div>
+
 <div class="login-box">
+  <div class="title-boton">
+    <button class="back-button-flecha" routerLink="/home">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h2 class="register">REGISTRATION FORM</h2>
+  </div>
+
   <form #form="ngForm" (ngSubmit)="save()">
     <div class="user-box">
       <input type="text" name="firstName" required ngModel #firstName="ngModel" [(ngModel)]="profile.firstName">
@@ -30,35 +43,43 @@
       <label>Gender</label>
       <div *ngIf="gender.invalid && (gender.dirty || gender.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
+    <label>Birthday</label>
     <div class="user-box dob">
       <div class="dob-field">
-        <select name="dobDay" required ngModel #dobDay="ngModel" [(ngModel)]="profile.dobDay">
-          <option value="" selected></option>
-          <option *ngFor="let day of [].constructor(31); let i = index" [value]="i+1">{{i+1}}</option>
-        </select>
-        <label>Birthday</label>
-        <div *ngIf="dobDay.invalid && (dobDay.dirty || dobDay.touched || form.submitted)" class="error-message">This field is required</div>
-      </div>
-      <div class="dob-field">
-        <select name="dobMonth" required ngModel #dobMonth="ngModel" [(ngModel)]="profile.dobMonth">
-          <option value="" selected></option>
-          <option *ngFor="let month of ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; let i = index" [value]="i+1">{{month}}</option>
-        </select>
-        <div *ngIf="dobMonth.invalid && (dobMonth.dirty || dobMonth.touched || form.submitted)" class="error-message">This field is required</div>
-      </div>
-      <div class="dob-field">
-        <select name="dobYear" required ngModel #dobYear="ngModel" [(ngModel)]="profile.dobYear">
-          <option value="" selected></option>
-          <option *ngFor="let year of [].constructor(2023 - 1900); let i = index" [value]="2022-i">{{2022-i}}</option>
-        </select>
-        <div *ngIf="dobYear.invalid && (dobYear.dirty || dobYear.touched || form.submitted)" class="error-message">This field is required</div>
+        <div class="user-box">
+          <div class="dob-container">
+            <div class="dob-field">
+              <select name="dobDay" required ngModel #dobDay="ngModel" [(ngModel)]="profile.dobDay">
+                <option value="" selected></option>
+                <option *ngFor="let day of [].constructor(31); let i = index" [value]="i+1">{{i+1}}</option>
+              </select>
+              <div *ngIf="dobDay.invalid && (dobDay.dirty || dobDay.touched || form.submitted)" class="error-message">This field is required</div>
+            </div>
+            <div class="dob-field">
+              <select name="dobMonth" required ngModel #dobMonth="ngModel" [(ngModel)]="profile.dobMonth">
+                <option value="" selected></option>
+                <option *ngFor="let month of ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; let i = index" [value]="i+1">{{month}}</option>
+              </select>
+              <div *ngIf="dobMonth.invalid && (dobMonth.dirty || dobMonth.touched || form.submitted)" class="error-message">This field is required</div>
+            </div>
+            <div class="dob-field">
+              <select name="dobYear" required ngModel #dobYear="ngModel" [(ngModel)]="profile.dobYear">
+                <option value="" selected></option>
+                <option *ngFor="let year of [].constructor(2023 - 1900); let i = index" [value]="2022-i">{{2022-i}}</option>
+              </select>
+              <div *ngIf="dobYear.invalid && (dobYear.dirty || dobYear.touched || form.submitted)" class="error-message">This field is required</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
     <div class="user-box">
       <input type="text" name="documentNumber" required pattern="\d*" ngModel #documentNumber="ngModel" [(ngModel)]="profile.documentNumber">
       <label>Document Number</label>
       <div *ngIf="documentNumber.invalid && (documentNumber.dirty || documentNumber.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
+
     <div class="user-box">
       <input type="text" name="documentType" required ngModel #documentType="ngModel" [(ngModel)]="profile.documentType">
       <label>Document Type</label>
@@ -75,13 +96,9 @@
       <div *ngIf="role.invalid && (role.dirty || role.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
 
-    <button type="submit" [disabled]="!form.valid">
-      SEND
+    <button type="submit" [disabled]="!form.valid" (click)="showProfileCreated()" class="button-create">
+      CREATE ACCOUNT
       <span></span>
     </button>
   </form>
-</div>
-<div class="form-container">
-  <h1 style="display: none;">PROFILE CREATED SUCCESSFULLY</h1>
-  <iframe id="myIframe" style="display: none;" src="https://lottie.host/embed/892cf0a8-905b-4139-8eee-e46714d2e5a1/Phz6ClRQkF.json"></iframe>
 </div>

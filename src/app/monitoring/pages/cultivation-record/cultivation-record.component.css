@@ -14,7 +14,7 @@ html, body {
 }
 .title-add{
   text-align: center;
-  color: #205341;
+  color: #015901;
   font-size: 2em;
   margin-top: 30px;
 
@@ -68,7 +68,6 @@ html, body {
 }
 
 .title-container h2 {
-  color: #278f4a;
   font-size: 2.5em;
   margin: 0;
 }
