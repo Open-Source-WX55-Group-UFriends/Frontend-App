@@ -7,16 +7,19 @@
         <img src="assets/bussiness-owner.png" alt="Profile Image">
       </ng-template>
     </div>
-    <div class="profile-name-container">
-      <p class="profile-name"><i class="fas fa-user"></i> {{ currentProfile.firstName }} {{ currentProfile.lastName }}</p>
+    <div class="profile-name" >
+      <h1>{{ currentProfile.firstName }} {{ currentProfile.lastName }}</h1>
     </div>
-    <div class="profile-info"><i class="fas fa-map-marker-alt"></i> {{ currentProfile.direction }}</div>
-    <div class="profile-info"><i class="fas fa-phone"></i> {{ currentProfile.phone }}</div>
-    <div class="profile-info"><i class="fas fa-venus-mars"></i> {{ currentProfile.gender }}</div>
-    <div class="profile-info"><i class="fas fa-birthday-cake"></i> {{ currentProfile.dobDay }}/{{ currentProfile.dobMonth }}/{{ currentProfile.dobYear }}</div>
-    <div class="profile-info"><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</div>
-    <div class="profile-info"><i class="fas fa-id-badge"></i> {{ currentProfile.documentType }}</div>
-    <div class="profile-info"><i class="fas fa-user-tag"></i> {{ currentProfile.role }}</div>
-    <div class="profile-info"><i class="fas fa-envelope"></i> {{ register.email }}</div>
+    <h2>{{ convertCamelCaseToSpace(currentProfile.role) | titlecase }}</h2>
+    <div class="profile-info">
+
+      <p><i class="fas fa-map-marker-alt"></i> {{ currentProfile.direction }}</p>
+      <p><i class="fas fa-phone"></i> {{ currentProfile.phone }}</p>
+      <p><i class="fas fa-venus-mars"></i> {{ currentProfile.gender }}</p>
+      <p><i class="fas fa-birthday-cake"></i> {{ currentProfile.dobDay }}/{{ currentProfile.dobMonth }}/{{ currentProfile.dobYear }}</p>
+      <p><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</p>
+      <p><i class="fas fa-id-badge"></i> {{ currentProfile.documentType }}</p>
+      <p><i class="fas fa-envelope"></i> {{ register.email }}</p>
+    </div>
   </div>
 </div>

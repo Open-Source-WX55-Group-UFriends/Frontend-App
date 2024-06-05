@@ -20,5 +20,9 @@ export class RoleProfileComponent implements OnInit {
     this.profileService.getProfiles().subscribe(profiles => {
       this.currentProfile = profiles[profiles.length - 1];
     });
+    console.log('app-toolbar-farm initialized');
+  }
+  convertCamelCaseToSpace(role: string): string {
+    return role.replace(/([a-z])([A-Z])/g, '$1 $2');
   }
 }
