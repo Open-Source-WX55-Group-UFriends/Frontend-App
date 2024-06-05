@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from "@angular/material/table";
-import {ProfileService} from "../../../register/model/profile.service";
-import {TaskService} from "../../services/tasks.service";
+import { MatTableDataSource } from "@angular/material/table";
+import { MatExpansionPanel } from '@angular/material/expansion'; // Import MatExpansionPanel
+import { ProfileService } from "../../../register/model/profile.service";
+import { TaskService } from "../../services/tasks.service";
 
 @Component({
   selector: 'app-task-table',
@@ -14,6 +15,7 @@ export class TaskTableComponent implements OnInit {
   userRole: any;
   employeeName: string = '';
   taskState: string = '';
+
 
   constructor(private taskService: TaskService, private profileService: ProfileService) {
     this.dataSource = new MatTableDataSource();
@@ -32,8 +34,9 @@ export class TaskTableComponent implements OnInit {
     });
   }
 
-  finishTask(taskId: number) {
+  finishTask(taskId: number, expansionPanel: MatExpansionPanel) { // Add MatExpansionPanel as a second argument
     this.taskService.finishTask(taskId);
+    expansionPanel.close(); // Close the expansion panel
   }
 
   showFinishedTasks() {
@@ -55,5 +58,9 @@ export class TaskTableComponent implements OnInit {
       }
       this.dataSource.data = filteredTasks;
     });
+  }
+  clearInput(inputField: any) {
+    this.employeeName = '';
+    inputField.focus();
   }
 }

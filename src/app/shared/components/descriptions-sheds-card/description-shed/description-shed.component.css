@@ -7,7 +7,7 @@ body {
 .container-app {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin-top: 100px;
 }
 
 .full-page-app {
@@ -19,7 +19,8 @@ body {
 }
 
 .title-description {
-  font-size: 3em;
+  margin-top: 50px;
+  font-size: 7em;
   text-align: center;
   color: darkgreen;
 }
@@ -96,6 +97,13 @@ body {
 .footer-spacer {
   height: 30.3%;
 }
+.rating-spacer{
+  height: 20%;
+}
+.contact-spacer{
+  height: 220%;
+}
+
 hr{
   width:109.7%;
   border: 0;

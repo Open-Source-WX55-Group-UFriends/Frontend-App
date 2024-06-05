@@ -1,10 +1,9 @@
 <app-toolbar-farm></app-toolbar-farm>
 <!-- Contenido para 'farmer' -->
 <div *ngIf="currentProfile && currentProfile.role === 'farmer'">
+  <h2 class="title-description">About farm & Description</h2>
   <div class="container-app">
     <div class="full-page-app">
-      <h2 class="title-description">About farm & Description</h2>
-
       <div class="container" *ngIf="farm">
         <mat-card class="card">
           <div class="card-content">
@@ -57,15 +56,14 @@
     </div>
   </div>
   <div class="footer-spacer"></div>
-  <app-footer/>
+  <app-footer-home></app-footer-home>
 </div>
 
 <!-- Contenido para 'businessOwner' -->
 <div *ngIf="currentProfile && currentProfile.role === 'businessOwner'">
+  <h2 class="title-description">About farm & Description</h2>
   <div class="container-app">
     <div class="full-page-app">
-      <h2 class="title-description">About farm & Description</h2>
-
       <div class="container" *ngIf="farm">
         <mat-card class="card">
           <div class="card-content">
@@ -120,15 +118,15 @@
   <app-star-rating></app-star-rating>
   <app-contact-card></app-contact-card>
   <div class="footer-spacer"></div>
-  <app-footer/>
+  <app-footer-home></app-footer-home>
+
 </div>
 
 <!-- Contenido para 'undefined' -->
 <div *ngIf="!currentProfile || !currentProfile.role">
+  <h2 class="title-description">About farm & Description</h2>
   <div class="container-app">
     <div class="full-page-app">
-      <h2 class="title-description">About farm & Description</h2>
-
       <div class="container" *ngIf="farm">
         <mat-card class="card">
             <div class="card-content">
@@ -182,4 +180,5 @@
   </div>
   <div class="footer-spacer"></div>
   <app-footer-home></app-footer-home>
+
 </div>

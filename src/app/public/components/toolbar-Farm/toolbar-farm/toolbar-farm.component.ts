@@ -28,6 +28,9 @@ export class ToolbarFarmComponent implements OnInit {
   }
   logout() {
     localStorage.clear();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home']).then(() => {
+      window.location.reload();
+      alert('You have logged out');
+    });
   }
 }

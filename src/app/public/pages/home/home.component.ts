@@ -53,8 +53,7 @@ export class HomeComponent implements OnInit {
   }
   navigateToDescriptionsUndefined(id: string): void {
     if (id === 'farm3' || id === 'farm4' || id === 'farm5') {
-      alert('Si quieres disfrutar de todo el contenido, tienes que registrarte o iniciar sesión');
-      this.router.navigate(['/login']);
+      alert('If you want to enjoy all the content, you need to register or log in');      this.router.navigate(['/login']);
     } else if (id) {
       this.router.navigate(['/descriptions', id]);
     } else {
