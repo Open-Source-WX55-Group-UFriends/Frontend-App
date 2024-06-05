@@ -24,7 +24,8 @@
           </div>
           <div class="filter-container">
             <label>Shed</label>
-            <select class="filter-field">
+            <select [(ngModel)]="selectedShed" (ngModelChange)="filterAnimals()" class="filter-field">
+              <option value="">All Sheds</option>
               <option value="Shed 1">Shed 1</option>
               <option value="Shed 2">Shed 2</option>
               <option value="Shed 3">Shed 3</option>
@@ -39,10 +40,17 @@
               <th>Health Status</th>
             </tr>
             </thead>
-            <tbody>
-            <!-- Here would go the rows with the animal data -->
+            <tbody *ngIf="!isLoading">
+            <tr *ngFor="let animal of filteredAnimals">
+              <td>{{animal.id}}</td>
+              <td>{{animal.age}}</td>
+              <td>{{animal.location}}</td>
+              <td>{{animal.healtstatus}}</td>
+            </tr>
             </tbody>
           </table>
+
+
         </div>
       </div>
     </mat-sidenav-content>

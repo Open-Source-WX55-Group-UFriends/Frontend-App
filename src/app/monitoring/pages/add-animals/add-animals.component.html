@@ -17,40 +17,42 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="content-container">
-        <div class="form-container">
-          <div class="title-container">
-            <h2 class="title-add">ADD ANIMALS</h2>
-          </div>
-          <div class="form-group">
-            <label>Shed</label>
-            <select class="form-field" required>
-              <option value="" selected>Shed 1</option>
-              <option value="">Shed 2</option>
-              <option value="">Shed 3</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Age</label>
-            <input type="text" class="form-field" required>
-          </div>
-          <div class="form-group">
-            <label>Location</label>
-            <input type="text" class="form-field" required>
-          </div>
-          <div class="form-group">
-            <label>Health Status</label>
-            <select class="form-field" required>
-              <option value="" selected>Healthy</option>
-              <option value="">Sick</option>
-              <option value="">Recovering</option>
-            </select>
-          </div>
-          <div class="button-container">
-            <button type="submit">Save</button>
+      <form (ngSubmit)="saveAnimal()">
+        <div class="content-container">
+          <div class="form-container">
+            <div class="title-container">
+              <h2 class="title-add">ADD ANIMALS</h2>
+            </div>
+            <div class="form-group">
+              <label>Shed</label>
+              <select  [(ngModel)]="animal.shed" class="form-field" name="shed" required>
+                <option value="Shed 1" selected>Shed 1</option>
+                <option value="Shed 2">Shed 2</option>
+                <option value="Shed 3">Shed 3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Age</label>
+              <input [(ngModel)]="animal.age" type="text" class="form-field" name="age" required>
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input [(ngModel)]="animal.location" type="text" class="form-field" name="location" required>
+            </div>
+            <div class="form-group">
+              <label>Health Status</label>
+              <select [(ngModel)]="animal.healtstatus" class="form-field" name="healthstatus" required>
+                <option value="Healthy" selected>Healthy</option>
+                <option value="Sick">Sick</option>
+                <option value="Recovering">Recovering</option>
+              </select>
+            </div>
+            <div class="button-container">
+              <button type="submit">Save</button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
