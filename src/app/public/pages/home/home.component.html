@@ -3,9 +3,18 @@
 <div class="main-container">
 
   <div class="section-search">
-    <input type="text" placeholder="Product">
-    <input type="text" placeholder="Ubication">
-    <button class="choose-plan-btn">Search</button>
+    <mat-form-field>
+      <mat-select [(ngModel)]="searchProduct" (ngModelChange)="searchFarms()" #productInput>
+        <mat-option value="">All</mat-option>
+        <mat-option *ngFor="let product of uniqueProducts" [value]="product">{{ product }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [(ngModel)]="searchUbication" (ngModelChange)="searchFarms()" #ubicationInput>
+        <mat-option value="">All</mat-option>
+        <mat-option *ngFor="let ubication of uniqueUbications" [value]="ubication">{{ ubication }}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
   <div *ngIf="!userRole">
     <div class="container" *ngIf="farms.length >= 0">
