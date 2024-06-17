@@ -160,7 +160,7 @@ mat-form-field .custom-close-icon {
   right: 10px;
 }
 mat-form-field .custom-close-icon:hover {
-  background: rgba(255, 255, 255, 0); !important;
+  background: rgba(255, 255, 255, 0);
 }
 
 @media screen and (max-width:768px){

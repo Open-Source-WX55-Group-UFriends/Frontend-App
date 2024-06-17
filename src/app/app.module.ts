@@ -30,9 +30,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 
 // Feature Components Imports
 import {HomeComponent} from "./public/pages/home/home.component";
-import { IncomeTableComponent } from './financial-stats/components/income-table/income-table.component';
-import { ExpenseTableComponent } from './financial-stats/components/expense-table/expense-table.component';
-import { ProfitabilityTableComponent } from './financial-stats/components/profitability-table/profitability-table.component';
 import { FinancialStatsPageComponent } from './financial-stats/pages/financial-stats-page/financial-stats-page.component';
 import { StarRatingComponent } from './social-interaction/components/star-rating/star-rating.component';
 import { ContactCardComponent } from './social-interaction/components/contact-card/contact-card.component';
@@ -80,9 +77,7 @@ import { DashboardTaskComponent } from './monitoring/dashboard-task/dashboard-ta
 @NgModule({
   declarations: [
     AppComponent,
-    IncomeTableComponent,
-    ExpenseTableComponent,
-    ProfitabilityTableComponent,
+
     FinancialStatsPageComponent,
     StarRatingComponent,
     ContactCardComponent,

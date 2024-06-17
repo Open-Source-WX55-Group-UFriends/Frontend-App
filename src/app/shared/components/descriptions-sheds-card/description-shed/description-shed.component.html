@@ -1,5 +1,4 @@
 <app-toolbar-farm></app-toolbar-farm>
-<button (click)="goBackHome()">Back to Home</button>
 <!-- Contenido para 'farmer' -->
 <div *ngIf="currentProfile && currentProfile.role === 'farmer'">
   <h2 class="title-description">About farm & Description</h2>
@@ -57,7 +56,7 @@
     </div>
   </div>
   <div class="footer-spacer"></div>
-  <app-footer/>
+  <app-footer-home></app-footer-home>
 </div>
 
 <!-- Contenido para 'businessOwner' -->
@@ -119,7 +118,8 @@
   <app-star-rating></app-star-rating>
   <app-contact-card></app-contact-card>
   <div class="footer-spacer"></div>
-  <app-footer/>
+  <app-footer-home></app-footer-home>
+
 </div>
 
 <!-- Contenido para 'undefined' -->
@@ -179,5 +179,6 @@
     </div>
   </div>
   <div class="footer-spacer"></div>
-  <app-footer/>
+  <app-footer-home></app-footer-home>
+
 </div>

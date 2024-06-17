@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FinancialStatsService } from '../../services/financial-stats.service';
-import { Income, Expense, Profitability } from '../../models/financial-data';
-import {NgForm} from "@angular/forms";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-financial-stats-page',
@@ -23,7 +21,8 @@ export class FinancialStatsPageComponent implements OnInit {
   displayedColumns: string[] = ['type', 'category', 'description', 'amount', 'date', 'period'];
   filteredDataSource: any[] = [];
   dataSource: any[] = [];
-  searchType: any;
+  searchResults: any[] = [];
+  searchType: any = 'all';
   searchCategory: any;
   searchDate: any;
   searchCategories: string[] = [];
@@ -32,6 +31,7 @@ export class FinancialStatsPageComponent implements OnInit {
   ngOnInit(): void {
     this.updateCategories();
     this.updateSearchCategories();
+    this.updateFilteredDataSource(); // Initial filter to populate the filteredDataSource with the last 11 entries
   }
 
   updateCategories() {
@@ -52,8 +52,6 @@ export class FinancialStatsPageComponent implements OnInit {
     }
   }
 
-
-
   onSubmit(form: NgForm) {
     const value = form.value;
 
@@ -67,27 +65,47 @@ export class FinancialStatsPageComponent implements OnInit {
       period: value.period
     };
 
-    this.formData = [...this.formData, newData];
-    this.dataSource = [...this.dataSource, newData]; // Add new data to dataSource
+    // Insert the new data at the beginning of the arrays
+    this.formData = [newData, ...this.formData];
+    this.dataSource = [newData, ...this.dataSource]; // Add new data to dataSource
 
     // print new data to console
     console.log(this.formData);
 
     // reset the form
-    form.reset();
+    form.resetForm({ type: this.type }); // Reset form with default type
+
+    // Update filteredDataSource to include the new entry
+    this.updateFilteredDataSource();
   }
 
-  filterData() {
-    if (this.searchType === 'all') {
-      this.filteredDataSource = this.dataSource;
-    } else {
-      this.filteredDataSource = this.dataSource.filter((item: any) => {
-        return item.type === this.searchType &&
-          (!this.searchCategory || item.category === this.searchCategory) &&
-          (!this.searchDate || new Date(item.date) >= new Date(this.searchDate));
-      });
-    }
+  updateFilteredDataSource() {
+    // Slice the last 11 entries from the top
+    this.filteredDataSource = this.dataSource.slice(0, 11);
     console.log(this.filteredDataSource); // Print the filtered data to the console
   }
+  filterData() {
+    let filteredData = this.dataSource;
 
+    if (this.searchType && this.searchType === 'all') {
+      // If 'all' is selected, ignore other filters and reset to full dataSource
+      this.searchResults = filteredData;
+    } else {
+      if (this.searchType && this.searchType !== 'all') {
+        filteredData = filteredData.filter((item: any) => item.type === this.searchType);
+      }
+
+      if (this.searchCategory) {
+        filteredData = filteredData.filter((item: any) => item.category === this.searchCategory);
+      }
+
+      if (this.searchDate) {
+        filteredData = filteredData.filter((item: any) => new Date(item.date) >= new Date(this.searchDate));
+      }
+
+      this.searchResults = filteredData;
+    }
+
+    console.log(this.searchResults); // Print the search results to the console
+  }
 }

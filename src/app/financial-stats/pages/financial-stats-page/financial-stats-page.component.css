@@ -1,224 +1,247 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
 .toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
-}
-
- body {
-   font-family: Arial, sans-serif;
- }
- .container-form{
-   width: 40%;
-   margin: 0 auto;
-   padding: 20px;
-   border: 1px solid #ddd;
-   border-radius: 5px;
-   background-color: #f9f9f9;
-   margin-top: 50px;
-
- }
-
-
-
-
-
-
-
-.container {
-  width: 90%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  margin-top: 50px;
-}
-.form-group {
-  margin-bottom: 15px;
-}
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-.form-group input, .form-group select {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-.form-group button {
-  padding: 10px 15px;
-  background-color: #28a745;
+  background-color: #4a4a4a;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
-.form-group button:hover {
-  background-color: #218838;
-}
-
-
-
-
 
 .toolbar-button {
   margin-left: 16px;
   color: white;
 }
 
-.container {
-  padding: 24px;
+.split-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
-.summary {
-  margin-bottom: 24px;
+.left-section, .right-section {
+  flex: 1;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.summary-card {
-  padding: 16px;
+.left-section {
+  margin-right: 10px;
 }
 
-.summary-title {
+.right-section {
+  margin-left: 10px;
+}
+
+.container-form, .container-table {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 12px 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-group button:hover {
+  background-color:#2b7531;
+}
+
+.summary-title, .title-history {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 16px;
+  text-align: center;
+  color: #015901;
 }
 
-.summary-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.label {
-  font-weight: bold;
-}
-
-.value {
-  font-weight: bold;
-  color: #3f51b5;
-}
-
-.section {
-  margin-bottom: 24px;
-}
-
-.section-title {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-.roi {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.filters {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.filters mat-form-field {
-  flex: 1;
-}
-
-
-.container-table {
-  width: 50%;
-  margin: 50px auto; /* Agrega un margen de 50px en la parte superior e inferior */
-  padding: 20px;
-  border: 1px solid #807a7a;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+.container-table table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .container-table th, .container-table td {
-  padding: 8px;
-  font-size: 14px;
-  text-align: center; /* Alinea el texto a la izquierda */
+  padding: 12px;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
 }
 
 .container-table th {
-  background-color: #f9f9f9; /* Cambia el color de fondo de los encabezados de la tabla */
-  font-weight: bold; /* Hace que los encabezados de la tabla sean negrita */
+  background-color: #f9f9f9;
+  font-weight: bold;
 }
-@media screen and (max-width: 600px) {
-  .container-table th, .container-table td {
-    padding: 8px;
-    font-size: 14px;
-  }
+
+.container-table tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
-.container {
-  width: 50%;
-  margin: 50px auto; /* Agrega un margen de 50px en la parte superior e inferior */
+
+.dashboard {
   padding: 20px;
-  border: 1px solid #807a7a;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto 40px auto; /* Agrega espacio debajo */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .container form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .container form div {
-  flex: 1 0 21%; /* Esto hará que los campos de entrada se muestren en línea y tengan un ancho del 21% del contenedor del formulario */
-  margin: 5px;
+  flex: 1 1 30%;
+  margin-bottom: 15px;
 }
 
-.container form select,
-.container form input {
-  width: 100%;
-  padding: 8px;
+.container form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.container form select, .container form input {
+  width: 90%;
+  padding: 10px;
   font-size: 14px;
+  box-sizing: border-box;
   border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #015901;
 }
 
 .container form button {
-  padding: 10px 15px;
-  background-color: #f9f9f9; /* Cambia el color de fondo de los encabezados de la tabla */
-  font-weight: bold; /* Hace que los encabezados de la tabla sean negrita */
+  padding: 10px 100px;
+  background-color: #4CAF50;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 5px auto;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
   display: block;
+}
+
+.container form button:hover {
+  background-color: #26862c;
 }
 
 .container table {
   width: 100%;
-  margin-top: 20px;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.container table thead {
-  background-color: #f9f9f9; /* Cambia el color de fondo de los encabezados de la tabla */
-  font-weight: bold; /* Hace que los encabezados de la tabla sean negrita */
-}
-
-.container table th,
-.container table td {
-  padding: 8px;
+.container table th, .container table td {
+  padding: 10px;
   font-size: 14px;
-  text-align: center; /* Alinea el texto a la izquierda */
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.container table th {
+  background-color: #f9f9f9;
+  font-weight: bold;
 }
 
 .container table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    width: 100%;
+    margin: 10px 0;
+  }
+
   .container form div {
-    flex: 1 0 100%; /* En pantallas pequeñas, los campos de entrada se mostrarán uno debajo del otro */
+    flex: 1 1 100%;
+  }
+
+  .container form {
+    flex-direction: column;
+  }
+
+  .container form button {
+    width: 100%;
   }
 }
 
+@media screen and (max-width: 480px) {
+  .form-group input, .form-group select, .container form select, .container form input {
+    width: 100%;
+  }
 
+  .container form div {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .container form button {
+    width: 100%;
+    padding: 10px;
+  }
+}

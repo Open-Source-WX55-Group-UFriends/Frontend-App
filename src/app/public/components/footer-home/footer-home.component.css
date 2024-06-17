@@ -29,8 +29,7 @@ html, body {
   padding-bottom: 2rem;
   text-align: center;
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
 }
 
 .footer .text {
