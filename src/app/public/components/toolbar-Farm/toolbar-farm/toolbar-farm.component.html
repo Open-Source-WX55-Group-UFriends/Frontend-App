@@ -14,7 +14,7 @@
     <!-- Toolbar for 'farm worker' -->
     <ul *ngIf="currentProfile && currentProfile.role === 'farmWorker'">
       <li><button class="choose-plan-btn"  routerLink="/detailed-monitoring" (click)="scrollToTop()" >Detailed Monitoring</button></li>
-      <li><a routerLink="/role-profile" >Profile</a></li>
+      <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>
       <li><a (click)="logout()">Log out</a></li>
     </ul>
     <!-- Toolbar for 'farmer' -->

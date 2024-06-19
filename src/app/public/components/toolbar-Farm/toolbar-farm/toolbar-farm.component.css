@@ -72,7 +72,9 @@ button:hover {
   background-color: #45a049;
   transform: translateY(-2px);
 }
-
+#menu ul li a {
+  cursor: pointer;
+}
 .hamburger {
   display: none;
   font-size: 30px;
