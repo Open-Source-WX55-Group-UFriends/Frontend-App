@@ -42,8 +42,13 @@ export class ProfileFarmComponent {
     this.farm.highlight2 = highlights[1] || '';
     this.farm.highlight3 = highlights[2] || '';
 
-    // Pass the userRole when calling addFarm
-    this.farmService.addFarm(this.farm, 'farmer');
+    const success = this.farmService.addFarm(this.farm, 'farmer');
+    if (!success) {
+      alert('You can only add one farm.');
+      this.router.navigate(['/home']);
+      return;
+    }
+
     this.farm = {
       name: '',
       ubication: '',

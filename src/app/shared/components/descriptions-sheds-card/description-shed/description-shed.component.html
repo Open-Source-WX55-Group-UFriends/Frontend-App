@@ -1,5 +1,6 @@
 <app-toolbar-farm></app-toolbar-farm>
 <!-- Contenido para 'farmer' -->
+
 <div *ngIf="currentProfile && currentProfile.role === 'farmer'">
   <h2 class="title-description">About farm & Description</h2>
   <div class="container-app">
@@ -13,6 +14,9 @@
               </div>
             </div>
             <div class="info-section">
+              <div class="edit-icon-container">
+                <mat-icon class="edit-icon" *ngIf="currentProfile && currentProfile.role === 'farmer' && farm.addedBy === 'farmer'" (click)="navigateToEdit(farm.id, $event)">edit</mat-icon>
+              </div>
               <h2>Farm {{ farm.name }}</h2>
               <p>
                 <img width="20" height="20" src="/assets/map-marker-icon.png" alt="Ubication" />
@@ -49,6 +53,7 @@
               <p>Service: {{ farm.service }}</p>
               <p>Certifications: {{ farm.certifications }}</p>
               <p>Price: $ {{ farm.price | number }}</p>
+
             </div>
           </div>
         </mat-card>
@@ -129,7 +134,7 @@
     <div class="full-page-app">
       <div class="container" *ngIf="farm">
         <mat-card class="card">
-            <div class="card-content">
+          <div class="card-content">
               <div class="image-section">
                 <div *ngFor="let image of farm.images">
                   <img mat-card-image [src]="image" alt="Farm image" class="farm-image">

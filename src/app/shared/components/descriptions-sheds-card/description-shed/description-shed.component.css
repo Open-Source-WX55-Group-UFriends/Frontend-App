@@ -111,6 +111,23 @@ hr{
   background: #003f17;
   margin: 20px 0;
 }
+.edit-icon-container {
+  position: relative;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 14px;
+  right: -30px;
+  color: #276749;
+  font-size: 26px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.edit-icon:hover {
+  transform: scale(1.2);
+}
 @media screen and (max-width: 768px) {
   .full-page-app {
     max-width: 100%;

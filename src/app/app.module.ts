@@ -73,6 +73,7 @@ import { EmployeeComponent } from './monitoring/employee/employee.component';
 import { AddEmployeeComponent } from './monitoring/add-employee/add-employee.component';
 import { EmergencyComponent } from './monitoring/emergency/emergency.component';
 import { DashboardTaskComponent } from './monitoring/dashboard-task/dashboard-task.component';
+import { EditFarmComponent } from './edit-farm/edit-farm.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +117,8 @@ import { DashboardTaskComponent } from './monitoring/dashboard-task/dashboard-ta
     EmployeeComponent,
     AddEmployeeComponent,
     EmergencyComponent,
-    DashboardTaskComponent
+    DashboardTaskComponent,
+    EditFarmComponent
   ],
   imports: [
     BrowserModule,

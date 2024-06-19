@@ -2,9 +2,10 @@
 <div class="profile-card">
   <div class="profile-info-card">
     <div class="profile-image-container">
-      <img *ngIf="currentProfile.role === 'farmer'; else otherRole" src="assets/farmer-profile.png" alt="Profile Image">
+      <img *ngIf="currentProfile.role === 'farmer'; else otherRole" [src]="currentProfile.profileImage || 'assets/farmer-profile.png'" alt="Profile Image">
+      <i class="fas fa-edit edit-icon align-right"  [routerLink]="['/edit-profile', currentProfile.id]"></i>
       <ng-template #otherRole>
-        <img src="assets/bussiness-owner.png" alt="Profile Image">
+        <img [src]="currentProfile.profileImage || 'assets/bussiness-owner.png'" alt="Profile Image">
       </ng-template>
     </div>
     <div class="profile-name" >

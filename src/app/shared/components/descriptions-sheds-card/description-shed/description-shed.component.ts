@@ -40,7 +40,12 @@ export class DescriptionShedComponent implements OnInit {
     alert(`You rate ${event}`);
   }
 
-  goBackHome(): void {
-    this.router.navigate(['/home']);
+  navigateToEdit(id: string, event: Event): void {
+    event.stopPropagation();
+    if (id) {
+      this.router.navigate(['/edit-farm', id]);
+    } else {
+      console.error('No farm ID was provided');
+    }
   }
 }

@@ -8,7 +8,7 @@
     <!-- Toolbar for 'Business Owner' Franco estuvo aqui  -->
     <ul *ngIf="currentProfile && currentProfile.role === 'businessOwner'">
       <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/role-profile">Profile</a></li>
+      <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>
       <li><a  (click)="logout()">Log out</a></li>
     </ul>
     <!-- Toolbar for 'farm worker' -->
@@ -22,13 +22,13 @@
       <li><a routerLink="/home">Home</a></li>
       <li><a routerLink="/monitoring-farmer" >Monitoring</a></li>
       <li><button class="choose-plan-btn"  routerLink="/profile-farm" ><a >Post your ad</a></button></li>
-      <li><a routerLink="/role-profile" >Profile</a></li>
+      <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>
       <li><a (click)="logout()">Log out</a></li>
     </ul>
     <!-- Toolbar for 'admin' -->
     <ul *ngIf="currentProfile && currentProfile.role === 'admin'">
       <li><a routerLink="/admin">Admin</a></li>
-      <li><a routerLink="/role-profile" >Profile</a></li>
+      <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>
       <li><a (click)="logout()">Log out</a></li>
     </ul>
 

@@ -12,7 +12,13 @@ body {
   min-height: 100vh;
 }
 
-
+h1 {
+  color: darkgreen;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
 .section-search {
   display: flex;
   justify-content: center;

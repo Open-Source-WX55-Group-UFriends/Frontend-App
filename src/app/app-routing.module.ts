@@ -32,6 +32,7 @@ import {EmployeeComponent} from "./monitoring/employee/employee.component";
 import {AddEmployeeComponent} from "./monitoring/add-employee/add-employee.component";
 import {EmergencyComponent} from "./monitoring/emergency/emergency.component";
 import {DashboardTaskComponent} from "./monitoring/dashboard-task/dashboard-task.component";
+import {EditFarmComponent} from "./edit-farm/edit-farm.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,10 +47,10 @@ const routes: Routes = [
   {path: 'register', component:RegisterCardComponent },
   {path: 'login', component:LoginCardComponent },
   {path: 'create-profile', component:CreateProfileComponent },
-  {path: 'edit-profile', component:EditProfileComponent },
+  {path: 'edit-profile/:id', component:EditProfileComponent },
   {path: 'create/subscriptions/card', component:PaySubscriptionComponent },
   {path: 'profile-farm', component:ProfileFarmComponent},
-  {path: 'role-profile', component:RoleProfileComponent},
+  {path: 'role-profile/:id', component:RoleProfileComponent},
   { path: 'financial-stats', component: FinancialStatsPageComponent },
   {path: 'detailed-monitoring', component:DetailedMonitoringComponent},
   {path: 'weather', component:WeatherComponent},
@@ -66,6 +67,7 @@ const routes: Routes = [
   {path: 'add-employee', component:AddEmployeeComponent},
   {path: 'emergency', component:EmergencyComponent},
   {path: 'tasks/finished', component:DashboardTaskComponent},
+  {path: 'edit-farm/:id', component:EditFarmComponent},
 
   {path: '**', component:PageNotFoundComponent},
 

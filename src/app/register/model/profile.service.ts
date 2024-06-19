@@ -12,16 +12,28 @@ export class ProfileService {
   constructor() {}
 
   addProfile(profile: any) {
-    console.log(profile);
-
     //Add an id for the profile
     const id = `profile${this.profiles.length + 1}`;
     this.profiles.push({ ...profile, id });
     this.profilesSubject.next(this.profiles);
+
+    return of({ ...profile, id });
   }
 
   getProfiles() {
     return this.profilesSubject.asObservable();
+  }
+  getProfileById(id: string) {
+    const profile = this.profiles.find(profile => profile.id === id);
+    return of(profile);
+  }
+  updateProfile(updatedProfile: any) {
+    const index = this.profiles.findIndex(profile => profile.id === updatedProfile.id);
+    if (index !== -1) {
+      this.profiles[index] = updatedProfile;
+      this.profilesSubject.next(this.profiles);
+    }
+    return of(this.profiles[index]);
   }
 
   addRegister(register: any) {

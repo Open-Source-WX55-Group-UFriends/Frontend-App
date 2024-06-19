@@ -65,25 +65,29 @@ textarea {
   border-radius: 5px;
   font-size: 18px;
 }
+.highlights-group {
+  display: flex;
+  justify-content: space-between;
+}
 
-.form-group .highlights {
-  width: 100%;
-  max-width: 500px;
-  padding: 10px;
-  border: 1px solid #ccc;
+.highlights-group input[type="text"] {
+  width: 70%;
+  margin-top:8px;
+  border: 2px solid #ccc;
   border-radius: 5px;
+  font-size: 18px;
 }
 
 .button-group {
   display: flex;
-  justify-content: center;
+  justify-content: space-around; /* Cambia 'center' a 'space-around' para distribuir el espacio alrededor de los botones */
   width: 100%;
-  margin-top: 40px;
-  gap:200px;
+  margin-top: 25px;
+  margin-left: -10px;
 }
 
 .button-group button {
-  padding: 5px 30px;
+  padding: 10px 30px;
   background-color: darkgreen;
   color: #fff;
   border: none;
@@ -110,14 +114,14 @@ textarea {
   width: fit-content;
   height: 45px;
   border: none;
-  padding: 10px 25px;
+  padding: 2px 15px;
   border-radius: 10px;
   background-color: rgba(122, 203, 163, 0.9);
   gap: 10px;
   cursor: pointer;
   transition: all 0.3s;
-  margin-top: 30px;
-  margin-left:170px;
+  margin-top: 25px;
+  margin-left:205px;
 }
 
 .folderContainer {
@@ -157,6 +161,7 @@ textarea {
 .text {
   color: white;
   font-size: 14px;
+  margin-top:10px;
   font-weight: 600;
   letter-spacing: 1px;
 }
@@ -180,7 +185,7 @@ textarea {
 .slider {
   -webkit-appearance: none;
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
   height: 10px;
   border-radius: 5px;
   background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
@@ -223,27 +228,11 @@ textarea {
   align-items: center;
   justify-content: space-between;
   width: 200px;
-  background-color: rgba(168, 241, 200, 0.73);
-  border-radius: 50px;
   padding: 5px;
-  box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.75);
-  margin: 10px auto;
+  margin: 1px auto auto 160px;
 }
 
-.number-left,
-.number-right {
-  background-color: #17B169;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  width: 30px;
-  height: 30px;
-  color: white;
-  transition: background-color 0.3s, transform 0.3s;
-  cursor: pointer;
-  border-radius: 50%;
-}
+
 
 .number-quantity {
   padding: 0.15em;
@@ -261,7 +250,7 @@ textarea {
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 500px) {
+@media (max-width: 500px) {
   .container {
     width: 95%;
   }

@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
       this.allFarms = data.map((farm: any, index: number) => {
         return { ...farm, id: `farm${index + 1}` };
       });
-      this.farms = [...this.allFarms]; // Inicializa las granjas con todas las granjas
+      this.farms = [...this.allFarms];
       console.log(this.farms);
     });
   }
@@ -73,7 +73,6 @@ export class HomeComponent implements OnInit {
   searchFarms(): void {
     if (!this.searchProduct && !this.searchUbication) {
       this.farms = [...this.allFarms];
-      this.userFarms = [...this.allFarms];
       return;
     }
 
@@ -84,8 +83,6 @@ export class HomeComponent implements OnInit {
     this.farms = this.allFarms.filter((farm: any) => {
       return filterFunction(farm.product, this.searchProduct) && filterFunction(farm.ubication, this.searchUbication);
     });
-
-    this.userFarms = this.farms;
   }
   getUniqueProducts(): void {
     this.farmService.getFarms().subscribe((data: any[]) => {

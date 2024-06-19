@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, of } from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class FarmService {
   private farms: any[] = [
     {
       id: 'farm1',
-      name: 'Los Alamos Farm',
+      name: 'Los Alamos',
       ubication: 'Asia',
       product: 'Chicken',
       totalSurface: 150,
@@ -25,7 +26,7 @@ export class FarmService {
     },
     {
       id: 'farm2',
-      name: 'El Sol Farm',
+      name: 'El Sol',
       ubication: 'Arequipa',
       product: 'Cattle',
       totalSurface: 300,
@@ -41,7 +42,7 @@ export class FarmService {
     },
     {
       id: 'farm3',
-      name: 'Green Valley Farm',
+      name: 'Green Valley',
       ubication: 'Cusco',
       product: 'Sheep',
       totalSurface: 200,
@@ -57,7 +58,7 @@ export class FarmService {
     },
     {
       id: 'farm4',
-      name: 'Blue Mountain Farm',
+      name: 'Blue Mountain',
       ubication: 'Cusco',
       product: 'Alpaca',
       totalSurface: 250,
@@ -73,7 +74,7 @@ export class FarmService {
     },
     {
       id: 'farm5',
-      name: 'River Side Farm',
+      name: 'River Side',
       ubication: 'Ica',
       product: 'Pigs',
       totalSurface: 180,
@@ -89,7 +90,7 @@ export class FarmService {
     },
     {
       id: 'farm6',
-      name: 'Sunset Farm',
+      name: 'Sunset',
       ubication: 'Asia',
       product: 'Chicken',
       totalSurface: 200,
@@ -105,7 +106,7 @@ export class FarmService {
     },
     {
       id: 'farm7',
-      name: 'Moonlight Farm',
+      name: 'Moonlight',
       ubication: 'Arequipa',
       product: 'Cattle',
       totalSurface: 350,
@@ -121,7 +122,7 @@ export class FarmService {
     },
     {
       id: 'farm8',
-      name: 'Starlight Farm',
+      name: 'Starlight',
       ubication: 'Cusco',
       product: 'Sheep',
       totalSurface: 220,
@@ -137,7 +138,7 @@ export class FarmService {
     },
     {
       id: 'farm9',
-      name: 'Cloudy Sky Farm',
+      name: 'Cloudy Sky',
       ubication: 'Cusco',
       product: 'Alpaca',
       totalSurface: 270,
@@ -153,7 +154,7 @@ export class FarmService {
     },
     {
       id: 'farm10',
-      name: 'Sunny Side Farm',
+      name: 'Sunny Side',
       ubication: 'Ica',
       product: 'Pigs',
       totalSurface: 190,
@@ -170,12 +171,18 @@ export class FarmService {
   ];
   private farmsSubject = new BehaviorSubject<any[]>(this.farms);
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  addFarm(farm: any, userRole: string) {
-    const id = `farm${this.userFarms.length + 6}`;
+  addFarm(farm: any, userRole: string): boolean {
+    const existingFarm = this.userFarms.find(f => f.addedBy === userRole);
+    if (existingFarm) {
+      return false;
+    }
+
+    const id = `farm${this.userFarms.length + 11}`;
     this.userFarms.push({ ...farm, id, addedBy: userRole });
     this.farmsSubject.next([...this.farms, ...this.userFarms]);
+    return true;
   }
 
   getUserFarms(userRole: string) {
@@ -189,6 +196,19 @@ export class FarmService {
   getFarmById(id: string) {
     const farm = [...this.farms, ...this.userFarms].find(farm => farm.id === id);
     console.log('getFarmById called, found farm:', farm);// confirmation
+    return of(farm);
+  }
+  updateFarm(farm: any): Observable<any> {
+    let index = this.farms.findIndex(f => f.id === farm.id);
+    if (index !== -1) {
+      this.farms[index] = farm;
+    } else {
+      index = this.userFarms.findIndex(f => f.id === farm.id);
+      if (index !== -1) {
+        this.userFarms[index] = farm;
+      }
+    }
+    this.farmsSubject.next([...this.farms, ...this.userFarms]);
     return of(farm);
   }
 }
