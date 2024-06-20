@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileService } from '../../../../register/model/profile.service';
 import {AuthenticationService} from "../../../../register/services/authentication.service";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {of, switchMap} from "rxjs";
+import {environment} from "../../../../../environments/environment";
 
 @Component({
   selector: 'app-toolbar-farm',
@@ -15,47 +17,41 @@ export class ToolbarFarmComponent implements OnInit {
 
   menuActive = false;
   isSignedIn = false
-  currentId: number = 0;
+  currentRole: string = "";
 
 
   constructor(private http: HttpClient, private profileService: ProfileService, private router: Router, private authenticationService: AuthenticationService) { }
-
   ngOnInit() {
-    this.authenticationService.currentUsername.subscribe(username => {
-        if (username) {
-          console.log(username); // Aquí tienes el nombre de usuario autenticado
-          this.currentUser = username;
+    this.authenticationService.currentUserId.pipe(
+      switchMap(userId => {
+        if (userId) {
+          return this.authenticationService.getToken();
         } else {
-          this.currentUser = '';
+          console.error('No user ID was provided');
+          return of(null);
         }
-      });
+      }),
+      switchMap(token => {
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        });
 
-
-    this.authenticationService.currentUserId.subscribe(userId => {
-      if (userId) {
-        console.log(userId); // Aquí tienes el ID del usuario autenticado
-        this.currentId = userId;
+        return this.http.get<any>(`${environment.serverBasePath}/users/${this.authenticationService.getIdSignIn()}`, { headers });
+      })
+    ).subscribe(user => {
+      if (user && user.roles) {
+        this.currentRole = user.roles[0];
+        console.log('User role:', user.roles[0]); // Aquí se imprime el rol del usuario
       } else {
-        this.currentId = 0;
+        console.error('User does not have any roles');
       }
     });
-
-/*
-    this.profileService.getProfiles().subscribe(profiles => {
-      this.currentProfile = profiles[profiles.length - 1];
-      // Una vez que tienes el perfil, obtén el rol del usuario
-      this.getRole(this.currentProfile.id).subscribe(role => {
-        this.currentProfile.role = role;
-      });
-    });
-    */
 
     this.authenticationService.isSignedIn.subscribe((isSignedIn) => {
       this.isSignedIn = isSignedIn;
     });
-
   }
-
 
   toggleMenu() {
     this.menuActive = !this.menuActive;

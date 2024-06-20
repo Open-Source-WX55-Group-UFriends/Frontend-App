@@ -82,24 +82,18 @@ export class AuthenticationService {
     this.setToken('');
 
     }
-  getProfileCreated(){
-    return this. isProfileCreated;
-  }
-
 
   setToken(token: string) {
     this.varToken.next(token);
   }
 
-    createProfile() {
-    this.router.navigate(['/create-profile']).then();
-    }
-
-
-
 
   getToken(): Observable<string> {
     return this.varToken.asObservable();
+  }
+
+  getIdSignIn(): Observable<number> {
+    return this.signedInUserId.asObservable();
   }
 
 }

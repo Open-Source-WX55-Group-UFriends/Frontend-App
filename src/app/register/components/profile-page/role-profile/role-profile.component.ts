@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
 import {ProfileService} from "../../../model/profile.service";
 import { Router } from '@angular/router';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {of, switchMap} from "rxjs";
+import {environment} from "../../../../../environments/environment";
+import {AuthenticationService} from "../../../services/authentication.service";
 
 @Component({
   selector: 'app-role-profile',
@@ -12,22 +16,58 @@ export class RoleProfileComponent implements OnInit {
   currentProfile: any;
   register : any;
 
-  constructor(private route: ActivatedRoute, private profileService: ProfileService, private router: Router) { } // Inyecta ActivatedRoute en el constructor
 
+
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private authenticationService: AuthenticationService) { }
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id'); // Obtiene el ID del perfil de los parámetros de la ruta
-    if (id) {
-      this.profileService.getProfileById(id).subscribe(profile => { // Obtiene el perfil por su ID
-        this.currentProfile = profile;
-      });
+    this.authenticationService.getToken().pipe(
+      switchMap(token => {
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        });
+
+        return this.http.get<any>(`${environment.serverBasePath}/profiles/me`, { headers });
+      })
+    ).subscribe(profile => {
+      if (profile) {
+        console.log('Profile data:', profile); // Aquí se imprime toda la data del perfil
+      } else {
+        console.error('No profile data received');
+      }
+    });
+
+
+
+
+    const role = this.route.snapshot.paramMap.get('currentRole'); // Obtiene el rol de los parámetros de la ruta
+    if (role) {
+      // Aquí se llama a la función getRoleValue con el rol del perfil
+      const roleValue = this.getRoleValue(role);
+      console.log('Role value:', roleValue); // Aquí se imprime el valor del rol
     } else {
-      console.error('No profile ID was provided');
+      console.error('No role was provided');
     }
 
-    this.profileService.getRegisters().subscribe(registers => {
-      this.register = registers[registers.length - 1];
-    });
-    console.log('app-toolbar-farm initialized');
+    console.log('app-toolbar-farm initialized')
+
+
+
+  }
+
+// Esta función toma un rol y devuelve un número correspondiente
+  getRoleValue(role: string): number {
+    switch (role) {
+      case 'ROLE_OWNER':
+        return 0;
+      case 'ROLE_FARMER':
+        return 1;
+      case 'ROLE_FARMWORKER':
+        return 2;
+      default:
+        console.error('Invalid role');
+        return -1;
+    }
   }
 
   convertCamelCaseToSpace(role: string): string {

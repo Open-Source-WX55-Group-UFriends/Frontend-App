@@ -1,12 +1,16 @@
 <app-toolbar-farm></app-toolbar-farm>
+
 <div class="profile-card">
   <div class="profile-info-card">
     <div class="profile-image-container">
-      <img *ngIf="currentProfile.role === 'farmer'; else otherRole" [src]="currentProfile.profileImage || 'assets/farmer-profile.png'" alt="Profile Image">
-      <i class="fas fa-edit edit-icon align-right"  [routerLink]="['/edit-profile', currentProfile.id]"></i>
-      <ng-template #otherRole>
-        <img [src]="currentProfile.profileImage || 'assets/bussiness-owner.png'" alt="Profile Image">
+      <img *ngIf="currentProfile.role === 'ROLE_FARMER'; else ownerRole" [src]="currentProfile.profileImage || 'assets/farmer-profile.png'" alt="Profile Image">
+      <ng-template #ownerRole>
+        <img *ngIf="currentProfile.role === 'ROLE_OWNER'; else workerRole" [src]="currentProfile.profileImage || 'assets/owner-profile.png'" alt="Profile Image">
       </ng-template>
+      <ng-template #workerRole>
+        <img [src]="currentProfile.profileImage || 'assets/worker-profile.png'" alt="Profile Image">
+      </ng-template>
+      <i class="fas fa-edit edit-icon align-right"  [routerLink]="['/edit-profile', currentProfile.id]"></i>
     </div>
     <div class="profile-name" >
       <h1>{{ currentProfile.firstName }} {{ currentProfile.lastName }}</h1>
