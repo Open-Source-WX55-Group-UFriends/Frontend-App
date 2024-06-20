@@ -33,14 +33,32 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     this.authenticationService.isSignedIn.subscribe((isSignedIn) => {
       this.isSignedIn = isSignedIn;
     });
+
+
   }
 
+
+
+
+
+
+
+
+
+
   ngOnInit(): void {
+
+    this.authenticationService.isSignedIn.subscribe((isSignedIn) => {
+      this.isSignedIn = true;
+    });
     this.form = this.builder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
-    });
+    })
+
+
   }
+
 
   toggleActive(): void {
     this.isActive = !this.isActive;
@@ -61,8 +79,17 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     let username = this.form.value.username;
     let password = this.form.value.password;
     const signUpRequest = new SignUpRequest(username, password);
-    this.authenticationService.signUp(signUpRequest);
-    this.submitted = true;
+    this.authenticationService.signUp(signUpRequest).subscribe({
+      next: () => {
+        this.submitted = true;
+        this.router.navigate(['/create-profile']);
+      },
+      error: (error) => {
+        console.error(`Error while signing up: ${error}`);
+        // Aún navega a /create-profile incluso si hay un error
+        this.router.navigate(['/create-profile']);
+      }
+    });
   }
   onSignIn() {
     if (this.form.invalid) return;

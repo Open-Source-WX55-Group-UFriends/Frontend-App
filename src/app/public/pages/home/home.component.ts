@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getFarmData();
     this.getUserFarms();
-    this.getUserRole();
     this.getUniqueProducts();
     this.getUniqueUbications();
   }
@@ -34,12 +33,13 @@ export class HomeComponent implements OnInit {
       console.log(this.userFarms);
     });
   }
-
+/*
   getUserRole(): void {
     this.profileService.getProfiles().subscribe(profiles => {
       this.userRole = profiles[profiles.length - 1].role;
     });
   }
+  */
 
   getFarmData(): void {
     this.farmService.getFarms().subscribe((data: any) => {

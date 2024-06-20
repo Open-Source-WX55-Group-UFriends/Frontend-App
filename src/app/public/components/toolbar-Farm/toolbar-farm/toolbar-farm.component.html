@@ -4,36 +4,36 @@
     <p>FarmLogiTech</p>
   </div>
   <button class="hamburger" (click)="toggleMenu()">☰</button>
-  <nav id="menu" [class.active]="menuActive">
+  <nav id="menu" [class.active]="menuActive"  >
     <!-- Toolbar for 'Business Owner' Franco estuvo aqui  -->
-    <ul *ngIf="currentProfile && currentProfile.role === 'businessOwner'">
+    <ul *ngIf="currentProfile ">
       <li><a routerLink="/home">Home</a></li>
-      <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>
+   <!--   <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>-->
       <li><a  (click)="logout()">Log out</a></li>
     </ul>
     <!-- Toolbar for 'farm worker' -->
-    <ul *ngIf="currentProfile && currentProfile.role === 'farmWorker'">
+    <ul *ngIf="currentProfile ">
       <li><button class="choose-plan-btn"  routerLink="/detailed-monitoring" (click)="scrollToTop()" >Detailed Monitoring</button></li>
-      <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>
-      <li><a (click)="logout()">Log out</a></li>
-    </ul>
-    <!-- Toolbar for 'farmer' -->
-    <ul *ngIf="currentProfile && currentProfile.role === 'farmer'">
+      <!--    <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li> -->
+     <li><a (click)="logout()">Log out</a></li>
+   </ul>
+   <!-- Toolbar for 'farmer' -->
+    <ul *ngIf="isSignedIn">
       <li><a routerLink="/home">Home</a></li>
       <li><a routerLink="/monitoring-farmer" >Monitoring</a></li>
       <li><button class="choose-plan-btn"  routerLink="/profile-farm" ><a >Post your ad</a></button></li>
-      <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>
-      <li><a (click)="logout()">Log out</a></li>
-    </ul>
-    <!-- Toolbar for 'admin' -->
-    <ul *ngIf="currentProfile && currentProfile.role === 'admin'">
+      <!--   <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>  -->
+       <li><a (click)="logout()">Log out</a></li>
+     </ul>
+     <!-- Toolbar for 'admin' -->
+    <ul *ngIf="currentProfile ">
       <li><a routerLink="/admin">Admin</a></li>
-      <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li>
-      <li><a (click)="logout()">Log out</a></li>
-    </ul>
+      <!--   <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li> -->
+        <li><a (click)="logout()">Log out</a></li>
+      </ul>
 
-    <!-- Toolbar for 'public' -->
-    <ul *ngIf="!currentProfile">
+      <!-- Toolbar for 'public' -->
+    <ul *ngIf="!isSignedIn">
       <li><a routerLink="/home">Home</a></li>
      <!-- <li><a routerLink="/subscriptions/card" (click)="scrollToTop()" >Rates</a></li>-->
       <li><button class="choose-plan-btn"  routerLink="/login" ><a >Post your ad</a></button></li>
@@ -41,4 +41,6 @@
       <li><a routerLink="/login">Sign in</a></li>
     </ul>
   </nav>
+
+
 </header>
