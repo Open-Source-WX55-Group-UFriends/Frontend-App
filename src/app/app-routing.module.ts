@@ -7,7 +7,6 @@ import {HomeComponent} from "./public/pages/home/home.component";
 import { DescriptionShedComponent } from "./shared/components/descriptions-sheds-card/description-shed/description-shed.component";
 import {TaskTableComponent} from "./task/components/task-table/task-table.component";
 import {TaskFormComponent} from "./task/components/task-form/task-form.component";
-import {RegisterCardComponent} from "./register/components/register-card/register-card.component";
 import {LoginCardComponent} from "./register/components/login-card/login-card.component";
 import {CreateProfileComponent} from "./register/components/profile-page/create-profile/create-profile.component";
 import {EditProfileComponent} from "./register/components/profile-page/edit-profile/edit-profile.component";
@@ -43,10 +42,6 @@ const routes: Routes = [
   {path: 'tasks', component:TaskTableComponent },
   {path: 'tasks/create', component:TaskFormComponent }  ,
   {path: 'sign-in', component:LoginCardComponent },
-  {path: 'sign-up', component:RegisterCardComponent},
-  {path: 'register', component:RegisterCardComponent },
-  {path: 'register', component:RegisterCardComponent },
-  {path: 'register', component:RegisterCardComponent },
   {path: 'login', component:LoginCardComponent },
   {path: 'create-profile', component:CreateProfileComponent },
   {path: 'edit-profile/:id', component:EditProfileComponent },

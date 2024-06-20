@@ -6,6 +6,7 @@ import {BaseFormComponent} from "../../../shared/components/base-form.component"
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../services/authentication.service";
 import {SignInRequest} from "../../model/sign-in.request";
+import {SignUpRequest} from "../../model/sign-up.request";
 
 @Component({
   selector: 'app-login-card',
@@ -17,45 +18,22 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
   submitted = false;
   isActive = false;
   isForgotPasswordActive = false;
-
-  constructor(private builder: FormBuilder, private authenticationService: AuthenticationService) {
-    super();
-  }
-
-  //constructor(private router: Router, private profileService: ProfileService) {
-    //super();}
-
-  toggleActive(): void {
-    this.isActive = !this.isActive;
-
-  }
-
-  toggleForgotPassword(): void {
-    this.isActive = false;
-    this.isForgotPasswordActive = !this.isForgotPasswordActive;
-  }
-
-
-  backToSignIn(): void {
-    this.isForgotPasswordActive = false;
-    this.isActive = false;
-  }
-
-  register={
-    email:'',
-    password:''
+  currentUsername: string = '';
+  isSignedIn: boolean = false;
+  register = {
+    email: '',
+    password: ''
   };
 
-  //save() {
-
-  //this.profileService.addRegister(this.register);
-  //this.router.navigate(['/create-profile']);
-  //this.register = {
-  //email: '',
-  //password: ''
-  //};
-
-  //}
+  constructor(private builder: FormBuilder, private router: Router, private authenticationService: AuthenticationService) {
+    super();
+    this.authenticationService.currentUsername.subscribe((username) => {
+      this.currentUsername = username;
+    });
+    this.authenticationService.isSignedIn.subscribe((isSignedIn) => {
+      this.isSignedIn = isSignedIn;
+    });
+  }
 
   ngOnInit(): void {
     this.form = this.builder.group({
@@ -64,17 +42,47 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     });
   }
 
+  toggleActive(): void {
+    this.isActive = !this.isActive;
+  }
+
+  toggleForgotPassword(): void {
+    this.isActive = false;
+    this.isForgotPasswordActive = !this.isForgotPasswordActive;
+  }
+
+  backToSignIn(): void {
+    this.isForgotPasswordActive = false;
+    this.isActive = false;
+  }
+
   onSubmit() {
     if (this.form.invalid) return;
     let username = this.form.value.username;
     let password = this.form.value.password;
+    const signUpRequest = new SignUpRequest(username, password);
+    this.authenticationService.signUp(signUpRequest);
+    this.submitted = true;
+  }
+  onSignIn() {
+    if (this.form.invalid) return;
+    let username = this.form.value.username;
+    let password = this.form.value.password;
+    console.log(`Username: ${username}, Password: ${password}`);
     const signInRequest = new SignInRequest(username, password);
     this.authenticationService.signIn(signInRequest);
-    this.submitted = true;
+  }
+  onSignUp() {
+    this.router.navigate(['/sign-up']).then();
+  }
+  onSignOut() {
+    this.authenticationService.signOut();
   }
 
   save() {
     // Aquí va la lógica de la función save
     console.log('La función save ha sido llamada');
   }
+
+  protected readonly SignInRequest = SignInRequest;
 }

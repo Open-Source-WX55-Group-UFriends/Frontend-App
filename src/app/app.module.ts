@@ -37,7 +37,6 @@ import { DescriptionShedComponent } from './shared/components/descriptions-sheds
 import { TaskFormComponent } from './task/components/task-form/task-form.component';
 import { TaskTableComponent } from './task/components/task-table/task-table.component';
 import { LoginCardComponent } from './register/components/login-card/login-card.component';
-import { RegisterCardComponent } from './register/components/register-card/register-card.component';
 import { CreateProfileComponent } from './register/components/profile-page/create-profile/create-profile.component';
 import { EditProfileComponent } from './register/components/profile-page/edit-profile/edit-profile.component';
 import { PaySubscriptionComponent } from './register/components/profile-page/subscription/pay-subscription.component';
@@ -76,6 +75,7 @@ import { DashboardTaskComponent } from './monitoring/dashboard-task/dashboard-ta
 import { EditFarmComponent } from './edit-farm/edit-farm.component';
 import { AuthenticationSectionComponent } from './register/components/authentication-section/authentication-section.component';
 import {provideNativeDateAdapter} from "@angular/material/core";
+import {AuthenticationInterceptor} from "./register/services/authentication.interceptor.service";
 
 @NgModule({
   declarations: [
@@ -88,7 +88,6 @@ import {provideNativeDateAdapter} from "@angular/material/core";
     TaskFormComponent,
     TaskTableComponent,
     LoginCardComponent,
-    RegisterCardComponent,
     CreateProfileComponent,
     EditProfileComponent,
     PaySubscriptionComponent,
@@ -157,7 +156,7 @@ import {provideNativeDateAdapter} from "@angular/material/core";
     provideNativeDateAdapter(),
     {
       provide:HTTP_INTERCEPTORS,
-      useClass:AuthenticationSectionComponent,
+      useClass:AuthenticationInterceptor,
       multi:true
     }
   ],
