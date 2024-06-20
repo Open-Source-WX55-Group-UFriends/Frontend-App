@@ -16,6 +16,8 @@ export class AuthenticationService {
   basePath: string = `${environment.serverBasePath}`;
   isProfileCreated: boolean = false;
   private varToken: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private idSignIn = new BehaviorSubject<string>('');
+
   setProfileCreated(value: boolean) {
     this.isProfileCreated = value;
   }
@@ -55,6 +57,7 @@ export class AuthenticationService {
         tap((response) => {
           this.signedIn.next(true);
           this.signedInUserId.next(response.id);
+          this.setIdSignIn(response.id.toString());
           this.signedInUsername.next(response.username);
           localStorage.setItem('token', response.token);
           this.setToken(response.token);
@@ -80,6 +83,7 @@ export class AuthenticationService {
     this.router.navigate(['/sign-in']).then();
     this.setProfileCreated(false);
     this.setToken('');
+    this.setIdSignIn('');
 
     }
 
@@ -87,13 +91,19 @@ export class AuthenticationService {
     this.varToken.next(token);
   }
 
+  getIdSignIn() {
+    return this.idSignIn.value; // Devuelve el valor del BehaviorSubject
+  }
+
+  // Método para establecer el ID del usuario autenticado
+  setIdSignIn(id: string) {
+    this.idSignIn.next(id);
+  }
 
   getToken(): Observable<string> {
     return this.varToken.asObservable();
   }
 
-  getIdSignIn(): Observable<number> {
-    return this.signedInUserId.asObservable();
-  }
+
 
 }
