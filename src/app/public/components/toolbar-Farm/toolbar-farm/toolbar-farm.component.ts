@@ -19,32 +19,28 @@ export class ToolbarFarmComponent implements OnInit {
   isSignedIn = false
   currentRole: string = "";
 
-
   constructor(private http: HttpClient, private profileService: ProfileService, private router: Router, private authenticationService: AuthenticationService) { }
   ngOnInit() {
-    this.authenticationService.currentUserId.pipe(
-      switchMap(userId => {
-        if (userId) {
-          return this.authenticationService.getToken();
+    this.authenticationService.getToken().pipe(
+      switchMap(token => {
+        if (token) {
+          const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          });
+
+          return this.http.get<any>(`${environment.serverBasePath}/profiles/me`, { headers });
         } else {
-          console.error('No user ID was provided');
+          console.error('No token was provided');
           return of(null);
         }
-      }),
-      switchMap(token => {
-        const headers = new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        });
-
-        return this.http.get<any>(`${environment.serverBasePath}/users/${this.authenticationService.getIdSignIn()}`, { headers });
       })
-    ).subscribe(user => {
-      if (user && user.roles) {
-        this.currentRole = user.roles[0];
-        console.log('User role:', user.roles[0]); // Aquí se imprime el rol del usuario
+    ).subscribe(profile => {
+      if (profile && profile.roles) {
+        this.currentRole = profile.roles[0];
+        console.log('Profile role:', profile.roles[0]); // Aquí se imprime el rol del perfil
       } else {
-        console.error('User does not have any roles');
+        console.error('Profile does not have any rolesProfile does not have any roles');
       }
     });
 

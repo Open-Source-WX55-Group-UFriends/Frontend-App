@@ -17,7 +17,6 @@ export class RoleProfileComponent implements OnInit {
   register : any;
 
 
-
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, private authenticationService: AuthenticationService) { }
   ngOnInit() {
     this.authenticationService.getToken().pipe(
@@ -37,9 +36,6 @@ export class RoleProfileComponent implements OnInit {
       }
     });
 
-
-
-
     const role = this.route.snapshot.paramMap.get('currentRole'); // Obtiene el rol de los parámetros de la ruta
     if (role) {
       // Aquí se llama a la función getRoleValue con el rol del perfil
@@ -50,8 +46,6 @@ export class RoleProfileComponent implements OnInit {
     }
 
     console.log('app-toolbar-farm initialized')
-
-
 
   }
 
