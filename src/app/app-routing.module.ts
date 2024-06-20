@@ -42,6 +42,8 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent },
   {path: 'tasks', component:TaskTableComponent },
   {path: 'tasks/create', component:TaskFormComponent }  ,
+  {path: 'sign-in', component:LoginCardComponent },
+  {path: 'sign-up', component:RegisterCardComponent},
   {path: 'register', component:RegisterCardComponent },
   {path: 'register', component:RegisterCardComponent },
   {path: 'register', component:RegisterCardComponent },

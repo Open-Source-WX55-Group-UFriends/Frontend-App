@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -74,6 +74,8 @@ import { AddEmployeeComponent } from './monitoring/add-employee/add-employee.com
 import { EmergencyComponent } from './monitoring/emergency/emergency.component';
 import { DashboardTaskComponent } from './monitoring/dashboard-task/dashboard-task.component';
 import { EditFarmComponent } from './edit-farm/edit-farm.component';
+import { AuthenticationSectionComponent } from './register/components/authentication-section/authentication-section.component';
+import {provideNativeDateAdapter} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -118,7 +120,8 @@ import { EditFarmComponent } from './edit-farm/edit-farm.component';
     AddEmployeeComponent,
     EmergencyComponent,
     DashboardTaskComponent,
-    EditFarmComponent
+    EditFarmComponent,
+    AuthenticationSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -150,7 +153,13 @@ import { EditFarmComponent } from './edit-farm/edit-farm.component';
   ],
   providers: [
     provideAnimationsAsync(),
-    FinancialStatsService
+    FinancialStatsService,
+    provideNativeDateAdapter(),
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthenticationSectionComponent,
+      multi:true
+    }
   ],
   exports: [
     PaymentCardComponent,
