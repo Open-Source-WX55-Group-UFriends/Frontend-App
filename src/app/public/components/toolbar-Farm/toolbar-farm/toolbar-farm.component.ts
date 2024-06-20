@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileService } from '../../../../register/model/profile.service';
 import {AuthenticationService} from "../../../../register/services/authentication.service";
@@ -18,6 +18,7 @@ export class ToolbarFarmComponent implements OnInit {
   menuActive = false;
   isSignedIn = false
   currentRole: string = "";
+  @Input() profile!: any;
 
   constructor(private http: HttpClient, private profileService: ProfileService, private router: Router, private authenticationService: AuthenticationService) { }
   ngOnInit() {

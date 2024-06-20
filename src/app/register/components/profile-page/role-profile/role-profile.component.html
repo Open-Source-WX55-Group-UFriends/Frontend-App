@@ -1,6 +1,7 @@
-<app-toolbar-farm></app-toolbar-farm>
+<!-- role-profile.component.html -->
+<app-toolbar-farm [profile]="currentProfile"></app-toolbar-farm>
 
-<div class="profile-card">
+<div class="profile-card" *ngIf="currentProfile">
   <div class="profile-info-card">
     <div class="profile-image-container">
       <img *ngIf="currentProfile.role === 'ROLE_FARMER'; else ownerRole" [src]="currentProfile.profileImage || 'assets/farmer-profile.png'" alt="Profile Image">
@@ -10,21 +11,16 @@
       <ng-template #workerRole>
         <img [src]="currentProfile.profileImage || 'assets/worker-profile.png'" alt="Profile Image">
       </ng-template>
-      <i class="fas fa-edit edit-icon align-right"  [routerLink]="['/edit-profile', currentProfile.id]"></i>
+      <i class="fas fa-edit edit-icon align-right" [routerLink]="['/edit-profile', currentProfile.id]"></i>
     </div>
-    <div class="profile-name" >
+    <div class="profile-name">
       <h1>{{ currentProfile.firstName }} {{ currentProfile.lastName }}</h1>
     </div>
-    <h2>{{ convertCamelCaseToSpace(currentProfile.role) | titlecase }}</h2>
     <div class="profile-info">
-
       <p><i class="fas fa-map-marker-alt"></i> {{ currentProfile.direction }}</p>
-      <p><i class="fas fa-phone"></i> {{ currentProfile.phone }}</p>
-      <p><i class="fas fa-venus-mars"></i> {{ currentProfile.gender }}</p>
-      <p><i class="fas fa-birthday-cake"></i> {{ currentProfile.dobDay }}/{{ currentProfile.dobMonth }}/{{ currentProfile.dobYear }}</p>
-      <p><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</p>
       <p><i class="fas fa-id-badge"></i> {{ currentProfile.documentType }}</p>
-      <p><i class="fas fa-envelope"></i> {{ register.email }}</p>
+      <p><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</p>
+      <p><i class="fas fa-envelope"></i> {{ currentProfile.email }}</p>
     </div>
   </div>
 </div>

@@ -1,6 +1,4 @@
-Para reemplazar el formulario actual con el formulario comentado, simplemente necesitas descomentar el formulario y comentar el formulario actual. Aquí está el código modificado:
 
-```angular17html
 <div *ngIf="isProfileCreated" class="form-container">
 
   <h1>PROFILE CREATED SUCCESSFULLY</h1>
@@ -31,30 +29,29 @@ Para reemplazar el formulario actual con el formulario comentado, simplemente ne
       <label>Direction</label>
       <div *ngIf="direction.invalid && (direction.dirty || direction.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
+    <div class="user-box">
+    <input type="text" name="direction" required ngModel #direction="ngModel" [(ngModel)]="profile.email">
+    <label>Correo Electrónico</label>
+    <div *ngIf="direction.invalid && (direction.dirty || direction.touched || form.submitted)" class="error-message">This field is required</div>
+  </div>
 
-
-    <label>Birthday</label>
-    <div class="user-box dob">
-      <div class="dob-field">
-        <div class="user-box">
-          <div class="dob-container">
-            </div>
-          </div>
-        </div>
+    <div class="user-box">
+      <select name="documentType" required ngModel #documentType="ngModel" [(ngModel)]="profile.documentType">
+        <option value="RUC">RUC</option>
+        <option value="DNI">DNI</option>
+      </select>
+      <label>Tipo de documento</label>
+      <div *ngIf="documentType.invalid && (documentType.dirty || documentType.touched || form.submitted)" class="error-message">
+        Este campo es obligatorio y debe ser "RUC" o "DNI"
       </div>
-
+    </div>
 
     <div class="user-box">
       <input type="text" name="documentNumber" required pattern="\d*" ngModel #documentNumber="ngModel" [(ngModel)]="profile.documentNumber">
-      <label>Document Number</label>
+      <label>Número de documento</label>
       <div *ngIf="documentNumber.invalid && (documentNumber.dirty || documentNumber.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
 
-    <div class="user-box">
-      <input type="text" name="documentType" required ngModel #documentType="ngModel" [(ngModel)]="profile.documentType">
-      <label>Document Type</label>
-      <div *ngIf="documentType.invalid && (documentType.dirty || documentType.touched || form.submitted)" class="error-message">This field is required</div>
-    </div>
 
     <button type="submit" [disabled]="!form.valid" class="button-create">
       CREATE ACCOUNT
