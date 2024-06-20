@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {ProfileService} from "../../../model/profile.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {catchError, Observable, switchMap} from "rxjs";
 import {environment} from "../../../../../environments/environment";
 import {AuthenticationService} from "../../../services/authentication.service";
 
@@ -16,12 +16,6 @@ export class CreateProfileComponent {
   isProfileCreated = false;
 
   private baseURL = environment.serverBasePath;
-  private httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.authService.getToken()}`,
-    })
-  };
   profile = {
     firstName: '',
     lastName: '',
@@ -30,38 +24,40 @@ export class CreateProfileComponent {
     documentNumber: '',
     documentType: ''
   };
+
   constructor(private http: HttpClient, private authService: AuthenticationService, private router: Router) { }
+
+
   addProfile(profileRequest: any): Observable<any> {
-    const token = this.authService.getToken();
-    console.log('Token de autenticación:', token); // Imprime el token en la consola
+    return this.authService.getToken().pipe(
+      switchMap(token => {
+        console.log('Token de autenticación:', token);
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          })
+        };
+
+        return this.http.post<any>(`${this.baseURL}/profiles`, profileRequest, httpOptions);
+      }),
+      catchError(error => {
+        console.error('Error al crear el perfil:', error);
+        throw error;
       })
-    };
-    return this.http.post<any>(`${this.baseURL}/profiles`, profileRequest, httpOptions);
+    );
   }
-  save() {
-    // Primero, intenta obtener el perfil existente
-    this.http.get<any>(`${this.baseURL}/profiles/me`, this.httpOptions).subscribe({
-      next: (existingProfile) => {
-        console.log('El perfil ya existe:', existingProfile);
-      },
-      error: (error) => {
-        this.isProfileCreated = true;
-        this.router.navigate(['/']); // Redirige al usuario a 'create-profile'
 
-        // Si la solicitud falla, el perfil no existe y puedes crear uno nuevo
-        console.error('El perfil no existe, creando uno nuevo:', error);
-        this.addProfile(this.profile).subscribe(createdProfile => {
-          console.log('Perfil creado con éxito:', createdProfile);
-          this.isProfileCreated = false;
-        }, error => {
-          console.error('Ocurrió un error al crear el perfil:', error);
-        });
-      }
+  save() {
+    console.error('El perfil no existe, creando uno nuevo:');
+    this.addProfile(this.profile).subscribe(createdProfile => {
+      console.log('Perfil creado con éxito:', createdProfile);
+      this.router.navigate(['/']);
+      this.isProfileCreated = false;
+    }, error => {
+      console.error('Ocurrió un error al crear el perfil:', error);
+      this.router.navigate(['/']);
     });
   }
 

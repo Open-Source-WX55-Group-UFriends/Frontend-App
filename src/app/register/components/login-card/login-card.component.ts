@@ -9,6 +9,7 @@ import {SignInRequest} from "../../model/sign-in.request";
 import {SignUpRequest} from "../../model/sign-up.request";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
+import {switchMap} from "rxjs";
 
 @Component({
   selector: 'app-login-card',
@@ -56,35 +57,37 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     })
 
   }
+
   onSignIn() {
     if (this.form.invalid) return;
     let username = this.form.value.username;
     let password = this.form.value.password;
     console.log(`Username: ${username}, Password: ${password}`);
     const signInRequest = new SignInRequest(username, password);
-    this.authenticationService.signIn(signInRequest);
 
-    this.authenticationService.getToken().subscribe(token => {
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      });
+    this.authenticationService.signIn(signInRequest).pipe(
+      switchMap(() => this.authenticationService.getToken()),
+      switchMap(token => {
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        });
 
-      this.http.get<any>(`${environment.serverBasePath}/profiles/me`, { headers }).subscribe({
-        next: (existingProfile) => {
-          // Si la solicitud es exitosa, el perfil ya existe
-          console.log('El perfil ya existe:', existingProfile);
-
-        },
-        error: (error) => {
-          // Si la solicitud falla, el perfil no existe y redirige al usuario a 'create-profile'
-          console.error('El perfil no existe, creando uno nuevo:', error);
-          this.router.navigate(['/create-profile']);
-        }
-      });
+        console.log('Token de autenticación:', token)
+        return this.http.get<any>(`${environment.serverBasePath}/profiles/me`, { headers });
+      })
+    ).subscribe({
+      next: (existingProfile) => {
+        console.log('El perfil ya existe:', existingProfile);
+        this.router.navigate(['/']);
+      },
+      error: (error) => {
+        console.error('El perfil no existe, creando uno nuevo:', error);
+        this.router.navigate(['/create-profile']);
+      }
     });
-
   }
+
 
 
 

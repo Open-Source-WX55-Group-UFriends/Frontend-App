@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, catchError, Observable, tap, throwError} from "rxjs";
 import {Router} from "@angular/router";
 import {SignInRequest} from "../model/sign-in.request";
 import {SignInResponse} from "../model/sign-in.response";
@@ -15,7 +15,7 @@ import {SignUpResponse} from "../model/sign-up.response";
 export class AuthenticationService {
   basePath: string = `${environment.serverBasePath}`;
   isProfileCreated: boolean = false;
-
+  private varToken: BehaviorSubject<string> = new BehaviorSubject<string>('');
   setProfileCreated(value: boolean) {
     this.isProfileCreated = value;
   }
@@ -48,27 +48,28 @@ export class AuthenticationService {
   }
 
 
-  signIn(signInRequest: SignInRequest) {
+  signIn(signInRequest: SignInRequest): Observable<SignInResponse> {
     console.log(signInRequest);
     return this.http.post<SignInResponse>(`${this.basePath}/authentication/sign-in`, signInRequest, this.httpOptions)
-      .subscribe({
-        next: (response) => {
+      .pipe(
+        tap((response) => {
           this.signedIn.next(true);
           this.signedInUserId.next(response.id);
           this.signedInUsername.next(response.username);
           localStorage.setItem('token', response.token);
+          this.setToken(response.token);
           console.log(`Signed in as ${response.username} with token ${response.token}`);
-          this.router.navigate(['/create-profile']).then();
-        },
-        error: (error) => {
+        }),
+        catchError((error) => {
           console.error(`Error while signing in: ${error}`);
           this.signedIn.next(false);
           this.signedInUserId.next(0);
           this.signedInUsername.next('');
           localStorage.removeItem('token');
           this.router.navigate(['/sign-in']).then();
-        }
-      });
+          return throwError(error);
+        })
+      );
   }
 
   signOut() {
@@ -78,11 +79,17 @@ export class AuthenticationService {
     localStorage.removeItem('token');
     this.router.navigate(['/sign-in']).then();
     this.setProfileCreated(false);
-  }
+    this.setToken('');
+
+    }
   getProfileCreated(){
     return this. isProfileCreated;
   }
 
+
+  setToken(token: string) {
+    this.varToken.next(token);
+  }
 
     createProfile() {
     this.router.navigate(['/create-profile']).then();
@@ -90,12 +97,9 @@ export class AuthenticationService {
 
 
 
-  private token: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(localStorage.getItem('token'));
 
-  getToken(): Observable<string | null> {
-    return this.token.asObservable();
+  getToken(): Observable<string> {
+    return this.varToken.asObservable();
   }
-
-
 
 }
