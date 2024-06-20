@@ -11,8 +11,14 @@ import {SignUpResponse} from "../model/sign-up.response";
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
   basePath: string = `${environment.serverBasePath}`;
+  isProfileCreated: boolean = false;
+
+  setProfileCreated(value: boolean) {
+    this.isProfileCreated = value;
+  }
   httpOptions ={
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -40,6 +46,8 @@ export class AuthenticationService {
   signUp(signUpRequest: SignUpRequest): Observable<SignUpResponse> {
     return this.http.post<SignUpResponse>(`${this.basePath}/authentication/sign-up`, signUpRequest, this.httpOptions);
   }
+
+
   signIn(signInRequest: SignInRequest) {
     console.log(signInRequest);
     return this.http.post<SignInResponse>(`${this.basePath}/authentication/sign-in`, signInRequest, this.httpOptions)
@@ -50,7 +58,7 @@ export class AuthenticationService {
           this.signedInUsername.next(response.username);
           localStorage.setItem('token', response.token);
           console.log(`Signed in as ${response.username} with token ${response.token}`);
-          this.router.navigate(['/']).then();
+          this.router.navigate(['/create-profile']).then();
         },
         error: (error) => {
           console.error(`Error while signing in: ${error}`);
@@ -69,10 +77,25 @@ export class AuthenticationService {
     this.signedInUsername.next('');
     localStorage.removeItem('token');
     this.router.navigate(['/sign-in']).then();
+    this.setProfileCreated(false);
+  }
+  getProfileCreated(){
+    return this. isProfileCreated;
   }
 
-  getRole(userId: string) {
-    return this.http.get(`/api/v1/users/${userId}`);
+
+    createProfile() {
+    this.router.navigate(['/create-profile']).then();
+    }
+
+
+
+  private token: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(localStorage.getItem('token'));
+
+  getToken(): Observable<string | null> {
+    return this.token.asObservable();
   }
+
+
 
 }

@@ -1,5 +1,8 @@
+Para reemplazar el formulario actual con el formulario comentado, simplemente necesitas descomentar el formulario y comentar el formulario actual. Aquí está el código modificado:
 
+```angular17html
 <div *ngIf="isProfileCreated" class="form-container">
+
   <h1>PROFILE CREATED SUCCESSFULLY</h1>
   <iframe id="myIframe" src="https://lottie.host/embed/892cf0a8-905b-4139-8eee-e46714d2e5a1/Phz6ClRQkF.json"></iframe>
 </div>
@@ -28,51 +31,18 @@
       <label>Direction</label>
       <div *ngIf="direction.invalid && (direction.dirty || direction.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
-    <div class="user-box">
-      <input type="tel" name="phone" required pattern="\d*" ngModel #phone="ngModel" [(ngModel)]="profile.phone">
-      <label>Phone</label>
-      <div *ngIf="phone.invalid && (phone.dirty || phone.touched || form.submitted)" class="error-message">This field is required</div>
-    </div>
-    <div class="user-box">
-      <select name="gender" required ngModel #gender="ngModel" [(ngModel)]="profile.gender">
-        <option value="" selected></option>
-        <option value="female">Female</option>
-        <option value="male">Male</option>
-        <option value="other">Other</option>
-      </select>
-      <label>Gender</label>
-      <div *ngIf="gender.invalid && (gender.dirty || gender.touched || form.submitted)" class="error-message">This field is required</div>
-    </div>
+
+
     <label>Birthday</label>
     <div class="user-box dob">
       <div class="dob-field">
         <div class="user-box">
           <div class="dob-container">
-            <div class="dob-field">
-              <select name="dobDay" required ngModel #dobDay="ngModel" [(ngModel)]="profile.dobDay">
-                <option value="" selected></option>
-                <option *ngFor="let day of [].constructor(31); let i = index" [value]="i+1">{{i+1}}</option>
-              </select>
-              <div *ngIf="dobDay.invalid && (dobDay.dirty || dobDay.touched || form.submitted)" class="error-message">This field is required</div>
-            </div>
-            <div class="dob-field">
-              <select name="dobMonth" required ngModel #dobMonth="ngModel" [(ngModel)]="profile.dobMonth">
-                <option value="" selected></option>
-                <option *ngFor="let month of ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; let i = index" [value]="i+1">{{month}}</option>
-              </select>
-              <div *ngIf="dobMonth.invalid && (dobMonth.dirty || dobMonth.touched || form.submitted)" class="error-message">This field is required</div>
-            </div>
-            <div class="dob-field">
-              <select name="dobYear" required ngModel #dobYear="ngModel" [(ngModel)]="profile.dobYear">
-                <option value="" selected></option>
-                <option *ngFor="let year of [].constructor(2023 - 1900); let i = index" [value]="2022-i">{{2022-i}}</option>
-              </select>
-              <div *ngIf="dobYear.invalid && (dobYear.dirty || dobYear.touched || form.submitted)" class="error-message">This field is required</div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
 
     <div class="user-box">
       <input type="text" name="documentNumber" required pattern="\d*" ngModel #documentNumber="ngModel" [(ngModel)]="profile.documentNumber">
@@ -85,20 +55,48 @@
       <label>Document Type</label>
       <div *ngIf="documentType.invalid && (documentType.dirty || documentType.touched || form.submitted)" class="error-message">This field is required</div>
     </div>
-    <div class="user-box">
-      <select name="role" required ngModel #role="ngModel" [(ngModel)]="profile.role">
-        <option value="" selected></option>
-        <option value="farmer">Farmer</option>
-        <option value="businessOwner">Business Owner</option>
-        <option value="farmWorker">Farm Worker</option>
-      </select>
-      <label>Role</label>
-      <div *ngIf="role.invalid && (role.dirty || role.touched || form.submitted)" class="error-message">This field is required</div>
-    </div>
 
-    <button type="submit" [disabled]="!form.valid" (click)="showProfileCreated()" class="button-create">
+    <button type="submit" [disabled]="!form.valid" class="button-create">
       CREATE ACCOUNT
       <span></span>
     </button>
   </form>
 </div>
+
+<!--
+ <form #form="ngForm" (ngSubmit)="save()">
+   <div class="user-box">
+     <input type="text" name="firstName" required ngModel [(ngModel)]="profile.firstName">
+     <label>First Name</label>
+   </div>
+
+
+   <div class="user-box">
+     <input type="text" name="lastName" required ngModel [(ngModel)]="profile.lastName">
+     <label>Last Name</label>
+   </div>
+
+   <div class="user-box">
+     <input type="email" name="email" required ngModel [(ngModel)]="profile.email">
+     <label>Email</label>
+   </div>
+
+   <div class="user-box">
+     <input type="text" name="direction" required ngModel [(ngModel)]="profile.direction">
+     <label>Direction</label>
+   </div>
+
+   <div class="user-box">
+     <input type="text" name="documentNumber" required ngModel [(ngModel)]="profile.documentNumber">
+     <label>Document Number</label>
+   </div>
+
+   <div class="user-box">
+     <input type="text" name="documentType" required ngModel [(ngModel)]="profile.documentType">
+     <label>Document Type</label>
+   </div>
+
+   <button type="submit" [disabled]="!form.valid">Submit</button>
+ </form>
+-->
+

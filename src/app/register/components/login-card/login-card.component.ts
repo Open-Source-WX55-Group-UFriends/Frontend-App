@@ -7,6 +7,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../../services/authentication.service";
 import {SignInRequest} from "../../model/sign-in.request";
 import {SignUpRequest} from "../../model/sign-up.request";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-login-card',
@@ -14,6 +16,13 @@ import {SignUpRequest} from "../../model/sign-up.request";
   styleUrls: ['./login-card.component.css']
 })
 export class LoginCardComponent extends BaseFormComponent implements OnInit {
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.authenticationService.getToken()}`,
+    })
+  };
+
   form!: FormGroup;
   submitted = false;
   isActive = false;
@@ -25,7 +34,7 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     password: ''
   };
 
-  constructor(private builder: FormBuilder, private router: Router, private authenticationService: AuthenticationService) {
+  constructor(private builder: FormBuilder, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient) {
     super();
     this.authenticationService.currentUsername.subscribe((username) => {
       this.currentUsername = username;
@@ -33,17 +42,7 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     this.authenticationService.isSignedIn.subscribe((isSignedIn) => {
       this.isSignedIn = isSignedIn;
     });
-
-
   }
-
-
-
-
-
-
-
-
 
 
   ngOnInit(): void {
@@ -56,8 +55,50 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
       password: ['', Validators.required]
     })
 
+  }
+  onSignIn() {
+    if (this.form.invalid) return;
+    let username = this.form.value.username;
+    let password = this.form.value.password;
+    console.log(`Username: ${username}, Password: ${password}`);
+    const signInRequest = new SignInRequest(username, password);
+    this.authenticationService.signIn(signInRequest);
+
+    this.authenticationService.getToken().subscribe(token => {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      });
+
+      this.http.get<any>(`${environment.serverBasePath}/profiles/me`, { headers }).subscribe({
+        next: (existingProfile) => {
+          // Si la solicitud es exitosa, el perfil ya existe
+          console.log('El perfil ya existe:', existingProfile);
+
+        },
+        error: (error) => {
+          // Si la solicitud falla, el perfil no existe y redirige al usuario a 'create-profile'
+          console.error('El perfil no existe, creando uno nuevo:', error);
+          this.router.navigate(['/create-profile']);
+        }
+      });
+    });
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   toggleActive(): void {
@@ -82,23 +123,16 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     this.authenticationService.signUp(signUpRequest).subscribe({
       next: () => {
         this.submitted = true;
-        this.router.navigate(['/create-profile']);
+        this.router.navigate(['/sign-in']);
       },
       error: (error) => {
         console.error(`Error while signing up: ${error}`);
         // Aún navega a /create-profile incluso si hay un error
-        this.router.navigate(['/create-profile']);
+        this.router.navigate(['/sign-in']);
       }
     });
   }
-  onSignIn() {
-    if (this.form.invalid) return;
-    let username = this.form.value.username;
-    let password = this.form.value.password;
-    console.log(`Username: ${username}, Password: ${password}`);
-    const signInRequest = new SignInRequest(username, password);
-    this.authenticationService.signIn(signInRequest);
-  }
+
   onSignUp() {
     this.router.navigate(['/sign-up']).then();
   }
