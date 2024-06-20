@@ -4,12 +4,12 @@
 <div class="profile-card" *ngIf="currentProfile">
   <div class="profile-info-card">
     <div class="profile-image-container">
-      <img *ngIf="currentProfile.role === 'ROLE_FARMER'; else ownerRole" [src]="currentProfile.profileImage || 'assets/farmer-profile.png'" alt="Profile Image">
+      <img *ngIf="currentProfile === '0'; else ownerRole" [src]="currentProfile.profileImage || 'assets/bussines-owner.png'" alt="Profile Image">
       <ng-template #ownerRole>
-        <img *ngIf="currentProfile.role === 'ROLE_OWNER'; else workerRole" [src]="currentProfile.profileImage || 'assets/owner-profile.png'" alt="Profile Image">
+        <img *ngIf="currentProfile === '1'; else workerRole" [src]="currentProfile.profileImage || 'assets/bussines-owner.png'" alt="Profile Image">
       </ng-template>
       <ng-template #workerRole>
-        <img [src]="currentProfile.profileImage || 'assets/worker-profile.png'" alt="Profile Image">
+        <img [src]="currentProfile.profileImage || 'assets/bussines-owner.png'" alt="Profile Image">
       </ng-template>
       <i class="fas fa-edit edit-icon align-right" [routerLink]="['/edit-profile', currentProfile.id]"></i>
     </div>
