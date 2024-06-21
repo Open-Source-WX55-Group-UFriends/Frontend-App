@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router'; // Importa ActivatedRoute
 import {ProfileService} from "../../../model/profile.service";
 import { Router } from '@angular/router';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {of, switchMap} from "rxjs";
+import {catchError, of, switchMap} from "rxjs";
 import {environment} from "../../../../../environments/environment";
 import {AuthenticationService} from "../../../services/authentication.service";
 
@@ -17,15 +17,41 @@ import {AuthenticationService} from "../../../services/authentication.service";
 export class RoleProfileComponent implements OnInit {
   currentProfile: any;
   register: any;
+  currentRole: string = "";
+  roleValue: string | null =""
 
-  constructor(
-    private route: ActivatedRoute,
-    private http: HttpClient,
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) { }
-
+  constructor(private http: HttpClient, private profileService: ProfileService, private router: Router, private authenticationService: AuthenticationService) { }
   ngOnInit() {
+    this.authenticationService.getToken().pipe(
+      switchMap(token => {
+        if (token) {
+          const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          });
+          console.log('Token:', token);
+          console.log('ID:', this.authenticationService.getIdSignIn());
+
+          return this.http.get<any>(`${environment.serverBasePath}/users/${this.authenticationService.getIdSignIn()}`, { headers });
+        } else {
+          console.error('No token was provided');
+          return of(null);
+        }
+      }),
+      catchError(error => {
+        console.error('Error fetching profile:', error);
+        return of(null);
+      })
+    ).subscribe(user => {
+      if (user && user.roles && user.roles.length > 0) {
+        this.currentRole = user.roles[0];
+        this.roleValue=user.roles[0];
+        console.log('Profile role:', this.currentRole); // Aquí se imprime el rol del perfil
+      } else {
+        console.error('Profile does not have any roles');
+      }
+    });
+
     this.authenticationService.getToken().pipe(
       switchMap(token => {
         const headers = new HttpHeaders({
@@ -33,7 +59,7 @@ export class RoleProfileComponent implements OnInit {
           'Authorization': `Bearer ${token}`
         });
 
-        return this.http.get<any>(`${environment.serverBasePath}/profiles/me`, { headers });
+        return this.http.get<any>(`${environment.serverBasePath}/profiles/me`, {headers});
       })
     ).subscribe(profile => {
       if (profile) {
@@ -44,32 +70,6 @@ export class RoleProfileComponent implements OnInit {
       }
     });
 
-    const role = this.route.snapshot.paramMap.get('currentRole');
-    if (role) {
-      const roleValue = this.getRoleValue(role);
-      console.log('Role value:', roleValue);
-    } else {
-      console.error('No role was provided');
-    }
 
-    console.log('app-toolbar-farm initialized');
-  }
-
-  getRoleValue(role: string): number {
-    switch (role) {
-      case 'ROLE_OWNER':
-        return 0;
-      case 'ROLE_FARMER':
-        return 1;
-      case 'ROLE_FARMWORKER':
-        return 2;
-      default:
-        console.error('Invalid role');
-        return -1;
-    }
-  }
-
-  convertCamelCaseToSpace(role: string): string {
-    return role.replace(/([a-z])([A-Z])/g, '$1 $2');
   }
 }

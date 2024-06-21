@@ -53,11 +53,29 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     });
     this.form = this.builder.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
-    })
+      password: ['', Validators.required],
 
+    });
   }
 
+  onSubmit() {
+    if (this.form.invalid) return;
+    let username = this.form.value.username;
+    let password = this.form.value.password;
+    const signUpRequest = new SignUpRequest(username, password);
+
+
+    this.authenticationService.signUp(signUpRequest).subscribe({
+      next: () => {
+        this.submitted = true;
+        this.router.navigate(['/sign-in']);
+      },
+      error: (error) => {
+        console.error(`Error while signing up: ${error}`);
+        this.router.navigate(['/sign-in']);
+      }
+    });
+  }
   onSignIn() {
     if (this.form.invalid) return;
     let username = this.form.value.username;
@@ -73,7 +91,7 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
           'Authorization': `Bearer ${token}`
         });
 
-        console.log('Token de autenticación:', token)
+
         return this.http.get<any>(`${environment.serverBasePath}/profiles/me`, { headers });
       })
     ).subscribe({
@@ -87,13 +105,6 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
       }
     });
   }
-
-
-
-
-
-
-
 
 
 
@@ -118,23 +129,6 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     this.isActive = false;
   }
 
-  onSubmit() {
-    if (this.form.invalid) return;
-    let username = this.form.value.username;
-    let password = this.form.value.password;
-    const signUpRequest = new SignUpRequest(username, password);
-    this.authenticationService.signUp(signUpRequest).subscribe({
-      next: () => {
-        this.submitted = true;
-        this.router.navigate(['/sign-in']);
-      },
-      error: (error) => {
-        console.error(`Error while signing up: ${error}`);
-        // Aún navega a /create-profile incluso si hay un error
-        this.router.navigate(['/sign-in']);
-      }
-    });
-  }
 
   onSignUp() {
     this.router.navigate(['/sign-up']).then();

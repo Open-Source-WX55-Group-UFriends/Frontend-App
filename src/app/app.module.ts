@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 // Angular Material Imports
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -148,7 +148,8 @@ import {AuthenticationInterceptor} from "./register/services/authentication.inte
     MatMenuModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgOptimizedImage
   ],
   providers: [
     provideAnimationsAsync(),

@@ -22,7 +22,8 @@
       <li><a routerLink="/home">Home</a></li>
       <li><a routerLink="/monitoring-farmer" >Monitoring</a></li>
       <li><button class="choose-plan-btn"  routerLink="/profile-farm" ><a >Post your ad</a></button></li>
-      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>       <li><a (click)="logout()">Log out</a></li>
+      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
+      <li><a (click)="logout()">Log out</a></li>
      </ul>
      <!-- Toolbar for 'admin' -->
     <ul *ngIf="currentProfile ">
