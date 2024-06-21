@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthenticationService} from "./register/services/authentication.service";
 
 @Component({
   selector: 'app-root',
@@ -10,4 +11,7 @@ export class AppComponent {
   options = [
     { path: '/financial-stats', title: 'Financial Stats'},
   ]
+  constructor(private authService: AuthenticationService) {
+    this.authService.loadSession();
+  }
 }

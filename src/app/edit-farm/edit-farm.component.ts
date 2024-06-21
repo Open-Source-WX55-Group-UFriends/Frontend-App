@@ -9,7 +9,8 @@ import { Location } from '@angular/common';
   templateUrl: './edit-farm.component.html',
   styleUrls: ['./edit-farm.component.css']
 })
-export class EditFarmComponent implements OnInit {
+export class EditFarmComponent  {
+  /*
   farm: any;
   formFarm: any;
 
@@ -55,4 +56,6 @@ export class EditFarmComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+
+   */
 }

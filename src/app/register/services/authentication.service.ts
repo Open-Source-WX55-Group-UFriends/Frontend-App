@@ -60,6 +60,7 @@ export class AuthenticationService {
           this.setIdSignIn(response.id.toString());
           this.signedInUsername.next(response.username);
           localStorage.setItem('token', response.token);
+          localStorage.setItem('isSignedIn', 'true'); // Almacenar el estado de la sesión en localStorage
           this.setToken(response.token);
           console.log(`Signed in as ${response.username} with token ${response.token}`);
         }),
@@ -69,6 +70,7 @@ export class AuthenticationService {
           this.signedInUserId.next(0);
           this.signedInUsername.next('');
           localStorage.removeItem('token');
+          localStorage.removeItem('isSignedIn'); // Eliminar el estado de la sesión de localStorage
           this.router.navigate(['/sign-in']).then();
           return throwError(error);
         })
@@ -80,12 +82,24 @@ export class AuthenticationService {
     this.signedInUserId.next(0);
     this.signedInUsername.next('');
     localStorage.removeItem('token');
+    localStorage.removeItem('isSignedIn'); // Eliminar el estado de la sesión de localStorage
     this.router.navigate(['/sign-in']).then();
     this.setProfileCreated(false);
     this.setToken('');
     this.setIdSignIn('');
-
+  }
+  loadSession() {
+    const isSignedIn = localStorage.getItem('isSignedIn');
+    if (isSignedIn === 'true') {
+      this.signedIn.next(true);
+      const token = localStorage.getItem('token');
+      // @ts-ignore
+      this.setToken(token);
+      // Aquí puedes recuperar y establecer cualquier otro estado de la sesión que necesites
+    } else {
+      this.signedIn.next(false);
     }
+  }
 
   setToken(token: string) {
     this.varToken.next(token);

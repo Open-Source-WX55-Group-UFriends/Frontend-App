@@ -9,7 +9,8 @@ import { ProfileService } from '../../../../register/model/profile.service';
   templateUrl: './description-shed.component.html',
   styleUrls: ['./description-shed.component.css']
 })
-export class DescriptionShedComponent implements OnInit {
+export class DescriptionShedComponent {
+  /*
   farm: any;
 
   constructor(private route: ActivatedRoute, private farmService: FarmService, private profileService: ProfileService, private router: Router) { }
@@ -21,6 +22,7 @@ export class DescriptionShedComponent implements OnInit {
       this.currentProfile = profiles[profiles.length - 1];
     });
   }
+
 
   getFarmData(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -48,4 +50,6 @@ export class DescriptionShedComponent implements OnInit {
       console.error('No farm ID was provided');
     }
   }
+*/
 }
+
