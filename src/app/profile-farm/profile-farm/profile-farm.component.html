@@ -1,6 +1,6 @@
-<div class="body-container">
 <app-toolbar-farm/>
 
+<div class="body-container">
 <div class="container">
   <h1>CREATE FARM</h1>
   <div class="tasks">
@@ -51,10 +51,6 @@
           <input type="text" placeholder="Certifications" [(ngModel)]="farm.certifications" [ngModelOptions]="{standalone: true}">
         </div>
 
-          <div class="form-group">
-              <label>Condition</label>
-              <input type="text" placeholder="Condition" [(ngModel)]="farm.condition" [ngModelOptions]="{standalone: true}">
-          </div>
 
         <div class="form-group">
           <label>Highlights (Enter 1 to 3, each on a new line)</label>
@@ -155,10 +151,8 @@
 
         <div class="button-group">
           <button type="submit">SAVE</button>
-        </div>
 
-        <div class="button-group">
-          <button type="button" [routerLink]="['/tasks']">CANCEL</button>
+          <button type="button" [routerLink]="['/home']">CANCEL</button>
         </div>
 
       </div>
@@ -166,5 +160,4 @@
   </div>
 </div>
 
-<app-footer-home> </app-footer-home>
 </div>

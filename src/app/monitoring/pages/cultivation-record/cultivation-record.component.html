@@ -4,42 +4,43 @@
     <mat-sidenav mode="side" opened>
       <mat-nav-list>
         <mat-toolbar>Shed</mat-toolbar>
-        <a mat-list-item routerLink="/monitoring/add-sheds">Add Sheds</a>
-        <a mat-list-item routerLink="/monitoring/list-sheds">List Sheds</a>
+        <a mat-list-item routerLink="/monitoring/add-sheds">ADD SHED</a>
+        <a mat-list-item routerLink="/monitoring/list-sheds">LIST SHEDS</a>
         <mat-divider></mat-divider>
         <mat-toolbar>Animals</mat-toolbar>
-        <a mat-list-item routerLink="/monitoring/add-animals">Add Animals</a>
-        <a mat-list-item routerLink="/monitoring/animal-inventory">Animal Inventory</a>
-        <a mat-list-item routerLink="/monitoring/feeding-record">Feeding Record</a>
+        <a mat-list-item routerLink="/monitoring/add-animals">ADD ANIMALS</a>
+        <a mat-list-item routerLink="/monitoring/animal-inventory">ANIMAL INVENTORY</a>
+        <a mat-list-item routerLink="/monitoring/feeding-record">FEEDING RECORD</a>
         <mat-toolbar>Crops</mat-toolbar>
-        <a mat-list-item routerLink="/monitoring/cultivation-record">Cultivation Record</a>
-        <a mat-list-item routerLink="/monitoring/crop-inventory">Crop Inventory</a>
+        <a mat-list-item routerLink="/monitoring/cultivation-record">CULTIVATION RECORD</a>
+        <a mat-list-item routerLink="/monitoring/crop-inventory">CROP INVENTORY</a>
       </mat-nav-list>
     </mat-sidenav>
+
     <mat-sidenav-content>
       <div class="content-container">
         <div class="form-container">
           <div class="title-container">
-            <h2>Registro de cultivo</h2>
+            <h2 class="title-add">CULTIVATION RECORD</h2>
           </div>
           <div class="form-group">
-            <label>Galpón</label>
+            <label>Shed</label>
             <select class="form-field" required>
-              <option value="">Galpón 1</option>
-              <option value="">Galpón 2</option>
-              <option value="">Galpón 3</option>
+              <option value="">Shed 1</option>
+              <option value="">Shed 2</option>
+              <option value="">Shed 3</option>
             </select>
           </div>
           <div class="form-group">
-            <label>Tipo de cultivo</label>
+            <label>Type of Crop</label>
             <input type="text" class="form-field" required>
           </div>
           <div class="form-group">
-            <label>Fecha de siembra</label>
+            <label>Sowing Date</label>
             <input type="date" class="form-field" required>
           </div>
           <div class="button-container">
-            <button type="submit">Guardar</button>
+            <button type="submit">Save</button>
           </div>
         </div>
       </div>

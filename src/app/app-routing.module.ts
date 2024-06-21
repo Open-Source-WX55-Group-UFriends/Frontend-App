@@ -7,7 +7,6 @@ import {HomeComponent} from "./public/pages/home/home.component";
 import { DescriptionShedComponent } from "./shared/components/descriptions-sheds-card/description-shed/description-shed.component";
 import {TaskTableComponent} from "./task/components/task-table/task-table.component";
 import {TaskFormComponent} from "./task/components/task-form/task-form.component";
-import {RegisterCardComponent} from "./register/components/register-card/register-card.component";
 import {LoginCardComponent} from "./register/components/login-card/login-card.component";
 import {CreateProfileComponent} from "./register/components/profile-page/create-profile/create-profile.component";
 import {EditProfileComponent} from "./register/components/profile-page/edit-profile/edit-profile.component";
@@ -24,6 +23,15 @@ import{CropInventoryComponent} from "./monitoring/pages/crop-inventory/crop-inve
 import{CultivationRecordComponent} from "./monitoring/pages/cultivation-record/cultivation-record.component";
 import {FeedingRecordComponent} from "./monitoring/pages/feeding-record/feeding-record.component";
 import {ListShedsComponent} from "./monitoring/pages/list-sheds/list-sheds.component";
+import {
+  DetailedMonitoringFarmerComponent
+} from "./monitoring/detailed-monitoring-farmer/detailed-monitoring-farmer.component";
+import {SumaryComponent} from "./financial-stats/pages/sumary/sumary.component";
+import {EmployeeComponent} from "./monitoring/employee/employee.component";
+import {AddEmployeeComponent} from "./monitoring/add-employee/add-employee.component";
+import {EmergencyComponent} from "./monitoring/emergency/emergency.component";
+import {DashboardTaskComponent} from "./monitoring/dashboard-task/dashboard-task.component";
+import {EditFarmComponent} from "./edit-farm/edit-farm.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,13 +41,13 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent },
   {path: 'tasks', component:TaskTableComponent },
   {path: 'tasks/create', component:TaskFormComponent }  ,
-  {path: 'register', component:RegisterCardComponent },
+  {path: 'sign-in', component:LoginCardComponent },
   {path: 'login', component:LoginCardComponent },
   {path: 'create-profile', component:CreateProfileComponent },
-  {path: 'edit-profile', component:EditProfileComponent },
+  {path: 'edit-profile/:id', component:EditProfileComponent },
   {path: 'create/subscriptions/card', component:PaySubscriptionComponent },
   {path: 'profile-farm', component:ProfileFarmComponent},
-  {path: 'role-profile', component:RoleProfileComponent},
+  {path: 'role-profile/:id', component:RoleProfileComponent},
   { path: 'financial-stats', component: FinancialStatsPageComponent },
   {path: 'detailed-monitoring', component:DetailedMonitoringComponent},
   {path: 'weather', component:WeatherComponent},
@@ -50,10 +58,18 @@ const routes: Routes = [
   {path: 'monitoring/cultivation-record', component:CultivationRecordComponent},
   {path: 'monitoring/feeding-record', component:FeedingRecordComponent},
   {path: 'monitoring/list-sheds', component:ListShedsComponent},
+  {path: 'monitoring-farmer', component:DetailedMonitoringFarmerComponent},
+  {path: 'summary-dashboard', component:SumaryComponent},
+  {path: 'employee', component:EmployeeComponent},
+  {path: 'add-employee', component:AddEmployeeComponent},
+  {path: 'emergency', component:EmergencyComponent},
+  {path: 'tasks/finished', component:DashboardTaskComponent},
+  {path: 'edit-farm/:id', component:EditFarmComponent},
+
   {path: '**', component:PageNotFoundComponent},
 
- // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
- // { path: '**', redirectTo: 'financial-stats' }
+  // { path: '', redirectTo: 'financial-stats', pathMatch: 'full'},
+  // { path: '**', redirectTo: 'financial-stats' }
 ];
 
 @NgModule({

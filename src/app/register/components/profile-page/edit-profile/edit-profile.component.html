@@ -1,65 +1,26 @@
-<div class="profile-container">
-  <h2>EDITA TU PERFIL</h2>
-
-  <form>
-    <div class="form-section">
-      <div class="form-field-container">
-        <label>Nombre</label>
-        <input class="form-field" required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Apellidos</label>
-        <input class="form-field"  required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Género</label>
-        <input class="form-field"  required>
-      </div>
-
-      <div class="form-field-container">
-        <label>F. Nacimiento</label>
-        <input class="form-field" required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Tipo de documento</label>
-        <input class="form-field" required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Documento de Identidad</label>
-        <input class="form-field"  required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Dirección</label>
-        <input class="form-field" required>
-      </div>
+<app-toolbar-farm></app-toolbar-farm>
+<div class="profile-card">
+  <div class="profile-info-card">
+    <div class="profile-image-container">
+      <img *ngIf="currentProfile.role === 'farmer'; else otherRole" [src]="currentProfile.profileImage || 'assets/farmer-profile.png'" alt="Profile Image">
+      <input type="file" (change)="onFileChangeEdit($event)" accept="image/*" style="display: none;" #fileInput>
+      <i class="fas fa-camera edit-icon" (click)="fileInput.click()"></i>
+      <ng-template #otherRole>
+        <img [src]="currentProfile.profileImage || 'assets/bussiness-owner.png'" alt="Profile Image">
+      </ng-template>
     </div>
-
-    <h3>Contacto</h3>
-    <p>Esta información la usaremos para los anuncios</p>
-    <div class="form-section">
-      <div class="form-field-container">
-        <label>Teléfono</label>
-        <input class="form-field"  required>
-      </div>
-
-      <div class="form-field-container">
-        <label>Correo electrónico</label>
-        <input class="form-field"  required>
-      </div>
-
-
+    <div class="profile-name" >
+      <input type="text" [(ngModel)]="currentProfile.firstName" placeholder="First Name">
+      <input type="text" [(ngModel)]="currentProfile.lastName" placeholder="Last Name">
     </div>
-
-    <div class="form-actions">
-
-      <button mat-button type="submit" class="login-button" [routerLink]="['/login']">Crear cuenta</button>
-
-      <button mat-button type="button">Cancelar</button>
+    <h2>{{ convertCamelCaseToSpace(currentProfile.role) | titlecase }}</h2>
+    <div class="profile-info">
+      <p><i class="fas fa-map-marker-alt"></i> <input type="text" [(ngModel)]="currentProfile.direction" placeholder="Direction"></p>
+      <p><i class="fas fa-phone"></i> <input type="text" [(ngModel)]="currentProfile.phone" placeholder="Phone"></p>
+      <p><i class="fas fa-venus-mars"></i> <input type="text" [(ngModel)]="currentProfile.gender" readonly (focus)="showAlert('gender')"><span class="error-message" *ngIf="errorFields['gender']">This field cannot be edited.</span></p>
+      <p class="birthday-inputs"><i class="fas fa-birthday-cake"></i> <input type="text" [(ngModel)]="currentProfile.dobDay" readonly (focus)="showAlert('dobDay')"><span class="error-message" *ngIf="errorFields['dobDay']">This field cannot be edited.</span><input type="text" [(ngModel)]="currentProfile.dobMonth" readonly (focus)="showAlert('dobMonth')"><span class="error-message" *ngIf="errorFields['dobMonth']">This field cannot be edited.</span><input type="text" [(ngModel)]="currentProfile.dobYear" readonly (focus)="showAlert('dobYear')"><span class="error-message" *ngIf="errorFields['dobYear']">This field cannot be edited.</span></p>
+      <p><i class="fas fa-id-card"></i> <input type="text" [(ngModel)]="currentProfile.documentNumber" readonly (focus)="showAlert('documentNumber')"><span class="error-message" *ngIf="errorFields['documentNumber']">This field cannot be edited.</span></p>
+      <p><i class="fas fa-id-badge"></i> <input type="text" [(ngModel)]="currentProfile.documentType" readonly (focus)="showAlert('documentType')"><span class="error-message" *ngIf="errorFields['documentType']">This field cannot be edited.</span></p>
     </div>
-  </form>
+    <button class="save-button" (click)="saveChanges()">SAVE</button>  </div>
 </div>

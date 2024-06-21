@@ -1,22 +1,21 @@
 <div class="container-general">
-<h2>Duración</h2>
-<p>A más duración, más personas verán el anuncio</p>
-    <mat-card *ngIf="cardToShow === '2'">
+  <h2>Duration</h2>
+  <p>The longer the duration, the more people will see the ad</p>
+  <mat-card *ngIf="cardToShow === '2'">
 
-    <p class="mat-card-title">3 meses</p>
-    <p class="sub-header">con un solo pago de</p>
+    <p class="mat-card-title">3 months</p>
+    <p class="sub-header">with a single payment of</p>
     <p class="price">S/130</p>
-    </mat-card>
+  </mat-card>
   <mat-card *ngIf="cardToShow === '1'">
-    <p class="mat-card-title">Gestiona y destaca tu granja
+    <p class="mat-card-title">Manage and highlight your farm
     </p>
-    <p class="sub-header">con un solo pago de</p>
+    <p class="sub-header">with a single payment of</p>
     <p class="price">S/250</p>
   </mat-card>
-<app-payment-card></app-payment-card>
+  <app-payment-card></app-payment-card>
 
-  <button mat-raised-button class="choose-plan-btn" (click)="openSnackBar()">Pagar</button>
+  <button mat-raised-button class="choose-plan-btn" (click)="openSnackBar()">Pay</button>
+  <a class="cancel-button" routerLink="/home">Cancelar</a>
 
 </div>
-
-

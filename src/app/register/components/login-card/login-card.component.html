@@ -1,13 +1,11 @@
 <app-toolbar-farm/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<div class="body" >
+<div class="bodyLogin">
 
   <div class="container" [ngClass]="{'active': isActive, 'forgot-password-active': isForgotPasswordActive}">
 
-
-
     <div class="form-container sign-up">
-      <form>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <img src="assets/img-logo.png" alt="logo">
         <h1>Create Account</h1>
         <div class="wrapper">
@@ -22,14 +20,10 @@
           </div>
         </div>
         <span>or use your email for registration</span>
-        <input type="email" placeholder="Email" required [(ngModel)]="register.email" [ngModelOptions]="{standalone: true}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel">
-        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
-          Please enter a valid email.
-        </div>
-        <input type="password" placeholder="Password" required>
+        <input formControlName="username" type="text" placeholder="Username" required>
+        <input formControlName="password" type="password" placeholder="Password" required>
 
-        <button class="button" type="button"  (click)="save()">
-          Sign Up
+        <button class="button" type="submit" >          Sign Up
           <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
             <path
               clip-rule="evenodd"
@@ -41,9 +35,8 @@
       </form>
     </div>
 
-
     <div class="form-container sign-in">
-      <form>
+      <form [formGroup]="form" (ngSubmit)="onSignIn()">
         <img src="assets/img-logo.png" alt="logo">
         <h1>Sign In</h1>
         <div class="wrapper">
@@ -58,15 +51,16 @@
           </div>
         </div>
         <span>or use your email password</span>
-        <input  type="email" placeholder="Email" required>
-        <input  type="password" placeholder="Password" required>
+        <input formControlName="username" type="text" placeholder="Username" required>
+        <input formControlName="password" type="password" placeholder="Password" required>
         <a (click)="toggleForgotPassword()">Forgot Password?</a>
-        <button class="button" type="button" [routerLink]="['/home']">
+        <button class="button" type="submit" [disabled]="!isSignedIn">
           Sign In
           <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
             <path
               clip-rule="evenodd"
-              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385
+               2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
               fill-rule="evenodd"
             ></path>
           </svg>
@@ -74,13 +68,12 @@
       </form>
     </div>
 
-
     <div class="form-container forgot-password forgot-password-container">
       <form>
         <img src="assets/img-logo.png" alt="logo">
         <h1>Forgot Password</h1>
         <input type="email" placeholder="Email" required>
-        <button class="button" type="button" [routerLink]="['/home']">
+        <button class="button" type="button">
           Reset Password
           <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
             <path
@@ -103,16 +96,12 @@
       </form>
     </div>
 
-
-
-
     <div class="toggle-container">
       <div class="toggle">
         <div class="toggle-panel toggle-left">
           <h1>Welcome Back!</h1>
           <p>Enter your personal details to use all of site features</p>
           <button class="button" type="button" (click)="toggleActive()">
-
             <svg fill="currentColor" viewBox="0 0 24 24" class="icon" style="transform: rotate(180deg);">
               <path
                 clip-rule="evenodd"
@@ -142,4 +131,5 @@
     </div>
   </div>
 </div>
-<app-footer/>
+
+<app-footer-home></app-footer-home>

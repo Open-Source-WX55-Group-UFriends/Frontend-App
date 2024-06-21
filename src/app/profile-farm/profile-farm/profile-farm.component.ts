@@ -1,6 +1,6 @@
 import { Component  } from '@angular/core';
 import { Router } from '@angular/router';
-import {FarmService} from "../farm/farm.service";
+import {FarmService} from "../services/farm/farm.service";
 
 @Component({
   selector: 'app-profile-farm',
@@ -42,25 +42,31 @@ export class ProfileFarmComponent {
     this.farm.highlight2 = highlights[1] || '';
     this.farm.highlight3 = highlights[2] || '';
 
-    this.farmService.addFarm(this.farm);
-    this.farm = {
-      name: '',
-      ubication: '',
-      infrastructure: '',
-      farmType: '',
-      product: '',
-      totalSurface: "" as any,
-      service: '',
-      certifications: '',
-      condition: '',
-      highlights: '',
-      highlight1: '',
-      highlight2: '',
-      highlight3: '',
-      price: "" as any,
-      images: [] as string[]
+    const farmData = {
+      farmName: this.farm.name,
+      location: this.farm.ubication,
+      type: this.farm.farmType,
+      infrastructure: this.farm.infrastructure,
+      services: this.farm.service,
+      status: this.farm.condition,
+      certificates: this.farm.certifications,
+      image: this.farm.images.length ? this.farm.images[0] : '',
+      price: parseFloat(this.farm.price),
+      Surface: this.farm.totalSurface,
+      product: this.farm.product,
+      highlights: `${this.farm.highlight1}\n${this.farm.highlight2}\n${this.farm.highlight3}`
     };
-    this.router.navigate(['/home']);
+
+    // @ts-ignore
+    this.farmService.addFarm(farmData).subscribe(response => {
+      console.log("data", farmData); // Imprime los datos de farmData
+      if (response) {
+        alert('Farm added successfully.');
+        this.router.navigate(['/home']);
+      } else {
+        alert('Failed to add farm.');
+      }
+    });
   }
 
   onFileChange(event: Event) {
@@ -77,9 +83,6 @@ export class ProfileFarmComponent {
     }
   }
 
-
-
-
   startIncrement(event: Event) {
     event.preventDefault();
     let firstClick = true;
@@ -94,6 +97,7 @@ export class ProfileFarmComponent {
       }
     }, 50);
   }
+
   stopIncrement(event: Event) {
     event.preventDefault();
     clearInterval(this.incrementInterval);
@@ -118,7 +122,4 @@ export class ProfileFarmComponent {
     event.preventDefault();
     clearInterval(this.decrementInterval);
   }
-
-
-
 }

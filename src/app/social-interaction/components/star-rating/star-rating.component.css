@@ -1,9 +1,8 @@
-.checked
-{
+.checked {
   color: orange;
 }
 
-mat-icon{
+mat-icon {
   cursor: pointer;
 }
 
@@ -14,52 +13,67 @@ mat-icon{
   margin-top: 20px;
 }
 
-.star-rating-icon{
-  font-size: 90px;
-  height: 90px;
-  width: 90px;
-
+.star-rating-icon {
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
 }
 
-.label-valoration{
-  font-size: 40px;
-  justify-content: center;
-  display: flex;
+.label-valoration {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .half-page {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 30vh;
-  width: 100%;
-  padding: 50px;
-  align-content: center;
+  width: 50%;
+  padding: 20px;
 }
 
+.rating-section {
+  text-align: center;
+}
 
---------------------------------------------------------------
+.bars-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+}
 
 .bar-container {
   width: 100%;
   background-color: #ffffff;
-  text-align: right;
+  text-align: left;
   line-height: 30px;
-  color: white;
+  margin-bottom: 10px;
+  border-radius: 6px;
 }
 
-.bar-5 {width: 50%; height: 20px; background-color: orange; border-radius: 6px;}
-.bar-4 {width: 40%; height: 20px; background-color: orange; border-radius: 6px;}
-.bar-3 {width: 30%; height: 20px; background-color: orange; border-radius: 6px;}
-.bar-2 {width: 20%; height: 20px; background-color: orange; border-radius: 6px;}
-.bar-1 {width: 10%; height: 20px; background-color: orange; border-radius: 6px;}
+.bar {
+  height: 20px;
+  background-color: orange;
+  border-radius: 6px;
+}
+
+.bar-5 { width: 80%; }
+.bar-4 { width: 60%; }
+.bar-3 { width: 40%; }
+.bar-2 { width: 20%; }
+.bar-1 { width: 10%; }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 45vh;
+  width: 100%;
 }
 
 .label-bars {
-  font-size: 20px;
+  font-size: 18px;
+  margin-right: 10px;
 }

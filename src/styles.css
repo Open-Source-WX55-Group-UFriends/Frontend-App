@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 80%; }
+html, body { height: 100%; }
 body {   zoom: 0.7; /* Ajusta este valor según tus necesidades */
    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

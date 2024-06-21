@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 // Angular Material Imports
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,12 +26,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 // Feature Components Imports
 import {HomeComponent} from "./public/pages/home/home.component";
-import { IncomeTableComponent } from './financial-stats/components/income-table/income-table.component';
-import { ExpenseTableComponent } from './financial-stats/components/expense-table/expense-table.component';
-import { ProfitabilityTableComponent } from './financial-stats/components/profitability-table/profitability-table.component';
 import { FinancialStatsPageComponent } from './financial-stats/pages/financial-stats-page/financial-stats-page.component';
 import { StarRatingComponent } from './social-interaction/components/star-rating/star-rating.component';
 import { ContactCardComponent } from './social-interaction/components/contact-card/contact-card.component';
@@ -39,7 +37,6 @@ import { DescriptionShedComponent } from './shared/components/descriptions-sheds
 import { TaskFormComponent } from './task/components/task-form/task-form.component';
 import { TaskTableComponent } from './task/components/task-table/task-table.component';
 import { LoginCardComponent } from './register/components/login-card/login-card.component';
-import { RegisterCardComponent } from './register/components/register-card/register-card.component';
 import { CreateProfileComponent } from './register/components/profile-page/create-profile/create-profile.component';
 import { EditProfileComponent } from './register/components/profile-page/edit-profile/edit-profile.component';
 import { PaySubscriptionComponent } from './register/components/profile-page/subscription/pay-subscription.component';
@@ -70,13 +67,20 @@ import {provideAnimationsAsync} from "@angular/platform-browser/animations/async
 import {
   DetailedMonitoringFarmerComponent
 } from "./monitoring/detailed-monitoring-farmer/detailed-monitoring-farmer.component";
+import { SumaryComponent } from './financial-stats/pages/sumary/sumary.component';
+import { EmployeeComponent } from './monitoring/employee/employee.component';
+import { AddEmployeeComponent } from './monitoring/add-employee/add-employee.component';
+import { EmergencyComponent } from './monitoring/emergency/emergency.component';
+import { DashboardTaskComponent } from './monitoring/dashboard-task/dashboard-task.component';
+import { EditFarmComponent } from './edit-farm/edit-farm.component';
+import { AuthenticationSectionComponent } from './register/components/authentication-section/authentication-section.component';
+import {provideNativeDateAdapter} from "@angular/material/core";
+import {AuthenticationInterceptor} from "./register/services/authentication.interceptor.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    IncomeTableComponent,
-    ExpenseTableComponent,
-    ProfitabilityTableComponent,
+
     FinancialStatsPageComponent,
     StarRatingComponent,
     ContactCardComponent,
@@ -84,7 +88,6 @@ import {
     TaskFormComponent,
     TaskTableComponent,
     LoginCardComponent,
-    RegisterCardComponent,
     CreateProfileComponent,
     EditProfileComponent,
     PaySubscriptionComponent,
@@ -110,7 +113,14 @@ import {
     HomeComponent,
     SubscriptionsCardComponent,
     PaymentSubscriptionComponent,
-    DetailedMonitoringFarmerComponent
+    DetailedMonitoringFarmerComponent,
+    SumaryComponent,
+    EmployeeComponent,
+    AddEmployeeComponent,
+    EmergencyComponent,
+    DashboardTaskComponent,
+    EditFarmComponent,
+    AuthenticationSectionComponent
   ],
   imports: [
     BrowserModule,
@@ -136,11 +146,20 @@ import {
     MatListModule,
     MatGridListModule,
     MatMenuModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    MatExpansionModule,
+    NgOptimizedImage
   ],
   providers: [
     provideAnimationsAsync(),
-    FinancialStatsService
+    FinancialStatsService,
+    provideNativeDateAdapter(),
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthenticationInterceptor,
+      multi:true
+    }
   ],
   exports: [
     PaymentCardComponent,

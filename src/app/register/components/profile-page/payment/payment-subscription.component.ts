@@ -23,8 +23,8 @@ export class PaymentSubscriptionComponent implements OnInit {
   }
 
   openSnackBar() {
-    let snackBarRef = this._snackBar.open('Pago exitoso', 'Cerrar', {
-      duration: 5000,
+    let snackBarRef = this._snackBar.open('Successful payment', 'Close', {
+      duration: 2000,
       panelClass: ['custom-snackbar'],
       verticalPosition: 'top',
 

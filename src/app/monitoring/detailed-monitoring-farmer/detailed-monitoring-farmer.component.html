@@ -1,17 +1,19 @@
+<app-toolbar-farm></app-toolbar-farm>
+
 <div class="container">
   <div class="center-container">
     <div class="row">
       <div class="monitoring-card">
         <div class="task-container">
           <button type="button" [routerLink]="['/tasks']" style="border: none; padding: 0; background-color: transparent; outline: none; margin: 0;">
-            <img class="task-img" src="../../../assets/tasks.jpeg" alt="Tareas" style="width: 200px; height: 200px;margin-top: -20px">
+            <img class="task-img" src="../../../assets/tasks.jpeg" alt="Tasks" style="width: 200px; height: 200px;margin-top: -20px">
           </button>
           <h2 style="font-weight: bold; margin-top: -10px; margin-right: 25px;">Tasks</h2>
         </div>
       </div>
       <div class="monitoring-card">
         <div class="inventory-container">
-          <button type="button" [routerLink]="['/monitoring/add-sheds']" style="border: none; padding: 0; background: none;">
+          <button type="button" [routerLink]="['/employee']" style="border: none; padding: 0; background: none;">
             <img class="inventory-img" src="../../../assets/employee.png" alt="employee" style="width: 150px; height: 150px;">
           </button>
           <h2 style="font-weight: bold;">Employee</h2>
@@ -19,7 +21,7 @@
       </div>
       <div class="monitoring-card">
         <div class="inventory-container">
-          <button type="button" [routerLink]="['/monitoring/add-sheds']" style="border: none; padding: 0; background: none;">
+          <button type="button" routerLink="/financial-stats" style="border: none; padding: 0; background: none;">
             <img class="inventory-img" src="../../../assets/statistics.png" alt="statistics" style="width: 200px; height: 150px;">
           </button>
           <h2 style="font-weight: bold;">Statistics</h2>
@@ -29,7 +31,7 @@
     <div class="row">
       <div class="monitoring-card">
         <div class="emergency-container">
-          <button type="button" [routerLink]="['/detail/monitoring']" style="border: none; padding: 0; background: none; margin-top:-40px;">
+          <button type="button" [routerLink]="['/emergency']" style="border: none; padding: 0; background: none; margin-top:-40px;">
             <img class="emergency-img" src="../../../assets/emergency.png" alt="Emergencia" style="width:250px; height: 250px;">
           </button>
           <h2 style="margin-top: -50px; font-weight: bold;">Emergency</h2>

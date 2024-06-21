@@ -1,36 +1,222 @@
-
-.mat-mdc-button:not(:disabled).boton-prueba{
-  color: #44604D;
-float:right;
+.table-container{
+  margin-top: 70px;
+  width: 100%;
+  overflow-x: auto;
+  border: 2px solid #818080;
 }
 
+.table-container table th
+ {
+  text-align: center;
+  border-top: 2px solid #818080;
+  border-right: 2px solid #818080
+}
+
+.table-container table td {
+  text-align: center;
+  border-right: 2px solid #818080;
+
+}
 h1{
   color: darkgreen;
-  font-size: 50px; /* Ajusta el tamaño del texto */
-  font-weight: bold; /* Ajusta el peso de la fuente a negrita */
-  text-align: center; /* Centra el texto horizontalmente */
-  margin-bottom:0px; /* Ajusta el margen inferior para separar el título del contenedor de tarjetas */
-
-}
-.boton-prueba {
-  color: darkgreen; /* Texto en color blanco */
+  font-size: 7em;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 100px;
+  margin-right:20px;
 }
 .task-create{
-  margin-top: 80px;
-  width: 60%;
-  margin-left: 20%;
-margin-bottom: 15%;
+  margin-bottom: 80px;
+  width: 50%;
+  translate: 55% 5%;
 }
-@media (max-width:768px){
-  .button-container{
+
+th{
+  font-weight: bold;
+  font-size: 15px;
+}
+.table-row{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.table-row:hover {
+  background-color: #D3D3D3;
+}
+.description-info mat-panel-description {
+  word-spacing:150px;
+  margin:10px;
+}
+.mat-expansion-panel-header{
+  font-size: 20px;
+  font-weight: bold;
+  margin:15px;
+}
+mat-expansion-panel {
+  margin: 0;
+  padding: 0;
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+mat-panel-description {
+  display: flex;
+  justify-content: flex-start ;
+}
+
+
+.button-container{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.button-container button {
+  background-color: #085621;
+  color: white;
+  padding: 28px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.button-container button:hover {
+  background-color: #25c556;
+  color: white;
+  transform: scale(1.1);
+}
+.space{
+  height: 10%;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+  margin-left: 25px;
+}
+
+.filter-container button {
+  background-color: #085621;
+  color: white;
+  padding: 28px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-container button:hover {
+  background-color: #25c556;
+}
+.task-pending {
+  color: red;
+}
+
+.task-finished {
+  color: green;
+}
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.task-question {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.finish-task-button {
+  background-color: #4CAF50;
+  border-radius:5px;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 14px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+}
+
+.finish-task-button:hover {
+  background-color: #45a049;
+  color: white;
+}
+
+
+
+
+mat-form-field .custom-close-icon {
+  color: #000;
+  font-size: 18px;
+  cursor: pointer;
+  background: none;
+  bottom: 12px;
+  right: 10px;
+}
+mat-form-field .custom-close-icon:hover {
+  background: rgba(255, 255, 255, 0);
+}
+
+@media screen and (max-width:768px){
+  .button-container {
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    gap: 30px;
+  }
+  .filter-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
   }
-  .table-container{
+  .task-create{
+    width: 98%;
+    translate: 1% 5%;
+    margin:10px;
+  }
+  .table-container {
+    overflow-x: auto;
+    margin-top: 70px;
+  }
+  .description-info mat-panel-description {
+    word-spacing:50px;
+    margin:10px;
+  }
+}
+
+
+@media screen and (max-width:1200px){
+  .button-container {
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    gap: 30px;
+  }
+  .filter-container {
     display: flex;
-    width: 100%;
-    overflow: auto;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
   }
-
-
+  .task-create{
+    width: 98%;
+    translate: 1% 5%;
+    margin:10px;
+  }
+  .table-container {
+    overflow-x: auto;
+  }
+  .description-info mat-panel-description {
+    word-spacing:50px;
+    margin:10px;
+  }
 }
