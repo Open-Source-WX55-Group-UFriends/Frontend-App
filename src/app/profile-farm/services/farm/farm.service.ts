@@ -18,7 +18,8 @@ export class FarmService {
       'Content-Type': 'application/json'
     });
     return this.http.get<any>(`${this.apiUrl}/all`, { headers }).pipe(
-      map((farms: any[]) => farms.map(farm => ({
+      map((farms: any[], index: number) => farms.map((farm, index) => ({
+        id: `farm${index + 1}`, // Genera un ID único para cada granja
         name: farm.farmName,
         ubication: farm.location,
         type: farm.type,
@@ -34,6 +35,16 @@ export class FarmService {
       })))
     );
   }
+  getFarmById(id: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    const farmNumber = id.replace('farm', '');
+
+    return this.http.get<any>(`${this.apiUrl}/${farmNumber}`, { headers });
+  }
+
 
   addFarm(farmData: {
     farmName: string;
@@ -49,7 +60,6 @@ export class FarmService {
     status: string;
     Surface: any;
   }): Observable<any> {
-    // Asegúrate de establecer los valores de status e image aquí
     farmData.status = "GOOD";
     farmData.image = "ADSSD";
 
@@ -67,6 +77,31 @@ export class FarmService {
         return this.http.post<any>(this.apiUrl, farmData, httpOptions).pipe(
           catchError(error => {
             console.error('Error adding farm:', error);
+            return of(null);
+          })
+        );
+      })
+    );
+  }
+
+  updateFarm(farmData: any): Observable<any> {
+    const farmNumber = farmData.id.toString().replace('farm', '');
+    console.log('Updating farm with number:', farmNumber, 'and data:', farmData);
+
+    return this.authService.getToken().pipe(
+      switchMap(token => {
+        console.log('Authentication token:', token);  // Log the token
+
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          })
+        };
+
+        return this.http.put<any>(`${this.apiUrl}/${farmNumber}`, farmData, httpOptions).pipe(
+          catchError(error => {
+            console.error('Error updating farm:', error);
             return of(null);
           })
         );

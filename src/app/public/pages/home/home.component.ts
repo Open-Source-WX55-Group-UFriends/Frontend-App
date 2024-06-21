@@ -16,8 +16,7 @@ export class HomeComponent implements OnInit {
   farms: any[] = [];
   userFarms: any[] = [];
 
-  constructor(private farmService: FarmService) { }
-
+  constructor(private farmService: FarmService, private router: Router) { }
   ngOnInit(): void {
     this.loadFarms();
   }
@@ -30,10 +29,13 @@ export class HomeComponent implements OnInit {
       console.error('Error al cargar las farms', error);
     });
   }
-  navigateToDescriptions(farmId: number): void {
-    // Implementa la lógica de navegación según tus necesidades
+  navigateToDescriptions(id: string): void {
+    if (id) {
+      this.router.navigate(['/description-shed', id]);
+    } else {
+      console.error('No farm ID was provided');
+    }
   }
-
   /*
   getUserFarms(): void {
     this.farmService.getUserFarms(this.userRole).subscribe((data: any) => {

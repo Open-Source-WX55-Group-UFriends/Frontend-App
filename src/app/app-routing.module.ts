@@ -65,6 +65,7 @@ const routes: Routes = [
   {path: 'emergency', component:EmergencyComponent},
   {path: 'tasks/finished', component:DashboardTaskComponent},
   {path: 'edit-farm/:id', component:EditFarmComponent},
+  {path: 'description-shed/:id', component:DescriptionShedComponent},
 
   {path: '**', component:PageNotFoundComponent},
 

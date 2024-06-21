@@ -9,12 +9,9 @@ import { Location } from '@angular/common';
   templateUrl: './edit-farm.component.html',
   styleUrls: ['./edit-farm.component.css']
 })
-export class EditFarmComponent  {
-  /*
+export class EditFarmComponent implements OnInit {
+  formFarm: any = {};
   farm: any;
-  formFarm: any;
-
-
 
   constructor(private route: ActivatedRoute, private farmService: FarmService, private router: Router, private location: Location) {
   }
@@ -26,22 +23,19 @@ export class EditFarmComponent  {
         this.farm = farm;
         this.formFarm = { ...farm };
       });
-    } else {
-      console.error('No farm ID was provided');
     }
   }
 
-
   saveFarm(): void {
     this.farm = { ...this.formFarm };
+    console.log('Saving farm with data:', this.farm);
     this.farmService.updateFarm(this.farm).subscribe(() => {
       console.log('Farm updated successfully');
-      this.router.navigate(['/descriptions', this.farm.id]);
+      this.router.navigate(['/description-shed', this.farm.id]);
     }, error => {
       console.error('Error updating farm:', error);
     });
   }
-
 
   onFileChangeEdit(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -56,6 +50,4 @@ export class EditFarmComponent  {
       reader.readAsDataURL(file);
     }
   }
-
-   */
 }
