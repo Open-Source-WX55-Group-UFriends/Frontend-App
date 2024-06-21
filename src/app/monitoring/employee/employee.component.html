@@ -15,9 +15,9 @@
       </mat-form-field>
     </div>
     <button class="addBtn" [routerLink]="['/add-employee']">
-  <span class="IconContainer">
-    <i class="material-icons">group</i>
-  </span>
+      <span class="IconContainer">
+        <i class="material-icons">group</i>
+      </span>
       <p class="text">Add Employee</p>
     </button>
     <p *ngIf="filteredEmployees.length > 0" class="employee-count">
@@ -41,9 +41,8 @@
     </mat-card-header>
     <mat-card-content>
       <p>ID: {{employee.id}}</p>
-      <p>Email: {{employee.email}}</p>
-      <p>Password: {{employee.password}}</p>
-
+      <p>Username: {{employee.username}}</p>
+      <!-- Removed password display for security reasons -->
     </mat-card-content>
   </mat-card>
   <button *ngIf="searchPerformed" class="back-button" (click)="goBack()">

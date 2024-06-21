@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {AuthenticationService} from "../../register/services/authentication.service";
-import {EmployeeService} from "../service/employee.service";
+import { AuthenticationService } from "../../register/services/authentication.service";
+import { EmployeeService } from "../service/employee.service";
 
 @Component({
   selector: 'app-employee',
