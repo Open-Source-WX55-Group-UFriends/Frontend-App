@@ -19,30 +19,30 @@
 
     <mat-sidenav-content>
       <div class="content-container">
-        <div class="form-container">
+        <form class="form-container" #form="ngForm" (ngSubmit)="saveCrop()">
           <div class="title-container">
             <h2 class="title-add">CULTIVATION RECORD</h2>
           </div>
           <div class="form-group">
             <label>Shed</label>
-            <select class="form-field" required>
-              <option value="">Shed 1</option>
-              <option value="">Shed 2</option>
-              <option value="">Shed 3</option>
+            <select class="form-field" required [(ngModel)]="crop.shed" ngModel #shed="ngModel" name="shed">
+              <option value="Shed 1">Shed 1</option>
+              <option value="Shed 2">Shed 2</option>
+              <option value="Shed 3">Shed 3</option>
             </select>
           </div>
           <div class="form-group">
             <label>Type of Crop</label>
-            <input type="text" class="form-field" required>
+            <input type="text" class="form-field" required [(ngModel)]="crop.typeCrop" ngModel #typeCrop="ngModel" name="typeCrop">
           </div>
           <div class="form-group">
             <label>Sowing Date</label>
-            <input type="date" class="form-field" required>
+            <input type="date" class="form-field" required [(ngModel)]="crop.seedtime" ngModel #seedtime="ngModel" name="seedtime">
           </div>
           <div class="button-container">
             <button type="submit">Save</button>
           </div>
-        </div>
+        </form>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
