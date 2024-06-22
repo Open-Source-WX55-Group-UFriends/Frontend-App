@@ -1,12 +1,11 @@
 <app-toolbar-farm></app-toolbar-farm>
-
 <div>
   <div class="container">
     <div class="farms-container">
       <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDescriptions(farm.id)">
         <div class="card-details">
           <div class="image-section">
-            <img mat-card-image [src]="farm.images" alt="Farm image" class="farm-image">
+            <img *ngIf="farm.images.startsWith('data:image')" mat-card-image [src]="farm.images" alt="Farm Image" class="farm-image" >
           </div>
           <hr>
           <div class="info-section">
@@ -30,8 +29,8 @@
             <hr>
             <ul class="highlight-list">
               <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
-              <li *ngIf="farm.highlight2">{{ farm.highlight2 }}</li>
-              <li *ngIf="farm.highlight3">{{ farm.highlight3 }}</li>
+              <li *ngIf="farm.highlight1">{{ farm.highlight2 }}</li>
+              <li *ngIf="farm.highlight1">{{ farm.highlight3 }}</li>
             </ul>
           </div>
         </div>
