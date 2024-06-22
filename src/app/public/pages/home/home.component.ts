@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(private farmService: FarmService, private router: Router) { }
   ngOnInit(): void {
     this.loadFarms();
+
   }
   loadFarms(): void {
     this.farmService.getFarms().subscribe(data => {
@@ -34,6 +35,17 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/description-shed', id]);
     } else {
       console.error('No farm ID was provided');
+    }
+  }
+
+  filterFarmsByLocation(event: any) {
+    const location = event.target.value;
+    if (location === '') {
+      this.loadFarms();
+    } else {
+      this.farmService.getFarmsByLocation(location).subscribe(farms => {
+        this.farms = farms;
+      });
     }
   }
   /*

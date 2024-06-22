@@ -44,6 +44,43 @@ export class FarmService {
 
     return this.http.get<any>(`${this.apiUrl}/${farmNumber}`, { headers });
   }
+  getFarmsByLocation(location: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.get<any>(`${this.apiUrl}/location/${location}`, { headers }).pipe(
+      map((farms: any[], index: number) => farms.map((farm, index) => ({
+        id: `farm${index + 1}`, // Genera un ID único para cada granja
+        name: farm.farmName,
+        ubication: farm.location,
+        type: farm.type,
+        infrastructure: farm.infrastructure,
+        services: farm.services,
+        status: "ADSSD",
+        certificates: farm.certificates,
+        images: farm.image,
+        price: farm.price,
+        totalSurface: farm.Surface,
+        product: farm.product,
+        highlight1: farm.highlights
+      })))
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   addFarm(farmData: {

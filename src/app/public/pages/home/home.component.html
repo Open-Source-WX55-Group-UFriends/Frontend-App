@@ -1,6 +1,7 @@
 <app-toolbar-farm></app-toolbar-farm>
-<div>
   <div class="container">
+    <input type="text" (input)="filterFarmsByLocation($event)" placeholder="Filter by location">
+
     <div class="farms-container">
       <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDescriptions(farm.id)">
         <div class="card-details">
@@ -36,5 +37,4 @@
         </div>
       </mat-card>
     </div>
-  </div>
 </div>
