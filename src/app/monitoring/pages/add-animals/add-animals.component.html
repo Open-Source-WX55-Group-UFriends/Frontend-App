@@ -24,10 +24,9 @@
           <div class="form-group">
             <label>Shed</label>
             <select class="form-field" required [(ngModel)]="animal.shed" ngModel #shed="ngModel" name="shed">
-              <option value="Shed 1" selected>Shed 1</option>
-              <option value="Shed 2">Shed 2</option>
-              <option value="Shed 3">Shed 3</option>
+              <option *ngFor="let shed of sheds" [value]="shed.shedName">{{ shed.shedName }}</option>
             </select>
+
           </div>
           <div class="form-group">
             <label>Age</label>

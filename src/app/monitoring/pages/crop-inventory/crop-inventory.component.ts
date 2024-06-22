@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../register/services/authentication.service";
 import {Router} from "@angular/router";
 import {CropService} from "../../service/crop.service";
+import {ShedService} from "../../service/shed.service";
 
 @Component({
   selector: 'app-crop-inventory',
@@ -14,15 +15,30 @@ export class CropInventoryComponent implements OnInit{
   isLoading: boolean = true;
   filteredCrops = this.crops;
   selectedShed = '';
+  sheds: any[] = [];
 
   constructor(
     private cropService: CropService,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private shedService: ShedService
   ) { }
 
   ngOnInit() {
     this.loadCrops();
+    this.loadSheds();
+  }
+
+  loadSheds(): void {
+    this.shedService.getAllSheds().subscribe(
+      (data) => {
+        console.log('Sheds obtenidos:', data);
+        this.sheds = data;
+      },
+      (error) => {
+        console.error('Error fetching collaborators', error);
+      }
+    );
   }
 
   loadCrops() {

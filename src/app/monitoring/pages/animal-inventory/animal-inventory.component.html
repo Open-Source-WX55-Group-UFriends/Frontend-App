@@ -24,9 +24,7 @@
           <div class="filter-container">
             <label>Shed</label>
             <select class="filter-field" [(ngModel)]="selectedShed" (ngModelChange)="filterAnimals()">
-              <option value="Shed 1">Shed 1</option>
-              <option value="Shed 2">Shed 2</option>
-              <option value="Shed 3">Shed 3</option>
+              <option *ngFor="let shed of sheds" [value]="shed.shedName">{{ shed.shedName }}</option>
             </select>
           </div>
           <table>
