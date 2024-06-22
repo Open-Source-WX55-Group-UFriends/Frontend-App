@@ -1,11 +1,12 @@
 <app-toolbar-farm></app-toolbar-farm>
+
 <div>
   <div class="container">
     <div class="farms-container">
       <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDescriptions(farm.id)">
         <div class="card-details">
           <div class="image-section">
-            <img mat-card-image [src]="farm.images[0]" alt="Farm image" class="farm-image">
+            <img mat-card-image [src]="farm.images" alt="Farm image" class="farm-image">
           </div>
           <hr>
           <div class="info-section">
