@@ -2,29 +2,27 @@
 <div class="form-container">
   <h1>TASK</h1>
   <div class="login-box">
-    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <form #form="ngForm" (ngSubmit)="saveTask()">
       <label>Employee:</label>
       <div class="user-box">
-
-        <select formControlName="employee" required>
-          <option value="Mathias Aguilar">Mathias Aguilar</option>
-          <option value="Rodrigo Kunimoto">Rodrigo Kunimoto</option>
+        <select required [(ngModel)]="task.collaboratorId" ngModel #collaboratorId="ngModel" name="collaboratorId">
+          <option *ngFor="let employee of employees" [value]="employee.Id">{{ employee.name }}</option>
         </select>
       </div>
       <label>Date:</label>
       <div class="user-box">
-        <input type="date" formControlName="date" required>
+        <input type="date" required [(ngModel)]="task.endDate" ngModel #endDate="ngModel" name="endDate">
       </div>
       <label>Time to perform:</label>
       <div class="user-box">
-        <select formControlName="time" required>
+        <select required [(ngModel)]="task.time" ngModel #time="ngModel" name="time">
           <option *ngFor="let i of [].constructor(24); let n = index" [value]="n+1">{{n+1}}</option>
         </select>
       </div>
       <label>Description:</label>
       <div class="user-box">
 
-        <input type="text" formControlName="description" required>
+        <input type="text" required [(ngModel)]="task.description" ngModel #description="ngModel" name="description">
       </div>
       <button type="submit" class="button-save">Save</button>
       <button type="button" [routerLink]="['/tasks']" class="button-save">Cancel</button>

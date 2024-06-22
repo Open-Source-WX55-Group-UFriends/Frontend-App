@@ -9,8 +9,8 @@ import { TaskService } from "../../services/tasks.service";
   templateUrl: './task-table.component.html',
   styleUrls: ['./task-table.component.css']
 })
-export class TaskTableComponent implements OnInit {
-  displayedColumns: string[] = ['employee', 'time', 'date', 'description', 'state'];
+export class TaskTableComponent /*implements OnInit*/ {
+  /*displayedColumns: string[] = ['employee', 'time', 'date', 'description', 'state'];
   dataSource: MatTableDataSource<any>;
   userRole: any;
   employeeName: string = '';
@@ -62,5 +62,5 @@ export class TaskTableComponent implements OnInit {
   clearInput(inputField: any) {
     this.employeeName = '';
     inputField.focus();
-  }
+  }*/
 }

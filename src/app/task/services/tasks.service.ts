@@ -1,12 +1,76 @@
-import { Injectable } from '@angular/core';
-import {BehaviorSubject, Subject} from 'rxjs';
+import {Injectable, OnInit} from '@angular/core';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import { Task } from '../model/task.entity';
+import {environment} from "../../../environments/environment";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {AuthenticationService} from "../../register/services/authentication.service";
+import {map} from "rxjs/operators";
+import {EmployeeService} from "../../monitoring/service/employee.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService {
-  private tasks: any[] = [
+export class TaskService{
+
+  collaborators: any[] = [];
+
+  private apiUrlEmployee = `${environment.serverBasePath}/employees/all`;
+  private apiUrl = `${environment.serverBasePath}/task`;
+
+  constructor(
+    private http: HttpClient,
+    private authService: AuthenticationService,
+    private employeeService: EmployeeService
+  ) { }
+
+  private getAuthHeaders(): Observable<HttpHeaders> {
+    return this.authService.getToken().pipe(
+      map(token => {
+        console.log('Token de autenticación:', token);
+        return new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        });
+      })
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*private tasks: any[] = [
     { id: 1, employee: 'Bob', time: '1', date: '2024-06-01', description: 'Feed the chickens', state: 'pending'},
     { id: 2, employee: 'Bob', time: '2', date: '2024-05-01', description: 'Feed the cows', state: 'pending'},
     { id: 3, employee: 'Bob', time: '3', date: '2024-04-01', description: 'Feed the pigs', state: 'pending'},
@@ -43,5 +107,5 @@ export class TaskService {
 
   getTasksByDate() {
     return this.tasks.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-  }
+  }*/
 }
