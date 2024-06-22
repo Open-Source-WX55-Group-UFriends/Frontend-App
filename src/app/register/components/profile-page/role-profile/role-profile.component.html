@@ -11,7 +11,7 @@
       <img *ngIf="roleValue == 'ROLE_FARMER'" src="../../../../assets/farmer-profile.png" alt="Profile Image">
 
 
-    <!--  <i class="fas fa-edit edit-icon align-right" [routerLink]="['/edit-profile', currentProfile.id]"></i> -->
+      <!--  <i class="fas fa-edit edit-icon align-right" [routerLink]="['/edit-profile', currentProfile.id]"></i> -->
 
 
     </div>
@@ -27,5 +27,5 @@
       <p><i class="fas fa-id-badge"></i> {{ currentProfile.documentType }}</p>
       <p *ngIf="roleValue == 'ROLE_FARMER'"><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</p>
     </div>
-</div>
+  </div>
 </div>
