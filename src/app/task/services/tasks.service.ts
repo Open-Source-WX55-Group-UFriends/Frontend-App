@@ -1,5 +1,5 @@
 import {Injectable, OnInit} from '@angular/core';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {BehaviorSubject, catchError, Observable, of, Subject, switchMap} from 'rxjs';
 import { Task } from '../model/task.entity';
 import {environment} from "../../../environments/environment";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
@@ -12,15 +12,11 @@ import {EmployeeService} from "../../monitoring/service/employee.service";
 })
 export class TaskService{
 
-  collaborators: any[] = [];
-
-  private apiUrlEmployee = `${environment.serverBasePath}/employees/all`;
   private apiUrl = `${environment.serverBasePath}/task`;
 
   constructor(
     private http: HttpClient,
-    private authService: AuthenticationService,
-    private employeeService: EmployeeService
+    private authService: AuthenticationService
   ) { }
 
   private getAuthHeaders(): Observable<HttpHeaders> {
@@ -31,6 +27,27 @@ export class TaskService{
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         });
+      })
+    );
+  }
+
+  getAllTasks(): Observable<any> {
+    return this.getAuthHeaders().pipe(
+      switchMap(headers =>
+        this.http.get<any>(`${this.apiUrl}/all/farmer/me`, { headers }).pipe(
+          map((tasks: any[]) => tasks.map(tasks => ({
+            taskId: tasks.taskId,
+            description: tasks.description,
+            status: tasks.status,
+            time: tasks.time,
+            endDate: tasks.endDate,
+            collaboratorId: tasks.collaboratorId
+          })))
+        )
+      ),
+      catchError(error => {
+        console.error('Error fetching tasks:', error);
+        return of([]);
       })
     );
   }

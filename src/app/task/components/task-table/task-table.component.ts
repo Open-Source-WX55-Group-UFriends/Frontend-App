@@ -3,13 +3,58 @@ import { MatTableDataSource } from "@angular/material/table";
 import { MatExpansionPanel } from '@angular/material/expansion'; // Import MatExpansionPanel
 import { ProfileService } from "../../../register/model/profile.service";
 import { TaskService } from "../../services/tasks.service";
+import {AuthenticationService} from "../../../register/services/authentication.service";
+import {Router} from "@angular/router";
+import {Task} from "../../model/task.entity";
 
 @Component({
   selector: 'app-task-table',
   templateUrl: './task-table.component.html',
   styleUrls: ['./task-table.component.css']
 })
-export class TaskTableComponent /*implements OnInit*/ {
+export class TaskTableComponent implements OnInit {
+
+  tasks: any[] = [];
+  isLoading: boolean = true;
+
+  constructor(
+    private taskService: TaskService,
+    private authService: AuthenticationService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.loadTasks();
+  }
+
+  loadTasks() {
+    this.isLoading = true;
+    this.taskService.getAllTasks().subscribe(
+      (data) => {
+        this.tasks = data;
+        this.isLoading = false;
+      },
+      (error) => {
+        console.error('Error fetching animals', error);
+        this.isLoading = false;
+        if (error.status === 401) {
+          this.authService.signOut();
+        }
+      }
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
   /*displayedColumns: string[] = ['employee', 'time', 'date', 'description', 'state'];
   dataSource: MatTableDataSource<any>;
   userRole: any;
