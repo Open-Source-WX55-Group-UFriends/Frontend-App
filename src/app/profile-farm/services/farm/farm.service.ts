@@ -27,7 +27,7 @@ export class FarmService {
         services: farm.services,
         status: "ADSSD",
         certificates: farm.certificates,
-        images: "ADSSD",
+        images: farm.image,
         price: farm.price,
         totalSurface: farm.Surface,
         product: farm.product,
@@ -60,9 +60,7 @@ export class FarmService {
     status: string;
     Surface: any;
   }): Observable<any> {
-    farmData.status = "GOOD";
-    farmData.image = "ADSSD";
-
+    farmData.status = "Healthy";
     return this.authService.getToken().pipe(
       switchMap(token => {
         console.log('Token de autenticación:', token);

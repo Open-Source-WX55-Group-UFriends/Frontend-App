@@ -5,7 +5,7 @@
       <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDescriptions(farm.id)">
         <div class="card-details">
           <div class="image-section">
-            <img [src]="farm.image" alt="Farm image">
+            <img *ngIf="farm.images.startsWith('data:image')" mat-card-image [src]="farm.images" alt="Farm Image" class="farm-image" >
           </div>
           <hr>
           <div class="info-section">

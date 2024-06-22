@@ -9,6 +9,12 @@ body {
   justify-content: center;
   margin-top: 100px;
 }
+.subtitle {
+  color: #656363; /* Un tono oscuro para los subtítulos */
+  font-weight: bold;
+}
+
+
 
 .full-page-app {
   width: 100%;

@@ -2,13 +2,13 @@
   <h1>Granjas destacadas:</h1>
   <div class="farms-container">
     <mat-card class="card" *ngFor="let farm of farms" (click)="navigateToDetails(farm.id)">
-      <img mat-card-image [src]="farm['farm-img']" alt="Imagen de la granja" class="farm-image">
+      <img  class="farm-image"*ngIf="farm.image.startsWith('data:image')" mat-card-image [src]="farm.image" alt="Farm Image">
       <mat-card-content>
-        <h2>{{ farm['farm-name'] }}</h2>
-        <p>{{ farm.location }}</p>
-        <p>{{ farm['type-farm'] }}</p>
-        <p>{{ farm['farm-hectares'] }}</p>
-        <p>{{ farm['farm-price'] }}</p>
+        <h2> {{ farm['farm-name'] }}</h2>
+        <p> {{ farm.location }}</p>
+        <p> {{ farm['type-farm'] }}</p>
+        <p> {{ farm['farm-hectares'] }}</p>
+        <p> {{ farm['farm-price'] }}</p>
       </mat-card-content>
       <div class="farm-info">
         <span>{{ farm['granaries'] }} Graneros</span>
