@@ -22,24 +22,30 @@
           <div class="title-container">
             <h2 class="title-add">LIST OF SHEDS</h2>
           </div>
-          <div class="filter-container">
+          <!--<div class="filter-container">
             <label>Shed</label>
-            <select class="filter-field">
+            <select class="filter-field" >
               <option value="Shed 1">Shed 1</option>
               <option value="Shed 2">Shed 2</option>
               <option value="Shed 3">Shed 3</option>
             </select>
-          </div>
+          </div>-->
           <table>
             <thead>
             <tr>
               <th>ID</th>
+              <th>Shed Name</th>
               <th>Type</th>
               <th>Species</th>
             </tr>
             </thead>
-            <tbody>
-            <!-- Here would go the rows with the data of the sheds -->
+            <tbody *ngIf="!isLoading">
+            <tr *ngFor="let shed of sheds">
+              <td>{{shed.id}}</td>
+              <td>{{shed.shedName}}</td>
+              <td>{{shed.typeShed}}</td>
+              <td>{{shed.specie}}</td>
+            </tr>
             </tbody>
           </table>
         </div>
