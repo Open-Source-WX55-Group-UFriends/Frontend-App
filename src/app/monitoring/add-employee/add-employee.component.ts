@@ -24,6 +24,7 @@ export class AddEmployeeComponent /*implements OnInit*/ {
 
   private baseURL = environment.serverBasePath;
   employee = {
+    Id:'',
     name: '',
     username: '',
     phone: '',
