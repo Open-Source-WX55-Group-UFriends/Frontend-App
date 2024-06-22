@@ -1,26 +1,26 @@
 <div class="add-employee-container">
-  <form (ngSubmit)="saveEmployee()" class="form">
+  <form #form="ngForm" (ngSubmit)="saveEmployee()" class="form">
     <p class="title">Add Employee</p>
     <div class="flex">
       <label class="floating-label">
         <p>Name</p>
-        <input [(ngModel)]="employee.name" name="name" placeholder=" " required class="input">
+        <input [(ngModel)]="employee.name" name="name" placeholder=" " required class="input" ngModel #name="ngModel">
       </label>
       <label class="floating-label">
         <p>Username</p>
-        <input [(ngModel)]="employee.username" name="username" placeholder=" " required type="email" class="input">
+        <input [(ngModel)]="employee.username" name="username" placeholder=" " required type="email" class="input" ngModel #username="ngModel">
       </label>
       <label class="floating-label">
         <p>Phone</p>
-        <input [(ngModel)]="employee.phone" name="phone" placeholder=" " required class="input">
+        <input [(ngModel)]="employee.phone" name="phone" placeholder=" " required class="input" ngModel #phone="ngModel">
       </label>
       <label class="floating-label">
         <p>Password</p>
-        <input [(ngModel)]="employee.password" name="password" required class="input" type="password">
+        <input [(ngModel)]="employee.password" name="password" required class="input" type="password" ngModel #password="ngModel">
       </label>
       <label class="floating-label">
         <p>Position</p>
-        <input [(ngModel)]="employee.position" name="position" required class="input">
+        <input [(ngModel)]="employee.position" name="position" required class="input" ngModel #position="ngModel">
       </label>
     </div>
     <button type="submit" class="submit">Save</button>
