@@ -15,9 +15,9 @@
       </mat-form-field>
     </div>
     <button class="addBtn" [routerLink]="['/add-employee']">
-  <span class="IconContainer">
-    <i class="material-icons">group</i>
-  </span>
+      <span class="IconContainer">
+        <i class="material-icons">group</i>
+      </span>
       <p class="text">Add Employee</p>
     </button>
     <p *ngIf="filteredEmployees.length > 0" class="employee-count">
@@ -33,25 +33,27 @@
   <div class="dot-wave__dot"></div>
 </div>
 
-<div *ngIf="!isLoading" class="employee-list" >
-  <mat-card *ngFor="let employee of filteredEmployees">
+<div *ngIf="!isLoading" class="employee-list" style="align-items: center;">
+  <mat-card *ngFor="let employee of filteredEmployees" style="text-align: center;">
     <mat-card-header>
       <mat-card-title>{{employee.name}}</mat-card-title>
       <mat-card-subtitle>{{employee.position}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <p>ID: {{employee.id}}</p>
-      <p>Email: {{employee.email}}</p>
-      <p>Password: {{employee.password}}</p>
+      <p>Username: {{employee.username}}</p>
+      <p>Phone: {{employee.phone}}</p>
 
+      <!-- Removed password display for security reasons -->
     </mat-card-content>
   </mat-card>
-  <button *ngIf="searchPerformed" class="back-button" (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  <p *ngIf="filteredEmployees.length === 0" class="no-employees-message">
+
+  <p *ngIf="filteredEmployees.length === 0" class="no-employees-message" style="text-align: center;">
     <mat-icon>error</mat-icon> No employees found
   </p>
 </div>
+
+  <p *ngIf="filteredEmployees.length === 0" class="no-employees-message">
+    <mat-icon>error</mat-icon> No employees found
+  </p>
 
 <div class="footer-spacer"></div>

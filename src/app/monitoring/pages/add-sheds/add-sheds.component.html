@@ -19,29 +19,36 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="content-container">
-        <div class="form-container">
+        <form class="form-container" #form="ngForm" (ngSubmit)="saveShed()">
           <div class="title-container">
             <h2 class="title-add">ADD SHED</h2>
           </div>
           <div class="form-group">
+            <label>Shed Name</label>
+            <input type="text" class="form-field" required [(ngModel)]="shed.shedName" ngModel #shedName="ngModel" name="shedName">
+          </div>
+          <div class="form-group">
             <label>Shed Type</label>
-            <select class="form-field" required>
-              <option value="">Animals</option>
-              <option value="">Crops</option>
+            <select class="form-field" required [(ngModel)]="shed.typeShed" ngModel #typeShed="ngModel" name="typeShed">
+              <option value="Animals">Animals</option>
+              <option value="Crops">Crops</option>
             </select>
           </div>
           <div class="form-group">
             <label>Species</label>
-            <select class="form-field" required>
-              <option value="">Chickens</option>
-              <option value="">Pigs</option>
-              <option value="">Sheep</option>
+            <select class="form-field" required [(ngModel)]="shed.specie" ngModel #specie="ngModel" name="specie">
+              <option value="Chickens">Chickens</option>
+              <option value="Pigs">Pigs</option>
+              <option value="Sheep">Sheep</option>
+              <option value="Wheat">Wheat</option>
+              <option value="Corn">Corn</option>
+              <option value="Barley">Barley</option>
             </select>
           </div>
           <div class="button-container">
             <button type="submit">Save</button>
           </div>
-        </div>
+        </form>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
