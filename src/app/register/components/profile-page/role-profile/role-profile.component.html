@@ -15,18 +15,17 @@
 
 
     </div>
-    <div class="profile-name">
-      <h1>{{ currentProfile.firstName }} {{ currentProfile.lastName }}</h1>
+    <div class="profile-name" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+      <h1 *ngIf="roleValue == 'ROLE_FARMER'">{{ currentProfile.firstName }} {{ currentProfile.lastName }}</h1>
       <h2 *ngIf="roleValue == 'ROLE_FARMER'"> ROLE: FARMER</h2>
+      <h1 *ngIf="roleValue != 'ROLE_FARMER'">{{ currentProfile.firstName }}</h1>
       <h2 *ngIf="roleValue == 'ROLE_FARMWORKER'">ROLE: FARMWORKER</h2>
     </div>
     <div class="profile-info">
-      <p><i class="fas fa-map-marker-alt"></i> {{ currentProfile.direction }}</p>
-      <p><i class="fas fa-id-badge"></i> {{ currentProfile.documentType }}</p>
-      <p><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</p>
       <p><i class="fas fa-envelope"></i> {{ currentProfile.email }}</p>
 
-
+      <p><i class="fas fa-id-badge"></i> {{ currentProfile.documentType }}</p>
+      <p *ngIf="roleValue == 'ROLE_FARMER'"><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</p>
     </div>
-  </div>
+</div>
 </div>
