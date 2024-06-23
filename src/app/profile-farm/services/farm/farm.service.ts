@@ -120,7 +120,7 @@ export class FarmService {
           })
         };
 
-        return this.http.put<any>(`${this.apiUrl}/${farmData.id}`, farmData, httpOptions).pipe(
+        return this.http.put<any>(this.apiUrl, farmData, httpOptions).pipe(
           catchError(error => {
             console.error('Error updating farm:', error);
             return of(null);
