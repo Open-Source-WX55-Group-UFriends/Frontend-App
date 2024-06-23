@@ -37,6 +37,7 @@ export class DescriptionShedComponent implements OnInit {
     if (id) {
       this.farmService.getFarmById(id).subscribe((data: any) => {
         this.farm = data;
+        console.log("GRANJA:" ,data);
         this.checkEditPermission();
       });
     } else {
@@ -46,8 +47,8 @@ export class DescriptionShedComponent implements OnInit {
   }
 
   checkEditPermission(): void {
-    if (this.farm && this.currentProfile) {
-      this.canEdit = this.farm.userId === this.currentProfile.userId;
+    if (this.farm && this.AuthService.getIdSignIn()) {
+      this.canEdit = this.farm.id == this.AuthService.getIdSignIn();
     }
   }
 
