@@ -12,6 +12,7 @@ import { AuthenticationService } from "../../../register/services/authentication
   styleUrls: ['./financial-stats-page.component.css']
 })
 export class FinancialStatsPageComponent implements OnInit {
+  userId: string; // Añadir identificador de usuario
   type: string = 'income';
   categories: string[] = [];
   amount: any;
@@ -26,12 +27,18 @@ export class FinancialStatsPageComponent implements OnInit {
   filteredDataSource: any[] = [];
   dataSource: any[] = [];
   searchResults: any[] = [];
-  searchType: any = 'all';
+  searchType: string = 'income';
   searchCategory: any;
-  searchDate: any;
   searchCategories: string[] = [];
 
-  constructor(private http: HttpClient, private authService: AuthenticationService) { }
+  totalIncome: number = 0;
+  totalExpense: number = 0;
+  balance: number = 0;
+
+  constructor(private http: HttpClient, private authService: AuthenticationService) {
+    // Supongamos que el servicio de autenticación puede proporcionar el userId
+    this.userId = this.authService.getIdSignIn();
+  }
 
   private getAuthHeaders(): Observable<HttpHeaders> {
     return this.authService.getToken().pipe(
@@ -48,14 +55,14 @@ export class FinancialStatsPageComponent implements OnInit {
   ngOnInit(): void {
     this.updateCategories();
     this.updateSearchCategories();
-    this.updateFilteredDataSource(); // Initial filter to populate the filteredDataSource with the last 11 entries
+    this.loadInitialData();
   }
 
   updateCategories() {
     if (this.type === 'income') {
       this.categories = ['SALES', 'SUBSIDES', 'OTHER'];
     } else if (this.type === 'expense') {
-      this.categories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
+      this.categories = ['SUPPLIES', 'LABOR', 'MAINTENANCE', 'SERVICES', 'OTHER'];
     }
   }
 
@@ -63,7 +70,7 @@ export class FinancialStatsPageComponent implements OnInit {
     if (this.searchType === 'income') {
       this.searchCategories = ['SALES', 'SUBSIDES', 'OTHER'];
     } else if (this.searchType === 'expense') {
-      this.searchCategories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
+      this.searchCategories = ['SUPPLIES', 'LABOR', 'MAINTENANCE', 'SERVICES', 'OTHER'];
     } else {
       this.searchCategories = [];
     }
@@ -74,11 +81,13 @@ export class FinancialStatsPageComponent implements OnInit {
 
     // create new data object with the specified format
     const newData = {
+      userId: this.userId, // Añadir identificador de usuario
+      type: this.type.toUpperCase(), // Ensure type is uppercase
       category: this.category.toUpperCase(), // Ensuring category is uppercase
       description: this.description,
       amount: value.amount,
       date: new Date(value.date).toISOString().split('T')[0], // Format date as YYYY-MM-DD
-      period: value.period
+      period: value.period.toUpperCase() // Ensure period is uppercase
     };
 
     // Insert the new data at the beginning of the arrays
@@ -96,11 +105,12 @@ export class FinancialStatsPageComponent implements OnInit {
 
     // Update filteredDataSource to include the new entry
     this.updateFilteredDataSource();
+    this.calculateTotals();
   }
 
   saveData(data: any) {
     let url = `${environment.serverBasePath}/expense`;
-    if (this.type === 'income') {
+    if (data.type === 'INCOME') {
       url = `${environment.serverBasePath}/income`;
     }
 
@@ -109,8 +119,21 @@ export class FinancialStatsPageComponent implements OnInit {
     this.getAuthHeaders().subscribe(headers => {
       this.http.post(url, data, { headers }).subscribe(response => {
         console.log('Data saved successfully:', response);
+        this.loadInitialData(); // Load data again to update statistics
       }, error => {
         console.error('Error saving data:', error);
+      });
+    });
+  }
+
+  loadInitialData() {
+    this.getAuthHeaders().subscribe(headers => {
+      this.http.get(`${environment.serverBasePath}/data/${this.userId}`, { headers }).subscribe((data: any) => {
+        this.dataSource = data;
+        this.updateFilteredDataSource();
+        this.calculateTotals();
+      }, error => {
+        console.error('Error loading data:', error);
       });
     });
   }
@@ -122,27 +145,44 @@ export class FinancialStatsPageComponent implements OnInit {
   }
 
   filterData() {
-    let filteredData = this.dataSource;
-
-    if (this.searchType && this.searchType === 'all') {
-      // If 'all' is selected, ignore other filters and reset to full dataSource
-      this.searchResults = filteredData;
-    } else {
-      if (this.searchType && this.searchType !== 'all') {
-        filteredData = filteredData.filter((item: any) => item.type === this.searchType);
-      }
-
-      if (this.searchCategory) {
-        filteredData = filteredData.filter((item: any) => item.category === this.searchCategory);
-      }
-
-      if (this.searchDate) {
-        filteredData = filteredData.filter((item: any) => new Date(item.date) >= new Date(this.searchDate));
-      }
-
-      this.searchResults = filteredData;
+    let url = `${environment.serverBasePath}/expense/filter/all`;
+    if (this.searchType.toUpperCase() === 'INCOME') {
+      url = `${environment.serverBasePath}/income/filter/all`;
     }
 
-    console.log(this.searchResults); // Print the search results to the console
+    this.getAuthHeaders().subscribe(headers => {
+      this.http.get(url, { headers }).subscribe((data: any) => {
+        // Set the type for each item
+        data = data.map((item: any) => ({
+          ...item,
+          type: this.searchType.toUpperCase() // Ensure type is uppercase
+        }));
+
+        let filteredData = data;
+
+        if (this.searchCategory) {
+          filteredData = filteredData.filter((item: any) => item.category === this.searchCategory.toUpperCase());
+        }
+
+        this.searchResults = filteredData;
+
+        console.log('Filtered data:', this.searchResults); // Print the search results to the console
+        this.calculateTotals();
+      }, error => {
+        console.error('Error fetching filtered data:', error);
+      });
+    });
+  }
+
+  calculateTotals() {
+    this.totalIncome = this.dataSource
+      .filter(item => item.type === 'INCOME')
+      .reduce((acc, curr) => acc + curr.amount, 0);
+
+    this.totalExpense = this.dataSource
+      .filter(item => item.type === 'EXPENSE')
+      .reduce((acc, curr) => acc + curr.amount, 0);
+
+    this.balance = this.totalIncome - this.totalExpense;
   }
 }

@@ -1,5 +1,12 @@
 <app-toolbar-farm></app-toolbar-farm>
 <div class="dashboard">
+  <div class="statistics">
+    <h2>Financial Summary</h2>
+    <p>Total Income: {{ totalIncome | currency }}</p>
+    <p>Total Expenses: {{ totalExpense | currency }}</p>
+    <p>Balance: {{ balance | currency }}</p>
+  </div>
+
   <div class="split-container">
     <div class="left-section">
       <div class="container-form">
@@ -32,7 +39,11 @@
           </div>
           <div class="form-group">
             <label for="period">Period</label>
-            <input type="text" id="period" name="period" [(ngModel)]="period" required>
+            <select id="period" name="period" [(ngModel)]="period" required>
+              <option value="DIARIO">DIARIO</option>
+              <option value="MENSUAL">MENSUAL</option>
+              <option value="ANUAL">ANUAL</option>
+            </select>
           </div>
           <div class="form-group">
             <button type="submit">Add</button>
@@ -93,7 +104,6 @@
       <div>
         <label for="searchType">Type</label>
         <select id="searchType" [(ngModel)]="searchType" name="searchType" (change)="updateSearchCategories()">
-          <option value="all">All</option>
           <option value="income">Income</option>
           <option value="expense">Expense</option>
         </select>
@@ -104,10 +114,6 @@
           <option *ngFor="let category of searchCategories" [value]="category">{{category}}</option>
         </select>
       </div>
-      <div>
-        <label for="searchDate">Date</label>
-        <input type="date" id="searchDate" [(ngModel)]="searchDate" name="searchDate">
-      </div>
       <button type="submit">Search</button>
     </form>
 
@@ -116,6 +122,8 @@
       <tr>
         <th>Type</th>
         <th>Category</th>
+        <th>Description</th>
+        <th>Amount</th>
         <th>Date</th>
       </tr>
       </thead>
@@ -123,6 +131,8 @@
       <tr *ngFor="let item of searchResults">
         <td>{{item.type}}</td>
         <td>{{item.category}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.amount}}</td>
         <td>{{item.date | date:'shortDate'}} </td>
       </tr>
       </tbody>
