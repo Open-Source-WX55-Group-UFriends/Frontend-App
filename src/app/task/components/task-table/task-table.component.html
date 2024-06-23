@@ -15,6 +15,13 @@
         <mat-option value="FINISHED">Finished</mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field class="task-filter">
+      <mat-label>Employee Name</mat-label>
+      <input matInput [(ngModel)]="employeeName" (input)="filterTasks()" placeholder="Search by name">
+      <button mat-button *ngIf="employeeName" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput($event.target)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
   </div>
   <div class="table-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

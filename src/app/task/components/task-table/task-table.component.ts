@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from "@angular/material/table";
 import { MatExpansionPanel } from '@angular/material/expansion';
-import {TaskService} from "../../services/tasks.service";
-import {ProfileService} from "../../../register/model/profile.service"; // Import MatExpansionPanel
+import { TaskService } from "../../services/tasks.service";
+import { ProfileService } from "../../../register/model/profile.service"; // Import MatExpansionPanel
 
 @Component({
   selector: 'app-task-table',
   templateUrl: './task-table.component.html',
   styleUrls: ['./task-table.component.css']
 })
-export class  TaskTableComponent implements OnInit {
+export class TaskTableComponent implements OnInit {
   displayedColumns: string[] = ['employee', 'time', 'date', 'description', 'state'];
   dataSource: MatTableDataSource<any>;
   userRole: any;
@@ -57,54 +57,22 @@ export class  TaskTableComponent implements OnInit {
   }
 
   filterTasks(): void {
+    let filteredTasks = this.allTasks;
+
     if (this.taskState) {
-      this.dataSource.data = this.allTasks.filter(task => task.status === this.taskState);
-    } else {
-      this.dataSource.data = this.allTasks;
+      filteredTasks = filteredTasks.filter(task => task.status === this.taskState);
     }
+
+    if (this.employeeName) {
+      filteredTasks = filteredTasks.filter(task => task.employeeName.toLowerCase().includes(this.employeeName.toLowerCase()));
+    }
+
+    this.dataSource.data = filteredTasks;
   }
 
-
-  /*
-
-  getTasksForFarmer(): void {
-    this.taskService.getAllTasks().subscribe(tasks => {
-      this.dataSource.data = tasks;
-    });
-  }
-  */
-
-  /*
-  finishTask(taskId: number, expansionPanel: MatExpansionPanel) {
-    this.taskService.finishTask(taskId);
-    expansionPanel.close();
-  }
-
-  showFinishedTasks() {
-    this.dataSource.data = this.taskService.getFinishedTasks();
-  }
-
-  showTasksByDate() {
-    this.dataSource.data = this.taskService.getTasksByDate();
-  }
-
-  filterTasks() {
-    this.taskService.getAllTasks().subscribe(tasks => {
-      let filteredTasks = tasks;
-      if (this.employeeName) {
-        filteredTasks = filteredTasks.filter(task => task.employee.toLowerCase().includes(this.employeeName.toLowerCase()));
-      }
-      if (this.taskState) {
-        filteredTasks = filteredTasks.filter(task => task.status === this.taskState);
-      }
-      this.dataSource.data = filteredTasks;
-    });
-  }
-
-  clearInput(inputField: any) {
+  clearInput(inputField: any): void {
     this.employeeName = '';
     inputField.focus();
+    this.filterTasks();
   }
-
-   */
 }

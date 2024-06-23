@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from "../../../../environments/environment";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { AuthenticationService } from "../../../register/services/authentication.service";
 
 @Component({
   selector: 'app-financial-stats-page',
   templateUrl: './financial-stats-page.component.html',
   styleUrls: ['./financial-stats-page.component.css']
 })
-
 export class FinancialStatsPageComponent implements OnInit {
   type: string = 'income';
   categories: string[] = [];
@@ -27,6 +31,19 @@ export class FinancialStatsPageComponent implements OnInit {
   searchDate: any;
   searchCategories: string[] = [];
 
+  constructor(private http: HttpClient, private authService: AuthenticationService) { }
+
+  private getAuthHeaders(): Observable<HttpHeaders> {
+    return this.authService.getToken().pipe(
+      map(token => {
+        console.log('Token de autenticación:', token);
+        return new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        });
+      })
+    );
+  }
 
   ngOnInit(): void {
     this.updateCategories();
@@ -36,7 +53,7 @@ export class FinancialStatsPageComponent implements OnInit {
 
   updateCategories() {
     if (this.type === 'income') {
-      this.categories = ['Sales', 'Subsidies', 'Other Income'];
+      this.categories = ['SALES', 'SUBSIDES', 'OTHER'];
     } else if (this.type === 'expense') {
       this.categories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
     }
@@ -44,7 +61,7 @@ export class FinancialStatsPageComponent implements OnInit {
 
   updateSearchCategories() {
     if (this.searchType === 'income') {
-      this.searchCategories = ['Sales', 'Subsidies', 'Other Income'];
+      this.searchCategories = ['SALES', 'SUBSIDES', 'OTHER'];
     } else if (this.searchType === 'expense') {
       this.searchCategories = ['Supplies', 'Labor', 'Maintenance', 'Services', 'Other Expenses'];
     } else {
@@ -55,13 +72,12 @@ export class FinancialStatsPageComponent implements OnInit {
   onSubmit(form: NgForm) {
     const value = form.value;
 
-    // create new data object
+    // create new data object with the specified format
     const newData = {
-      type: this.type,
-      category: this.category,
+      category: this.category.toUpperCase(), // Ensuring category is uppercase
       description: this.description,
       amount: value.amount,
-      date: new Date(value.date),
+      date: new Date(value.date).toISOString().split('T')[0], // Format date as YYYY-MM-DD
       period: value.period
     };
 
@@ -69,8 +85,11 @@ export class FinancialStatsPageComponent implements OnInit {
     this.formData = [newData, ...this.formData];
     this.dataSource = [newData, ...this.dataSource]; // Add new data to dataSource
 
+    // Send new data to server
+    this.saveData(newData);
+
     // print new data to console
-    console.log(this.formData);
+    console.log('Data added to formData and dataSource:', newData);
 
     // reset the form
     form.resetForm({ type: this.type }); // Reset form with default type
@@ -79,11 +98,29 @@ export class FinancialStatsPageComponent implements OnInit {
     this.updateFilteredDataSource();
   }
 
+  saveData(data: any) {
+    let url = `${environment.serverBasePath}/expense`;
+    if (this.type === 'income') {
+      url = `${environment.serverBasePath}/income`;
+    }
+
+    console.log('Data being sent to server:', data); // Log the data being sent
+
+    this.getAuthHeaders().subscribe(headers => {
+      this.http.post(url, data, { headers }).subscribe(response => {
+        console.log('Data saved successfully:', response);
+      }, error => {
+        console.error('Error saving data:', error);
+      });
+    });
+  }
+
   updateFilteredDataSource() {
     // Slice the last 11 entries from the top
     this.filteredDataSource = this.dataSource.slice(0, 11);
     console.log(this.filteredDataSource); // Print the filtered data to the console
   }
+
   filterData() {
     let filteredData = this.dataSource;
 
