@@ -4,43 +4,42 @@
     <p>FarmLogiTech</p>
   </div>
   <button class="hamburger" (click)="toggleMenu()">☰</button>
-  <nav id="menu" [class.active]="menuActive"  >
-    <!-- Toolbar for 'Business Owner' Franco estuvo aqui  -->
-    <ul *ngIf="currentProfile ">
+  <nav id="menu" [class.active]="menuActive">
+    <!-- Toolbar for 'Business Owner' -->
+    <ul *ngIf="currentRole === 'ROLE_OWNER'">
       <li><a routerLink="/home">Home</a></li>
-    <!--  <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li> -->
-      <li><a  (click)="logout()">Log out</a></li>
-    </ul>
-    <!-- Toolbar for 'farm worker' -->
-    <ul *ngIf="currentProfile ">
-      <li><button class="choose-plan-btn"  routerLink="/detailed-monitoring" (click)="scrollToTop()" >Detailed Monitoring</button></li>
-      <!--    <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li> -->
-     <li><a (click)="logout()">Log out</a></li>
-   </ul>
-   <!-- Toolbar for 'farmer' -->
-    <ul *ngIf="isSignedIn">
-      <li><a routerLink="/home">Home</a></li>
-      <li><a routerLink="/monitoring-farmer" >Monitoring</a></li>
-      <li><button class="choose-plan-btn"  routerLink="/profile-farm" ><a >Post your ad</a></button></li>
       <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
       <li><a (click)="logout()">Log out</a></li>
-     </ul>
-     <!-- Toolbar for 'admin' -->
-    <ul *ngIf="currentProfile ">
-      <li><a routerLink="/admin">Admin</a></li>
-      <!--   <li><a [routerLink]="['/role-profile', currentProfile.id]">Profile</a></li> -->
-        <li><a (click)="logout()">Log out</a></li>
-      </ul>
+    </ul>
 
-      <!-- Toolbar for 'public' -->
+    <!-- Toolbar for 'Farm Worker' -->
+    <ul *ngIf="currentRole === 'ROLE_FARMWORKER'">
+      <li><button class="choose-plan-btn" routerLink="/detailed-monitoring" (click)="scrollToTop()">Detailed Monitoring</button></li>
+      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
+      <li><a (click)="logout()">Log out</a></li>
+    </ul>
+
+    <!-- Toolbar for 'Farmer' -->
+    <ul *ngIf="currentRole === 'ROLE_FARMER'">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/monitoring-farmer">Monitoring</a></li>
+      <li><button class="choose-plan-btn" routerLink="/profile-farm">Post your ad</button></li>
+      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
+      <li><a (click)="logout()">Log out</a></li>
+    </ul>
+
+    <!-- Toolbar for 'Admin' -->
+    <ul *ngIf="currentRole === 'Admin'">
+      <li><a routerLink="/admin">Admin</a></li>
+      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
+      <li><a (click)="logout()">Log out</a></li>
+    </ul>
+
+    <!-- Toolbar for 'Public' -->
     <ul *ngIf="!isSignedIn">
       <li><a routerLink="/home">Home</a></li>
-     <!-- <li><a routerLink="/subscriptions/card" (click)="scrollToTop()" >Rates</a></li>-->
-      <li><button class="choose-plan-btn"  routerLink="/login" ><a >Post your ad</a></button></li>
-    <!--  <li><a routerLink="/login" >Collaborator</a></li>-->
+      <li><button class="choose-plan-btn" routerLink="/login">Post your ad</button></li>
       <li><a routerLink="/login">Sign in</a></li>
     </ul>
   </nav>
-
-
 </header>

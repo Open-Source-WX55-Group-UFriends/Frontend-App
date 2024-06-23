@@ -1,54 +1,99 @@
 <app-toolbar-farm></app-toolbar-farm>
 
-<!-- Vista para el rol de 'ROLE_FARMER' -->
-<div class="task-create">
-  <h1>TASK</h1>
-  <div class="button-container">
-    <button mat-raised-button color="primary" routerLink="/tasks/create">Create Task</button>
-  </div>
-  <div class="filter-container">
-    <mat-form-field class="task-filter">
-      <mat-label>Task State</mat-label>
-      <mat-select [(value)]="taskState" (selectionChange)="filterTasks()">
-        <mat-option value="">All</mat-option>
-        <mat-option value="PENDING">Pending</mat-option>
-        <mat-option value="FINISHED">Finished</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field class="task-filter">
-      <mat-label>Employee Name</mat-label>
-      <input matInput [(ngModel)]="employeeName" (input)="filterTasks()" placeholder="Search by name">
-      <button mat-button *ngIf="employeeName" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput($event.target)">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-  </div>
-  <div class="table-container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="employee">
-        <th mat-header-cell *matHeaderCellDef>Employee</th>
-        <td mat-cell *matCellDef="let task">{{task.employeeName}}</td>
-      </ng-container>
-      <ng-container matColumnDef="time">
-        <th mat-header-cell *matHeaderCellDef>Time to perform</th>
-        <td mat-cell *matCellDef="let task">{{task.time}}</td>
-      </ng-container>
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef>Date</th>
-        <td mat-cell *matCellDef="let task">{{task.endDate | date}}</td>
-      </ng-container>
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Description</th>
-        <td mat-cell *matCellDef="let task">{{task.description}}</td>
-      </ng-container>
-      <ng-container matColumnDef="state">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let task" [ngClass]="{'task-pending': task.status === 'PENDING', 'task-finished': task.status === 'FINISHED'}">{{task.status}}</td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
-    </table>
+<div *ngIf="userRole === 'ROLE_FARMER'">
+  <!-- Vista para el rol de 'ROLE_FARMER' -->
+  <div class="task-create">
+    <h1>TASK</h1>
+    <div class="button-container">
+      <button mat-raised-button color="primary" routerLink="/tasks/create">Create Task</button>
+    </div>
+    <div class="filter-container">
+      <mat-form-field class="task-filter">
+        <mat-label>Task State</mat-label>
+        <mat-select [(value)]="taskState" (selectionChange)="filterTasks()">
+          <mat-option value="">All</mat-option>
+          <mat-option value="PENDING">Pending</mat-option>
+          <mat-option value="FINISHED">Finished</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="task-filter">
+        <mat-label>Employee Name</mat-label>
+        <input matInput [(ngModel)]="employeeName" (input)="filterTasks()" placeholder="Search by name">
+        <button mat-button *ngIf="employeeName" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput($event.target)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="employee">
+          <th mat-header-cell *matHeaderCellDef>Employee</th>
+          <td mat-cell *matCellDef="let task">{{task.employeeName}}</td>
+        </ng-container>
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef>Time to perform</th>
+          <td mat-cell *matCellDef="let task">{{task.time}}</td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let task">{{task.endDate | date}}</td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let task">{{task.description}}</td>
+        </ng-container>
+        <ng-container matColumnDef="state">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let task" [ngClass]="{'task-pending': task.status === 'PENDING', 'task-finished': task.status === 'FINISHED'}">{{task.status}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+      </table>
+    </div>
   </div>
 </div>
 
-<div class="space"></div>
+
+
+<div *ngIf="userRole === 'ROLE_FARMWORKER'">
+  <!-- Vista para el rol de 'ROLE_FARMWORKER' -->
+  <div class="task-create">
+    <h1>TASK Employee</h1>
+    <div class="filter-container">
+      <mat-form-field class="task-filter">
+        <mat-label>Task State</mat-label>
+        <mat-select [(value)]="taskState" (selectionChange)="filterTasks()">
+          <mat-option value="">All</mat-option>
+          <mat-option value="PENDING">Pending</mat-option>
+          <mat-option value="FINISHED">Finished</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="employee">
+          <th mat-header-cell *matHeaderCellDef>Employee</th>
+          <td mat-cell *matCellDef="let task">{{task.employeeName}}</td>
+        </ng-container>
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef>Time to perform</th>
+          <td mat-cell *matCellDef="let task">{{task.time}}</td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let task">{{task.endDate | date}}</td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let task">{{task.description}}</td>
+        </ng-container>
+        <ng-container matColumnDef="state">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let task" [ngClass]="{'task-pending': task.status === 'PENDING', 'task-finished': task.status === 'FINISHED'}">{{task.status}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+      </table>
+    </div>
+  </div>
+</div>

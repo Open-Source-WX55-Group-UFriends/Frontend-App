@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from "@angular/material/table";
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { TaskService } from "../../services/tasks.service";
-import { ProfileService } from "../../../register/model/profile.service"; // Import MatExpansionPanel
+import { ProfileService } from "../../../register/model/profile.service";
+import {AuthenticationService} from "../../../register/services/authentication.service"; // Import MatExpansionPanel
 
 @Component({
   selector: 'app-task-table',
@@ -12,47 +13,61 @@ import { ProfileService } from "../../../register/model/profile.service"; // Imp
 export class TaskTableComponent implements OnInit {
   displayedColumns: string[] = ['employee', 'time', 'date', 'description', 'state'];
   dataSource: MatTableDataSource<any>;
-  userRole: any;
+  userRole: string = '';
   employeeName: string = '';
   taskState: string = '';
-  employees: any[] = [];
   allTasks: any[] = [];
+  employees: any[] = []; // Agregado para almacenar la lista de empleados
 
-  constructor(private taskService: TaskService, private profileService: ProfileService) {
+  constructor(private taskService: TaskService, private authService: AuthenticationService) {
     this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit() {
     this.getUserRole();
-    this.loadEmployeesAndTasks();
   }
 
   getUserRole(): void {
-    this.profileService.getProfiles().subscribe(profiles => {
-      this.userRole = profiles[profiles.length - 1];
+    this.authService.currentUserRole.subscribe(role => {
+      this.userRole = role;
+      console.log('User Role:', this.userRole);
+      if (this.userRole === 'ROLE_FARMWORKER') {
+        this.loadTasksForCollaborator();
+      } else if (this.userRole === 'ROLE_FARMER') {
+        this.loadAllTasks();
+      }
     });
   }
 
-  loadEmployeesAndTasks(): void {
+  loadTasksForCollaborator(): void {
+    this.taskService.getTasksForCollaborator().subscribe(
+      tasks => {
+        this.allTasks = tasks;
+        this.filterTasks();
+        console.log('Tareas cargadas en la tabla para colaborador:', tasks);
+      },
+      error => {
+        console.error('Error al cargar las tareas para colaborador:', error);
+      }
+    );
+  }
+
+  loadAllTasks(): void {
     this.taskService.getAllEmployees().subscribe(employees => {
       this.employees = employees;
       console.log('Lista de empleados cargada:', this.employees);
-      this.loadTasks();
-    });
-  }
-
-  loadTasks(): void {
-    this.taskService.getAllTasks().subscribe(tasks => {
-      const tasksWithEmployeeNames = tasks.map(task => {
-        const employee = this.employees.find(emp => emp.id === task.collaboratorId);
-        return {
-          ...task,
-          employeeName: employee ? employee.name : 'Desconocido'
-        };
+      this.taskService.getAllTasks().subscribe(tasks => {
+        const tasksWithEmployeeNames = tasks.map(task => {
+          const employee = this.employees.find(emp => emp.id === task.collaboratorId);
+          return {
+            ...task,
+            employeeName: employee ? employee.name : 'Desconocido'
+          };
+        });
+        this.allTasks = tasksWithEmployeeNames;
+        this.filterTasks();
+        console.log('Tareas cargadas en la tabla:', tasksWithEmployeeNames);
       });
-      this.allTasks = tasksWithEmployeeNames;
-      this.filterTasks();
-      console.log('Tareas cargadas en la tabla:', tasksWithEmployeeNames);
     });
   }
 
