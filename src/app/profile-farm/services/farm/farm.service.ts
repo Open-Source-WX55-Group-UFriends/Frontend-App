@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, catchError, Observable, of, switchMap} from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import { AuthenticationService } from '../../../register/services/authentication.service';
 import {environment} from "../../../../environments/environment";
-import {map} from "rxjs/operators";
-import {AuthenticationService} from "../../../register/services/authentication.service";
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class FarmService {
         type: farm.type,
         infrastructure: farm.infrastructure,
         services: farm.services,
-        status: "ADSSD",
+        status: farm.status,
         certificates: farm.certificates,
         images: farm.image,
         price: farm.price,
@@ -35,6 +35,7 @@ export class FarmService {
       })))
     );
   }
+
   getFarmById(id: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -44,9 +45,6 @@ export class FarmService {
 
     return this.http.get<any>(`${this.apiUrl}/${farmNumber}`, { headers });
   }
-
-
-
 
   getFarmsByLocation(location: string): Observable<any> {
     const headers = new HttpHeaders({
@@ -61,7 +59,7 @@ export class FarmService {
         type: farm.type,
         infrastructure: farm.infrastructure,
         services: farm.services,
-        status: "ADSSD",
+        status: farm.status,
         certificates: farm.certificates,
         images: farm.image,
         price: farm.price,
@@ -71,21 +69,6 @@ export class FarmService {
       })))
     );
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   addFarm(farmData: {
     farmName: string;
@@ -124,8 +107,7 @@ export class FarmService {
   }
 
   updateFarm(farmData: any): Observable<any> {
-    const farmNumber = farmData.id.toString().replace('farm', '');
-    console.log('Updating farm with number:', farmNumber, 'and data:', farmData);
+    console.log('Updating farm with data:', farmData);
 
     return this.authService.getToken().pipe(
       switchMap(token => {
@@ -138,7 +120,7 @@ export class FarmService {
           })
         };
 
-        return this.http.put<any>(`${this.apiUrl}/${farmNumber}`, farmData, httpOptions).pipe(
+        return this.http.put<any>(`${this.apiUrl}/${farmData.id}`, farmData, httpOptions).pipe(
           catchError(error => {
             console.error('Error updating farm:', error);
             return of(null);

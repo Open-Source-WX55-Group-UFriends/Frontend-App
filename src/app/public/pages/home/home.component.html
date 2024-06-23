@@ -28,12 +28,17 @@
               $ {{ farm.price | number }}
             </p>
             <hr>
+
+            <div class="form-group highlight-list-center">
+
             <ul class="highlight-list">
               <li *ngIf="farm.highlight1">{{ farm.highlight1 }}</li>
               <li *ngIf="farm.highlight1">{{ farm.highlight2 }}</li>
               <li *ngIf="farm.highlight1">{{ farm.highlight3 }}</li>
             </ul>
           </div>
+          </div>
+
         </div>
       </mat-card>
     </div>

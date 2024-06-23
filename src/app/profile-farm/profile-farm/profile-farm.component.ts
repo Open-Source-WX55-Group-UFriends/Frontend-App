@@ -19,7 +19,7 @@ export class ProfileFarmComponent {
     infrastructure: '',
     farmType: '',
     product: '',
-    totalSurface: "" as any,
+    totalSurface: '' as any,
     service: '',
     certifications: '',
     condition: '',
@@ -27,7 +27,7 @@ export class ProfileFarmComponent {
     highlight1: '',
     highlight2: '',
     highlight3: '',
-    price: "" as any,
+    price: '' as any,
     images: [] as string[]
   };
 
@@ -36,7 +36,7 @@ export class ProfileFarmComponent {
 
     this.farmService.getFarmById(userId).subscribe(response => {
       if (response) {
-        this.router.navigate(['/description-shed',userId]);
+        this.router.navigate(['/description-shed', userId]);
       }
     });
   }
@@ -68,7 +68,7 @@ export class ProfileFarmComponent {
 
     // @ts-ignore
     this.farmService.addFarm(farmData).subscribe(response => {
-      console.log("data", farmData); // Imprime los datos de farmData
+      console.log('Data sent to backend:', farmData); // Log the farmData
       if (response) {
         alert('Farm added successfully.');
         this.router.navigate(['/home']);

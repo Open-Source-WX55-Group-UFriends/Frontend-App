@@ -106,12 +106,16 @@ input[type="text"] {
   align-items: center;
 }
 
+
+.highlight-list-center {
+  display: flex;
+  justify-content: center;
+}
+
 .highlight-list {
   list-style-type: none;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  text-align: center;
 }
 
 .highlight-list li {
