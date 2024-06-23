@@ -15,6 +15,8 @@ export class  TaskTableComponent implements OnInit {
   userRole: any;
   employeeName: string = '';
   taskState: string = '';
+  employees: any[] = [];
+  allTasks: any[] = [];
 
   constructor(private taskService: TaskService, private profileService: ProfileService) {
     this.dataSource = new MatTableDataSource();
@@ -22,6 +24,7 @@ export class  TaskTableComponent implements OnInit {
 
   ngOnInit() {
     this.getUserRole();
+    this.loadEmployeesAndTasks();
   }
 
   getUserRole(): void {
@@ -29,6 +32,39 @@ export class  TaskTableComponent implements OnInit {
       this.userRole = profiles[profiles.length - 1];
     });
   }
+
+  loadEmployeesAndTasks(): void {
+    this.taskService.getAllEmployees().subscribe(employees => {
+      this.employees = employees;
+      console.log('Lista de empleados cargada:', this.employees);
+      this.loadTasks();
+    });
+  }
+
+  loadTasks(): void {
+    this.taskService.getAllTasks().subscribe(tasks => {
+      const tasksWithEmployeeNames = tasks.map(task => {
+        const employee = this.employees.find(emp => emp.id === task.collaboratorId);
+        return {
+          ...task,
+          employeeName: employee ? employee.name : 'Desconocido'
+        };
+      });
+      this.allTasks = tasksWithEmployeeNames;
+      this.filterTasks();
+      console.log('Tareas cargadas en la tabla:', tasksWithEmployeeNames);
+    });
+  }
+
+  filterTasks(): void {
+    if (this.taskState) {
+      this.dataSource.data = this.allTasks.filter(task => task.status === this.taskState);
+    } else {
+      this.dataSource.data = this.allTasks;
+    }
+  }
+
+
   /*
 
   getTasksForFarmer(): void {

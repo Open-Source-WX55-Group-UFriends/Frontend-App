@@ -57,6 +57,37 @@ export class  TaskService {
       })
     );
   }
+
+
+  getAllTasks(): Observable<any[]> {
+    return this.getAuthHeaders().pipe(
+      switchMap(headers => {
+        console.log('Enviando solicitud con encabezados:', headers);
+        return this.http.get<any[]>(`${this.apiUrl}/task/all/farmer/me`, { headers }).pipe(
+          map(tasks => {
+            console.log('Tareas obtenidas:', tasks);
+            return tasks;
+          }),
+          catchError(error => {
+            console.error('Error fetching tasks:', error);
+            return of([]);
+          })
+        );
+      })
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 /**
