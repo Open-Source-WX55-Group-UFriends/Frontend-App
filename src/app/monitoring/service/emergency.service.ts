@@ -13,6 +13,7 @@ export class  EmergencyService {
   private employeesUrl = `${environment.serverBasePath}`; // URL para obtener empleados
   private userMessagesUrl = `${environment.serverBasePath}/messages/user`;
   private usersUrl = `${environment.serverBasePath}/messages/user`;
+  private usersall = `${environment.serverBasePath}/users`;
 
   constructor(private http: HttpClient, private authService: AuthenticationService) { }
 
@@ -66,13 +67,13 @@ export class  EmergencyService {
     return this.getAuthHeaders().pipe(
       switchMap(headers => {
         console.log('Enviando solicitud con encabezados:', headers);
-        return this.http.get<any[]>(this.usersUrl, { headers }).pipe(
+        return this.http.get<any[]>(this.usersall, { headers }).pipe(
           map((users: any[]) => {
             console.log('Datos obtenidos de usuarios:', users);
             return users.map(user => ({
-              name: user.name,
-              id: user.Id,
-              username: user.username // Incluimos el username aquí
+              id: user.id,
+              username: user.username, // Incluimos el username aquí
+              Roles: user.roles
             }));
           }),
           catchError(error => {
@@ -83,6 +84,7 @@ export class  EmergencyService {
       })
     );
   }
+
 
   getUserMessages(): Observable<any[]> {
     return this.getAuthHeaders().pipe(
@@ -96,6 +98,24 @@ export class  EmergencyService {
       )
     );
   }
+  getCurrentEmployee(): Observable<any> {
+    return this.getAuthHeaders().pipe(
+      switchMap(headers => {
+        console.log('Enviando solicitud con encabezados:', headers);
+        return this.http.get<any>(`${this.employeesUrl}/employees/me`, { headers }).pipe(
+          map(employee => {
+            console.log('Datos obtenidos del empleado actual:', employee);
+            return employee;
+          }),
+          catchError(error => {
+            console.error('Error obteniendo empleado actual:', error);
+            return of(null);
+          })
+        );
+      })
+    );
+  }
+
 
 
 

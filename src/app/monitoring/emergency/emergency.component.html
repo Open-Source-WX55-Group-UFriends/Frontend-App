@@ -5,7 +5,11 @@
     <div class="form-group">
       <label for="collaboratorId">Choose recipient:</label>
       <select id="collaboratorId" name="collaboratorId" [(ngModel)]="collaboratorId" required>
-        <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>
+        <ng-container *ngIf="userRole === 'ROLE_FARMER'">
+          <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>
+        </ng-container>
+
+          <option *ngIf="filteredUser" [value]="filteredUser.id">{{ filteredUser.username }}</option>
       </select>
     </div>
     <div class="form-group">
@@ -17,8 +21,6 @@
       <button type="button" class="btn btn-cancel" (click)="form.resetForm()">Cancel</button>
     </div>
   </form>
-
-
 
   <h2 class="history-title">Messages Sent to Me</h2>
   <table class="history-table">

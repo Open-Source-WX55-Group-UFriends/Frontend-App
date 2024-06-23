@@ -136,6 +136,9 @@ export class AuthenticationService {
   getIdSignIn() {
     return this.idSignIn.value; // Devuelve el valor del BehaviorSubject
   }
+  getUserRole(): Observable<string> {
+    return this.userRole.asObservable();
+  }
 
   setIdSignIn(id: string) {
     this.idSignIn.next(id);
@@ -149,7 +152,5 @@ export class AuthenticationService {
     this.userRole.next(role); // Método para establecer el rol del usuario
   }
 
-  getUserRole(): Observable<string> {
-    return this.userRole.asObservable(); // Método para obtener el rol del usuario como un Observable
-  }
+
 }
