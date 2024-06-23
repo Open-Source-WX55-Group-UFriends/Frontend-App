@@ -100,4 +100,7 @@ body {
   transform: scale(1.1);
 }
 
-
+.task-finished {
+  background-color: #d4edda; /* Verde claro */
+  color: #155724; /* Verde oscuro */
+}

@@ -31,7 +31,14 @@ h1{
   width: 50%;
   translate: 55% 5%;
 }
+.mat-raised-button.green-button {
+  background-color: #4caf50; /* Verde */
+  color: white;
+}
 
+.mat-raised-button.green-button:hover {
+  background-color: #45a049; /* Verde oscuro para el hover */
+}
 th{
   font-weight: bold;
   font-size: 15px;
@@ -71,6 +78,19 @@ mat-panel-description {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 30px;
+}
+
+.button-containerx{
+  display: flex;
+  justify-content: space-evenly;
+}
+.button-containerx button {
+  background-color: #085621;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .button-container button {

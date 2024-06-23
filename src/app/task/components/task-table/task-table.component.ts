@@ -11,13 +11,14 @@ import {AuthenticationService} from "../../../register/services/authentication.s
   styleUrls: ['./task-table.component.css']
 })
 export class TaskTableComponent implements OnInit {
-  displayedColumns: string[] = ['employee', 'time', 'date', 'description', 'state'];
+  displayedColumnsFarmer: string[] = ['employee', 'time', 'date', 'description', 'state'];
+  displayedColumnsFarmworker: string[] = ['time', 'date', 'description', 'state', 'actions'];
   dataSource: MatTableDataSource<any>;
   userRole: string = '';
   employeeName: string = '';
   taskState: string = '';
   allTasks: any[] = [];
-  employees: any[] = []; // Agregado para almacenar la lista de empleados
+  employees: any[] = [];
 
   constructor(private taskService: TaskService, private authService: AuthenticationService) {
     this.dataSource = new MatTableDataSource();
@@ -89,5 +90,24 @@ export class TaskTableComponent implements OnInit {
     this.employeeName = '';
     inputField.focus();
     this.filterTasks();
+  }
+
+  updateTaskStatus(task: any): void {
+    console.log('Updating task with ID:', task.taskId); // Imprimir el ID de la tarea antes de actualizar
+    console.log('Task details:', task); // Imprimir el objeto task completo
+    const taskData = { status: 'FINISHED' }; // Asegúrate de que el estado sea 'FINISHED'
+    this.taskService.updateTask(task.taskId, taskData).subscribe(
+      response => {
+        console.log('Tarea actualizada:', response);
+        if (this.userRole === 'ROLE_FARMWORKER') {
+          this.loadTasksForCollaborator(); // Recargar las tareas después de la actualización
+        } else if (this.userRole === 'ROLE_FARMER') {
+          this.loadAllTasks(); // Recargar las tareas después de la actualización
+        }
+      },
+      error => {
+        console.error('Error al actualizar la tarea:', error);
+      }
+    );
   }
 }

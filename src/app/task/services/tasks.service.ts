@@ -94,7 +94,13 @@ export class  TaskService {
       );
 
   }
-
+  updateTask(taskId: number, taskData: any): Observable<any> {
+    return this.getAuthHeaders().pipe(
+      switchMap(headers => {
+        return this.http.put(`${this.apiUrl}/task/update/${taskId}`, taskData, { headers });
+      })
+    );
+  }
 
 }
 

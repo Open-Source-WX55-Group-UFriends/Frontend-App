@@ -46,19 +46,17 @@
           <th mat-header-cell *matHeaderCellDef>Status</th>
           <td mat-cell *matCellDef="let task" [ngClass]="{'task-pending': task.status === 'PENDING', 'task-finished': task.status === 'FINISHED'}">{{task.status}}</td>
         </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsFarmer"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsFarmer;" class="table-row"></tr>
       </table>
     </div>
   </div>
 </div>
 
-
-
 <div *ngIf="userRole === 'ROLE_FARMWORKER'">
   <!-- Vista para el rol de 'ROLE_FARMWORKER' -->
   <div class="task-create">
-    <h1>TASK Employee</h1>
+    <h1>TASK</h1>
     <div class="filter-container">
       <mat-form-field class="task-filter">
         <mat-label>Task State</mat-label>
@@ -68,6 +66,7 @@
           <mat-option value="FINISHED">Finished</mat-option>
         </mat-select>
       </mat-form-field>
+
     </div>
     <div class="table-container">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -91,8 +90,17 @@
           <th mat-header-cell *matHeaderCellDef>Status</th>
           <td mat-cell *matCellDef="let task" [ngClass]="{'task-pending': task.status === 'PENDING', 'task-finished': task.status === 'FINISHED'}">{{task.status}}</td>
         </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let task">
+            <div class="button-containerx">
+              <button mat-raised-button  (click)="updateTaskStatus(task)">Finish Task</button>
+
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsFarmworker"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsFarmworker;" class="table-row"></tr>
       </table>
     </div>
   </div>
