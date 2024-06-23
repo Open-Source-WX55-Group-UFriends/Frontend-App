@@ -10,7 +10,6 @@
         <mat-toolbar>Animals</mat-toolbar>
         <a mat-list-item routerLink="/monitoring/add-animals">ADD ANIMALS</a>
         <a mat-list-item routerLink="/monitoring/animal-inventory">ANIMAL INVENTORY</a>
-        <a mat-list-item routerLink="/monitoring/feeding-record">FEEDING RECORD</a>
         <mat-toolbar>Crops</mat-toolbar>
         <a mat-list-item routerLink="/monitoring/cultivation-record">CULTIVATION RECORD</a>
         <a mat-list-item routerLink="/monitoring/crop-inventory">CROP INVENTORY</a>
@@ -24,7 +23,7 @@
           </div>
           <div class="filter-container">
             <label>Shed</label>
-            <select class="filter-field">
+            <select class="filter-field" [(ngModel)]="selectedShed" (ngModelChange)="filterCrops()">
               <option value="Shed 1">Shed 1</option>
               <option value="Shed 2">Shed 2</option>
               <option value="Shed 3">Shed 3</option>
@@ -34,12 +33,18 @@
             <thead>
             <tr>
               <th>ID</th>
+              <th>Shed</th>
               <th>Type</th>
               <th>Sowing Date</th>
             </tr>
             </thead>
-            <tbody>
-            <!-- Here would go the rows with the crop data -->
+            <tbody *ngIf="!isLoading">
+            <tr *ngFor="let crop of filteredCrops">
+              <td>{{crop.id}}</td>
+              <td>{{crop.shed}}</td>
+              <td>{{crop.typeCrop}}</td>
+              <td>{{crop.seedtime}}</td>
+            </tr>
             </tbody>
           </table>
         </div>

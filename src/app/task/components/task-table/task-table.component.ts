@@ -22,7 +22,6 @@ export class  TaskTableComponent implements OnInit {
 
   ngOnInit() {
     this.getUserRole();
-    this.getTasksForFarmer(); // Llama al método para obtener las tareas
   }
 
   getUserRole(): void {
@@ -30,12 +29,14 @@ export class  TaskTableComponent implements OnInit {
       this.userRole = profiles[profiles.length - 1];
     });
   }
+  /*
 
   getTasksForFarmer(): void {
     this.taskService.getAllTasks().subscribe(tasks => {
       this.dataSource.data = tasks;
     });
   }
+  */
 
   /*
   finishTask(taskId: number, expansionPanel: MatExpansionPanel) {

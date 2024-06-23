@@ -27,7 +27,6 @@ export class CreateProfileComponent {
 
   constructor(private http: HttpClient, private authService: AuthenticationService, private router: Router) { }
 
-
   addProfile(profileRequest: any): Observable<any> {
     return this.authService.getToken().pipe(
       switchMap(token => {

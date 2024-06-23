@@ -10,7 +10,7 @@ import { ProfileService } from '../../../../register/model/profile.service';
   styleUrls: ['./description-shed.component.css']
 })
 export class DescriptionShedComponent {
-  /*
+
   farm: any;
 
   constructor(private route: ActivatedRoute, private farmService: FarmService, private profileService: ProfileService, private router: Router) { }
@@ -50,6 +50,6 @@ export class DescriptionShedComponent {
       console.error('No farm ID was provided');
     }
   }
-*/
+
 }
 

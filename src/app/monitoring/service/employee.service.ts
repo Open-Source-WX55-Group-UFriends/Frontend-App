@@ -33,9 +33,9 @@ export class EmployeeService {
       switchMap(headers =>
         this.http.get<any>(`${this.apiUrl}/all`, { headers }).pipe(
           map((employees: any[]) => employees.map(employee => ({
-            Id: employee.Id,
+            id: employee.id,
             name: employee.name,
-            username: employee.username,
+            username: employee.username, // Cambiado de email a username
             phone: employee.phone,
             position: employee.position
           })))
@@ -53,7 +53,7 @@ export class EmployeeService {
       switchMap(headers =>
         this.http.get<any>(`${this.apiUrl}/search?term=${term}`, { headers }).pipe(
           map((employees: any[]) => employees.map(employee => ({
-            Id: employee.Id,
+            id: employee.id,
             name: employee.name,
             username: employee.username, // Cambiado de email a username
             phone: employee.phone,

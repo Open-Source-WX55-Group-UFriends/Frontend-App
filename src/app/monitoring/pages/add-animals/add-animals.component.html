@@ -10,7 +10,6 @@
         <mat-toolbar>Animals</mat-toolbar>
         <a mat-list-item routerLink="/monitoring/add-animals">ADD ANIMALS</a>
         <a mat-list-item routerLink="/monitoring/animal-inventory">ANIMAL INVENTORY</a>
-        <a mat-list-item routerLink="/monitoring/feeding-record">FEEDING RECORD</a>
         <mat-toolbar>Crops</mat-toolbar>
         <a mat-list-item routerLink="/monitoring/cultivation-record">CULTIVATION RECORD</a>
         <a mat-list-item routerLink="/monitoring/crop-inventory">CROP INVENTORY</a>
@@ -18,38 +17,38 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="content-container">
-        <div class="form-container">
+        <form class="form-container" #form="ngForm" (ngSubmit)="saveAnimal()">
           <div class="title-container">
             <h2 class="title-add">ADD ANIMALS</h2>
           </div>
           <div class="form-group">
             <label>Shed</label>
-            <select class="form-field" required>
-              <option value="" selected>Shed 1</option>
-              <option value="">Shed 2</option>
-              <option value="">Shed 3</option>
+            <select class="form-field" required [(ngModel)]="animal.shed" ngModel #shed="ngModel" name="shed">
+              <option value="Shed 1" selected>Shed 1</option>
+              <option value="Shed 2">Shed 2</option>
+              <option value="Shed 3">Shed 3</option>
             </select>
           </div>
           <div class="form-group">
             <label>Age</label>
-            <input type="text" class="form-field" required>
+            <input type="text" class="form-field" required [(ngModel)]="animal.age" ngModel #age="ngModel" name="age">
           </div>
           <div class="form-group">
             <label>Location</label>
-            <input type="text" class="form-field" required>
+            <input type="text" class="form-field" required [(ngModel)]="animal.location" ngModel #location="ngModel" name="location">
           </div>
           <div class="form-group">
             <label>Health Status</label>
-            <select class="form-field" required>
-              <option value="" selected>Healthy</option>
-              <option value="">Sick</option>
-              <option value="">Recovering</option>
+            <select class="form-field" required [(ngModel)]="animal.healthCondition" ngModel #healthCondition="ngModel" name="health_condition">
+              <option value="Healthy" selected>Healthy</option>
+              <option value="Sick">Sick</option>
+              <option value="Recovering">Recovering</option>
             </select>
           </div>
           <div class="button-container">
             <button type="submit">Save</button>
           </div>
-        </div>
+        </form>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

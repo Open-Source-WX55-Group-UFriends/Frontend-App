@@ -48,7 +48,6 @@ import { RoleProfileComponent } from './register/components/profile-page/role-pr
 import { PageNotFoundComponent } from './public/pages/page-not-found/page-not-found.component';
 import { WeatherComponent } from './weather/components/weather/weather.component';
 import { DetailedMonitoringComponent } from './task/components/detailed-monitoring/detailed-monitoring.component';
-import { AddAnimalsComponent } from './monitoring/pages/add-animals/add-animals.component';
 import { AnimalInventoryComponent } from './monitoring/pages/animal-inventory/animal-inventory.component';
 import { FeedingRecordComponent } from './monitoring/pages/feeding-record/feeding-record.component';
 import { CultivationRecordComponent } from './monitoring/pages/cultivation-record/cultivation-record.component';
@@ -76,6 +75,7 @@ import { EditFarmComponent } from './edit-farm/edit-farm.component';
 import { AuthenticationSectionComponent } from './register/components/authentication-section/authentication-section.component';
 import {provideNativeDateAdapter} from "@angular/material/core";
 import {AuthenticationInterceptor} from "./register/services/authentication.interceptor.service";
+import {AddAnimalsComponent} from "./monitoring/pages/add-animals/add-animals.component";
 
 @NgModule({
   declarations: [
@@ -99,7 +99,7 @@ import {AuthenticationInterceptor} from "./register/services/authentication.inte
     PageNotFoundComponent,
     WeatherComponent,
     DetailedMonitoringComponent,
-    AddAnimalsComponent,
+    AnimalInventoryComponent,
     AnimalInventoryComponent,
     FeedingRecordComponent,
     CultivationRecordComponent,
@@ -120,7 +120,8 @@ import {AuthenticationInterceptor} from "./register/services/authentication.inte
     EmergencyComponent,
     DashboardTaskComponent,
     EditFarmComponent,
-    AuthenticationSectionComponent
+    AuthenticationSectionComponent,
+    AddAnimalsComponent
   ],
   imports: [
     BrowserModule,

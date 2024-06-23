@@ -1,6 +1,7 @@
 import { Component  } from '@angular/core';
 import { Router } from '@angular/router';
 import {FarmService} from "../services/farm/farm.service";
+import {AuthenticationService} from "../../register/services/authentication.service";
 
 @Component({
   selector: 'app-profile-farm',
@@ -30,7 +31,15 @@ export class ProfileFarmComponent {
     images: [] as string[]
   };
 
-  constructor(private router: Router, private farmService: FarmService) { }
+  constructor(private router: Router, private farmService: FarmService, private authService: AuthenticationService) {
+    const userId = this.authService.getIdSignIn();
+
+    this.farmService.getFarmById(userId).subscribe(response => {
+      if (response) {
+        this.router.navigate(['/description-shed',userId]);
+      }
+    });
+  }
 
   save() {
     const highlights = this.farm.highlights.split('\n');
