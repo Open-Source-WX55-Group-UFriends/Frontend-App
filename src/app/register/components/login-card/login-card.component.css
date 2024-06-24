@@ -54,7 +54,7 @@ input:focus {
   overflow: hidden;
   width: 768px;
   max-width: 100%;
-  min-height: 480px;
+  min-height: 550px;
 }
 
 .container p{
@@ -383,4 +383,12 @@ img {
     flex-direction: column;
     height: 130vh;
   }
+}
+
+.form-field {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  font-size: 16px;
 }
