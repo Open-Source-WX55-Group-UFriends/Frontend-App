@@ -48,7 +48,7 @@ const routes: Routes = [
   {path: 'create/subscriptions/card', component:PaySubscriptionComponent },
   {path: 'profile-farm', component:ProfileFarmComponent},
   {path: 'role-profile/:id', component:RoleProfileComponent},
-  { path: 'financial-stats', component: FinancialStatsPageComponent },
+  {path: 'financial-stats', component: FinancialStatsPageComponent },
   {path: 'detailed-monitoring', component:DetailedMonitoringComponent},
   {path: 'weather', component:WeatherComponent},
   {path: 'monitoring/add-animals', component:AddAnimalsComponent},

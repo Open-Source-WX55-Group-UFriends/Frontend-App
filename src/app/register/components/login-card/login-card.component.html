@@ -22,6 +22,10 @@
         <span>or use your email for registration</span>
         <input formControlName="username" type="text" placeholder="Username" required>
         <input formControlName="password" type="password" placeholder="Password" required>
+        <select formControlName="roles" required>
+          <option value="ROLE_FARMER" selected>Farmer</option>
+          <option value="ROLE_OWNER">Owner</option>
+        </select>
 
         <button class="button" type="submit" >          Sign Up
           <svg fill="currentColor" viewBox="0 0 24 24" class="icon">

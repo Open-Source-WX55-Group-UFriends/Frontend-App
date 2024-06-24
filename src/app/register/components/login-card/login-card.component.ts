@@ -45,25 +45,29 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     });
   }
 
-
   ngOnInit(): void {
-
     this.authenticationService.isSignedIn.subscribe((isSignedIn) => {
       this.isSignedIn = true;
     });
     this.form = this.builder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
-
+      roles: ['', Validators.required],
     });
+
   }
 
   onSubmit() {
     if (this.form.invalid) return;
     let username = this.form.value.username;
     let password = this.form.value.password;
-    const signUpRequest = new SignUpRequest(username, password);
+    let roles = this.form.value.roles;
 
+    const signUpRequest = {
+      username: username,
+      password: password,
+      roles: [roles]
+    };
 
     this.authenticationService.signUp(signUpRequest).subscribe({
       next: () => {
@@ -71,11 +75,12 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
         this.router.navigate(['/sign-in']);
       },
       error: (error) => {
-        console.error(`Error while signing up: ${error}`);
+        console.error(`Error while signing up1: ${error}`);
         this.router.navigate(['/sign-in']);
       }
     });
   }
+
   onSignIn() {
     if (this.form.invalid) return;
     let username = this.form.value.username;
@@ -106,15 +111,6 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     });
   }
 
-
-
-
-
-
-
-
-
-
   toggleActive(): void {
     this.isActive = !this.isActive;
   }
@@ -138,7 +134,6 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
   }
 
   save() {
-    // Aquí va la lógica de la función save
     console.log('La función save ha sido llamada');
   }
 
