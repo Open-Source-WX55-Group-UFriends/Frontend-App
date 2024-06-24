@@ -21,8 +21,8 @@ export class EmergencyComponent implements OnInit {
   filteredUser: any;
   currentUser: any;
   userRole: string = '';
-  farmId: number = 0;
-
+  farmerId: number = 0;
+farmer: any;
   constructor(private emergencyService: EmergencyService, private authService: AuthenticationService) {}
 
   ngOnInit() {
@@ -51,8 +51,8 @@ export class EmergencyComponent implements OnInit {
         this.currentUser = employee;
         if (this.currentUser) {
           console.log('Empleado actual:', this.currentUser);
-          this.farmId = this.currentUser.farmId;
-          console.log("farm id es", this.farmId);
+          this.farmerId = this.currentUser.farmerId;
+          console.log("ESTE ES FARMERID", this.farmerId);
           this.filterUsersByFarmId();
         } else {
           console.error('Error: Empleado actual no disponible.');
@@ -77,12 +77,13 @@ export class EmergencyComponent implements OnInit {
   }
 
   filterUsersByFarmId(): void {
+    /*
     this.filteredUser = this.users.find(user => user.id === this.farmId);
     if (this.filteredUser) {
       console.log('Usuario filtrado:', this.filteredUser);
     } else {
       console.error('Error: Usuario filtrado no encontrado.');
-    }
+    }*/
   }
 
   loadEmployeeNames(): void {
@@ -110,17 +111,37 @@ export class EmergencyComponent implements OnInit {
   }
 
   getUserNameById(id: number): string {
+
     console.log('Buscando nombre para ID:', id);
     const user = this.users.find(user => user.id === id);
     console.log('Usuario encontrado:', user);
+     this.farmer=user;
     return user ? user.username : 'Desconocido';
   }
 
+  // @ts-ignore
   getEmployeeNameById(id: number): string {
-    console.log('Buscando nombre para ID:', id);
-    const employee = this.employees.find(emp => emp.id === id);
-    console.log('Empleado encontrado:', employee);
-    return employee ? employee.name : 'Desconocido';
+    if(this.userRole === 'ROLE_FARMER') {
+      var name = this.getUserNameById(id);
+      console.log('Buscando nombre para ID:', id);
+      console.log('Lista de usuariosR:', this.users);
+
+      const employee = this.users.find(emp => emp.id === id);
+      console.log('Empleado encontrado:', employee);
+
+      return employee ? employee.username : 'Not found';
+    }
+    else if(this.userRole==='ROLE_FARMWORKER'){
+      var name = this.getUserNameById(id);
+      console.log('Buscando nombre para ID:', id);
+      console.log('Lista de users:', this.users);
+
+      const user = this.users.find(emp => emp.username === name);
+      console.log('farmer encontrado:', user);
+
+      return user ? user.username : 'Not found employee name';
+    }
+
   }
 
 
@@ -154,7 +175,7 @@ export class EmergencyComponent implements OnInit {
     } else if (this.userRole === 'ROLE_FARMWORKER') {
       const newDataEmployee = {
         collaboratorId: this.currentUser.id,
-        farmerId: this.filteredUser.id,
+        farmerId: this.farmer.id,
         description: value.description,
       };
 

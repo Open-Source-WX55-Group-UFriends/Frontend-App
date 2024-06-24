@@ -8,8 +8,9 @@
         <ng-container *ngIf="userRole === 'ROLE_FARMER'">
           <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>
         </ng-container>
+          <option *ngIf="farmer" [value]="farmer.id">{{ farmer.username }}</option>
 
-          <option *ngIf="filteredUser" [value]="filteredUser.id">{{ filteredUser.username }}</option>
+
       </select>
     </div>
     <div class="form-group">
@@ -21,7 +22,6 @@
       <button type="button" class="btn btn-cancel" (click)="form.resetForm()">Cancel</button>
     </div>
   </form>
-
   <h2 class="history-title">Messages Sent to Me</h2>
   <table class="history-table">
     <thead>
@@ -31,10 +31,21 @@
     </tr>
     </thead>
     <tbody>
+    <ng-container *ngIf="userRole === 'ROLE_FARMER'">
+      <tr *ngFor="let message of userMessages">
+        <td>{{ getEmployeeNameById(message.collaboratorId) }}</td>
+        <td>{{ message.description }}</td>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="userRole === 'ROLE_FARMWORKER'">
+
     <tr *ngFor="let message of userMessages">
-      <td>{{ getEmployeeNameById(message.collaboratorId) }}</td>
+      <td>{{ getEmployeeNameById(message.farmerId) }}</td>
       <td>{{ message.description }}</td>
+
     </tr>
+    </ng-container>
+
     </tbody>
   </table>
 </div>
