@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../register/services/authentication.service";
 import {Router} from "@angular/router";
 import {AnimalServiceService} from "../../service/animal.service";
+import {ShedService} from "../../service/shed.service";
 
 @Component({
   selector: 'app-animal-inventory',
@@ -12,6 +13,7 @@ export class AnimalInventoryComponent implements OnInit {
   animals: any[] = [];
   //filteredAnimals: any[] = [];
   isLoading: boolean = true;
+  sheds: any[] = [];
 
   filteredAnimals = this.animals;
   selectedShed = '';
@@ -19,11 +21,26 @@ export class AnimalInventoryComponent implements OnInit {
   constructor(
     private animalService: AnimalServiceService,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private shedService: ShedService
   ) { }
 
   ngOnInit() {
     this.loadAnimals();
+    this.loadSheds();
+
+  }
+
+  loadSheds(): void {
+    this.shedService.getAllSheds().subscribe(
+      (data) => {
+        console.log('Sheds obtenidos:', data);
+        this.sheds = data;
+      },
+      (error) => {
+        console.error('Error fetching collaborators', error);
+      }
+    );
   }
 
   loadAnimals() {
