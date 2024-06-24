@@ -8,7 +8,10 @@
         <ng-container *ngIf="userRole === 'ROLE_FARMER'">
           <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>
         </ng-container>
-          <option *ngIf="farmer" [value]="farmer.id">{{ farmer.username }}</option>
+        <ng-container *ngIf="userRole === 'ROLE_FARMWORKER'">
+
+        <option *ngIf="farmer" [value]="farmer.id">{{ farmer.username }}</option>
+        </ng-container>
 
 
       </select>
