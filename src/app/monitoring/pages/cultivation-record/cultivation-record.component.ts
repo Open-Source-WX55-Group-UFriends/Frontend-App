@@ -70,12 +70,12 @@ export class CultivationRecordComponent implements OnInit{
     console.error('El cultivo no existe, creando uno nuevo:');
     this.addCrop(this.crop).subscribe(createdCrop => {
       console.log('cultivo creado con éxito:', createdCrop);
-      this.router.navigate(['/']);
+      this.router.navigate(['/monitoring/crop-inventory']);
       this.isCropCreated = false;
     }, error => {
       console.error('Ocurrió un error al crear el cultivo:', error);
       console.log('Datos del animal que se intentaron enviar:', this.crop);
-      this.router.navigate(['/']);
+      this.router.navigate(['/monitoring/crop-inventory']);
     });
   }
 

@@ -70,11 +70,11 @@ export class AddAnimalsComponent implements OnInit{
     console.error('El animal no existe, creando uno nuevo:');
     this.addAnimal(this.animal).subscribe(createdAnimal => {
       console.log('Animal creado con éxito:', createdAnimal);
-      this.router.navigate(['/']);
+      this.router.navigate(['/monitoring/animal-inventory']);
       this.isAnimalCreated = false;
     }, error => {
       console.error('Ocurrió un error al crear el animal:', error);
-      this.router.navigate(['/']);
+      this.router.navigate(['/monitoring/animal-inventory']);
 
     });
   }
