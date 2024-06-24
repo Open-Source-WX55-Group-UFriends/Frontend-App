@@ -68,6 +68,10 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
       password: ['', Validators.required],
     });
   }
+  navigateToSubscription() {
+    this.router.navigate(['/create/subscriptions/card']);
+  }
+
 
   onSignUpSubmit() {
     if (this.signUpForm.invalid) return;
@@ -81,8 +85,8 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     this.authenticationService.signUp(signUpRequest).subscribe({
       next: () => {
         this.submitted = true;
-        this.router.navigate(['/sign-in']);
-      },
+        this.navigateToSubscription();
+        },
       error: (error) => {
         console.error(`Error while signing up: ${error}`);
         this.router.navigate(['/sign-in']);

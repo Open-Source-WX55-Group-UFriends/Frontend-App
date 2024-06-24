@@ -66,11 +66,11 @@ export class AddEmployeeComponent /*implements OnInit*/ {
     console.error('El empleado no existe, creando uno nuevo:');
     this.addEmployee(this.employee).subscribe(createdEmployee => {
       console.log('Empleado creado con éxito:', createdEmployee);
-      this.router.navigate(['/']);
+      this.router.navigate(['/employee']);
       this.isEmployeeCreated = false;
     }, error => {
       console.error('Ocurrió un error al crear el perfil:', error);
-      this.router.navigate(['/']);
+      this.router.navigate(['/employee']);
     });
   }
 }

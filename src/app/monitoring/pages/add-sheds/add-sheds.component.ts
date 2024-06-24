@@ -49,11 +49,11 @@ export class AddShedsComponent {
     console.error('El galpon no existe, creando uno nuevo:');
     this.addShed(this.shed).subscribe(createdShed => {
       console.log('galpon creado con éxito:', createdShed);
-      this.router.navigate(['/']);
+      this.router.navigate(['/monitoring/list-sheds']);
       this.isShedCreated = false;
     }, error => {
       console.error('Ocurrió un error al crear el galpon:', error);
-      this.router.navigate(['/']);
+      this.router.navigate(['/monitoring/list-sheds']);
     });
   }
 
