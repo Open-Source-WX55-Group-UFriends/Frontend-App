@@ -1,65 +1,28 @@
 <div class="container">
-  <div class="half-page">
+  <div class="review-section">
     <strong class="label-valoration">Customer reviews</strong>
     <div class="star-rating-container">
       <mat-icon *ngFor="let icon of maxRatingArr; let index=index"
                 (mouseenter)="HandleMouseEnter(index)"
                 (mouseleave)="HandleMouseLeave()"
                 (click)="Rating(index)"
-                [ngClass]="{checked:SelectedStar>index}"
+                [ngClass]="{checked:SelectedStar > index || hasRated, 'star-rated': hasRated}"
                 class="star-rating-icon">
-        star
+        {{ SelectedStar > index || hasRated ? 'star' : 'star_border' }}
       </mat-icon>
     </div>
-
-
-
   </div>
 
-  <div class="half-page">
-    <label class="label-bars">5 <mat-icon>star</mat-icon>:</label>
-    <div class="bar-container">
-      <div class="bar-5"></div>
-    </div>
-
-    <label class="label-bars">4 <mat-icon>star</mat-icon>:</label>
-    <div class="bar-container">
-      <div class="bar-4"></div>
-    </div>
-
-    <label class="label-bars">3 <mat-icon>star</mat-icon>:</label>
-    <div class="bar-container">
-      <div class="bar-3"></div>
-    </div>
-
-    <label class="label-bars">2 <mat-icon>star</mat-icon>:</label>
-    <div class="bar-container">
-      <div class="bar-2"></div>
-    </div>
-
-    <label class="label-bars">1 <mat-icon>star</mat-icon>:</label>
-    <div class="bar-container">
-      <div class="bar-1"></div>
+  <div class="ratings-section">
+    <div class="rating-bar" *ngFor="let rating of [5, 4, 3, 2, 1]">
+      <label class="label-bars">{{ rating }} <mat-icon>star</mat-icon>:</label>
+      <div class="bar-container">
+        <div class="bar" [style.width.%]="(ratings[rating] / totalRatings) * 100"></div>
+        <span class="bar-label">{{ ratings[rating] }}</span>
+      </div>
     </div>
   </div>
-  <!--<div class="app">
-    <div class="rating">
-      <div class="rating_average">
-        <h1>4.5</h1>
-        <div class="star-outer">
-          <div class="star-inner">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        </div>
-        <p>290,000</p>
-      </div>
-      <div class="rating_progress">
-        <div class="rating_progress-value">
-          <p>5 <span class="star">&#9733;</span></p>
-          <div class="progress">
-            <div class="bar"></div>
-          </div>
-          <p>89,374</p>
-        </div>
-      </div>
-    </div>
-  </div>-->
+  <div class="space"></div>
+  <app-contact-card></app-contact-card>
+
 </div>

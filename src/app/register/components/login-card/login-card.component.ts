@@ -25,6 +25,8 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
   };
 
   form!: FormGroup;
+  signUpForm!: FormGroup;
+  signInForm!: FormGroup;
   submitted = false;
   isActive = false;
   isForgotPasswordActive = false;
@@ -35,7 +37,12 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     password: ''
   };
 
-  constructor(private builder: FormBuilder, private router: Router, private authenticationService: AuthenticationService, private http: HttpClient) {
+  constructor(
+    private builder: FormBuilder,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private http: HttpClient
+  ) {
     super();
     this.authenticationService.currentUsername.subscribe((username) => {
       this.currentUsername = username;
@@ -47,26 +54,28 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.isSignedIn.subscribe((isSignedIn) => {
-      this.isSignedIn = true;
+      this.isSignedIn = isSignedIn;
     });
-    this.form = this.builder.group({
+
+    this.signUpForm = this.builder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
       roles: ['', Validators.required],
     });
 
+    this.signInForm = this.builder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
-  onSubmit() {
-    if (this.form.invalid) return;
-    let username = this.form.value.username;
-    let password = this.form.value.password;
-    let roles = this.form.value.roles;
+  onSignUpSubmit() {
+    if (this.signUpForm.invalid) return;
 
-    const signUpRequest = {
-      username: username,
-      password: password,
-      roles: [roles]
+    const signUpRequest: SignUpRequest = {
+      username: this.signUpForm.value.username,
+      password: this.signUpForm.value.password,
+      roles: [this.signUpForm.value.roles]
     };
 
     this.authenticationService.signUp(signUpRequest).subscribe({
@@ -75,18 +84,19 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
         this.router.navigate(['/sign-in']);
       },
       error: (error) => {
-        console.error(`Error while signing up1: ${error}`);
+        console.error(`Error while signing up: ${error}`);
         this.router.navigate(['/sign-in']);
       }
     });
   }
 
-  onSignIn() {
-    if (this.form.invalid) return;
-    let username = this.form.value.username;
-    let password = this.form.value.password;
-    console.log(`Username: ${username}, Password: ${password}`);
-    const signInRequest = new SignInRequest(username, password);
+  onSignInSubmit() {
+    if (this.signInForm.invalid) return;
+
+    const signInRequest: SignInRequest = {
+      username: this.signInForm.value.username,
+      password: this.signInForm.value.password
+    };
 
     this.authenticationService.signIn(signInRequest).pipe(
       switchMap(() => this.authenticationService.getToken()),
@@ -95,7 +105,6 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         });
-
 
         return this.http.get<any>(`${environment.serverBasePath}/profiles/me`, { headers });
       })
@@ -125,10 +134,6 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
     this.isActive = false;
   }
 
-
-  onSignUp() {
-    this.router.navigate(['/sign-up']).then();
-  }
   onSignOut() {
     this.authenticationService.signOut();
   }
@@ -138,4 +143,5 @@ export class LoginCardComponent extends BaseFormComponent implements OnInit {
   }
 
   protected readonly SignInRequest = SignInRequest;
+  protected readonly SignUpRequest = SignUpRequest;
 }

@@ -1,79 +1,91 @@
-.checked {
-  color: orange;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
 }
 
-mat-icon {
-  cursor: pointer;
+.review-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top:50px;
+
+}
+.space{
+  margin-top: 20px;
+}
+
+.label-valoration {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .star-rating-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
 }
 
 .star-rating-icon {
-  font-size: 50px;
-  height: 50px;
-  width: 50px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #ffd700; /* Color dorado */
+  transition: transform 0.3s;
 }
 
-.label-valoration {
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 20px;
+.star-rating-icon:hover {
+  transform: scale(1.2);
 }
 
-.half-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  padding: 20px;
+.star-rated {
+  cursor: default;
 }
 
-.rating-section {
-  text-align: center;
-}
-
-.bars-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 20px;
-}
-
-.bar-container {
+.ratings-section {
   width: 100%;
-  background-color: #ffffff;
-  text-align: left;
-  line-height: 30px;
+  margin-top: 50px;
+}
+
+.rating-bar {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
-  border-radius: 6px;
-}
-
-.bar {
-  height: 20px;
-  background-color: orange;
-  border-radius: 6px;
-}
-
-.bar-5 { width: 80%; }
-.bar-4 { width: 60%; }
-.bar-3 { width: 40%; }
-.bar-2 { width: 20%; }
-.bar-1 { width: 10%; }
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
 .label-bars {
-  font-size: 18px;
-  margin-right: 10px;
+  flex: 0 0 50px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.bar-container {
+  flex: 1;
+  position: relative;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  height: 20px;
+  margin-left: 10px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background-color: #ffd700; /* Color dorado */
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+}
+
+.bar-label {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #000;
 }

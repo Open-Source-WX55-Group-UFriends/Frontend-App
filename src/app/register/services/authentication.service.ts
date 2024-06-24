@@ -11,6 +11,7 @@ import {SignUpResponse} from "../model/sign-up.response";
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
   basePath: string = `${environment.serverBasePath}`;
   isProfileCreated: boolean = false;

@@ -1,11 +1,9 @@
-<app-toolbar-farm/>
+<app-toolbar-farm></app-toolbar-farm>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <div class="bodyLogin">
-
   <div class="container" [ngClass]="{'active': isActive, 'forgot-password-active': isForgotPasswordActive}">
-
     <div class="form-container sign-up">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSignUpSubmit()">
         <img src="assets/img-logo.png" alt="logo">
         <h1>Create Account</h1>
         <div class="wrapper">
@@ -27,7 +25,8 @@
           <option value="ROLE_OWNER">Owner</option>
         </select>
 
-        <button class="button" type="submit" >          Sign Up
+        <button class="button" type="submit">
+          Sign Up
           <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
             <path
               clip-rule="evenodd"
@@ -40,7 +39,7 @@
     </div>
 
     <div class="form-container sign-in">
-      <form [formGroup]="form" (ngSubmit)="onSignIn()">
+      <form [formGroup]="signInForm" (ngSubmit)="onSignInSubmit()">
         <img src="assets/img-logo.png" alt="logo">
         <h1>Sign In</h1>
         <div class="wrapper">
@@ -58,7 +57,7 @@
         <input formControlName="username" type="text" placeholder="Username" required>
         <input formControlName="password" type="password" placeholder="Password" required>
         <a (click)="toggleForgotPassword()">Forgot Password?</a>
-        <button class="button" type="submit" [disabled]="!isSignedIn">
+        <button class="button" type="submit">
           Sign In
           <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
             <path
