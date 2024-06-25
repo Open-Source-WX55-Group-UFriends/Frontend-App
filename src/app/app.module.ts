@@ -3,9 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule, NgOptimizedImage} from '@angular/common';
+
+//HttpLoaderFactory function
+
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http);
+}
 
 // Angular Material Imports
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -76,6 +82,9 @@ import { AuthenticationSectionComponent } from './register/components/authentica
 import {provideNativeDateAdapter} from "@angular/material/core";
 import {AuthenticationInterceptor} from "./register/services/authentication.interceptor.service";
 import {AddAnimalsComponent} from "./monitoring/pages/add-animals/add-animals.component";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import { LanguageSwitcherComponent } from './public/components/language-switcher/language-switcher.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +130,8 @@ import {AddAnimalsComponent} from "./monitoring/pages/add-animals/add-animals.co
     DashboardTaskComponent,
     EditFarmComponent,
     AuthenticationSectionComponent,
-    AddAnimalsComponent
+    AddAnimalsComponent,
+    LanguageSwitcherComponent
   ],
   imports: [
     BrowserModule,
@@ -150,7 +160,14 @@ import {AddAnimalsComponent} from "./monitoring/pages/add-animals/add-animals.co
     MatCheckboxModule,
     ReactiveFormsModule,
     MatExpansionModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    TranslateModule.forRoot({defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     provideAnimationsAsync(),
