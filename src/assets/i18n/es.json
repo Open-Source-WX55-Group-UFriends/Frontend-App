@@ -7,5 +7,9 @@
     "profile": "Perfil",
     "monitoring": "Seguimiento",
     "detailed-monitoring": "Seguimiento detallado"
+  },
+  "footer": {
+    "follow": "Siguenos en nuestras redes sociales:",
+    "rights": "2024 FarmLogiTech. Todos los derechos reservados"
   }
 }
