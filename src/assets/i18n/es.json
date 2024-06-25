@@ -245,5 +245,38 @@
     "cloudy": "Nublado",
     "mostlyCloudy": "Mayormente Nublado",
     "clear": "Despejado"
+  },
+  "editFarm": {
+    "title": "EDITAR GRANJA",
+    "farmName": "Nombre de la granja",
+    "farmNamePlaceholder": "Nombre de la granja",
+    "location": "Ubicación",
+    "locationPlaceholder": "Ubicación",
+    "infrastructure": "Infraestructura",
+    "infrastructurePlaceholder": "Infraestructura",
+    "farmType": "Tipo de granja",
+    "farmTypePlaceholder": "Tipo de granja",
+    "product": "Producto",
+    "productPlaceholder": "Producto",
+    "totalSurface": "Superficie Total",
+    "totalSurfacePlaceholder": "Superficie total",
+    "services": "Servicios",
+    "servicesPlaceholder": "Servicio",
+    "certifications": "Certificaciones",
+    "certificationsPlaceholder": "Certificaciones",
+    "status": "Estado",
+    "statusPlaceholder": "Estado",
+    "price": "Precio",
+    "pricePlaceholder": "Precio",
+    "highlight1": "Destacado 1",
+    "highlight1Placeholder": "Destacado 1",
+    "highlight2": "Destacado 2",
+    "highlight2Placeholder": "Destacado 2",
+    "highlight3": "Destacado 3",
+    "highlight3Placeholder": "Destacado 3",
+    "documents": "Documentos",
+    "update": "ACTUALIZAR",
+    "cancel": "CANCELAR"
   }
 }
+

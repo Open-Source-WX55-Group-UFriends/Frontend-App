@@ -2,78 +2,78 @@
 
 <div class="body-container">
   <div class="container">
-    <h1>EDIT FARM</h1>
+    <h1>{{ 'editFarm.title' | translate }}</h1>
     <div class="tasks">
       <form class="basic-form" (submit)="saveFarm()">
         <div class="information-container">
           <div class="form-group">
-            <label>Farm name</label>
-            <input type="text" placeholder="Farm name" [(ngModel)]="formFarm.farmName" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.farmName' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.farmNamePlaceholder' | translate" [(ngModel)]="formFarm.farmName" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group">
-            <label>Ubication</label>
-            <input type="text" placeholder="Ubication" [(ngModel)]="formFarm.location" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.location' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.locationPlaceholder' | translate" [(ngModel)]="formFarm.location" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group">
-            <label>Infrastructure</label>
-            <input type="text" placeholder="Infrastructure" [(ngModel)]="formFarm.infrastructure" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.infrastructure' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.infrastructurePlaceholder' | translate" [(ngModel)]="formFarm.infrastructure" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group">
-            <label>Farm type</label>
-            <input type="text" placeholder="Farm type" [(ngModel)]="formFarm.type" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.farmType' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.farmTypePlaceholder' | translate" [(ngModel)]="formFarm.type" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group">
-            <label>Product</label>
-            <input type="text" placeholder="Product" [(ngModel)]="formFarm.product" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.product' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.productPlaceholder' | translate" [(ngModel)]="formFarm.product" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group">
-            <label>Total Surface</label>
-            <input id="myRange" class="slider" type="range" min="1" max="500" placeholder="Total surface" [(ngModel)]="formFarm.totalSurface" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.totalSurface' | translate }}</label>
+            <input id="myRange" class="slider" type="range" min="1" max="500" [placeholder]="'editFarm.totalSurfacePlaceholder' | translate" [(ngModel)]="formFarm.totalSurface" [ngModelOptions]="{standalone: true}">
             <div class="number-control">
               <input type="text" name="number" [(ngModel)]="formFarm.Surface" class="number-quantity">
             </div>
           </div>
 
           <div class="form-group">
-            <label>Services</label>
-            <input type="text" placeholder="Service" [(ngModel)]="formFarm.services" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.services' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.servicesPlaceholder' | translate" [(ngModel)]="formFarm.services" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group">
-            <label>Certifications</label>
-            <input type="text" placeholder="Certifications" [(ngModel)]="formFarm.certificates" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.certifications' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.certificationsPlaceholder' | translate" [(ngModel)]="formFarm.certificates" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group">
-            <label>Status</label>
-            <input type="text" placeholder="Status" [(ngModel)]="formFarm.status" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.status' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.statusPlaceholder' | translate" [(ngModel)]="formFarm.status" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group">
-            <label>Price</label>
-            <input type="text" placeholder="Price" [(ngModel)]="formFarm.price" [ngModelOptions]="{standalone: true}">
+            <label>{{ 'editFarm.price' | translate }}</label>
+            <input type="text" [placeholder]="'editFarm.pricePlaceholder' | translate" [(ngModel)]="formFarm.price" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="form-group highlights-center">
             <div class="highlights-group">
               <div>
-                <label>Highlight 1</label>
-                <input type="text" placeholder="Highlight 1" [(ngModel)]="formFarm.highlight1" [ngModelOptions]="{standalone: true}">
+                <label>{{ 'editFarm.highlight1' | translate }}</label>
+                <input type="text" [placeholder]="'editFarm.highlight1Placeholder' | translate" [(ngModel)]="formFarm.highlight1" [ngModelOptions]="{standalone: true}">
               </div>
 
               <div>
-                <label>Highlight 2</label>
-                <input type="text" placeholder="Highlight 2" [(ngModel)]="formFarm.highlight2" [ngModelOptions]="{standalone: true}">
+                <label>{{ 'editFarm.highlight2' | translate }}</label>
+                <input type="text" [placeholder]="'editFarm.highlight2Placeholder' | translate" [(ngModel)]="formFarm.highlight2" [ngModelOptions]="{standalone: true}">
               </div>
 
               <div>
-                <label>Highlight 3</label>
-                <input type="text" placeholder="Highlight 3" [(ngModel)]="formFarm.highlight3" [ngModelOptions]="{standalone: true}">
+                <label>{{ 'editFarm.highlight3' | translate }}</label>
+                <input type="text" [placeholder]="'editFarm.highlight3Placeholder' | translate" [(ngModel)]="formFarm.highlight3" [ngModelOptions]="{standalone: true}">
               </div>
             </div>
           </div>
@@ -107,13 +107,13 @@
                   </linearGradient>
                 </defs>
               </svg>
-            </span>
-            <p class="text">Documents</p>
+             </span>
+            <p class="text">{{ 'editFarm.documents' | translate }}</p>
           </label>
 
           <div class="button-group">
-            <button type="submit">UPDATE</button>
-            <button type="button" [routerLink]="['/description-shed', farm.id]">CANCEL</button>
+            <button type="submit">{{ 'editFarm.update' | translate }}</button>
+            <button type="button" [routerLink]="['/description-shed', farm.id]">{{ 'editFarm.cancel' | translate }}</button>
           </div>
         </div>
       </form>
