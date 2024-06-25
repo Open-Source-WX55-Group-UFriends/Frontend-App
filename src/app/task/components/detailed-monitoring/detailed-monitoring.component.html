@@ -5,17 +5,17 @@
       <div class="monitoring-card">
         <div class="task-container">
           <button type="button" [routerLink]="['/tasks']" class="card-button">
-            <img class="task-img" src="assets/tasks.jpeg" alt="Tasks">
+            <img class="task-img" src="assets/tasks.jpeg" [alt]="'detailedMonitoring.tasksImageAlt' | translate">
           </button>
-          <h2 class="card-title">Tasks</h2>
+          <h2 class="card-title">{{ 'detailedMonitoring.tasksTitle' | translate }}</h2>
         </div>
       </div>
       <div class="monitoring-card">
         <div class="weather-container">
           <button type="button" [routerLink]="['/weather']" class="card-button">
-            <img class="weather-img" src="assets/weather.jpeg" alt="Weather">
+            <img class="weather-img" src="assets/weather.jpeg" [alt]="'detailedMonitoring.weatherImageAlt' | translate">
           </button>
-          <h2 class="card-title">Weather</h2>
+          <h2 class="card-title">{{ 'detailedMonitoring.weatherTitle' | translate }}</h2>
         </div>
       </div>
     </div>
@@ -23,17 +23,17 @@
       <div class="emergency-card">
         <div class="emergency-container">
           <button type="button" [routerLink]="['/emergency']" class="card-button">
-            <img class="emergency-img" src="assets/emergency.png" alt="Emergency">
+            <img class="emergency-img" src="assets/emergency.png" [alt]="'detailedMonitoring.emergencyImageAlt' | translate">
           </button>
-          <h2 class="card-title">Emergency</h2>
+          <h2 class="card-title">{{ 'detailedMonitoring.emergencyTitle' | translate }}</h2>
         </div>
       </div>
       <div class="emergency-card">
         <div class="inventory-container">
           <button type="button" [routerLink]="['/monitoring/add-sheds']" class="card-button">
-            <img class="inventory-img" src="assets/inventory.png" alt="Inventory">
+            <img class="inventory-img" src="assets/inventory.png" [alt]="'detailedMonitoring.inventoryImageAlt' | translate">
           </button>
-          <h2 class="card-title">Inventory</h2>
+          <h2 class="card-title">{{ 'detailedMonitoring.inventoryTitle' | translate }}</h2>
         </div>
       </div>
     </div>

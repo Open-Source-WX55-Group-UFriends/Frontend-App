@@ -7,5 +7,191 @@
     "profile": "Perfil",
     "monitoring": "Seguimiento",
     "detailed-monitoring": "Seguimiento detallado"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "createProfile": {
+    "profileCreatedSuccess": "PERFIL CREADO EXITOSAMENTE",
+    "registrationForm": "FORMULARIO DE REGISTRO",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "direction": "Dirección",
+    "email": "Correo Electrónico",
+    "documentType": "Tipo de Documento",
+    "documentNumber": "Número de Documento",
+    "fieldRequired": "Este campo es obligatorio",
+    "documentTypeRequired": "Este campo es obligatorio y debe ser \"RUC\" o \"DNI\"",
+    "createAccount": "CREAR CUENTA"
+  },
+  "editProfile": {
+    "profileImageAlt": "Imagen de Perfil",
+    "firstNamePlaceholder": "Nombre",
+    "lastNamePlaceholder": "Apellido",
+    "directionPlaceholder": "Dirección",
+    "phonePlaceholder": "Teléfono",
+    "fieldNotEditable": "Este campo no se puede editar.",
+    "save": "GUARDAR"
+  },
+  "paymentSubscription": {
+    "duration": "Duración",
+    "durationDescription": "Cuanto más larga sea la duración, más personas verán el anuncio",
+    "threeMonths": "3 meses",
+    "singlePaymentOf": "con un pago único de",
+    "manageAndHighlightFarm": "Gestiona y destaca tu granja",
+    "pay": "Pagar",
+    "cancel": "Cancelar"
+  },
+  "roleProfile": {
+    "ownerImageAlt": "Imagen de Propietario de Negocio",
+    "farmworkerImageAlt": "Imagen de Trabajador Agrícola",
+    "farmerImageAlt": "Imagen de Agricultor",
+    "roleFarmer": "ROL: AGRICULTOR",
+    "roleFarmworker": "ROL: TRABAJADOR AGRÍCOLA"
+  },
+  "paySubscription": {
+    "choosePublishDuration": "Elige por cuánto tiempo quieres publicar tu granja",
+    "choosePlan": "Elige un plan",
+    "manageAndHighlightFarm": "Gestiona y destaca tu granja",
+    "singlePaymentOf": "con un pago único de",
+    "perMonth": "/mes",
+    "features": {
+      "notifications": "Notificaciones y acceso móvil",
+      "highlightedNotice": "Aviso destacado",
+      "detailedFarmInfo": "Visualización detallada de la información de la granja",
+      "taskAssignment": "Asignación de tareas a colaboradores",
+      "manyMoreFeatures": "Muchas más características",
+      "upTo15Photos": "Hasta 15 fotos de alta calidad",
+      "paymentOptions": "Pago con Plin/Yape o Tarjeta",
+      "youtubeVideo": "Video de YouTube",
+      "prospectusByMail": "Prospecto enviado por correo"
+    }
+  },
+  "register": {
+    "title": "REGISTRARSE",
+    "emailLabel": "Correo electrónico",
+    "emailPlaceholder": "Correo electrónico",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "Contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "confirmPasswordPlaceholder": "Confirmar contraseña",
+    "rememberMe": "Recordarme",
+    "registerButton": "Registrarse",
+    "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+    "loginHere": "Inicia sesión aquí"
+  },
+  "descriptionShed": {
+    "aboutFarmAndDescription": "Acerca de la granja y Descripción",
+    "farmImageAlt": "Imagen de la granja",
+    "farmName": "Granja {{name}}",
+    "locationAlt": "Ubicación",
+    "productAlt": "Producto",
+    "surfaceAlt": "Superficie",
+    "priceAlt": "Precio",
+    "locationLabel": "Ubicación:",
+    "infrastructureLabel": "Infraestructura:",
+    "farmTypeLabel": "Tipo de granja:",
+    "productLabel": "Producto:",
+    "totalSurfaceLabel": "Superficie total:",
+    "serviceLabel": "Servicio:",
+    "certificationsLabel": "Certificaciones:",
+    "priceLabel": "Precio:"
+  },
+  "farmCards": {
+    "featuredFarms": "Granjas destacadas:",
+    "farmImageAlt": "Imagen de la granja",
+    "granaries": "{{count}} Graneros",
+    "corrals": "{{count}} corrales"
+  },
+  "descriptionCard": {
+    "farmImageAlt": "Imagen de la granja",
+    "granaries": "{{count}} Graneros",
+    "corrals": "{{count}} corrales"
+  },
+  "contactCard": {
+    "title": "¡Contáctanos hoy y juntos hagamos crecer tu proyecto agrícola!",
+    "chatOnWhatsApp": "Chatear en WhatsApp",
+    "nameLabel": "Nombre",
+    "surnameLabel": "Apellido",
+    "emailLabel": "Correo electrónico",
+    "phoneLabel": "Teléfono",
+    "messageLabel": "Mensaje",
+    "sendButton": "Enviar"
+  },
+  "starRating": {
+    "customerReviews": "Opiniones de clientes"
+  },
+  "detailedMonitoring": {
+    "tasksImageAlt": "Tareas",
+    "tasksTitle": "Tareas",
+    "weatherImageAlt": "Clima",
+    "weatherTitle": "Clima",
+    "emergencyImageAlt": "Emergencia",
+    "emergencyTitle": "Emergencia",
+    "inventoryImageAlt": "Inventario",
+    "inventoryTitle": "Inventario"
+  },
+  "shedForm": {
+    "shedTitle": "Cobertizo",
+    "addShed": "Agregar Cobertizo",
+    "listSheds": "Listar Cobertizos",
+    "animalsTitle": "Animales",
+    "animalInventory": "Inventario de Animales",
+    "feedingRecord": "Registro de Alimentación",
+    "cropsTitle": "Cultivos",
+    "cropRecord": "Registro de Cultivos",
+    "cropInventory": "Inventario de Cultivos",
+    "financesTitle": "Finanzas",
+    "addShedTitle": "AGREGAR COBERTIZO",
+    "typeLabel": "Tipo",
+    "speciesLabel": "Especies",
+    "selectOption": "Seleccione una opción",
+    "addButton": "Agregar",
+    "cancelButton": "Cancelar"
+  },
+  "taskForm": {
+    "taskTitle": "TAREA",
+    "employeeLabel": "Empleado:",
+    "dateLabel": "Fecha:",
+    "timeToPerformLabel": "Tiempo para realizar:",
+    "descriptionLabel": "Descripción:",
+    "saveButton": "Guardar",
+    "cancelButton": "Cancelar"
+  },
+  "taskTable": {
+    "title": "TAREA",
+    "createTask": "Crear Tarea",
+    "taskState": "Estado de la Tarea",
+    "all": "Todas",
+    "pending": "Pendientes",
+    "finished": "Terminadas",
+    "employeeName": "Nombre del Empleado",
+    "searchByName": "Buscar por nombre",
+    "employee": "Empleado",
+    "timeToPerform": "Tiempo para realizar",
+    "date": "Fecha",
+    "description": "Descripción",
+    "status": "Estado",
+    "actions": "Acciones",
+    "finishTask": "Terminar Tarea"
+  },
+  "weather": {
+    "title": "CLIMA",
+    "rainy": "Lluvioso",
+    "cloudy": "Nublado",
+    "mostlyCloudy": "Mayormente Nublado",
+    "clear": "Despejado"
   }
 }

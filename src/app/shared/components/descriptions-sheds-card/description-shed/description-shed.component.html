@@ -1,32 +1,32 @@
 <app-toolbar-farm></app-toolbar-farm>
-<h2 class="title-description">About farm & Description</h2>
+<h2 class="title-description">{{ 'descriptionShed.aboutFarmAndDescription' | translate }}</h2>
 <div class="container-app">
   <div class="full-page-app">
     <div class="container" *ngIf="farm">
       <mat-card class="card">
         <div class="card-content">
           <div class="image-section">
-            <img *ngIf="farm.image.startsWith('data:image')" mat-card-image [src]="farm.image" alt="Farm Image" class="farm-image" >
+            <img *ngIf="farm.image.startsWith('data:image')" mat-card-image [src]="farm.image" [alt]="'descriptionShed.farmImageAlt' | translate" class="farm-image">
           </div>
           <div class="info-section">
             <div *ngIf="canEdit" class="edit-icon-container">
               <mat-icon class="edit-icon" (click)="navigateToEdit(farm.id, $event)">edit</mat-icon>
             </div>
-            <h2>Farm {{ farm.farmName }}</h2>
+            <h2>{{ 'descriptionShed.farmName' | translate: {name: farm.farmName} }}</h2>
             <p>
-              <img width="20" height="20" src="/assets/map-marker-icon.png" alt="Ubication" />
+              <img width="20" height="20" src="/assets/map-marker-icon.png" [alt]="'descriptionShed.locationAlt' | translate" />
               {{ farm.location }}, Lima
             </p>
             <p>
-              <img width="20" height="20" src="/assets/chicken-icon.png" alt="Product" />
+              <img width="20" height="20" src="/assets/chicken-icon.png" [alt]="'descriptionShed.productAlt' | translate" />
               {{ farm.product }}
             </p>
             <p>
-              <img width="20" height="20" src="/assets/surface-icon.png" alt="Surface" />
+              <img width="20" height="20" src="/assets/surface-icon.png" [alt]="'descriptionShed.surfaceAlt' | translate" />
               {{ farm.Surface }} ha
             </p>
             <p>
-              <img width="20" height="20" src="/assets/price-icon.png" alt="Price" />
+              <img width="20" height="20" src="/assets/price-icon.png" [alt]="'descriptionShed.priceAlt' | translate" />
               $ {{ farm.price | number }}
             </p>
 
@@ -40,14 +40,14 @@
 
             <hr>
 
-            <p><span class="subtitle">Ubication:</span> {{ farm.location }}</p>
-            <p><span class="subtitle">Infrastructure:</span> {{ farm.infrastructure }}</p>
-            <p><span class="subtitle">Type of farm:</span> {{ farm.type }}</p>
-            <p><span class="subtitle">Product:</span> {{ farm.product }}</p>
-            <p><span class="subtitle">Total surface:</span> {{ farm.Surface }}</p>
-            <p><span class="subtitle">Service:</span> {{ farm.services }}</p>
-            <p><span class="subtitle">Certifications:</span> {{ farm.certificates }}</p>
-            <p><span class="subtitle">Price:</span> $ {{ farm.price | number }}</p>
+            <p><span class="subtitle">{{ 'descriptionShed.locationLabel' | translate }}</span> {{ farm.location }}</p>
+            <p><span class="subtitle">{{ 'descriptionShed.infrastructureLabel' | translate }}</span> {{ farm.infrastructure }}</p>
+            <p><span class="subtitle">{{ 'descriptionShed.farmTypeLabel' | translate }}</span> {{ farm.type }}</p>
+            <p><span class="subtitle">{{ 'descriptionShed.productLabel' | translate }}</span> {{ farm.product }}</p>
+            <p><span class="subtitle">{{ 'descriptionShed.totalSurfaceLabel' | translate }}</span> {{ farm.Surface }}</p>
+            <p><span class="subtitle">{{ 'descriptionShed.serviceLabel' | translate }}</span> {{ farm.services }}</p>
+            <p><span class="subtitle">{{ 'descriptionShed.certificationsLabel' | translate }}</span> {{ farm.certificates }}</p>
+            <p><span class="subtitle">{{ 'descriptionShed.priceLabel' | translate }}</span> $ {{ farm.price | number }}</p>
             <p>{{ farm.highlights }}</p>
           </div>
         </div>

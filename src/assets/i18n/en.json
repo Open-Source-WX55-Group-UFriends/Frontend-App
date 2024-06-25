@@ -7,5 +7,216 @@
     "profile": "Profile",
     "monitoring": "Monitoring",
     "detailed-monitoring": "Detailed monitoring"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "login": {
+    "createAccount": "Create Account",
+    "useEmailForRegistration": "or use your email for registration",
+    "usernamePlaceholder": "Username",
+    "passwordPlaceholder": "Password",
+    "farmerOption": "Farmer",
+    "ownerOption": "Owner",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "useEmailPassword": "or use your email password",
+    "forgotPassword": "Forgot Password",
+    "emailPlaceholder": "Email",
+    "resetPassword": "Reset Password",
+    "backToSignIn": "Back to Sign In",
+    "welcomeBack": "Welcome Back!",
+    "enterPersonalDetails": "Enter your personal details to use all of site features",
+    "helloFarmer": "Hello, Farmer!",
+    "registerPersonalDetails": "Register with your personal details to use all of site features"
+  },
+  "createProfile": {
+    "profileCreatedSuccess": "PROFILE CREATED SUCCESSFULLY",
+    "registrationForm": "REGISTRATION FORM",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "direction": "Direction",
+    "email": "Email",
+    "documentType": "Document Type",
+    "documentNumber": "Document Number",
+    "fieldRequired": "This field is required",
+    "documentTypeRequired": "This field is required and must be \"RUC\" or \"DNI\"",
+    "createAccount": "CREATE ACCOUNT"
+  },
+  "editProfile": {
+    "profileImageAlt": "Profile Image",
+    "firstNamePlaceholder": "First Name",
+    "lastNamePlaceholder": "Last Name",
+    "directionPlaceholder": "Direction",
+    "phonePlaceholder": "Phone",
+    "fieldNotEditable": "This field cannot be edited.",
+    "save": "SAVE"
+  },
+  "paymentSubscription": {
+    "duration": "Duration",
+    "durationDescription": "The longer the duration, the more people will see the ad",
+    "threeMonths": "3 months",
+    "singlePaymentOf": "with a single payment of",
+    "manageAndHighlightFarm": "Manage and highlight your farm",
+    "pay": "Pay",
+    "cancel": "Cancel"
+  },
+  "roleProfile": {
+    "ownerImageAlt": "Business Owner Image",
+    "farmworkerImageAlt": "Farmworker Image",
+    "farmerImageAlt": "Farmer Image",
+    "roleFarmer": "ROLE: FARMER",
+    "roleFarmworker": "ROLE: FARMWORKER"
+  },
+  "paySubscription": {
+    "choosePublishDuration": "Choose how long you want to publish your farm",
+    "choosePlan": "Choose a plan",
+    "manageAndHighlightFarm": "Manage and highlight your farm",
+    "singlePaymentOf": "with a single payment of",
+    "perMonth": "/month",
+    "features": {
+      "notifications": "Notifications and mobile access",
+      "highlightedNotice": "Highlighted notice",
+      "detailedFarmInfo": "Detailed visualization of farm information",
+      "taskAssignment": "Task assignment to collaborators",
+      "manyMoreFeatures": "Many more features",
+      "upTo15Photos": "Up to 15 high quality photos",
+      "paymentOptions": "Payment with Plin/Yape or Card",
+      "youtubeVideo": "YouTube video",
+      "prospectusByMail": "Prospectus sent by mail"
+    }
+  },
+  "register": {
+    "title": "REGISTER",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Email",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordLabel": "Confirm password",
+    "confirmPasswordPlaceholder": "Confirm password",
+    "rememberMe": "Remember me",
+    "registerButton": "Register",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginHere": "Login here"
+  },
+  "descriptionShed": {
+    "aboutFarmAndDescription": "About farm & Description",
+    "farmImageAlt": "Farm Image",
+    "farmName": "Farm {{name}}",
+    "locationAlt": "Location",
+    "productAlt": "Product",
+    "surfaceAlt": "Surface",
+    "priceAlt": "Price",
+    "locationLabel": "Location:",
+    "infrastructureLabel": "Infrastructure:",
+    "farmTypeLabel": "Type of farm:",
+    "productLabel": "Product:",
+    "totalSurfaceLabel": "Total surface:",
+    "serviceLabel": "Service:",
+    "certificationsLabel": "Certifications:",
+    "priceLabel": "Price:"
+  },
+  "farmCards": {
+    "featuredFarms": "Featured farms:",
+    "farmImageAlt": "Farm Image",
+    "granaries": "{{count}} Granaries",
+    "corrals": "{{count}} corrals"
+  },
+  "descriptionCard": {
+    "farmImageAlt": "Farm image",
+    "granaries": "{{count}} Granaries",
+    "corrals": "{{count}} corrals"
+  },
+  "contactCard": {
+    "title": "Contact us today and together let's grow your agricultural project!",
+    "chatOnWhatsApp": "Chat on WhatsApp",
+    "nameLabel": "Name",
+    "surnameLabel": "Surname",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "messageLabel": "Message",
+    "sendButton": "Send"
+  },
+  "starRating": {
+    "customerReviews": "Customer reviews"
+  },
+  "detailedMonitoring": {
+    "tasksImageAlt": "Tasks",
+    "tasksTitle": "Tasks",
+    "weatherImageAlt": "Weather",
+    "weatherTitle": "Weather",
+    "emergencyImageAlt": "Emergency",
+    "emergencyTitle": "Emergency",
+    "inventoryImageAlt": "Inventory",
+    "inventoryTitle": "Inventory"
+  },
+  "shedForm": {
+    "shedTitle": "Shed",
+    "addShed": "Add Shed",
+    "listSheds": "List Sheds",
+    "animalsTitle": "Animals",
+    "animalInventory": "Animal Inventory",
+    "feedingRecord": "Feeding Record",
+    "cropsTitle": "Crops",
+    "cropRecord": "Crop Record",
+    "cropInventory": "Crop Inventory",
+    "financesTitle": "Finances",
+    "addShedTitle": "ADD SHED",
+    "typeLabel": "Type",
+    "speciesLabel": "Species",
+    "selectOption": "Select an option",
+    "addButton": "Add",
+    "cancelButton": "Cancel"
+  },
+  "taskForm": {
+    "taskTitle": "TASK",
+    "employeeLabel": "Employee:",
+    "dateLabel": "Date:",
+    "timeToPerformLabel": "Time to perform:",
+    "descriptionLabel": "Description:",
+    "saveButton": "Save",
+    "cancelButton": "Cancel"
+  },
+  "taskTable": {
+    "title": "TASK",
+    "createTask": "Create Task",
+    "taskState": "Task State",
+    "all": "All",
+    "pending": "Pending",
+    "finished": "Finished",
+    "employeeName": "Employee Name",
+    "searchByName": "Search by name",
+    "employee": "Employee",
+    "timeToPerform": "Time to perform",
+    "date": "Date",
+    "description": "Description",
+    "status": "Status",
+    "actions": "Actions",
+    "finishTask": "Finish Task"
+  },
+  "weather": {
+    "title": "WEATHER",
+    "rainy": "Rainy",
+    "cloudy": "Cloudy",
+    "mostlyCloudy": "Mostly Cloudy",
+    "clear": "Clear"
   }
 }
+
+
+
+
+
+
+

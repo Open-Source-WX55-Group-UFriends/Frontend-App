@@ -1,29 +1,20 @@
-<!-- role-profile.component.html -->
 <app-toolbar-farm [profile]="currentProfile"></app-toolbar-farm>
-
 
 <div class="profile-card" *ngIf="currentProfile">
   <div class="profile-info-card">
     <div class="profile-image-container">
-
-      <img *ngIf="roleValue == 'ROLE_OWNER'" src="../../../../assets/bussiness-owner.png" alt="Profile Image">
-      <img *ngIf="roleValue == 'ROLE_FARMWORKER'" src="../../../../assets/employee.png" alt="Profile Image">
-      <img *ngIf="roleValue == 'ROLE_FARMER'" src="../../../../assets/farmer-profile.png" alt="Profile Image">
-
-
-      <!--  <i class="fas fa-edit edit-icon align-right" [routerLink]="['/edit-profile', currentProfile.id]"></i> -->
-
-
+      <img *ngIf="roleValue == 'ROLE_OWNER'" src="../../../../assets/bussiness-owner.png" alt="{{ 'roleProfile.ownerImageAlt' | translate }}">
+      <img *ngIf="roleValue == 'ROLE_FARMWORKER'" src="../../../../assets/employee.png" alt="{{ 'roleProfile.farmworkerImageAlt' | translate }}">
+      <img *ngIf="roleValue == 'ROLE_FARMER'" src="../../../../assets/farmer-profile.png" alt="{{ 'roleProfile.farmerImageAlt' | translate }}">
     </div>
     <div class="profile-name" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
       <h1 *ngIf="roleValue == 'ROLE_FARMER'">{{ currentProfile.firstName }} {{ currentProfile.lastName }}</h1>
-      <h2 *ngIf="roleValue == 'ROLE_FARMER'"> ROLE: FARMER</h2>
+      <h2 *ngIf="roleValue == 'ROLE_FARMER'">{{ 'roleProfile.roleFarmer' | translate }}</h2>
       <h1 *ngIf="roleValue != 'ROLE_FARMER'">{{ currentProfile.firstName }}</h1>
-      <h2 *ngIf="roleValue == 'ROLE_FARMWORKER'">ROLE: FARMWORKER</h2>
+      <h2 *ngIf="roleValue == 'ROLE_FARMWORKER'">{{ 'roleProfile.roleFarmworker' | translate }}</h2>
     </div>
     <div class="profile-info">
       <p><i class="fas fa-envelope"></i> {{ currentProfile.email }}</p>
-
       <p><i class="fas fa-id-badge"></i> {{ currentProfile.documentType }}</p>
       <p *ngIf="roleValue == 'ROLE_FARMER'"><i class="fas fa-id-card"></i> {{ currentProfile.documentNumber }}</p>
     </div>

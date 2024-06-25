@@ -1,27 +1,24 @@
 <div class="container">
-
-  <h1 class="title">Choose how long you want
-    to publish your farm</h1>
-  <h2 class="title">Choose a plan</h2>
+  <h1 class="title">{{ 'paySubscription.choosePublishDuration' | translate }}</h1>
+  <h2 class="title">{{ 'paySubscription.choosePlan' | translate }}</h2>
 
   <div class="cards-container">
-
     <mat-card class="subscription-card">
       <mat-card-header>
-        <mat-card-title>Manage and highlight your farm</mat-card-title>
+        <mat-card-title>{{ 'paySubscription.manageAndHighlightFarm' | translate }}</mat-card-title>
       </mat-card-header>
-      <p class="sub-header">with a single payment of</p>
+      <p class="sub-header">{{ 'paySubscription.singlePaymentOf' | translate }}</p>
       <mat-card-content>
-        <p class="price">S/250 <span class="mes">/month</span></p>
+        <p class="price">S/250 <span class="mes">{{ 'paySubscription.perMonth' | translate }}</span></p>
 
-        <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscriptions','1']" (click)="scrollToTop()">Choose Plan</button>
+        <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscriptions','1']" (click)="scrollToTop()">{{ 'paySubscription.choosePlan' | translate }}</button>
         <mat-card-actions class="specifications-list">
           <ul>
-            <li>Notifications and mobile access</li>
-            <li>Highlighted notice</li>
-            <li>Detailed visualization of farm information</li>
-            <li>Task assignment to collaborators</li>
-            <li>Many more features</li>
+            <li>{{ 'paySubscription.features.notifications' | translate }}</li>
+            <li>{{ 'paySubscription.features.highlightedNotice' | translate }}</li>
+            <li>{{ 'paySubscription.features.detailedFarmInfo' | translate }}</li>
+            <li>{{ 'paySubscription.features.taskAssignment' | translate }}</li>
+            <li>{{ 'paySubscription.features.manyMoreFeatures' | translate }}</li>
           </ul>
         </mat-card-actions>
       </mat-card-content>
@@ -29,25 +26,23 @@
 
     <mat-card class="subscription-card-2">
       <mat-card-header>
-        <mat-card-title>3 months</mat-card-title>
+        <mat-card-title>{{ 'paySubscription.threeMonths' | translate }}</mat-card-title>
       </mat-card-header>
-      <p class="sub-header">with a single payment of</p>
+      <p class="sub-header">{{ 'paySubscription.singlePaymentOf' | translate }}</p>
       <mat-card-content>
         <p class="price">S/130</p>
 
-        <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscriptions','2'] " (click)="scrollToTop()">Choose Plan</button>
-
+        <button mat-raised-button class="choose-plan-btn" [routerLink]="['/subscriptions','2'] " (click)="scrollToTop()">{{ 'paySubscription.choosePlan' | translate }}</button>
 
         <mat-card-actions class="specifications-list">
           <ul>
-            <li>Up to 15 high quality photos</li>
-            <li>Payment with Plin/Yape or Card</li>
-            <li>YouTube video</li>
-            <li>Prospectus sent by mail</li>
+            <li>{{ 'paySubscription.features.upTo15Photos' | translate }}</li>
+            <li>{{ 'paySubscription.features.paymentOptions' | translate }}</li>
+            <li>{{ 'paySubscription.features.youtubeVideo' | translate }}</li>
+            <li>{{ 'paySubscription.features.prospectusByMail' | translate }}</li>
           </ul>
         </mat-card-actions>
       </mat-card-content>
     </mat-card>
   </div>
-
 </div>

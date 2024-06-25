@@ -1,48 +1,41 @@
-
 <app-toolbar-farm> </app-toolbar-farm>
 
 <mat-sidenav-container class="sidenav-container">
-
   <mat-sidenav mode="side" opened>
-    <mat-toolbar>Shed</mat-toolbar>
+    <mat-toolbar>{{ 'shedForm.shedTitle' | translate }}</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Add Shed</a>
-      <a mat-list-item href="#">List Sheds</a>
+      <a mat-list-item href="#">{{ 'shedForm.addShed' | translate }}</a>
+      <a mat-list-item href="#">{{ 'shedForm.listSheds' | translate }}</a>
       <mat-divider></mat-divider>
-      <mat-toolbar>Animals</mat-toolbar>
-      <a mat-list-item href="#">Animal Inventory</a>
-      <a mat-list-item href="#">Feeding Record</a>
-      <mat-toolbar>Crops</mat-toolbar>
-      <a mat-list-item href="#">Crop Record</a>
-      <a mat-list-item href="#">Crop Inventory</a>
-      <mat-toolbar>Finanzas</mat-toolbar>
-      <a mat-list-item href="#">Crop Record</a>
-      <a mat-list-item href="#">Crop Inventory</a>
+      <mat-toolbar>{{ 'shedForm.animalsTitle' | translate }}</mat-toolbar>
+      <a mat-list-item href="#">{{ 'shedForm.animalInventory' | translate }}</a>
+      <a mat-list-item href="#">{{ 'shedForm.feedingRecord' | translate }}</a>
+      <mat-toolbar>{{ 'shedForm.cropsTitle' | translate }}</mat-toolbar>
+      <a mat-list-item href="#">{{ 'shedForm.cropRecord' | translate }}</a>
+      <a mat-list-item href="#">{{ 'shedForm.cropInventory' | translate }}</a>
+      <mat-toolbar>{{ 'shedForm.financesTitle' | translate }}</mat-toolbar>
+      <a mat-list-item href="#">{{ 'shedForm.cropRecord' | translate }}</a>
+      <a mat-list-item href="#">{{ 'shedForm.cropInventory' | translate }}</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-
     <div class="input-container">
       <div class="title-container">
-        <h2>ADD SHED</h2>
+        <h2>{{ 'shedForm.addShedTitle' | translate }}</h2>
       </div>
 
-      <label>Type</label>
+      <label>{{ 'shedForm.typeLabel' | translate }}</label>
       <select class="form-field" required>
-        <option value=""  selected>xd</option>
-        <option value=""  selected>añaña</option>
-
-        <!-- Agrega tus opciones aquí -->
+        <option value="" selected>{{ 'shedForm.selectOption' | translate }}</option>
       </select>
-      <label>Specie</label>
+      <label>{{ 'shedForm.speciesLabel' | translate }}</label>
       <select class="form-field" required>
-        <option value=""  selected></option>
-        <!-- Agrega tus opciones aquí -->
+        <option value="" selected>{{ 'shedForm.selectOption' | translate }}</option>
       </select>
       <div class="button-container">
-        <button type="submit">Agregar</button>
-        <p class="cancel-button" >Cancelar</p>      </div>
+        <button type="submit">{{ 'shedForm.addButton' | translate }}</button>
+        <p class="cancel-button">{{ 'shedForm.cancelButton' | translate }}</p>
+      </div>
     </div>
-
   </mat-sidenav-content>
 </mat-sidenav-container>

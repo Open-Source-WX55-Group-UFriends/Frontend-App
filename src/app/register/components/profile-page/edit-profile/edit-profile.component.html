@@ -2,25 +2,26 @@
 <div class="profile-card">
   <div class="profile-info-card">
     <div class="profile-image-container">
-      <img *ngIf="currentProfile.role === 'farmer'; else otherRole" [src]="currentProfile.profileImage || 'assets/farmer-profile.png'" alt="Profile Image">
+      <img *ngIf="currentProfile.role === 'farmer'; else otherRole" [src]="currentProfile.profileImage || 'assets/farmer-profile.png'" alt="{{ 'editProfile.profileImageAlt' | translate }}">
       <input type="file" (change)="onFileChangeEdit($event)" accept="image/*" style="display: none;" #fileInput>
       <i class="fas fa-camera edit-icon" (click)="fileInput.click()"></i>
       <ng-template #otherRole>
-        <img [src]="currentProfile.profileImage || 'assets/bussiness-owner.png'" alt="Profile Image">
+        <img [src]="currentProfile.profileImage || 'assets/bussiness-owner.png'" alt="{{ 'editProfile.profileImageAlt' | translate }}">
       </ng-template>
     </div>
     <div class="profile-name" >
-      <input type="text" [(ngModel)]="currentProfile.firstName" placeholder="First Name">
-      <input type="text" [(ngModel)]="currentProfile.lastName" placeholder="Last Name">
+      <input type="text" [(ngModel)]="currentProfile.firstName" [placeholder]="'editProfile.firstNamePlaceholder' | translate">
+      <input type="text" [(ngModel)]="currentProfile.lastName" [placeholder]="'editProfile.lastNamePlaceholder' | translate">
     </div>
     <h2>{{ convertCamelCaseToSpace(currentProfile.role) | titlecase }}</h2>
     <div class="profile-info">
-      <p><i class="fas fa-map-marker-alt"></i> <input type="text" [(ngModel)]="currentProfile.direction" placeholder="Direction"></p>
-      <p><i class="fas fa-phone"></i> <input type="text" [(ngModel)]="currentProfile.phone" placeholder="Phone"></p>
-      <p><i class="fas fa-venus-mars"></i> <input type="text" [(ngModel)]="currentProfile.gender" readonly (focus)="showAlert('gender')"><span class="error-message" *ngIf="errorFields['gender']">This field cannot be edited.</span></p>
-      <p class="birthday-inputs"><i class="fas fa-birthday-cake"></i> <input type="text" [(ngModel)]="currentProfile.dobDay" readonly (focus)="showAlert('dobDay')"><span class="error-message" *ngIf="errorFields['dobDay']">This field cannot be edited.</span><input type="text" [(ngModel)]="currentProfile.dobMonth" readonly (focus)="showAlert('dobMonth')"><span class="error-message" *ngIf="errorFields['dobMonth']">This field cannot be edited.</span><input type="text" [(ngModel)]="currentProfile.dobYear" readonly (focus)="showAlert('dobYear')"><span class="error-message" *ngIf="errorFields['dobYear']">This field cannot be edited.</span></p>
-      <p><i class="fas fa-id-card"></i> <input type="text" [(ngModel)]="currentProfile.documentNumber" readonly (focus)="showAlert('documentNumber')"><span class="error-message" *ngIf="errorFields['documentNumber']">This field cannot be edited.</span></p>
-      <p><i class="fas fa-id-badge"></i> <input type="text" [(ngModel)]="currentProfile.documentType" readonly (focus)="showAlert('documentType')"><span class="error-message" *ngIf="errorFields['documentType']">This field cannot be edited.</span></p>
+      <p><i class="fas fa-map-marker-alt"></i> <input type="text" [(ngModel)]="currentProfile.direction" [placeholder]="'editProfile.directionPlaceholder' | translate"></p>
+      <p><i class="fas fa-phone"></i> <input type="text" [(ngModel)]="currentProfile.phone" [placeholder]="'editProfile.phonePlaceholder' | translate"></p>
+      <p><i class="fas fa-venus-mars"></i> <input type="text" [(ngModel)]="currentProfile.gender" readonly (focus)="showAlert('gender')"><span class="error-message" *ngIf="errorFields['gender']">{{ 'editProfile.fieldNotEditable' | translate }}</span></p>
+      <p class="birthday-inputs"><i class="fas fa-birthday-cake"></i> <input type="text" [(ngModel)]="currentProfile.dobDay" readonly (focus)="showAlert('dobDay')"><span class="error-message" *ngIf="errorFields['dobDay']">{{ 'editProfile.fieldNotEditable' | translate }}</span><input type="text" [(ngModel)]="currentProfile.dobMonth" readonly (focus)="showAlert('dobMonth')"><span class="error-message" *ngIf="errorFields['dobMonth']">{{ 'editProfile.fieldNotEditable' | translate }}</span><input type="text" [(ngModel)]="currentProfile.dobYear" readonly (focus)="showAlert('dobYear')"><span class="error-message" *ngIf="errorFields['dobYear']">{{ 'editProfile.fieldNotEditable' | translate }}</span></p>
+      <p><i class="fas fa-id-card"></i> <input type="text" [(ngModel)]="currentProfile.documentNumber" readonly (focus)="showAlert('documentNumber')"><span class="error-message" *ngIf="errorFields['documentNumber']">{{ 'editProfile.fieldNotEditable' | translate }}</span></p>
+      <p><i class="fas fa-id-badge"></i> <input type="text" [(ngModel)]="currentProfile.documentType" readonly (focus)="showAlert('documentType')"><span class="error-message" *ngIf="errorFields['documentType']">{{ 'editProfile.fieldNotEditable' | translate }}</span></p>
     </div>
-    <button class="save-button" (click)="saveChanges()">SAVE</button>  </div>
+    <button class="save-button" (click)="saveChanges()">{{ 'editProfile.save' | translate }}</button>
+  </div>
 </div>

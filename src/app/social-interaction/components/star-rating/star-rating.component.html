@@ -1,6 +1,6 @@
 <div class="container">
   <div class="review-section">
-    <strong class="label-valoration">Customer reviews</strong>
+    <strong class="label-valoration">{{ 'starRating.customerReviews' | translate }}</strong>
     <div class="star-rating-container">
       <mat-icon *ngFor="let icon of maxRatingArr; let index=index"
                 (mouseenter)="HandleMouseEnter(index)"
@@ -24,5 +24,4 @@
   </div>
   <div class="space"></div>
   <app-contact-card></app-contact-card>
-
 </div>

@@ -1,7 +1,5 @@
-
 <div *ngIf="isProfileCreated" class="form-container">
-
-  <h1>PROFILE CREATED SUCCESSFULLY</h1>
+  <h1>{{ 'createProfile.profileCreatedSuccess' | translate }}</h1>
   <iframe id="myIframe" src="https://lottie.host/embed/892cf0a8-905b-4139-8eee-e46714d2e5a1/Phz6ClRQkF.json"></iframe>
 </div>
 
@@ -10,89 +8,49 @@
     <button class="back-button-flecha" routerLink="/home">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <h2 class="register">REGISTRATION FORM</h2>
+    <h2 class="register">{{ 'createProfile.registrationForm' | translate }}</h2>
   </div>
 
   <form #form="ngForm" (ngSubmit)="save()">
     <div class="user-box">
       <input type="text" name="firstName" required ngModel #firstName="ngModel" [(ngModel)]="profile.firstName">
-      <label>First Name</label>
-      <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || form.submitted)" class="error-message">This field is required</div>
+      <label>{{ 'createProfile.firstName' | translate }}</label>
+      <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || form.submitted)" class="error-message">{{ 'createProfile.fieldRequired' | translate }}</div>
     </div>
     <div class="user-box">
       <input type="text" name="lastName" required pattern="[a-zA-Z\s]*" ngModel #lastName="ngModel" [(ngModel)]="profile.lastName">
-      <label>Last Name</label>
-      <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || form.submitted)" class="error-message">This field is required</div>
+      <label>{{ 'createProfile.lastName' | translate }}</label>
+      <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || form.submitted)" class="error-message">{{ 'createProfile.fieldRequired' | translate }}</div>
     </div>
     <div class="user-box">
       <input type="text" name="direction" required ngModel #direction="ngModel" [(ngModel)]="profile.direction">
-      <label>Direction</label>
-      <div *ngIf="direction.invalid && (direction.dirty || direction.touched || form.submitted)" class="error-message">This field is required</div>
+      <label>{{ 'createProfile.direction' | translate }}</label>
+      <div *ngIf="direction.invalid && (direction.dirty || direction.touched || form.submitted)" class="error-message">{{ 'createProfile.fieldRequired' | translate }}</div>
     </div>
     <div class="user-box">
-    <input type="text" name="direction" required ngModel #direction="ngModel" [(ngModel)]="profile.email">
-    <label>Correo Electrónico</label>
-    <div *ngIf="direction.invalid && (direction.dirty || direction.touched || form.submitted)" class="error-message">This field is required</div>
-  </div>
+      <input type="text" name="email" required ngModel #email="ngModel" [(ngModel)]="profile.email">
+      <label>{{ 'createProfile.email' | translate }}</label>
+      <div *ngIf="email.invalid && (email.dirty || email.touched || form.submitted)" class="error-message">{{ 'createProfile.fieldRequired' | translate }}</div>
+    </div>
 
     <div class="user-box">
       <select name="documentType" required ngModel #documentType="ngModel" [(ngModel)]="profile.documentType">
         <option value="RUC">RUC</option>
         <option value="DNI">DNI</option>
       </select>
-      <label>Tipo de documento</label>
-      <div *ngIf="documentType.invalid && (documentType.dirty || documentType.touched || form.submitted)" class="error-message">
-        Este campo es obligatorio y debe ser "RUC" o "DNI"
-      </div>
+      <label>{{ 'createProfile.documentType' | translate }}</label>
+      <div *ngIf="documentType.invalid && (documentType.dirty || documentType.touched || form.submitted)" class="error-message">{{ 'createProfile.documentTypeRequired' | translate }}</div>
     </div>
 
     <div class="user-box">
       <input type="text" name="documentNumber" required pattern="\d*" ngModel #documentNumber="ngModel" [(ngModel)]="profile.documentNumber">
-      <label>Número de documento</label>
-      <div *ngIf="documentNumber.invalid && (documentNumber.dirty || documentNumber.touched || form.submitted)" class="error-message">This field is required</div>
+      <label>{{ 'createProfile.documentNumber' | translate }}</label>
+      <div *ngIf="documentNumber.invalid && (documentNumber.dirty || documentNumber.touched || form.submitted)" class="error-message">{{ 'createProfile.fieldRequired' | translate }}</div>
     </div>
 
     <button type="submit" [disabled]="!form.valid" class="button-create">
-      CREATE ACCOUNT
+      {{ 'createProfile.createAccount' | translate }}
       <span></span>
     </button>
   </form>
 </div>
-
-<!--
- <form #form="ngForm" (ngSubmit)="save()">
-   <div class="user-box">
-     <input type="text" name="firstName" required ngModel [(ngModel)]="profile.firstName">
-     <label>First Name</label>
-   </div>
-
-
-   <div class="user-box">
-     <input type="text" name="lastName" required ngModel [(ngModel)]="profile.lastName">
-     <label>Last Name</label>
-   </div>
-
-   <div class="user-box">
-     <input type="email" name="email" required ngModel [(ngModel)]="profile.email">
-     <label>Email</label>
-   </div>
-
-   <div class="user-box">
-     <input type="text" name="direction" required ngModel [(ngModel)]="profile.direction">
-     <label>Direction</label>
-   </div>
-
-   <div class="user-box">
-     <input type="text" name="documentNumber" required ngModel [(ngModel)]="profile.documentNumber">
-     <label>Document Number</label>
-   </div>
-
-   <div class="user-box">
-     <input type="text" name="documentType" required ngModel [(ngModel)]="profile.documentType">
-     <label>Document Type</label>
-   </div>
-
-   <button type="submit" [disabled]="!form.valid">Submit</button>
- </form>
--->
-
