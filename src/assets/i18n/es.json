@@ -56,6 +56,25 @@
     "sender": "Remitente",
     "message": "Mensaje"
   },
+  "login": {
+    "createAccount": "Crear Cuenta",
+    "useEmailForRegistration": "o usa tu correo electrónico para registrarte",
+    "usernamePlaceholder": "Nombre de usuario",
+    "passwordPlaceholder": "Contraseña",
+    "farmerOption": "Agricultor",
+    "ownerOption": "Propietario",
+    "signUp": "Registrarse",
+    "signIn": "Iniciar Sesión",
+    "useEmailPassword": "o usa tu correo electrónico y contraseña",
+    "forgotPassword": "Olvidé mi Contraseña",
+    "emailPlaceholder": "Correo electrónico",
+    "resetPassword": "Restablecer Contraseña",
+    "backToSignIn": "Volver a Iniciar Sesión",
+    "welcomeBack": "¡Bienvenido de Nuevo!",
+    "enterPersonalDetails": "Ingresa tus datos personales para usar todas las funciones del sitio",
+    "helloFarmer": "¡Hola, Agricultor!",
+    "registerPersonalDetails": "Regístrate con tus datos personales para usar todas las funciones del sitio"
+  },
   "createProfile": {
     "profileCreatedSuccess": "PERFIL CREADO EXITOSAMENTE",
     "registrationForm": "FORMULARIO DE REGISTRO",
