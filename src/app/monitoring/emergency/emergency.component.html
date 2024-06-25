@@ -1,9 +1,9 @@
 <app-toolbar-farm></app-toolbar-farm>
 <div class="container">
-  <h1 class="title">EMERGENCY</h1>
+  <h1 class="title">{{ 'emergency-form.title' | translate }}</h1>
   <form id="emergency-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="form-group">
-      <label for="collaboratorId">Choose recipient:</label>
+      <label for="collaboratorId">{{ 'emergency-form.chooseRecipient' | translate }}</label>
       <select id="collaboratorId" name="collaboratorId" [(ngModel)]="collaboratorId" required>
         <ng-container *ngIf="userRole === 'ROLE_FARMER'">
           <option *ngFor="let user of employees" [value]="user.id">{{ user.name }}</option>
@@ -17,20 +17,20 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="description">Description:</label>
+      <label for="description">{{ 'emergency-form.description' | translate }}</label>
       <textarea id="description" name="description" [(ngModel)]="description" rows="4" required></textarea>
     </div>
     <div class="form-buttons">
-      <button type="submit" class="btn btn-submit">Send</button>
-      <button type="button" class="btn btn-cancel" (click)="form.resetForm()">Cancel</button>
+      <button type="submit" class="btn btn-submit">{{ 'emergency-form.sendButton' | translate }}</button>
+      <button type="button" class="btn btn-cancel" (click)="form.resetForm()">{{ 'emergency-form.cancelButton' | translate }}</button>
     </div>
   </form>
-  <h2 class="history-title">Messages Sent to Me</h2>
+  <h2 class="history-title">{{ 'emergency-form.historyTitle' | translate }}</h2>
   <table class="history-table">
     <thead>
     <tr>
-      <th>Sender</th>
-      <th>Message</th>
+      <th>{{ 'emergency-form.sender' | translate }}</th>
+      <th>{{ 'emergency-form.message' | translate }}</th>
     </tr>
     </thead>
     <tbody>

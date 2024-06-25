@@ -35,5 +35,25 @@
     "documents": "Documentos",
     "saveButton": "GUARDAR",
     "cancelButton": "CANCELAR"
+  },
+  "employee-form": {
+    "title": "Agregar Empleado",
+    "name": "Nombre",
+    "username": "Nombre de usuario",
+    "phone": "Teléfono",
+    "password": "Contraseña",
+    "position": "Puesto",
+    "saveButton": "Guardar",
+    "cancelButton": "Cancelar"
+  },
+  "emergency-form": {
+    "title": "EMERGENCIA",
+    "chooseRecipient": "Elegir destinatario:",
+    "description": "Descripción:",
+    "sendButton": "Enviar",
+    "cancelButton": "Cancelar",
+    "historyTitle": "Mensajes enviados a mí",
+    "sender": "Remitente",
+    "message": "Mensaje"
   }
 }

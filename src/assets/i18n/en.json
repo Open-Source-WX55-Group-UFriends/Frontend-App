@@ -19,7 +19,6 @@
     "feature": "Featured farms",
     "granaries": "Granaries",
     "corrals": "Corrals"
-
   },
   "profile-farms": {
     "feature": "CREATE FARM",
@@ -36,5 +35,25 @@
     "documents": "Documents",
     "saveButton": "SAVE",
     "cancelButton": "CANCEL"
+  },
+  "employee-form": {
+    "title": "Add Employee",
+    "name": "Name",
+    "username": "Username",
+    "phone": "Phone",
+    "password": "Password",
+    "position": "Position",
+    "saveButton": "Save",
+    "cancelButton": "Cancelar"
+  },
+  "emergency-form": {
+    "title": "EMERGENCY",
+    "chooseRecipient": "Choose recipient:",
+    "description": "Description:",
+    "sendButton": "Send",
+    "cancelButton": "Cancel",
+    "historyTitle": "Messages Sent to Me",
+    "sender": "Sender",
+    "message": "Message"
   }
 }
