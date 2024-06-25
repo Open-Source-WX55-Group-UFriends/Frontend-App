@@ -2,37 +2,37 @@
 
 <div class="body-container">
 <div class="container">
-  <h1>CREATE FARM</h1>
+  <h1>{{ 'profile-farms.feature' | translate }}</h1>
   <div class="tasks">
     <form class="basic-form" (submit)="save()">
       <div class="information-container">
         <div class="form-group">
-          <label>Farm name</label>
+          <label> {{ 'profile-farms.farmName' | translate }}  </label>
           <input type="text" placeholder="Farm name" [(ngModel)]="farm.name" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
-          <label>Ubication</label>
+          <label> {{ 'profile-farms.ubication' | translate }}  </label>
           <input type="text" placeholder="Ubication" [(ngModel)]="farm.ubication" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
-          <label>Infrastructure</label>
+          <label> {{ 'profile-farms.infrastructure' | translate }}  </label>
           <input type="text" placeholder="Infrastructure" [(ngModel)]="farm.infrastructure" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
-          <label>Farm type</label>
+          <label> {{ 'profile-farms.farmType' | translate }} </label>
           <input type="text" placeholder="Farm type" [(ngModel)]="farm.farmType" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
-          <label>Product</label>
+          <label> {{ 'profile-farms.product' | translate }} </label>
           <input type="text" placeholder="Product" [(ngModel)]="farm.product" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
-          <label>Total Surface</label>
+          <label> {{ 'profile-farms.totalSurface' | translate }}  </label>
           <input id="myRange" class="slider" type="range" min="1" max="500" placeholder="Total surface" [(ngModel)]="farm.totalSurface" [ngModelOptions]="{standalone: true}">
           <div class="number-control">
             <button type="button" (mousedown)="startDecrement($event)" (mouseup)="stopDecrement($event)" (mouseleave)="stopDecrement($event)" (mouseout)="stopDecrement($event)" class="number-left">-</button>
@@ -42,23 +42,23 @@
         </div>
 
         <div class="form-group">
-          <label>Services</label>
+          <label> {{ 'profile-farms.services' | translate }} </label>
           <input type="text" placeholder="Service" [(ngModel)]="farm.service" [ngModelOptions]="{standalone: true}">
         </div>
 
         <div class="form-group">
-          <label>Certifications</label>
+          <label> {{ 'profile-farms.certifications' | translate }} </label>
           <input type="text" placeholder="Certifications" [(ngModel)]="farm.certifications" [ngModelOptions]="{standalone: true}">
         </div>
 
 
         <div class="form-group">
-          <label>Highlights (Enter 1 to 3, each on a new line)</label>
+          <label> {{ 'profile-farms.highlights' | translate }} </label>
           <textarea class= "highlights" placeholder="(required) Write a highlight (optional) Write a highlight (optional) Write a highlight" [(ngModel)]="farm.highlights" [ngModelOptions]="{standalone: true}" required></textarea>
         </div>
 
           <div class="form-group">
-              <label>Price</label>
+              <label>{{ 'profile-farms.price' | translate }} </label>
               <input type="text" placeholder="Price" [(ngModel)]="farm.price" [ngModelOptions]="{standalone: true}">
           </div>
 
@@ -145,12 +145,12 @@
       </defs>
     </svg>
   </span>
-              <p class="text">Documents</p>
+              <p class="text">{{ 'profile-farms.documents' | translate }}</p>
           </label>
 
 
         <div class="button-group">
-          <button type="submit">SAVE</button>
+          <button type="submit">  {{ 'profile-farms.saveButton' | translate }}  </button>
 
           <button type="button" [routerLink]="['/home']">CANCEL</button>
         </div>

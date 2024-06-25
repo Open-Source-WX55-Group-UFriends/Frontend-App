@@ -11,5 +11,30 @@
   "footer": {
     "follow": "Follow us on our social networks:",
     "rights": "2024 FarmLogiTech. All rights reserved"
+  },
+  "home": {
+    "title": "Farm"
+  },
+  "farm-cards": {
+    "feature": "Featured farms",
+    "granaries": "Granaries",
+    "corrals": "Corrals"
+
+  },
+  "profile-farms": {
+    "feature": "CREATE FARM",
+    "farmName": "Farm name",
+    "ubication": "Ubication",
+    "infrastructure": "Infrastructure",
+    "farmType": "Farm type",
+    "product": "Product",
+    "totalSurface": "Total Surface",
+    "services": "Services",
+    "certifications": "Certifications",
+    "highlights": "Highlights (Enter 1 to 3, each on a new line)",
+    "price": "Price",
+    "documents": "Documents",
+    "saveButton": "SAVE",
+    "cancelButton": "CANCEL"
   }
 }

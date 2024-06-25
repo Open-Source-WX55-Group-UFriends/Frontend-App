@@ -11,5 +11,29 @@
   "footer": {
     "follow": "Siguenos en nuestras redes sociales:",
     "rights": "2024 FarmLogiTech. Todos los derechos reservados"
+  },
+  "home": {
+    "title": "Granja"
+  },
+  "farm-cards": {
+    "feature": "Granjas destacadas",
+    "granaries": "Graneros",
+    "corrals": "Corrales"
+  },
+  "profile-farms": {
+    "feature": "CREAR GRANJA",
+    "farmName": "Nombre de la granja",
+    "ubication": "Ubicación",
+    "infrastructure": "Infraestructura",
+    "farmType": "Tipo de granja",
+    "product": "Producto",
+    "totalSurface": "Superficie total",
+    "services": "Servicios",
+    "certifications": "Certificaciones",
+    "highlights": "Aspectos destacados (Introduce de 1 a 3, cada uno en una nueva línea)",
+    "price": "Precio",
+    "documents": "Documentos",
+    "saveButton": "GUARDAR",
+    "cancelButton": "CANCELAR"
   }
 }
