@@ -1,29 +1,29 @@
 <div class="add-employee-container">
   <form #form="ngForm" (ngSubmit)="saveEmployee()" class="form">
-    <p class="title">Add Employee</p>
+    <p class="title">{{ 'employee-form.title' | translate }}</p>
     <div class="flex">
       <label class="floating-label">
-        <p>Name</p>
+        <p>{{ 'employee-form.name' | translate }}</p>
         <input [(ngModel)]="employee.name" name="name" placeholder=" " required class="input" ngModel #name="ngModel">
       </label>
       <label class="floating-label">
-        <p>Username</p>
+        <p>{{ 'employee-form.username' | translate }}</p>
         <input [(ngModel)]="employee.username" name="username" placeholder=" " required type="email" class="input" ngModel #username="ngModel">
       </label>
       <label class="floating-label">
-        <p>Phone</p>
+        <p>{{ 'employee-form.phone' | translate }}</p>
         <input [(ngModel)]="employee.phone" name="phone" placeholder=" " required class="input" ngModel #phone="ngModel">
       </label>
       <label class="floating-label">
-        <p>Password</p>
+        <p>{{ 'employee-form.password' | translate }}</p>
         <input [(ngModel)]="employee.password" name="password" required class="input" type="password" ngModel #password="ngModel">
       </label>
       <label class="floating-label">
-        <p>Position</p>
+        <p>{{ 'employee-form.position' | translate }}</p>
         <input [(ngModel)]="employee.position" name="position" required class="input" ngModel #position="ngModel">
       </label>
     </div>
-    <button type="submit" class="submit">Save</button>
-    <a class="cancel-button" [routerLink]="['/employee']">Cancelar</a>
+    <button type="submit" class="submit">{{ 'employee-form.saveButton' | translate }}</button>
+    <a class="cancel-button" [routerLink]="['/employee']">{{ 'employee-form.cancelButton' | translate }}</a>
   </form>
 </div>

@@ -8,20 +8,54 @@
     "monitoring": "Monitoring",
     "detailed-monitoring": "Detailed monitoring"
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "footer": {
+    "follow": "Follow us on our social networks:",
+    "rights": "2024 FarmLogiTech. All rights reserved"
+  },
+  "home": {
+    "title": "Farm"
+  },
+  "farm-cards": {
+    "feature": "Featured farms",
+    "granaries": "Granaries",
+    "corrals": "Corrals"
+  },
+  "profile-farms": {
+    "feature": "CREATE FARM",
+    "farmName": "Farm name",
+    "ubication": "Ubication",
+    "infrastructure": "Infrastructure",
+    "farmType": "Farm type",
+    "product": "Product",
+    "totalSurface": "Total Surface",
+    "services": "Services",
+    "certifications": "Certifications",
+    "highlights": "Highlights (Enter 1 to 3, each on a new line)",
+    "price": "Price",
+    "documents": "Documents",
+    "saveButton": "SAVE",
+    "cancelButton": "CANCEL"
+  },
+  "employee-form": {
+    "title": "Add Employee",
+    "name": "Name",
+    "username": "Username",
+    "phone": "Phone",
+    "password": "Password",
+    "position": "Position",
+    "saveButton": "Save",
+    "cancelButton": "Cancelar"
+  },
+  "emergency-form": {
+    "title": "EMERGENCY",
+    "chooseRecipient": "Choose recipient:",
+    "description": "Description:",
+    "sendButton": "Send",
+    "cancelButton": "Cancel",
+    "historyTitle": "Messages Sent to Me",
+    "sender": "Sender",
+    "message": "Message"
+  },
   "login": {
     "createAccount": "Create Account",
     "useEmailForRegistration": "or use your email for registration",
@@ -213,10 +247,3 @@
     "clear": "Clear"
   }
 }
-
-
-
-
-
-
-

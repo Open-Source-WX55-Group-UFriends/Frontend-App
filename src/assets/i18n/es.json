@@ -8,21 +8,54 @@
     "monitoring": "Seguimiento",
     "detailed-monitoring": "Seguimiento detallado"
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  "footer": {
+    "follow": "Siguenos en nuestras redes sociales:",
+    "rights": "2024 FarmLogiTech. Todos los derechos reservados"
+  },
+  "home": {
+    "title": "Granja"
+  },
+  "farm-cards": {
+    "feature": "Granjas destacadas",
+    "granaries": "Graneros",
+    "corrals": "Corrales"
+  },
+  "profile-farms": {
+    "feature": "CREAR GRANJA",
+    "farmName": "Nombre de la granja",
+    "ubication": "Ubicación",
+    "infrastructure": "Infraestructura",
+    "farmType": "Tipo de granja",
+    "product": "Producto",
+    "totalSurface": "Superficie total",
+    "services": "Servicios",
+    "certifications": "Certificaciones",
+    "highlights": "Aspectos destacados (Introduce de 1 a 3, cada uno en una nueva línea)",
+    "price": "Precio",
+    "documents": "Documentos",
+    "saveButton": "GUARDAR",
+    "cancelButton": "CANCELAR"
+  },
+  "employee-form": {
+    "title": "Agregar Empleado",
+    "name": "Nombre",
+    "username": "Nombre de usuario",
+    "phone": "Teléfono",
+    "password": "Contraseña",
+    "position": "Puesto",
+    "saveButton": "Guardar",
+    "cancelButton": "Cancelar"
+  },
+  "emergency-form": {
+    "title": "EMERGENCIA",
+    "chooseRecipient": "Elegir destinatario:",
+    "description": "Descripción:",
+    "sendButton": "Enviar",
+    "cancelButton": "Cancelar",
+    "historyTitle": "Mensajes enviados a mí",
+    "sender": "Remitente",
+    "message": "Mensaje"
+  },
   "createProfile": {
     "profileCreatedSuccess": "PERFIL CREADO EXITOSAMENTE",
     "registrationForm": "FORMULARIO DE REGISTRO",
