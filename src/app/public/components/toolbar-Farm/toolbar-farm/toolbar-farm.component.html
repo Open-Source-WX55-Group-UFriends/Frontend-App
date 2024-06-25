@@ -11,38 +11,38 @@
     <!-- Toolbar for 'Business Owner' -->
     <ul *ngIf="currentRole === 'ROLE_OWNER'">
       <li><a routerLink="/home">{{ 'toolbar.home' | translate }}</a></li>
-      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
-      <li><a (click)="logout()">Log out</a></li>
+      <li><a [routerLink]="['/role-profile', currentRole]">{{ 'toolbar.profile' | translate }}</a></li>
+      <li><a (click)="logout()">{{ 'toolbar.logout' | translate }}</a></li>
     </ul>
 
     <!-- Toolbar for 'Farm Worker' -->
     <ul *ngIf="currentRole === 'ROLE_FARMWORKER'">
-      <li><button class="choose-plan-btn" routerLink="/detailed-monitoring" (click)="scrollToTop()">Detailed Monitoring</button></li>
-      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
-      <li><a (click)="logout()">Log out</a></li>
+      <li><button class="choose-plan-btn" routerLink="/detailed-monitoring" (click)="scrollToTop()">{{ 'toolbar.detailed-monitoring' | translate }}</button></li>
+      <li><a [routerLink]="['/role-profile', currentRole]">{{ 'toolbar.profile' | translate }}</a></li>
+      <li><a (click)="logout()">{{ 'toolbar.logout' | translate }}</a></li>
     </ul>
 
     <!-- Toolbar for 'Farmer' -->
     <ul *ngIf="currentRole === 'ROLE_FARMER'">
       <li><a routerLink="/home">{{ 'toolbar.home' | translate }}</a></li>
-      <li><a routerLink="/monitoring-farmer">Monitoring</a></li>
-      <li><button class="choose-plan-btn" routerLink="/profile-farm">Post your ad</button></li>
-      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
-      <li><a (click)="logout()">Log out</a></li>
+      <li><a routerLink="/monitoring-farmer">{{ 'toolbar.monitoring' | translate }}</a></li>
+      <li><button class="choose-plan-btn" routerLink="/profile-farm">{{ 'toolbar.post' | translate }}</button></li>
+      <li><a [routerLink]="['/role-profile', currentRole]">{{ 'toolbar.profile' | translate }}</a></li>
+      <li><a (click)="logout()">{{ 'toolbar.logout' | translate }}</a></li>
     </ul>
 
     <!-- Toolbar for 'Admin' -->
     <ul *ngIf="currentRole === 'Admin'">
       <li><a routerLink="/admin">Admin</a></li>
-      <li><a [routerLink]="['/role-profile', currentRole]">Profile</a></li>
-      <li><a (click)="logout()">Log out</a></li>
+      <li><a [routerLink]="['/role-profile', currentRole]">{{ 'toolbar.profile' | translate }}</a></li>
+      <li><a (click)="logout()">{{ 'toolbar.logout' | translate }}</a></li>
     </ul>
 
     <!-- Toolbar for 'Public' -->
     <ul *ngIf="!isSignedIn">
       <li><a routerLink="/home">{{ 'toolbar.home' | translate }}</a></li>
-      <li><button class="choose-plan-btn" routerLink="/login">Post your ad</button></li>
-      <li><a routerLink="/login">Sign in</a></li>
+      <li><button class="choose-plan-btn" routerLink="/login">{{ 'toolbar.post' | translate }}</button></li>
+      <li><a routerLink="/login">{{ 'toolbar.sign-in' | translate }}</a></li>
     </ul>
   </nav>
 </header>

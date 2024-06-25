@@ -2,6 +2,10 @@
   "toolbar": {
     "home": "Inicio",
     "post": "Publica tu anuncio",
-    "sign-in": "Inicia sesión"
+    "sign-in": "Inicia sesión",
+    "logout": "Cerrar sesión",
+    "profile": "Perfil",
+    "monitoring": "Seguimiento",
+    "detailed-monitoring": "Seguimiento detallado"
   }
 }

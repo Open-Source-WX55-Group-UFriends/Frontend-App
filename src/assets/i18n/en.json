@@ -2,6 +2,10 @@
   "toolbar": {
     "home": "Home",
     "post": "Post your ad",
-    "sign-in": "Sign in"
+    "sign-in": "Sign in",
+    "logout": "Log out",
+    "profile": "Profile",
+    "monitoring": "Monitoring",
+    "detailed-monitoring": "Detailed monitoring"
   }
 }
